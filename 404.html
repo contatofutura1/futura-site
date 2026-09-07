@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Publicações | Futura</title>
-<meta name="description" content="Artigos revisados por pares, relatórios para IMO e OMS, policy briefs e anais de congresso da Futura.">
-<link rel="canonical" href="https://futuraevidencelab.com.br/publicacoes.html">
+<title>Página não encontrada | Futura</title>
+<meta name="description" content="Futura: laboratório de futuros baseados em evidência. Projetos de ar, clima e saúde com OMS, PNUMA, IMO e Instituto Ar. Patricia Ferrini.">
+<link rel="canonical" href="https://futuraevidencelab.com.br/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Futura">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Publicações | Futura">
-<meta property="og:description" content="Artigos revisados por pares, relatórios para IMO e OMS, policy briefs e anais de congresso da Futura.">
-<meta property="og:url" content="https://futuraevidencelab.com.br/publicacoes.html">
+<meta property="og:title" content="Futura: laboratório de futuros baseados em evidência">
+<meta property="og:description" content="Futura: laboratório de futuros baseados em evidência. Projetos de ar, clima e saúde com OMS, PNUMA, IMO e Instituto Ar. Patricia Ferrini.">
+<meta property="og:url" content="https://futuraevidencelab.com.br/">
 <meta property="og:image" content="https://futuraevidencelab.com.br/compartilhar.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -398,7 +398,7 @@ a.item-titulo:hover{color:var(--terracota);}
 .projeto.ancora .teaser{max-width:56ch;font-size:var(--t0);}
 .pratica-frase{display:none;}
 .pratica{grid-template-columns:1fr;}
-.pratica-titulo{max-width:none;white-space:nowrap;}
+.pratica-titulo{max-width:none;}
 @media (max-width:760px){.projeto.ancora{grid-column:auto;}}
 
 
@@ -446,7 +446,96 @@ a.item-titulo:hover{color:var(--terracota);}
 .ficha dt{font-size:.7rem;letter-spacing:.12em;}
 .ficha dd{font-size:var(--t-1);}
 .fd-in{padding:var(--s4) var(--s5);}
-@media (max-width:760px){.fd-in{padding:var(--s3);}.secao-cab h2{font-size:var(--t4);}}
+@media (max-width:760px){.fd-in{padding:var(--s3);}.secao-cab h2{font-size:var(--t4);}.projeto.destaque .destaque-in{grid-template-columns:1fr;}.projeto.destaque .projeto-nome{font-size:var(--t3);}}
+
+.elementos{border:0;padding:var(--s2) 0 0;margin-bottom:var(--s4);}
+.secao-cab{margin-bottom:var(--s3);}
+.pratica{padding:var(--s4) 0 var(--s3);}
+.pratica:first-of-type{padding-top:var(--s4);}
+
+.secao-cab .elementos{grid-column:7/13;justify-content:flex-end;padding:0;margin:0;align-self:end;}
+.secao-cab .elemento{font-size:var(--t1);}
+.pratica:first-of-type{border-top:0;padding-top:var(--s3);}
+.contagem{margin:0 0 var(--s4);}
+@media (max-width:1100px){.secao-cab .elementos{grid-column:1/13;justify-content:flex-start;}}
+
+
+/* ===== ORDEM DOS CARDS: mesmo esqueleto vertical em todos ===== */
+.projeto.ancora{grid-column:auto;}
+.projeto.ancora .projeto-nome{font-size:var(--t2);}
+.projeto.ancora .teaser{font-size:var(--t-1);max-width:40ch;}
+.projeto:not(.destaque){display:grid;grid-template-rows:auto auto 1fr auto;align-content:start;row-gap:0;}
+.projeto:not(.destaque) .projeto-imagem{display:none;}
+.projeto:not(.destaque) .projeto-nome{font-size:clamp(1.35rem,1.1rem + .9vw,1.7rem);min-height:calc(4 * 1.08em);-webkit-line-clamp:4;line-height:1.08;}
+.projeto:not(.destaque) .projeto-meta{min-height:calc(2 * 1.5em);line-height:1.5;margin:.6rem 0 var(--s2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.projeto:not(.destaque) .teaser{min-height:calc(3 * 1.55em);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;max-width:none;}
+.projeto:not(.destaque) .abrir{margin-top:var(--s2);padding-top:0;justify-self:start;}
+.projetos{gap:var(--s5) var(--s4);}
+@media (max-width:760px){.projeto:not(.destaque) .projeto-nome,.projeto:not(.destaque) .projeto-meta,.projeto:not(.destaque) .teaser{min-height:0;-webkit-line-clamp:unset;display:block;}}
+
+
+/* ===== EDIÇÃO: escala de cinco degraus, reportagem e notas ===== */
+:root{--d1:clamp(2.25rem,1.4rem + 3.4vw,3.5rem);--d2:clamp(1.75rem,1.2rem + 2.2vw,2.5rem);--d3:clamp(1.25rem,1.05rem + .8vw,1.5rem);}
+section{padding-block:clamp(5rem,14vh,10rem);}
+.secao-cab h2{font-size:var(--d1);}
+.pratica-titulo{letter-spacing:.14em;text-transform:uppercase;font-family:var(--corpo);font-weight:500;font-variation-settings:normal;font-size:.875rem;}
+.pratica{padding:var(--s4) 0 var(--s3);}
+.projeto.destaque .projeto-nome{font-size:var(--d1);max-width:14ch;}
+.projeto.destaque .teaser-larga{font-size:var(--t1);max-width:48ch;}
+/* reportagem: primeira de cada grupo, largura inteira, assimétrica */
+.projeto.ancora{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,1fr);gap:var(--calha);align-items:start;padding:var(--s3) 0 var(--s4);border-top:var(--fio);}
+.projeto.ancora .projeto-imagem{display:none;}
+.projeto.ancora .projeto-nome{grid-column:1/8;grid-row:1;font-size:var(--d2);min-height:0;-webkit-line-clamp:unset;display:block;max-width:18ch;line-height:1.04;}
+.projeto.ancora .projeto-meta{grid-column:1/8;grid-row:2;min-height:0;display:block;margin:.5rem 0 0;}
+.projeto.ancora .teaser{grid-column:8/13;grid-row:1;font-size:var(--t0);min-height:0;-webkit-line-clamp:unset;display:block;max-width:34ch;margin-top:.35rem;}
+.projeto.ancora .abrir{grid-column:8/13;grid-row:2;align-self:start;margin-top:var(--s2);justify-self:start;}
+/* notas: as demais, em três colunas estreitas */
+.projeto:not(.destaque):not(.ancora){border-top:var(--fio);padding-top:var(--s2);}
+.projeto:not(.destaque):not(.ancora) .projeto-nome{font-size:var(--d3);min-height:calc(3 * 1.12em);-webkit-line-clamp:3;line-height:1.12;}
+.projeto:not(.destaque):not(.ancora) .projeto-meta{font-size:.75rem;}
+.projeto:not(.destaque):not(.ancora) .teaser{font-size:.875rem;}
+.projetos{gap:var(--s4) var(--s4);}
+/* capa: sumário */
+.abertura{grid-template-columns:repeat(12,1fr);}
+.sumario{grid-column:10/13;align-self:end;display:flex;flex-direction:column;gap:.55rem;margin-top:var(--s4);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;border-top:var(--fio);padding-top:var(--s2);}
+.sumario a{border:0;width:max-content;}
+.sumario a:hover{color:var(--terracota);}
+/* instituições em linha */
+.instituicoes{display:block;margin-top:var(--s4);max-width:72ch;}
+.instituicoes p{font-size:.875rem;line-height:1.6;margin:0 0 .75rem;}
+.instituicoes p span{display:inline-block;margin-right:.6rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;}
+/* revelação */
+.js .revela{opacity:0;transition:opacity 500ms ease;}
+.js .revela.visto{opacity:1;}
+@media (prefers-reduced-motion:reduce){.js .revela{opacity:1;transition:none;}}
+@media (max-width:1100px){.projeto.ancora .projeto-nome,.projeto.ancora .projeto-meta,.projeto.ancora .teaser,.projeto.ancora .abrir{grid-column:1/13;grid-row:auto;}}
+@media (max-width:760px){.sumario{grid-column:1;margin-top:var(--s3);} .projeto:not(.destaque):not(.ancora) .projeto-nome{min-height:0;-webkit-line-clamp:unset;display:block;}}
+
+
+/* ===== IMAGENS: capa e reportagens com foto em cinco colunas ===== */
+.projeto.destaque .projeto-imagem,.projeto.ancora .projeto-imagem{display:none;}
+.projeto.destaque.com-imagem .destaque-in{grid-template-columns:repeat(12,1fr);}
+.projeto.destaque.com-imagem .destaque-in > div:nth-of-type(1){grid-column:1/8;grid-row:1;}
+.projeto.destaque.com-imagem .destaque-in > div:nth-of-type(2){grid-column:1/8;grid-row:2;}
+.projeto.destaque.com-imagem .projeto-imagem{display:block;grid-column:8/13;grid-row:1/3;width:100%;max-width:none;aspect-ratio:4/5;margin:0;}
+.projeto.ancora.com-imagem .projeto-imagem{display:block;grid-column:8/13;grid-row:1/4;width:100%;max-width:none;aspect-ratio:4/5;margin:0;}
+.projeto.ancora.com-imagem .teaser{grid-column:1/8;grid-row:3;max-width:44ch;margin-top:var(--s3);}
+.projeto.ancora.com-imagem .abrir{grid-column:1/8;grid-row:4;}
+.projeto-imagem img{width:100%;height:100%;object-fit:cover;display:block;opacity:1;animation:none;}
+.projeto-imagem .quadro-borda{display:none;}
+@media (max-width:1100px){.projeto.ancora.com-imagem .projeto-imagem,.projeto.destaque.com-imagem .projeto-imagem{grid-column:1/13;grid-row:auto;aspect-ratio:3/2;} .projeto.destaque.com-imagem .destaque-in > div{grid-column:1/13;}}
+
+
+/* crédito da foto: aparece ao passar o mouse; sempre visível em telas de toque */
+figure.projeto-imagem{position:relative;margin:0;overflow:hidden;}
+figure.projeto-imagem figcaption{position:absolute;left:0;right:0;bottom:0;padding:.5rem .75rem;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--branco);background:linear-gradient(to top,rgba(0,0,0,.65),rgba(0,0,0,0));opacity:0;transition:opacity var(--tr);}
+figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcaption{opacity:1;}
+@media (hover:none){figure.projeto-imagem figcaption{opacity:1;}}
+
+.rede{display:inline-flex;align-items:center;gap:.5rem;border:0;}
+.rede-icone{display:inline-block;width:1rem;height:1rem;background:currentColor;-webkit-mask:var(--icone) center/contain no-repeat;mask:var(--icone) center/contain no-repeat;}
+.redes{display:flex;gap:var(--s3);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;margin-top:var(--s3);}
+.contato-links .rede{border-bottom:0;}
 
 /* ---------- RESPONSIVO ---------- */
 @media (max-width:1100px){
@@ -487,7 +576,7 @@ a.item-titulo:hover{color:var(--terracota);}
 </style>
 </head>
 <body>
-<a class="skip" href="#lista">Ir para a lista</a>
+<a class="skip" href="#projetos">Ir para os projetos</a>
 
 <header class="nav" id="nav">
   <div class="wrap nav-in">
@@ -495,7 +584,7 @@ a.item-titulo:hover{color:var(--terracota);}
     <nav aria-label="Principal">
       <ul class="menu" id="menu">
         <li><a href="index.html#projetos">Projetos</a></li>
-        <li><a href="publicacoes.html" aria-current="true">Publicações</a></li>
+        <li><a href="publicacoes.html">Publicações</a></li>
         <li><a href="midia.html">Na mídia</a></li>
         <li><a href="index.html#onde">Onde</a></li>
         <li><a href="index.html#quem">Quem</a></li>
@@ -507,74 +596,10 @@ a.item-titulo:hover{color:var(--terracota);}
 </header>
 
 <main>
-
-<!-- PUBLICAÇÕES -->
-<section class="wrap" id="publicacoes" style="padding-top:calc(var(--nav-h) + var(--s5))" aria-labelledby="t-pub">
-  <div class="secao-cab">
-    <h2 class="display" id="t-pub">Publicações</h2>
-    <p>Artigos revisados por pares, capítulo de livro, artigos na imprensa, relatórios que chegaram à Organização Marítima Internacional e à Organização Mundial da Saúde, anais de congresso. <a href="index.html#projetos">Voltar aos projetos</a></p>
-  </div>
-  <div class="abas" role="tablist" aria-label="Tipo de publicação">
-    <button class="aba" role="tab" aria-selected="true" aria-controls="p-per" id="a-per">Artigos em periódicos</button>
-    <button class="aba" role="tab" aria-selected="false" aria-controls="p-cap" id="a-cap">Capítulos de livro</button>
-    <button class="aba" role="tab" aria-selected="false" aria-controls="p-imp" id="a-imp">Artigos na imprensa</button>
-    <button class="aba" role="tab" aria-selected="false" aria-controls="p-rel" id="a-rel">Relatórios, policy briefs e guias</button>
-    <button class="aba" role="tab" aria-selected="false" aria-controls="p-ana" id="a-ana">Anais de congressos</button>
-  </div>
-  <ul class="lista painel" id="p-per" role="tabpanel" aria-labelledby="a-per">
-    <li class="item"><span class="item-fonte">Environmental Research Letters</span><a class="item-titulo" href="https://iopscience.iop.org/article/10.1088/1748-9326/adcd87">Policies targeting road transport emissions could save 1.9 million lives globally by 2040</a><span class="item-data">2025</span></li>
-    <li class="item"><span class="item-fonte">Environmental Pollution</span><span class="item-titulo">Heterogeneous impacts of mobility restrictions on air quality in the State of São Paulo during the COVID-19 pandemic</span><span class="item-data">2022</span></li>
-    <li class="item"><span class="item-fonte">Environmental Pollution</span><a class="item-titulo" href="https://www.sciencedirect.com/science/article/abs/pii/S0269749119328349">Health economic assessment of a shift to active transport</a><span class="item-data">2020</span></li>
-    <li class="item"><span class="item-fonte">J. Atmospheric and Solar-Terrestrial Physics</span><span class="item-titulo">Latin American Lidar Network (LALINET) for aerosol research: diagnosis on network instrumentation</span><span class="item-data">2016</span></li>
-    <li class="item"><span class="item-fonte">Óptica Pura y Aplicada</span><span class="item-titulo">Fallback atmosphere models for lidar measurements without corresponding radio-sounding data: the São Paulo lidar station</span><span class="item-data">2014</span></li>
-    <li class="item"><span class="item-fonte">Femina</span><span class="item-titulo">Relação entre a idade da mulher e o declínio da fertilidade</span><span class="item-data">2003</span></li>
-    <li class="item"><span class="item-fonte">Phytomedicine</span><span class="item-titulo">Effects of Annona squamosa extract on early pregnancy in rats</span><span class="item-data">2002</span></li>
-  </ul>
-  <ul class="lista painel" id="p-cap" role="tabpanel" aria-labelledby="a-cap" hidden>
-    <li class="item"><span class="item-fonte">Elsevier / Academic Press</span><a class="item-titulo" href="https://shop.elsevier.com/books/sustainable-urban-environments-for-human-health/singh/978-0-443-40407-8">Strategies to reduce air pollution through sustainable energy practices in households, economy, and urban mobility, capítulo 6 de <em>Sustainable Urban Environments for Human Health</em> (org. Nidhi Singh, Justyna M. Chodkowska-Miszczuk, Pardeep Singh e Pramit Verma), com Renata Costa</a><span class="item-data">nov 2025</span></li>
-  </ul>
-  <ul class="lista painel" id="p-imp" role="tabpanel" aria-labelledby="a-imp" hidden>
-    <li class="item"><span class="item-fonte">Le Monde Diplomatique Brasil</span><a class="item-titulo" href="https://diplomatique.org.br/a-amazonia-diante-do-estado-que-so-chega-depois-da-catastrofe/">A Amazônia diante do Estado que só chega depois da catástrofe, com Adilson Vieira</a><span class="item-data">jul 2026</span></li>
-  </ul>
-  <ul class="lista painel" id="p-rel" role="tabpanel" aria-labelledby="a-rel" hidden>
-    <li class="item"><span class="item-fonte">PNUMA / CCAC, AQMx</span><a class="item-titulo" href="https://aqmx.org/content/aqmx-sectoral-guidance-improving-fuel-quality">Sectoral Guidance: Improving Fuel Quality</a><span class="item-data">2025–2026</span></li>
-    <li class="item"><span class="item-fonte">PNUMA / CCAC, AQMx</span><a class="item-titulo" href="https://aqmx.org/content/aqmx-sectoral-guidance-vehicle-emission-standards">Sectoral Guidance: Vehicle Emission Standards</a><span class="item-data">2025–2026</span></li>
-    <li class="item"><span class="item-fonte">PNUMA / CCAC, AQMx</span><a class="item-titulo" href="https://aqmx.org/content/aqmx-sectoral-guidance-vehicle-inspection-and-maintenance-programmes">Sectoral Guidance: Vehicle Inspection and Maintenance Programmes</a><span class="item-data">2025–2026</span></li>
-    <li class="item"><span class="item-fonte">Instituto Ar</span><a class="item-titulo" href="https://institutoar.org.br/publicacoes/carga-pesada-ar-denso-como-comunicar-a-transicao-dos-caminhoes-no-brasil/">Carga pesada, ar denso: como comunicar a transição dos caminhões no Brasil</a><span class="item-data">jul 2026</span></li>
-    <li class="item"><span class="item-fonte">Instituto Ar</span><a class="item-titulo" href="https://institutoar.org.br/publicacoes/manejo-integrado-do-fogo-no-brasil-consolidando-politica-publica-para-reduzir-riscos-climaticos-e-proteger-saude-publica/">Manejo Integrado do Fogo no Brasil: consolidando política pública para reduzir riscos climáticos e proteger saúde pública, policy brief</a><span class="item-data">jun 2026</span></li>
-    <li class="item"><span class="item-fonte">Instituto Ar</span><a class="item-titulo" href="https://institutoar.org.br/publicacoes/fogo-amigo-ou-perigo-uma-conversa-sobre-como-evitar-incendios-na-comunidade/">Fogo: amigo ou perigo? Uma conversa sobre como evitar incêndios na comunidade, revista educativa</a><span class="item-data">jun 2026</span></li>
-    <li class="item"><span class="item-fonte">Instituto Ar, Marajó Sem Fumaça</span><a class="item-titulo" href="https://marajosemfumaca.com.br/wp-content/uploads/2026/06/plano-de-aula.pdf">Plano de aula: "Fogo: amigo ou perigo?" para o ensino fundamental (6º ao 9º ano)</a><span class="item-data">jun 2026</span></li>
-    <li class="item"><span class="item-fonte">Instituto Ar</span><a class="item-titulo" href="https://institutoar.org.br/publicacoes/poster-fogo-amigo-ou-perigo/">Pôster "Fogo: Amigo ou Perigo?"</a><span class="item-data">jun 2026</span></li>
-    <li class="item"><span class="item-fonte">Instituto Ar</span><a class="item-titulo" href="https://institutoar.org.br/publicacoes/comunicacao-de-qualidade-do-ar-um-guia-sobre-poluicao-atmosferica-e-mudancas-climaticas-para-comunicadores/">Comunicação de Qualidade (do Ar): um guia sobre poluição atmosférica e mudanças climáticas para comunicadores</a><span class="item-data">mar 2026</span></li>
-    <li class="item"><span class="item-fonte">Instituto Ar</span><a class="item-titulo" href="https://institutoar.org.br/publicacoes/um-sopro-de-vida-as-cidades-amazonicas-um-caso-de-investimento-transformador-visando-ar-puro-saude-equidade-e-oportunidades-economicas/">Um sopro de vida às cidades amazônicas: um caso de investimento transformador visando ar puro, saúde, equidade e oportunidades econômicas</a><span class="item-data">out 2025</span></li>
-    <li class="item"><span class="item-fonte">Instituto Ar</span><a class="item-titulo" href="https://institutoar.org.br/publicacoes/powering-brazils-transition-to-zero-emission-trucking/">Powering Brazil’s Transition to Zero-Emission Trucking</a><span class="item-data">set 2025</span></li>
-    <li class="item"><span class="item-fonte">Instituto Ar</span><a class="item-titulo" href="https://institutoar.org.br/publicacoes/relatorio-do-evento-2o-encontro-monitoramento-do-ar-na-amazonia/">Relatório do Evento – 2º Encontro Monitoramento do Ar na Amazônia</a><span class="item-data">jul 2025</span></li>
-    <li class="item"><span class="item-fonte">ICCT</span><a class="item-titulo" href="https://theicct.org/publication/environmental-and-health-benefits-of-a-designated-north-atlantic-emission-control-area-nov24/">Environmental and health benefits of a designated North Atlantic Emission Control Area</a><span class="item-data">nov 2024</span></li>
-    <li class="item"><span class="item-fonte">ICCT</span><a class="item-titulo" href="https://theicct.org/pr-en-vehicle-stock-emissions-pv-germany-oct24/">Cleaning up Germany’s vehicle stock: strategies to decarbonize the passenger car fleet</a><span class="item-data">out 2024</span></li>
-    <li class="item"><span class="item-fonte">Instituto Ar</span><a class="item-titulo" href="https://institutoar.org.br/publicacoes/policy-brief-desafios-e-perspectivas-do-monitoramento-da-qualidade-do-ar-na-amazonia-legal/">Policy Brief – Desafios e perspectivas do monitoramento da qualidade do ar na Amazônia Legal</a><span class="item-data">out 2024</span></li>
-    <li class="item"><span class="item-fonte">ICCT</span><a class="item-titulo" href="https://theicct.org/publication/evaluating-the-potential-for-emissions-reduction-in-the-proposed-atleca-under-different-compliance-scenarios-june24/">From concept to impact: evaluating the potential for emissions reduction in the proposed North Atlantic Emission Control Area</a><span class="item-data">jun 2024</span></li>
-    <li class="item"><span class="item-fonte">Instituto Ar</span><a class="item-titulo" href="https://institutoar.org.br/publicacoes/iniciativa-acre-de-monitoramento-da-qualidade-do-ar/">Iniciativa Acre de monitoramento da qualidade do ar</a><span class="item-data">set 2021</span></li>
-    <li class="item"><span class="item-fonte">Instituto Ar</span><a class="item-titulo" href="https://institutoar.org.br/publicacoes/analise-do-monitoramento-da-qualidade-do-ar-no-brasil/">Análise do monitoramento da qualidade do ar no Brasil</a><span class="item-data">set 2021</span></li>
-    <li class="item"><span class="item-fonte">Instituto Ar</span><a class="item-titulo" href="https://institutoar.org.br/publicacoes/impactos-do-proconve-na-saude/">Impactos do Proconve na saúde: fase P-8 para veículos pesados em seis regiões metropolitanas</a><span class="item-data">set 2019</span></li>
-    <li class="item"><span class="item-fonte">Instituto Ar</span><a class="item-titulo" href="https://institutoar.org.br/publicacoes/analise-do-monitoramento-do-ar-no-brasil/">Análise do monitoramento do ar no Brasil</a><span class="item-data">set 2019</span></li>
-    <li class="item"><span class="item-fonte">Instituto Ar</span><a class="item-titulo" href="https://institutoar.org.br/publicacoes/impacto-do-gnv-no-transporte-publico-em-6-regioes-metropolitanas/">Impacto do GNV no transporte público em 6 regiões metropolitanas</a><span class="item-data">set 2018</span></li>
-    <li class="item"><span class="item-fonte">OMS</span><a class="item-titulo" href="https://www.who.int/initiatives/urban-health-initiative/guidance-and-tools">WHO Urban Health Initiative, Tools and Guidance: testes, conceitos e material de treinamento para Acra e Kathmandu</a><span class="item-data">2018</span></li>
-  </ul>
-  <ul class="lista painel" id="p-ana" role="tabpanel" aria-labelledby="a-ana" hidden>
-    <li class="item"><span class="item-fonte">SPIE Remote Sensing, Amsterdã</span><span class="item-titulo">Evaluation of the hygroscopic behavior of aerosols over São Paulo: one-day case study</span><span class="item-data">2014</span></li>
-    <li class="item"><span class="item-fonte">SPIE Remote Sensing, Amsterdã</span><span class="item-titulo">Lidar measurements of tropospheric aerosol and water vapor profiles during the winter season campaigns over São Paulo</span><span class="item-data">2014</span></li>
-    <li class="item"><span class="item-fonte">SPIE Remote Sensing, Amsterdã</span><a class="item-titulo" href="https://doi.org/10.1117/12.2057376">Raman lidar characterization using a reference lamp</a><span class="item-data">2014</span></li>
-    <li class="item"><span class="item-fonte">SPIE Remote Sensing, Amsterdã</span><span class="item-titulo">Towards an instrumental harmonization in the framework of LALINET: dataset of technical specifications</span><span class="item-data">2014</span></li>
-    <li class="item"><span class="item-fonte">International Radiation Symposium</span><span class="item-titulo">Assessment of aerosol hygroscopic growth using an elastic LIDAR and BRAMS simulation in urban metropolitan areas</span><span class="item-data">2013</span></li>
-    <li class="item"><span class="item-fonte">SPIE Remote Sensing, Edimburgo</span><span class="item-titulo">Measurement of tropospheric aerosol in São Paulo area using a new upgraded Raman LIDAR system</span><span class="item-data">2012</span></li>
-    <li class="item"><span class="item-fonte">SPIE Remote Sensing, Praga</span><a class="item-titulo" href="https://doi.org/10.1117/12.898208">Indirect aerosol hygroscopic growth observations with a backscattering lidar, part II: five day breeze onset data analyses</a><span class="item-data">2011</span></li>
-    <li class="item"><span class="item-fonte">SPIE Remote Sensing, Praga</span><span class="item-titulo">Initial analysis from a lidar observation campaign of sugar cane fires in the State of São Paulo</span><span class="item-data">2011</span></li>
-    <li class="item"><span class="item-fonte">SPIE Remote Sensing, Praga</span><span class="item-titulo">Real-time mapping of an industrial flare using lidar</span><span class="item-data">2011</span></li>
-    <li class="item"><span class="item-fonte">SPIE Remote Sensing, Toulouse</span><span class="item-titulo">Indirect aerosol hygroscopic growth observations with a backscatter lidar</span><span class="item-data">2010</span></li>
-    <li class="item"><span class="item-fonte">SPIE Remote Sensing, Toulouse</span><span class="item-titulo">Lidar observation campaign of sugar cane fires and industrial emissions in the State of São Paulo</span><span class="item-data">2010</span></li>
-  </ul>
+<section class="wrap" id="erro" style="padding-top:calc(var(--nav-h) + var(--s6));min-height:60svh">
+  <div class="secao-cab"><h2 class="display">Página não encontrada</h2></div>
+  <p style="max-width:44ch">O endereço não existe ou mudou. <a href="index.html#projetos">Voltar aos projetos</a>, ou escolher no menu acima.</p>
 </section>
-
 </main>
 
 <!-- CONTATO -->
@@ -591,14 +616,9 @@ a.item-titulo:hover{color:var(--terracota);}
 
 <script>
 (function(){
-  var nav=document.getElementById('nav'), hamb=document.getElementById('hamb'), menu=document.getElementById('menu');
-  function rolou(){ nav.classList.toggle('rolou', window.scrollY>8); }
-  rolou(); addEventListener('scroll', rolou, {passive:true});
+  var nav=document.getElementById('nav'), hamb=document.getElementById('hamb');
+  function rolou(){ nav.classList.toggle('rolou', window.scrollY>8); } rolou(); addEventListener('scroll', rolou, {passive:true});
   hamb.addEventListener('click', function(){ var ab=!nav.classList.contains('aberto'); nav.classList.toggle('aberto', ab); hamb.setAttribute('aria-expanded', ab); document.body.classList.toggle('travado', ab); });
-  var abas=[].slice.call(document.querySelectorAll('.aba'));
-  abas.forEach(function(a){ a.addEventListener('click', function(){
-    abas.forEach(function(x){ x.setAttribute('aria-selected', x===a?'true':'false'); document.getElementById(x.getAttribute('aria-controls')).hidden = x!==a; });
-  }); });
 })();
 </script>
 </body>
