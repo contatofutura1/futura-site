@@ -506,6 +506,20 @@ section{padding-block:clamp(5rem,14vh,10rem);}
 @media (max-width:1100px){.projeto.ancora .projeto-nome,.projeto.ancora .projeto-meta,.projeto.ancora .teaser,.projeto.ancora .abrir{grid-column:1/13;grid-row:auto;}}
 @media (max-width:760px){.sumario{grid-column:1;margin-top:var(--s3);} .projeto:not(.destaque):not(.ancora) .projeto-nome{min-height:0;-webkit-line-clamp:unset;display:block;}}
 
+
+/* ===== IMAGENS: capa e reportagens com foto em cinco colunas ===== */
+.projeto.destaque .projeto-imagem,.projeto.ancora .projeto-imagem{display:none;}
+.projeto.destaque.com-imagem .destaque-in{grid-template-columns:repeat(12,1fr);}
+.projeto.destaque.com-imagem .destaque-in > div:first-child{grid-column:1/8;}
+.projeto.destaque.com-imagem .destaque-in > div:last-child{grid-column:1/8;}
+.projeto.destaque.com-imagem .projeto-imagem{display:block;grid-column:8/13;grid-row:1/3;width:100%;max-width:none;aspect-ratio:4/5;margin:0;}
+.projeto.ancora.com-imagem .projeto-imagem{display:block;grid-column:8/13;grid-row:1/4;width:100%;max-width:none;aspect-ratio:4/5;margin:0;}
+.projeto.ancora.com-imagem .teaser{grid-column:1/8;grid-row:3;max-width:44ch;margin-top:var(--s3);}
+.projeto.ancora.com-imagem .abrir{grid-column:1/8;grid-row:4;}
+.projeto-imagem img{width:100%;height:100%;object-fit:cover;display:block;opacity:1;animation:none;}
+.projeto-imagem .quadro-borda{display:none;}
+@media (max-width:1100px){.projeto.ancora.com-imagem .projeto-imagem,.projeto.destaque.com-imagem .projeto-imagem{grid-column:1/13;grid-row:auto;aspect-ratio:3/2;} .projeto.destaque.com-imagem .destaque-in > div{grid-column:1/13;}}
+
 /* ---------- RESPONSIVO ---------- */
 @media (max-width:1100px){
   .projetos{grid-template-columns:repeat(2,minmax(0,1fr));}

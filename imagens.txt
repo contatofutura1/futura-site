@@ -1,0 +1,7 @@
+# nome-do-arquivo  URL  (baixado no servidor do Netlify na hora da publicação)
+marajo-brigada.webp   https://marajosemfumaca.com.br/wp-content/uploads/2026/05/marajo-sem-fumaca-06.webp
+marajo-01.webp        https://marajosemfumaca.com.br/wp-content/uploads/2026/05/marajo-sem-fumaca-01.webp
+marajo-02.webp        https://marajosemfumaca.com.br/wp-content/uploads/2026/05/marajo-sem-fumaca-02.webp
+marajo-03.webp        https://marajosemfumaca.com.br/wp-content/uploads/2026/05/marajo-sem-fumaca-03.webp
+marajo-poster.webp    https://marajosemfumaca.com.br/wp-content/uploads/2026/06/poster-01.webp
+marajo-policy.webp    https://marajosemfumaca.com.br/wp-content/uploads/2026/06/policy-brief-01.webp
