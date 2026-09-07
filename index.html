@@ -557,6 +557,17 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
 .projeto-nome .ext{display:inline-block;font-family:var(--corpo);font-size:.45em;vertical-align:super;margin-left:.3em;opacity:.6;}
 .ficha-dialog .projeto-nome .ext{display:none;}
 
+
+/* ===== IMAGENS MENORES: reportagens em quatro colunas, notas com mapa pequeno ===== */
+.projeto.ancora.com-imagem .projeto-imagem{grid-column:9/13;aspect-ratio:1/1;}
+.projeto.ancora.com-imagem .teaser,.projeto.ancora.com-imagem .abrir{grid-column:1/8;}
+.projeto.destaque.com-imagem .projeto-imagem{grid-column:9/13;aspect-ratio:1/1;}
+.projeto.destaque.com-imagem .destaque-in > div:nth-of-type(1),.projeto.destaque.com-imagem .destaque-in > div:nth-of-type(2){grid-column:1/9;}
+.nota-mapa{margin:0 0 var(--s2);height:8rem;width:8rem;overflow:hidden;}
+.nota-mapa img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;opacity:1;animation:none;}
+.projeto:not(.destaque):not(.ancora){grid-template-rows:auto auto auto 1fr auto;}
+@media (max-width:760px){.nota-mapa{height:5.5rem;}}
+
 /* ---------- RESPONSIVO ---------- */
 @media (max-width:1100px){
   .projetos{grid-template-columns:repeat(2,minmax(0,1fr));}
@@ -670,6 +681,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     </article>
     <article class="projeto" id="p-a-primeira-conferencia-global-sobre-polu" data-pratica="acao" data-cor="ar" data-elementos="ar" data-lugares="genebra">
       
+      <figure class="nota-mapa"><img src="img/mapa-genebra.svg" alt="Europa central em contorno, com Genebra marcada" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://www.who.int/news-room/events/detail/2018/10/30/default-calendar/air-pollution-conference" target="_blank" rel="noopener">A primeira conferência global sobre poluição do ar e saúde<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2018, Organização Mundial da Saúde, Genebra</p>
       <p class="teaser">A conferência da Organização Mundial da Saúde que fixou a meta de reduzir em dois terços as mortes por poluição do ar até 2030.</p>
@@ -679,6 +691,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     </article>
     <article class="projeto" id="p-guias-para-o-transporte-limpo-em-paises-" data-pratica="acao" data-cor="ar" data-elementos="ar fogo" data-lugares="paris africa">
       
+      <figure class="nota-mapa"><img src="img/mapa-africa.svg" alt="África Subsaariana em contorno" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://aqmx.org/content/road-transport" target="_blank" rel="noopener">Guias para o transporte limpo em países de renda média<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025–2026, Programa das Nações Unidas para o Meio Ambiente (Futura)</p>
       <p class="teaser">Três orientações do Programa das Nações Unidas para o Meio Ambiente sobre combustíveis, emissões e inspeção veicular.</p>
@@ -688,6 +701,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     </article>
     <article class="projeto" id="p-as-ferramentas-da-oms-nas-maos-de-gestor" data-pratica="acao" data-cor="ar" data-elementos="ar terra" data-lugares="acra kathmandu genebra">
       
+      <figure class="nota-mapa"><img src="img/mapa-acra.svg" alt="Golfo da Guiné em contorno, com Acra marcada" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://www.who.int/initiatives/urban-health-initiative/pilot-projects" target="_blank" rel="noopener">As ferramentas da OMS nas mãos de gestores de Acra e Kathmandu<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2018–2019, Organização Mundial da Saúde, Urban Health Initiative</p>
       <p class="teaser">As ferramentas de impacto em saúde da Organização Mundial da Saúde testadas e ensinadas aos gestores de duas cidades-piloto.</p>
@@ -697,6 +711,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     </article>
     <article class="projeto" id="p-a-saude-na-assembleia-de-acionistas-da-v" data-pratica="acao" data-cor="ar" data-elementos="ar fogo" data-lugares="gotemburgo">
       
+      <figure class="nota-mapa"><img src="img/mapa-gotemburgo.svg" alt="Escandinávia em contorno, com Gotemburgo marcada" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://www.airclim.org/air-pollution-health-and-case-zero-emission-trucks" target="_blank" rel="noopener">A saúde na assembleia de acionistas da Volvo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2026, Instituto Ar, Gotemburgo (Futura)</p>
       <p class="teaser">Evidência de saúde do transporte pesado brasileiro apresentada aos acionistas da Volvo, em Gotemburgo.</p>
@@ -706,6 +721,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     </article>
     <article class="projeto" id="p-os-novos-padroes-de-qualidade-do-ar-dent" data-pratica="acao" data-cor="ar" data-elementos="ar" data-lugares="brasilia">
       
+      <figure class="nota-mapa"><img src="img/mapa-brasilia.svg" alt="Brasil central em contorno, com Brasília marcada" loading="lazy"></figure>
       <h3 class="projeto-nome">Os novos padrões de qualidade do ar dentro do sistema de saúde</h3>
       <p class="projeto-meta">Instituto Ar, com o Ministério da Saúde (Futura)</p>
       <p class="teaser">Apoio ao Ministério da Saúde na implementação dos novos padrões nacionais de qualidade do ar.</p>
@@ -724,6 +740,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     </article>
     <article class="projeto" id="p-marajo-sem-fumaca" data-pratica="imaginacao" data-cor="fogo" data-elementos="fogo terra ar" data-lugares="belem amazonia">
       
+      <figure class="nota-mapa"><img src="img/mapa-marajo.svg" alt="Foz do Amazonas em contorno, com Belém marcada" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://marajosemfumaca.com.br/" target="_blank" rel="noopener">Marajó Sem Fumaça<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025–2026, Instituto Ar e Clean Air Fund (Futura)</p>
       <p class="teaser">Brigada comunitária, escola e detecção de queimadas por inteligência artificial na Ilha de Marajó.</p>
@@ -733,6 +750,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     </article>
     <article class="projeto" id="p-cinco-futuros-para-os-caminhoes-do-brasi" data-pratica="imaginacao" data-cor="ar" data-elementos="ar fogo" data-lugares="sao-paulo">
       
+      <figure class="nota-mapa"><img src="img/mapa-saopaulo.svg" alt="Sudeste do Brasil em contorno, com São Paulo marcada" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://institutoar.org.br/publicacoes/powering-brazils-transition-to-zero-emission-trucking/" target="_blank" rel="noopener">Cinco futuros para os caminhões do Brasil<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025, Instituto Ar (Futura)</p>
       <p class="teaser">Cinco matrizes energéticas para a frota pesada comparadas em emissões, saúde e custo até 2050.</p>
@@ -742,6 +760,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     </article>
     <article class="projeto" id="p-respira-amazonia" data-pratica="imaginacao" data-cor="ar" data-elementos="ar fogo terra" data-lugares="belem rio-branco amazonia">
       
+      <figure class="nota-mapa"><img src="img/mapa-amazonia.svg" alt="Amazônia Legal em contorno" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://institutoar.org.br/programas/respira-amazonia/" target="_blank" rel="noopener">Respira Amazônia<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2024, Instituto Ar (Futura)</p>
       <p class="teaser">Coalizão para monitorar o ar das cidades amazônicas durante a temporada de queimadas.</p>
@@ -751,6 +770,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     </article>
     <article class="projeto" id="p-o-que-a-poluicao-custa-ao-sus" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="sao-paulo brasil">
       
+      <figure class="nota-mapa"><img src="img/mapa-brasil.svg" alt="Brasil em contorno" loading="lazy"></figure>
       <h3 class="projeto-nome">O que a poluição custa ao SUS</h3>
       <p class="projeto-meta">2025, Instituto Ar (Futura)</p>
       <p class="teaser">R$ 24,5 bilhões gastos pelo SUS, entre 2013 e 2023, com doenças atribuíveis à poluição do ar.</p>
@@ -769,6 +789,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     </article>
     <article class="projeto" id="p-um-laser-sobre-o-ar-de-sao-paulo" data-pratica="conhecimento" data-cor="ar" data-elementos="ar agua" data-lugares="greenbelt sao-paulo marilia canada chile toulouse praga edimburgo amsterda">
       
+      <figure class="nota-mapa"><img src="img/mapa-lidar.svg" alt="Sudeste do Brasil em contorno, com São Paulo marcada" loading="lazy"></figure>
       <h3 class="projeto-nome">Um laser sobre o ar de São Paulo</h3>
       <p class="projeto-meta">2010–2014, NASA Goddard e Universidade de São Paulo</p>
       <p class="teaser">O crescimento higroscópico do aerossol urbano medido a laser em São Paulo e em Washington, com a NASA.</p>
@@ -778,6 +799,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     </article>
     <article class="projeto" id="p-satelites-para-cidades-sem-monitoramento" data-pratica="conhecimento" data-cor="ar" data-elementos="ar" data-lugares="dusseldorf india">
       
+      <figure class="nota-mapa"><img src="img/mapa-india.svg" alt="Índia em contorno" loading="lazy"></figure>
       <h3 class="projeto-nome">Satélites para cidades sem monitoramento na Índia</h3>
       <p class="projeto-meta">2022, Leibniz-Institut, Düsseldorf</p>
       <p class="teaser">Base de dados por satélite para cidades indianas sem estação de monitoramento.</p>
@@ -786,6 +808,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     </article>
     <article class="projeto" id="p-descarbonizacao-e-saude-em-grenoble" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="grenoble paris">
       
+      <figure class="nota-mapa"><img src="img/mapa-grenoble.svg" alt="Alpes em contorno, com Grenoble marcada" loading="lazy"></figure>
       <h3 class="projeto-nome">Descarbonização e saúde em Grenoble</h3>
       <p class="projeto-meta">2015–2016, Université Grenoble-Alpes</p>
       <p class="teaser">Co-benefícios em saúde de cenários de descarbonização, valorados em euros e levados à COP21.</p>
@@ -794,6 +817,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     </article>
     <article class="projeto" id="p-co-beneficios-do-transporte-de-passageir" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="sao-paulo">
       
+      <figure class="nota-mapa"><img src="img/mapa-saopaulo.svg" alt="Sudeste do Brasil em contorno, com São Paulo marcada" loading="lazy"></figure>
       <h3 class="projeto-nome">Co-benefícios do transporte de passageiros em São Paulo</h3>
       <p class="projeto-meta">2017–2020, Instituto de Estudos Avançados da USP</p>
       <p class="teaser">Cenários de emissão do transporte de passageiros convertidos em impacto sanitário e econômico.</p>
@@ -802,6 +826,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     </article>
     <article class="projeto" id="p-a-frota-de-automoveis-da-alemanha" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="berlim">
       
+      <figure class="nota-mapa"><img src="img/mapa-alemanha.svg" alt="Alemanha em contorno" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://theicct.org/pr-en-vehicle-stock-emissions-pv-germany-oct24/" target="_blank" rel="noopener">A frota de automóveis da Alemanha<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2024, ICCT, Berlim</p>
       <p class="teaser">Estratégias para a frota de passageiros alemã diante da meta climática de 2030.</p>
@@ -811,6 +836,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     </article>
     <article class="projeto" id="p-politicas-de-transporte-rodoviario-e-saude" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="berlim">
       
+      <figure class="nota-mapa"><img src="img/mapa-mundo.svg" alt="Mapa-múndi em contorno" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://iopscience.iop.org/article/10.1088/1748-9326/adcd87" target="_blank" rel="noopener">Políticas de transporte rodoviário e saúde no mundo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025, ICCT, George Washington University e University of Colorado</p>
       <p class="teaser">Modelagem global das mortes evitáveis pelas políticas de emissão do transporte rodoviário até 2040.</p>
