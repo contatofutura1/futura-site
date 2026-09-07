@@ -443,6 +443,17 @@ a.item-titulo:hover{color:var(--terracota);}
 .fd-in{padding:var(--s4) var(--s5);}
 @media (max-width:760px){.fd-in{padding:var(--s3);}.secao-cab h2{font-size:var(--t4);}.projeto.destaque .destaque-in{grid-template-columns:1fr;}.projeto.destaque .projeto-nome{font-size:var(--t3);}}
 
+.elementos{border:0;padding:var(--s2) 0 0;margin-bottom:var(--s4);}
+.secao-cab{margin-bottom:var(--s3);}
+.pratica{padding:var(--s4) 0 var(--s3);}
+.pratica:first-of-type{padding-top:var(--s4);}
+
+.secao-cab .elementos{grid-column:7/13;justify-content:flex-end;padding:0;margin:0;align-self:end;}
+.secao-cab .elemento{font-size:var(--t1);}
+.pratica:first-of-type{border-top:0;padding-top:var(--s3);}
+.contagem{margin:0 0 var(--s4);}
+@media (max-width:1100px){.secao-cab .elementos{grid-column:1/13;justify-content:flex-start;}}
+
 /* ---------- RESPONSIVO ---------- */
 @media (max-width:1100px){
   .projetos{grid-template-columns:repeat(2,minmax(0,1fr));}
@@ -518,7 +529,6 @@ a.item-titulo:hover{color:var(--terracota);}
 <section class="wrap" id="projetos" aria-labelledby="t-projetos">
   <div class="secao-cab">
     <h2 class="display" id="t-projetos">Projetos</h2>
-  </div>
   <div class="elementos" role="group" aria-label="Filtrar por elemento">
     <button class="elemento" type="button" data-el="ar" aria-pressed="false">Ar</button>
     <button class="elemento" type="button" data-el="agua" aria-pressed="false">Água</button>
@@ -526,6 +536,8 @@ a.item-titulo:hover{color:var(--terracota);}
     <button class="elemento" type="button" data-el="terra" aria-pressed="false">Terra</button>
     <button class="elemento-todos" type="button" id="todos" hidden>Ver todos</button>
   </div>
+  </div>
+
   <p class="contagem" id="contagem" aria-live="polite"></p>
   <div class="projetos" id="grade">
   <div class="pratica" id="acao"><h3 class="pratica-titulo display">Ação</h3></div>
