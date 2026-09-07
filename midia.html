@@ -139,7 +139,7 @@ section{padding-block:var(--sp-9);}
 .projeto-nome .ext{display:inline-block;font-family:var(--corpo);font-size:.45em;vertical-align:super;margin-left:.3em;opacity:.6;}
 .projeto-meta{font-size:var(--fs-small);line-height:var(--lh-small);margin-top:var(--sp-2);}
 .teaser{line-height:var(--lh-body);}
-.abrir{font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;border-bottom:1px solid var(--preto);justify-self:start;transition:color var(--tr),border-color var(--tr);}
+.abrir{font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;line-height:1.3;border-bottom:1px solid var(--preto);justify-self:start;transition:color var(--tr),border-color var(--tr);}
 .abrir:hover,.abrir:focus-visible{color:var(--terracota);border-color:var(--terracota);}
 .projeto[data-cor="ar"]:hover .projeto-nome{color:var(--ar);} .projeto[data-cor="agua"]:hover .projeto-nome{color:var(--agua);}
 .projeto[data-cor="fogo"]:hover .projeto-nome{color:var(--fogo);} .projeto[data-cor="terra"]:hover .projeto-nome{color:var(--terra);}
@@ -167,8 +167,8 @@ section{padding-block:var(--sp-9);}
 .projeto--capa .projeto-nome{grid-column:1/9;grid-row:2;font-size:var(--fs-h1);max-width:14ch;}
 .projeto--capa .projeto-meta{grid-column:1/9;grid-row:3;}
 .projeto--capa .teaser{grid-column:1/9;grid-row:4;max-width:48ch;margin-top:var(--sp-5);}
-.projeto--capa .destaque-acoes{grid-column:1/9;grid-row:5;margin-top:var(--sp-4);display:flex;flex-wrap:wrap;gap:var(--sp-5);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
-.projeto--capa .destaque-acoes a{border-bottom:1px solid var(--preto);}
+.projeto--capa .destaque-acoes{grid-column:1/9;grid-row:5;margin-top:var(--sp-4);display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--sp-5);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;line-height:1.3;}
+.projeto--capa .destaque-acoes a{border-bottom:1px solid var(--preto);line-height:1.3;}
 .projeto--capa .figura{grid-column:9/13;grid-row:1/6;}
 .projeto--capa .destaque-acoes .abrir{margin:0;}
 
@@ -222,7 +222,6 @@ section{padding-block:var(--sp-9);}
 .contato{border-top:var(--fio);padding-block:var(--sp-9) var(--sp-7);}
 .contato-in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);}
 .contato-email{grid-column:1/13;font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--fs-h2);line-height:var(--lh-display);width:max-content;max-width:100%;overflow-wrap:anywhere;}
-.contato-links{grid-column:1/13;margin-top:var(--sp-5);display:flex;flex-wrap:wrap;gap:var(--sp-2) var(--sp-6);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
 .assinatura{grid-column:1/13;margin-top:var(--sp-8);display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--sp-3);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
 
 /* ---------- LISTAS EDITORIAIS (publicações, mídia) ---------- */
@@ -333,10 +332,6 @@ section{padding-block:var(--sp-9);}
 <footer class="contato" id="contato">
   <div class="wrap contato-in">
     <a class="contato-email" href="mailto:contato@futuraevidencelab.com.br">contato@futuraevidencelab.com.br</a>
-    <div class="contato-links">
-      <a class="rede" href="https://www.linkedin.com/in/patricia-ferrini/" aria-label="LinkedIn"><span class="rede-icone" style="--icone:url(https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.14.0/linkedin.svg)" aria-hidden="true"></span>LinkedIn</a>
-      <a class="rede" href="https://www.instagram.com/patty_ferrini_r/" aria-label="Instagram"><span class="rede-icone" style="--icone:url(https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.14.0/instagram.svg)" aria-hidden="true"></span>Instagram</a>
-    </div>
     <div class="assinatura"><p>Futura, Patricia Ferrini</p><p>© 2026</p></div>
   </div>
 </footer>
