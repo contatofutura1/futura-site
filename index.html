@@ -527,6 +527,11 @@ figure.projeto-imagem figcaption{position:absolute;left:0;right:0;bottom:0;paddi
 figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcaption{opacity:1;}
 @media (hover:none){figure.projeto-imagem figcaption{opacity:1;}}
 
+.rede{display:inline-flex;align-items:center;gap:.5rem;border:0;}
+.rede-icone{display:inline-block;width:1rem;height:1rem;background:currentColor;-webkit-mask:var(--icone) center/contain no-repeat;mask:var(--icone) center/contain no-repeat;}
+.redes{display:flex;gap:var(--s3);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;margin-top:var(--s3);}
+.contato-links .rede{border-bottom:0;}
+
 /* ---------- RESPONSIVO ---------- */
 @media (max-width:1100px){
   .projetos{grid-template-columns:repeat(2,minmax(0,1fr));}
@@ -866,7 +871,8 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
     <div class="quem-txt">
       <h2>Patricia Ferrini</h2>
       <p>Doutora em Ciências Atmosféricas pela Universidade de São Paulo, com pesquisa em parceria com o Goddard Space Flight Center da NASA. Pós-doutora em Economia do Desenvolvimento Sustentável pela Université Grenoble-Alpes e pelo Instituto de Estudos Avançados da USP, e pesquisadora convidada da Universidade do Porto. Consultora da Organização Mundial da Saúde e do Programa das Nações Unidas para o Meio Ambiente. Fundadora da Futura Evidence Lab.</p>
-      <p><a href="https://www.linkedin.com/in/patricia-ferrini/">LinkedIn</a></p>
+      <p class="redes"><a class="rede" href="https://www.linkedin.com/in/patricia-ferrini/" aria-label="LinkedIn"><span class="rede-icone" style="--icone:url(https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.14.0/linkedin.svg)" aria-hidden="true"></span>LinkedIn</a>
+      <a class="rede" href="https://www.instagram.com/patty_ferrini_r/" aria-label="Instagram"><span class="rede-icone" style="--icone:url(https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.14.0/instagram.svg)" aria-hidden="true"></span>Instagram</a></p>
     </div>
     </div>
 </section>
@@ -888,7 +894,8 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
   <div class="wrap contato-in">
     <a class="contato-email" href="mailto:contato@futuraevidencelab.com.br">contato@futuraevidencelab.com.br</a>
     <div class="contato-links">
-      <a href="https://www.linkedin.com/in/patricia-ferrini/">LinkedIn</a>
+      <a class="rede" href="https://www.linkedin.com/in/patricia-ferrini/" aria-label="LinkedIn"><span class="rede-icone" style="--icone:url(https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.14.0/linkedin.svg)" aria-hidden="true"></span>LinkedIn</a>
+      <a class="rede" href="https://www.instagram.com/patty_ferrini_r/" aria-label="Instagram"><span class="rede-icone" style="--icone:url(https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.14.0/instagram.svg)" aria-hidden="true"></span>Instagram</a>
     </div>
     <div class="assinatura"><p>Futura, Patricia Ferrini</p><p>© 2026</p></div>
   </div>
