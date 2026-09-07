@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://futuraevidencelab.com.br/sitemap.xml
