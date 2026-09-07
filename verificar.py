@@ -5,7 +5,7 @@ siglas em português (OMI, não IMO); HTML aninhado; JS válido; toda ficha com 
 import re, sys, pathlib, subprocess
 from html.parser import HTMLParser
 
-ARQ = ['index.html', 'publicacoes.html', 'midia.html']
+ARQ = ['index.html', 'projetos.html', 'sobre.html', 'publicacoes.html', 'midia.html']
 PROIBIDAS = [
     r'—',                                   # travessão
     r'\b(nós|nossa|nosso|nossas|nossos)\b', # primeira pessoa
@@ -37,7 +37,7 @@ for f in ARQ:
             erros.append(f'{f}: "{m.group(0)}" em …{ctx}…')
     q = P(); q.feed(txt)
     if q.err or q.st: erros.append(f'{f}: HTML mal aninhado {q.err[:2]} {q.st[:2]}')
-    if f == 'index.html':
+    if f in ('index.html','projetos.html'):
         for card in re.findall(r'<article class="projeto.*?</article>', txt, re.S):
             nome = re.search(r'projeto-nome">(.*?)</h3>', card, re.S).group(1)
             for rot in ('Pergunta','Método','Resultado'):

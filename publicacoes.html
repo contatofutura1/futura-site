@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Publicações | Futura</title>
-<meta name="description" content="Artigos revisados por pares, relatórios para IMO e OMS, policy briefs e anais de congresso da Futura.">
+<meta name="description" content="Artigos revisados por pares, capítulo de livro, artigos na imprensa, relatórios e anais da Futura.">
 <link rel="canonical" href="https://futuraevidencelab.com.br/publicacoes.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Futura">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Publicações | Futura">
-<meta property="og:description" content="Artigos revisados por pares, relatórios para IMO e OMS, policy briefs e anais de congresso da Futura.">
+<meta property="og:description" content="Artigos revisados por pares, capítulo de livro, artigos na imprensa, relatórios e anais da Futura.">
 <meta property="og:url" content="https://futuraevidencelab.com.br/publicacoes.html">
 <meta property="og:image" content="https://futuraevidencelab.com.br/compartilhar.png">
 <meta property="og:image:width" content="1200">
@@ -154,20 +154,20 @@ section{padding-block:var(--sp-9);}
 .projeto--nota .abrir{margin-top:var(--sp-4);}
 
 /* reportagem: largura inteira, texto em 8 colunas, figura em 4 */
-.projeto--reportagem{grid-column:1/-1;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--calha);border-top:var(--fio);padding:var(--sp-5) 0 var(--sp-6);}
+.projeto--reportagem{grid-column:1/-1;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:auto auto auto 1fr;column-gap:var(--calha);border-top:var(--fio);padding:var(--sp-5) 0 var(--sp-6);}
 .projeto--reportagem .projeto-nome{grid-column:1/9;grid-row:1;font-size:var(--fs-h2);max-width:18ch;}
 .projeto--reportagem .projeto-meta{grid-column:1/9;grid-row:2;}
 .projeto--reportagem .teaser{grid-column:1/9;grid-row:3;max-width:48ch;margin-top:var(--sp-5);}
-.projeto--reportagem .abrir{grid-column:1/9;grid-row:4;margin-top:var(--sp-4);}
+.projeto--reportagem .abrir{grid-column:1/9;grid-row:4;margin-top:var(--sp-4);align-self:start;}
 .projeto--reportagem .figura{grid-column:9/13;grid-row:1/5;}
 
 /* capa: mesma grade da reportagem, título maior, sem fio acima */
-.projeto--capa{grid-column:1/-1;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--calha);padding:0 0 var(--sp-6);}
+.projeto--capa{grid-column:1/-1;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:auto auto auto auto 1fr;column-gap:var(--calha);padding:0 0 var(--sp-6);}
 .projeto--capa .destaque-rotulo{grid-column:1/9;grid-row:1;margin-bottom:var(--sp-3);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
 .projeto--capa .projeto-nome{grid-column:1/9;grid-row:2;font-size:var(--fs-h1);max-width:14ch;}
 .projeto--capa .projeto-meta{grid-column:1/9;grid-row:3;}
 .projeto--capa .teaser{grid-column:1/9;grid-row:4;max-width:48ch;margin-top:var(--sp-5);}
-.projeto--capa .destaque-acoes{grid-column:1/9;grid-row:5;margin-top:var(--sp-4);display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--sp-5);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;line-height:1.3;}
+.projeto--capa .destaque-acoes{grid-column:1/9;grid-row:5;align-self:start;margin-top:var(--sp-4);display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--sp-5);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;line-height:1.3;}
 .projeto--capa .destaque-acoes a{border-bottom:1px solid var(--preto);line-height:1.3;}
 .projeto--capa .figura{grid-column:9/13;grid-row:1/6;}
 .projeto--capa .destaque-acoes .abrir{margin:0;}
@@ -242,6 +242,25 @@ section{padding-block:var(--sp-9);}
 .js .revela{opacity:0;transition:opacity 500ms ease;} .js .revela.visto{opacity:1;}
 @media (prefers-reduced-motion:reduce){.js .revela{opacity:1;transition:none;}}
 
+
+/* ---------- HOME: território, expertise, impacto, portas ---------- */
+.territorio{font-size:var(--fs-body);max-width:52ch;margin-top:var(--sp-5);}
+.pilares{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-7) var(--sp-8);}
+.pilares li{display:grid;row-gap:var(--sp-3);align-content:start;border-top:var(--fio);padding-top:var(--sp-4);}
+.pilares h3{font-size:var(--fs-h3);}
+.pilares p{font-size:var(--fs-small);max-width:44ch;}
+.pilares a{border:0;justify-self:start;border-bottom:1px solid var(--preto);}
+.fatos{border-top:var(--fio);}
+.fatos li{display:grid;grid-template-columns:1fr auto;gap:var(--calha);align-items:baseline;padding:var(--sp-4) 0;border-bottom:var(--fio);}
+.fatos li span{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--fs-h3);line-height:var(--lh-display);max-width:40ch;}
+.fatos li a{font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;border:0;border-bottom:1px solid var(--preto);white-space:nowrap;}
+.portas{grid-column:1/13;display:grid;row-gap:var(--sp-5);}
+.portas li{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);align-items:baseline;}
+.portas .rotulo{grid-column:1/4;}
+.portas .contato-email{grid-column:4/13;font-size:var(--fs-h2);width:max-content;max-width:100%;}
+.secao-cab p a{border-bottom:1px solid var(--preto);}
+@media (max-width:760px){.pilares{grid-template-columns:1fr;} .portas li{grid-template-columns:1fr;gap:var(--sp-1);} .portas .rotulo,.portas .contato-email{grid-column:1;} .portas .contato-email{font-size:var(--fs-h3);width:auto;} .fatos li{grid-template-columns:1fr;gap:var(--sp-2);}}
+
 /* ---------- RESPONSIVO ---------- */
 @media (max-width:1100px){
   .projetos{grid-template-columns:repeat(2,minmax(0,1fr));}
@@ -269,18 +288,16 @@ section{padding-block:var(--sp-9);}
 </style>
 </head>
 <body>
-<a class="skip" href="#lista">Ir para a lista</a>
+<a class="skip" href="#projetos">Ir para os projetos</a>
 
 <header class="nav" id="nav">
   <div class="wrap nav-in">
     <a class="marca" href="index.html" aria-label="Futura, início">F<span class="u">U</span>T<span class="u">U</span>RA</a>
     <nav aria-label="Principal">
       <ul class="menu" id="menu">
-        <li><a href="index.html#projetos">Projetos</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
         <li><a href="publicacoes.html" aria-current="true">Publicações</a></li>
-        <li><a href="midia.html">Na mídia</a></li>
-        <li><a href="index.html#onde">Onde</a></li>
-        <li><a href="index.html#quem">Quem</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
         <li><a href="index.html#contato">Contato</a></li>
       </ul>
     </nav>
@@ -294,7 +311,7 @@ section{padding-block:var(--sp-9);}
 <section class="wrap secundaria" id="publicacoes" aria-labelledby="t-pub">
   <div class="secao-cab">
     <h2 class="display" id="t-pub">Publicações</h2>
-    <p>Artigos revisados por pares, capítulo de livro, artigos na imprensa, relatórios que chegaram à Organização Marítima Internacional e à Organização Mundial da Saúde, anais de congresso. <a href="index.html#projetos">Voltar aos projetos</a></p>
+    <p>Artigos revisados por pares, capítulo de livro, artigos na imprensa, relatórios que chegaram à Organização Marítima Internacional e à Organização Mundial da Saúde, anais de congresso. <a href="projetos.html">Ver os projetos</a></p>
   </div>
   <div class="abas" role="tablist" aria-label="Tipo de publicação">
     <button class="aba" role="tab" aria-selected="true" aria-controls="p-per" id="a-per">Artigos em periódicos</button>
@@ -360,9 +377,13 @@ section{padding-block:var(--sp-9);}
 </main>
 
 <!-- CONTATO -->
-<footer class="contato" id="contato">
-  <div class="wrap contato-in">
-    <a class="contato-email" href="mailto:contato@futuraevidencelab.com.br">contato@futuraevidencelab.com.br</a>
+<footer class="wrap contato" id="contato">
+  <div class="contato-in">
+    <ul class="portas">
+      <li><span class="rotulo">Pesquisa e parcerias</span><a class="contato-email" href="mailto:contato@futuraevidencelab.com.br">contato@futuraevidencelab.com.br</a></li>
+      <li><span class="rotulo">Imprensa</span><a class="contato-email" href="mailto:imprensa@futuraevidencelab.com.br">imprensa@futuraevidencelab.com.br</a></li>
+      <li><span class="rotulo">Monitor El Niño Brasil</span><a class="contato-email" href="https://monitorelnino.com.br/">monitorelnino.com.br</a></li>
+    </ul>
     <div class="assinatura"><p>Futura, Patricia Ferrini</p><p>© 2026</p></div>
   </div>
 </footer>
