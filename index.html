@@ -546,6 +546,13 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
 
 @media (max-width:760px){.nota-mapa{height:7rem;}}
 
+@media (max-width:1100px){
+  .projeto.ancora.com-imagem{display:flex;flex-direction:column;}
+  .projeto.ancora.com-imagem .projeto-nome{order:1;} .projeto.ancora.com-imagem .projeto-meta{order:2;} .projeto.ancora.com-imagem .projeto-imagem{order:3;margin:var(--s3) 0;} .projeto.ancora.com-imagem .teaser{order:4;margin-top:0;} .projeto.ancora.com-imagem .abrir{order:5;}
+  .projeto.destaque.com-imagem .destaque-in{display:flex;flex-direction:column;}
+  .projeto.destaque.com-imagem .destaque-in > div:nth-of-type(1){order:1;} .projeto.destaque.com-imagem .projeto-imagem{order:2;margin:var(--s3) 0;} .projeto.destaque.com-imagem .destaque-in > div:nth-of-type(2){order:3;}
+}
+
 /* ---------- RESPONSIVO ---------- */
 @media (max-width:1100px){
   .projetos{grid-template-columns:repeat(2,minmax(0,1fr));}
