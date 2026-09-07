@@ -520,6 +520,13 @@ section{padding-block:clamp(5rem,14vh,10rem);}
 .projeto-imagem .quadro-borda{display:none;}
 @media (max-width:1100px){.projeto.ancora.com-imagem .projeto-imagem,.projeto.destaque.com-imagem .projeto-imagem{grid-column:1/13;grid-row:auto;aspect-ratio:3/2;} .projeto.destaque.com-imagem .destaque-in > div{grid-column:1/13;}}
 
+
+/* crédito da foto: aparece ao passar o mouse; sempre visível em telas de toque */
+figure.projeto-imagem{position:relative;margin:0;overflow:hidden;}
+figure.projeto-imagem figcaption{position:absolute;left:0;right:0;bottom:0;padding:.5rem .75rem;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--branco);background:linear-gradient(to top,rgba(0,0,0,.65),rgba(0,0,0,0));opacity:0;transition:opacity var(--tr);}
+figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcaption{opacity:1;}
+@media (hover:none){figure.projeto-imagem figcaption{opacity:1;}}
+
 /* ---------- RESPONSIVO ---------- */
 @media (max-width:1100px){
   .projetos{grid-template-columns:repeat(2,minmax(0,1fr));}
@@ -628,8 +635,8 @@ section{padding-block:clamp(5rem,14vh,10rem);}
       </div>
     </div>
   </article>
-    <article class="projeto ancora" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="ar" data-elementos="ar agua" data-lugares="berlim atlantico">
-      <div class="projeto-imagem quadro"><span class="ph">imagem a inserir</span></div>
+    <article class="projeto ancora com-imagem" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="ar" data-elementos="ar agua" data-lugares="berlim atlantico">
+      <figure class="projeto-imagem"><img src="img/eca-navio.jpg" alt="Navio cargueiro em porto, com fumaça saindo da chaminé" loading="lazy"><figcaption>Foto: Vladvictoria, Pixabay, via Jornal da USP</figcaption></figure>
       <h3 class="projeto-nome">A maior área de controle de emissões marítimas do mundo</h3>
       <p class="projeto-meta">2024–2026, ICCT e Organização Marítima Internacional</p>
       <p class="teaser">Os estudos que embasaram a área de controle de emissões marítimas adotada pela Organização Marítima Internacional em 2026.</p>
@@ -682,8 +689,8 @@ section{padding-block:clamp(5rem,14vh,10rem);}
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Como um padrão nacional de qualidade do ar se converte em instrumentos de uso do sistema de saúde?</dd></div><div><dt>Método</dt><dd>Apoio técnico ao Ministério da Saúde na implementação dos novos padrões nacionais de qualidade do ar, em parceria com a Environmental Defense Fund e a Coalizão do Clima e Ar Limpo.</dd></div><div><dt>Resultado</dt><dd>Padrões nacionais traduzidos em instrumentos de implementação para o sistema de saúde.</dd></div></dl></div>
     </article>
   <div class="pratica" id="imaginacao"><h3 class="pratica-titulo display">Imaginação</h3></div>
-    <article class="projeto ancora" id="p-eduardo-kobra-e-a-oms-por-um-ar-mais-lim" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="cartagena genebra">
-      <div class="projeto-imagem quadro"><span class="ph">imagem a inserir</span></div>
+    <article class="projeto ancora com-imagem" id="p-eduardo-kobra-e-a-oms-por-um-ar-mais-lim" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="cartagena genebra">
+      <figure class="projeto-imagem"><img src="img/kobra-cartagena.jpg" alt="Eduardo Kobra discursa em Cartagena ao receber o título de embaixador da Organização Mundial da Saúde" loading="lazy"><figcaption>Foto: Divulgação, via Gazeta de São Paulo</figcaption></figure>
       <h3 class="projeto-nome">Eduardo Kobra e a OMS por um ar mais limpo</h3>
       <p class="projeto-meta">2025, Organização Mundial da Saúde, Cartagena (Futura)</p>
       <p class="teaser">Eduardo Kobra nomeado embaixador da Organização Mundial da Saúde e porta-voz da campanha BreatheLife, em Cartagena.</p>

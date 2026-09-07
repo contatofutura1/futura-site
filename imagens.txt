@@ -5,3 +5,6 @@ marajo-02.webp        https://marajosemfumaca.com.br/wp-content/uploads/2026/05/
 marajo-03.webp        https://marajosemfumaca.com.br/wp-content/uploads/2026/05/marajo-sem-fumaca-03.webp
 marajo-poster.webp    https://marajosemfumaca.com.br/wp-content/uploads/2026/06/poster-01.webp
 marajo-policy.webp    https://marajosemfumaca.com.br/wp-content/uploads/2026/06/policy-brief-01.webp
+kobra-cartagena.jpg   https://www.gazetasp.com.br/wp-content/uploads/dn_arquivo/2025/03/novo-projeto-75_2.jpg
+kobra-escher.jpg      https://www.gazetasp.com.br/wp-content/uploads/dn_arquivo/2025/03/novo-projeto-73_2.jpg
+eca-navio.jpg         https://jornal.usp.br/wp-content/uploads/2026/07/200260727_navio.jpg
