@@ -112,8 +112,8 @@ section{padding-block:var(--s6);}
 /* ---------- POSIÇÃO ---------- */
 .posicao{border-top:var(--fio);}
 .posicao-in{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--calha);}
-.proposicao{grid-column:1/10;font-size:var(--t5);line-height:1.04;max-width:16ch;}
-.posicao-nota{grid-column:1/8;margin-top:var(--s4);max-width:52ch;}
+.proposicao{grid-column:1/11;font-size:var(--t5);line-height:1.04;max-width:18ch;}
+.posicao-nota{grid-column:1/9;margin-top:var(--s4);max-width:62ch;}
 
 /* ---------- ELEMENTOS ---------- */
 .elementos{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 clamp(1.25rem,3.5vw,3rem);padding:var(--s3) 0;border-bottom:var(--fio);margin-bottom:var(--s5);}
@@ -388,6 +388,61 @@ a.item-titulo:hover{color:var(--terracota);}
 .projetos{row-gap:var(--s4);}
 .pratica{border-top:var(--fio);}
 
+.projeto.ancora{grid-column:span 2;}
+.projeto.ancora .projeto-nome{font-size:var(--t3);}
+.projeto.ancora .teaser{max-width:56ch;font-size:var(--t0);}
+.pratica-frase{display:none;}
+.pratica{grid-template-columns:1fr;}
+.pratica-titulo{max-width:none;white-space:nowrap;}
+@media (max-width:760px){.projeto.ancora{grid-column:auto;}}
+
+
+/* ===== PASSE DE DESIGN: menos tamanhos, mais ar ===== */
+:root{--t5:clamp(2.5rem,1.6rem + 4vw,4.5rem);}
+.secao-cab{margin-bottom:var(--s5);padding-bottom:var(--s3);}
+.secao-cab h2{font-size:var(--t5);letter-spacing:.03em;}
+.secao-cab p{font-size:var(--t-1);max-width:40ch;line-height:1.6;}
+.abertura{min-height:88svh;}
+.slogan{font-size:var(--t3);}
+.predicado{font-size:var(--t-1);letter-spacing:.02em;}
+.proposicao{font-size:var(--t4);max-width:18ch;}
+.posicao-nota{font-size:var(--t0);max-width:60ch;}
+.elementos{padding:var(--s2) 0;margin-bottom:var(--s5);gap:0 clamp(1rem,3vw,2.5rem);}
+.elemento{font-size:var(--t2);letter-spacing:.06em;}
+.contagem{margin:calc(var(--s5) * -1 + var(--s2)) 0 var(--s4);}
+.pratica{padding:var(--s5) 0 var(--s3);}
+.pratica-titulo{font-size:var(--t2);letter-spacing:0;}
+.projetos{gap:var(--s5) var(--calha);}
+.projeto{padding:var(--s2) 0 0;}
+.projeto-nome{font-size:var(--t2);line-height:1.05;}
+.projeto.ancora .projeto-nome{font-size:var(--t3);}
+.projeto-meta{font-size:.8125rem;margin:.5rem 0 var(--s2);}
+.teaser{font-size:var(--t-1);line-height:1.55;max-width:40ch;}
+.projeto.ancora .teaser{font-size:var(--t0);max-width:58ch;}
+.abrir{font-size:.7rem;letter-spacing:.12em;}
+.projeto.destaque{padding:var(--s3) 0 var(--s4);}
+.projeto.destaque .projeto-nome{font-size:var(--t4);}
+.destaque-rotulo{font-size:.7rem;letter-spacing:.14em;}
+.destaque-acoes{font-size:.7rem;letter-spacing:.12em;}
+.mapa-legenda{font-size:.7rem;letter-spacing:.1em;}
+.instituicoes{margin-top:var(--s5);}
+.instituicoes h3{font-size:.7rem;letter-spacing:.12em;}
+.instituicoes li{font-size:.875rem;border-bottom:0;padding:.2rem 0;}
+.quem-txt h2{font-size:var(--t3);}
+.quem-txt p{font-size:var(--t0);}
+.contato-email{font-size:var(--t3);}
+.contato-links,.assinatura{font-size:.75rem;letter-spacing:.1em;}
+.item-titulo{font-size:var(--t1);}
+.item-fonte{font-size:.7rem;letter-spacing:.1em;}
+.item-data{font-size:.8125rem;}
+.abas{font-size:.75rem;letter-spacing:.1em;}
+.menu{font-size:.75rem;letter-spacing:.1em;}
+.marca{font-size:1.25rem;}
+.ficha dt{font-size:.7rem;letter-spacing:.12em;}
+.ficha dd{font-size:var(--t-1);}
+.fd-in{padding:var(--s4) var(--s5);}
+@media (max-width:760px){.fd-in{padding:var(--s3);}.secao-cab h2{font-size:var(--t4);}}
+
 /* ---------- RESPONSIVO ---------- */
 @media (max-width:1100px){
   .projetos{grid-template-columns:repeat(2,minmax(0,1fr));}
@@ -523,8 +578,7 @@ a.item-titulo:hover{color:var(--terracota);}
     <a class="contato-email" href="mailto:contato@futuraevidencelab.com.br">contato@futuraevidencelab.com.br</a>
     <div class="contato-links">
       <a href="https://www.linkedin.com/in/patricia-ferrini/">LinkedIn</a>
-      <a href="index.html#">Instagram</a>
-      <a href="https://orcid.org/0000-0003-3070-3631">ORCID</a>
+            <a href="https://orcid.org/0000-0003-3070-3631">ORCID</a>
     </div>
     <div class="assinatura"><p>Futura, Patricia Ferrini</p><p>© 2026</p></div>
   </div>

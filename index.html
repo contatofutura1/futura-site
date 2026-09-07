@@ -396,6 +396,53 @@ a.item-titulo:hover{color:var(--terracota);}
 .pratica-titulo{max-width:none;white-space:nowrap;}
 @media (max-width:760px){.projeto.ancora{grid-column:auto;}}
 
+
+/* ===== PASSE DE DESIGN: menos tamanhos, mais ar ===== */
+:root{--t5:clamp(2.5rem,1.6rem + 4vw,4.5rem);}
+.secao-cab{margin-bottom:var(--s5);padding-bottom:var(--s3);}
+.secao-cab h2{font-size:var(--t5);letter-spacing:.03em;}
+.secao-cab p{font-size:var(--t-1);max-width:40ch;line-height:1.6;}
+.abertura{min-height:88svh;}
+.slogan{font-size:var(--t3);}
+.predicado{font-size:var(--t-1);letter-spacing:.02em;}
+.proposicao{font-size:var(--t4);max-width:18ch;}
+.posicao-nota{font-size:var(--t0);max-width:60ch;}
+.elementos{padding:var(--s2) 0;margin-bottom:var(--s5);gap:0 clamp(1rem,3vw,2.5rem);}
+.elemento{font-size:var(--t2);letter-spacing:.06em;}
+.contagem{margin:calc(var(--s5) * -1 + var(--s2)) 0 var(--s4);}
+.pratica{padding:var(--s5) 0 var(--s3);}
+.pratica-titulo{font-size:var(--t2);letter-spacing:0;}
+.projetos{gap:var(--s5) var(--calha);}
+.projeto{padding:var(--s2) 0 0;}
+.projeto-nome{font-size:var(--t2);line-height:1.05;}
+.projeto.ancora .projeto-nome{font-size:var(--t3);}
+.projeto-meta{font-size:.8125rem;margin:.5rem 0 var(--s2);}
+.teaser{font-size:var(--t-1);line-height:1.55;max-width:40ch;}
+.projeto.ancora .teaser{font-size:var(--t0);max-width:58ch;}
+.abrir{font-size:.7rem;letter-spacing:.12em;}
+.projeto.destaque{padding:var(--s3) 0 var(--s4);}
+.projeto.destaque .projeto-nome{font-size:var(--t4);}
+.destaque-rotulo{font-size:.7rem;letter-spacing:.14em;}
+.destaque-acoes{font-size:.7rem;letter-spacing:.12em;}
+.mapa-legenda{font-size:.7rem;letter-spacing:.1em;}
+.instituicoes{margin-top:var(--s5);}
+.instituicoes h3{font-size:.7rem;letter-spacing:.12em;}
+.instituicoes li{font-size:.875rem;border-bottom:0;padding:.2rem 0;}
+.quem-txt h2{font-size:var(--t3);}
+.quem-txt p{font-size:var(--t0);}
+.contato-email{font-size:var(--t3);}
+.contato-links,.assinatura{font-size:.75rem;letter-spacing:.1em;}
+.item-titulo{font-size:var(--t1);}
+.item-fonte{font-size:.7rem;letter-spacing:.1em;}
+.item-data{font-size:.8125rem;}
+.abas{font-size:.75rem;letter-spacing:.1em;}
+.menu{font-size:.75rem;letter-spacing:.1em;}
+.marca{font-size:1.25rem;}
+.ficha dt{font-size:.7rem;letter-spacing:.12em;}
+.ficha dd{font-size:var(--t-1);}
+.fd-in{padding:var(--s4) var(--s5);}
+@media (max-width:760px){.fd-in{padding:var(--s3);}.secao-cab h2{font-size:var(--t4);}}
+
 /* ---------- RESPONSIVO ---------- */
 @media (max-width:1100px){
   .projetos{grid-template-columns:repeat(2,minmax(0,1fr));}
@@ -465,12 +512,6 @@ a.item-titulo:hover{color:var(--terracota);}
     <p class="slogan display">Imaginar não basta.</p>
     <p class="predicado">Laboratório de futuros baseados em evidência.</p>
   </div>
-  <nav class="abertura-nav" aria-label="Elementos">
-    <a href="#projetos" data-el="ar">Ar</a>
-    <a href="#projetos" data-el="agua">Água</a>
-    <a href="#projetos" data-el="fogo">Fogo</a>
-    <a href="#projetos" data-el="terra">Terra</a>
-  </nav>
 </section>
 
 <!-- POSIÇÃO -->
@@ -485,7 +526,7 @@ a.item-titulo:hover{color:var(--terracota);}
 <section class="wrap" id="projetos" aria-labelledby="t-projetos">
   <div class="secao-cab">
     <h2 class="display" id="t-projetos">Projetos</h2>
-    <p>Três lugares por onde a evidência passa: onde decide, onde encontra as pessoas, onde nasce. Cada projeto tem uma ficha com a pergunta, o método e o resultado.</p>
+    <p>Da medição à decisão: onde a evidência decide, onde encontra as pessoas, onde nasce. Cada projeto tem uma ficha com a pergunta, o método e o resultado.</p>
   </div>
   <div class="elementos" role="group" aria-label="Filtrar por elemento">
     <button class="elemento" type="button" data-el="ar" aria-pressed="false">Ar</button>
@@ -681,7 +722,7 @@ a.item-titulo:hover{color:var(--terracota);}
 <section class="wrap" id="onde" aria-labelledby="t-onde">
   <div class="secao-cab">
     <h2 class="display" id="t-onde">Onde</h2>
-    <p>Um mapa costuma mostrar onde se esteve; raramente mostra em que escala se agiu. Aqui cada lugar aparece no tamanho do projeto: cidade, país, continente, região, oceano. Toque num lugar para ver o que aconteceu lá. Abaixo, com quem o trabalho foi feito.</p>
+    <p>Um mapa costuma mostrar onde se esteve; raramente mostra em que escala se agiu. Aqui cada lugar aparece no tamanho do projeto: cidade, país, continente, região, oceano. Toque num lugar do mapa para ver os projetos que aconteceram ali. Abaixo, com quem o trabalho foi feito.</p>
   </div>
   <svg class="mapa" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mapa-t"><title id="mapa-t">Mapa-múndi em projeção Equal Earth: a terra como malha de pontos; as áreas de atuação em cor; as cidades como arcos abertos</title>
 <defs>
@@ -726,12 +767,6 @@ a.item-titulo:hover{color:var(--terracota);}
 <g class="mapa-cidade" data-lugar="kathmandu" tabindex="0" role="button"><circle cx="868.7" cy="178.1" r="2.2"/><path d="M871.9 184.3 A7 7 0 1 1 875.7 178.3"/><title>Kathmandu</title></g>
 </svg>
   <p class="mapa-legenda"><span><svg width="20" height="12" aria-hidden="true"><pattern id="lg-preto" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" style="fill:var(--preto)"/></pattern><rect width="20" height="12" fill="url(#lg-preto)"/></svg>Brasil, em curso</span><span><svg width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="2.2" style="fill:var(--terracota)"/><path d="M11.2 10.3 A5 5 0 1 1 11.6 3.8" fill="none" style="stroke:var(--terracota)" stroke-width="1.1"/></svg>Cidade</span><span><svg width="20" height="12" aria-hidden="true"><pattern id="lg-ar" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" style="fill:var(--ar)"/></pattern><rect width="20" height="12" fill="url(#lg-ar)"/></svg>País</span><span><svg width="20" height="12" aria-hidden="true"><pattern id="lg-terra" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" style="fill:var(--terra)"/></pattern><rect width="20" height="12" fill="url(#lg-terra)"/></svg>Continente</span><span><svg width="20" height="12" aria-hidden="true"><pattern id="lg-fogo" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" style="fill:var(--fogo)"/></pattern><rect width="20" height="12" fill="url(#lg-fogo)"/></svg>Região</span><span><svg width="20" height="12" aria-hidden="true"><pattern id="lg-agua" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" style="fill:var(--agua)"/></pattern><rect width="20" height="12" fill="url(#lg-agua)"/></svg>Oceano</span></p>
-  <div class="onde-lista">
-    <div><h3>Cidades</h3><ul><li><button class="lugar" type="button" data-lugar="button">Genebra</button><span class="lugar-projs"><a href="#p-segunda-conferencia-global-sobre-poluica" class="lugar-proj">Segunda Conferência Global sobre Poluição do Ar e Saúde</a>, <a href="#p-primeira-conferencia-global-sobre-poluic" class="lugar-proj">Primeira Conferência Global sobre Poluição do Ar e Saúde</a>, <a href="#p-transporte-ativo-em-accra-e-kathmandu" class="lugar-proj">Transporte ativo em Accra e Kathmandu</a></span></li><li><button class="lugar" type="button" data-lugar="button">Cartagena</button><span class="lugar-projs"><a href="#p-segunda-conferencia-global-sobre-poluica" class="lugar-proj">Segunda Conferência Global sobre Poluição do Ar e Saúde</a></span></li><li><button class="lugar" type="button" data-lugar="button">Acra</button><span class="lugar-projs"><a href="#p-transporte-ativo-em-accra-e-kathmandu" class="lugar-proj">Transporte ativo em Accra e Kathmandu</a></span></li><li><button class="lugar" type="button" data-lugar="button">Kathmandu</button><span class="lugar-projs"><a href="#p-transporte-ativo-em-accra-e-kathmandu" class="lugar-proj">Transporte ativo em Accra e Kathmandu</a></span></li><li><button class="lugar" type="button" data-lugar="button">Paris</button><span class="lugar-projs"><a href="#p-cenarios-de-descarbonizacao-e-saude-publ" class="lugar-proj">Cenários de descarbonização e saúde pública</a>, <a href="#p-orientacao-de-transporte-rodoviario-para" class="lugar-proj">Orientação de transporte rodoviário para a plataforma AQMx</a></span></li><li><button class="lugar" type="button" data-lugar="button">Berlim</button><span class="lugar-projs"><a href="#p-a-frota-de-automoveis-da-alemanha" class="lugar-proj">A frota de automóveis da Alemanha</a>, <a href="#p-1-9-milhao-de-vidas-ate-2040" class="lugar-proj">1,9 milhão de vidas até 2040</a>, <a href="#p-area-de-controle-de-emissoes-do-atlantic" class="lugar-proj">Área de Controle de Emissões do Atlântico Nordeste</a></span></li><li><button class="lugar" type="button" data-lugar="button">São Paulo</button><span class="lugar-projs"><a href="#p-aerossois-urbanos-por-lidar" class="lugar-proj">Aerossóis urbanos por LIDAR</a>, <a href="#p-o-que-a-poluicao-custa-ao-sus" class="lugar-proj">O que a poluição custa ao SUS</a>, <a href="#p-co-beneficios-do-transporte-de-passageir" class="lugar-proj">Co-benefícios do transporte de passageiros em São Paulo</a>, <a href="#p-descarbonizacao-do-transporte-pesado" class="lugar-proj">Descarbonização do transporte pesado</a></span></li><li><button class="lugar" type="button" data-lugar="button">Belém e Marajó</button><span class="lugar-projs"><a href="#p-respira-amazonia" class="lugar-proj">Respira Amazônia</a>, <a href="#p-manejo-integrado-do-fogo-na-ilha-de-mara" class="lugar-proj">Manejo integrado do fogo na Ilha de Marajó</a></span></li><li><button class="lugar" type="button" data-lugar="button">Rio Branco</button><span class="lugar-projs"><a href="#p-respira-amazonia" class="lugar-proj">Respira Amazônia</a></span></li><li><button class="lugar" type="button" data-lugar="button">Brasília</button><span class="lugar-projs"><a href="#p-padroes-nacionais-de-qualidade-do-ar" class="lugar-proj">Padrões nacionais de qualidade do ar</a></span></li><li><button class="lugar" type="button" data-lugar="button">Gotemburgo</button><span class="lugar-projs"><a href="#p-gigantes-eletricos-na-assembleia-da-volv" class="lugar-proj">Gigantes Elétricos na assembleia da Volvo</a></span></li><li><button class="lugar" type="button" data-lugar="button">Porto</button><span class="lugar-projs"><a href="#p-andar-e-pedalar-no-porto" class="lugar-proj">Andar e pedalar no Porto</a></span></li><li><button class="lugar" type="button" data-lugar="button">Grenoble</button><span class="lugar-projs"><a href="#p-cenarios-de-descarbonizacao-e-saude-publ" class="lugar-proj">Cenários de descarbonização e saúde pública</a></span></li><li><button class="lugar" type="button" data-lugar="button">Düsseldorf</button><span class="lugar-projs"><a href="#p-cobertura-por-satelite-para-a-india" class="lugar-proj">Cobertura por satélite para a Índia</a></span></li><li><button class="lugar" type="button" data-lugar="button">Greenbelt (NASA Goddard)</button><span class="lugar-projs"><a href="#p-aerossois-urbanos-por-lidar" class="lugar-proj">Aerossóis urbanos por LIDAR</a></span></li><li><button class="lugar" type="button" data-lugar="button">Marília</button><span class="lugar-projs"><a href="#p-aerossois-urbanos-por-lidar" class="lugar-proj">Aerossóis urbanos por LIDAR</a></span></li><li><button class="lugar" type="button" data-lugar="button">Toulouse</button><span class="lugar-projs"><a href="#p-aerossois-urbanos-por-lidar" class="lugar-proj">Aerossóis urbanos por LIDAR</a></span></li><li><button class="lugar" type="button" data-lugar="button">Praga</button><span class="lugar-projs"><a href="#p-aerossois-urbanos-por-lidar" class="lugar-proj">Aerossóis urbanos por LIDAR</a></span></li><li><button class="lugar" type="button" data-lugar="button">Edimburgo</button><span class="lugar-projs"><a href="#p-aerossois-urbanos-por-lidar" class="lugar-proj">Aerossóis urbanos por LIDAR</a></span></li><li><button class="lugar" type="button" data-lugar="button">Amsterdã</button><span class="lugar-projs"><a href="#p-aerossois-urbanos-por-lidar" class="lugar-proj">Aerossóis urbanos por LIDAR</a></span></li></ul></div>
-    <div><h3>Países</h3><ul><li><button class="lugar" type="button" data-lugar="button">Brasil</button><span class="lugar-projs"><a href="#agora" class="lugar-proj">Monitor El Niño Brasil</a>, <a href="#p-o-que-a-poluicao-custa-ao-sus" class="lugar-proj">O que a poluição custa ao SUS</a></span></li><li><button class="lugar" type="button" data-lugar="button">Índia</button><span class="lugar-projs"><a href="#p-cobertura-por-satelite-para-a-india" class="lugar-proj">Cobertura por satélite para a Índia</a></span></li><li><button class="lugar" type="button" data-lugar="button">Canadá</button><span class="lugar-projs"><a href="#p-aerossois-urbanos-por-lidar" class="lugar-proj">Aerossóis urbanos por LIDAR</a></span></li><li><button class="lugar" type="button" data-lugar="button">Chile</button><span class="lugar-projs"><a href="#p-aerossois-urbanos-por-lidar" class="lugar-proj">Aerossóis urbanos por LIDAR</a></span></li></ul></div>
-    <div><h3>Continente e região</h3><ul><li><button class="lugar" type="button" data-lugar="button">África Subsaariana</button><span class="lugar-projs"><a href="#p-orientacao-de-transporte-rodoviario-para" class="lugar-proj">Orientação de transporte rodoviário para a plataforma AQMx</a></span></li><li><button class="lugar" type="button" data-lugar="button">Amazônia Legal</button><span class="lugar-projs"><a href="#p-respira-amazonia" class="lugar-proj">Respira Amazônia</a>, <a href="#p-manejo-integrado-do-fogo-na-ilha-de-mara" class="lugar-proj">Manejo integrado do fogo na Ilha de Marajó</a></span></li></ul></div>
-    <div><h3>Oceano</h3><ul><li><button class="lugar" type="button" data-lugar="button">Atlântico Nordeste</button><span class="lugar-projs"><a href="#p-area-de-controle-de-emissoes-do-atlantic" class="lugar-proj">Área de Controle de Emissões do Atlântico Nordeste</a></span></li></ul></div>
-  </div>
   <div class="instituicoes">
     <div><h3>Sistema ONU</h3><ul>
       <li>Organização Mundial da Saúde</li>
@@ -859,7 +894,6 @@ a.item-titulo:hover{color:var(--terracota);}
   // mapa e índice de lugares → projetos
   function porLugar(l, mover){ aplicar(filtro&&filtro.tipo==='lugar'&&filtro.valor===l ? null : {tipo:'lugar',valor:l}, mover); }
   document.querySelectorAll('.mapa-cidade,.mapa-area').forEach(function(x){ x.addEventListener('click', function(){ porLugar(x.dataset.lugar, true); }); x.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); porLugar(x.dataset.lugar, true);} }); });
-  document.querySelectorAll('.lugar').forEach(function(b){ b.addEventListener('click', function(){ porLugar(b.dataset.lugar, true); }); });
   // projetos → mapa (realça o lugar, sem filtrar)
   document.querySelectorAll('.agora-mapa').forEach(function(a){ a.addEventListener('click', function(){
     document.querySelectorAll('.mapa-cidade,.mapa-area,.lugar').forEach(function(x){ x.classList.toggle('ativo', x.dataset.lugar===a.dataset.lugar); }); }); });
