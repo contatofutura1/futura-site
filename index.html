@@ -27,583 +27,246 @@
 
 <style>
 /* ==========================================================
-   SISTEMA
-   Escala tipográfica: razão 1.25 (terça maior), fluida.
-   Escala de espaço: base 8px, progressão 1 · 2 · 3 · 5 · 8 · 13 · 21.
-   Grade: 12 colunas, calha 24px, largura máxima 1280px.
-   Cor: preto, branco, terracota. Terracota = ativo.
+   FUTURA — folha de estilo única (sistema)
+   Tokens → base → componentes → páginas → responsivo.
+   Regra: nenhum elemento equivalente tem estilo próprio.
    ========================================================== */
-:root{
-  --preto:#000; --branco:#FFF; --terracota:#C04430;
 
+/* ---------- TOKENS ---------- */
+:root{
+  /* cor */
+  --preto:#000; --branco:#FFF; --terracota:#C04430;
+  --ar:#7FB3CF; --agua:#3A6B8A; --fogo:#C04430; --terra:#A86B12;
+  --fio:1px solid var(--preto);
+  /* tipografia: escala fixa */
   --display:"Playfair","Playfair Display",Georgia,serif;
   --corpo:"Jost","Futura","Century Gothic",Helvetica,Arial,sans-serif;
-
-  /* tipo */
-  --t-1: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem);
-  --t0:  clamp(1rem,      0.95rem + 0.25vw, 1.125rem);
-  --t1:  clamp(1.25rem,   1.15rem + 0.5vw,  1.5rem);
-  --t2:  clamp(1.5rem,    1.3rem  + 1vw,    2rem);
-  --t3:  clamp(1.875rem,  1.5rem  + 1.8vw,  2.75rem);
-  --t4:  clamp(2.25rem,   1.6rem  + 3.2vw,  4rem);
-  --t5:  clamp(2.75rem,   1.8rem  + 5vw,    6rem);
-  --hero:clamp(3rem,      15vw,             15rem);
-
-  /* espaço */
-  --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2.5rem; --s5:4rem; --s6:6.5rem; --s7:10.5rem;
-
+  --fs-hero:clamp(3rem,15vw,15rem);      /* wordmark, único */
+  --fs-h1:3rem;        /* 48: títulos de seção, matéria de capa */
+  --fs-h2:2rem;        /* 32: reportagens, nome em Quem, e-mail, títulos de ficha */
+  --fs-h3:1.375rem;    /* 22: notas, itens de lista, título de grupo */
+  --fs-body:1rem;      /* 16 */
+  --fs-small:.875rem;  /* 14: metadados, textos de nota, legendas de lista */
+  --fs-caption:.75rem; /* 12: rótulos em caixa alta, menu, créditos, abas */
+  --lh-display:1.05; --lh-body:1.55; --lh-small:1.5;
+  --ls-caption:.12em;
+  /* espaçamento: escala fixa */
+  --sp-1:.25rem; --sp-2:.5rem; --sp-3:.75rem; --sp-4:1rem; --sp-5:1.5rem; --sp-6:2rem; --sp-7:3rem; --sp-8:4rem; --sp-9:6rem;
   /* grade */
-  --wrap:1280px; --calha:1.5rem;
-  --margem:clamp(1.25rem, 5vw, 5rem);
+  --max:80rem; --colunas:12; --calha:1.5rem; --margem:clamp(1.5rem,4vw,2.5rem);
   --nav-h:4rem;
-
-  --fio:1px solid var(--preto);
-  --tr:160ms linear;
+  /* figuras */
+  --fig-nota:8rem;
+  --tr:180ms ease;
 }
 
-*,*::before,*::after{box-sizing:border-box;}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--nav-h) + 1rem);}
-body{margin:0;overflow-x:clip;background:var(--branco);color:var(--preto);font-family:var(--corpo);font-size:var(--t0);line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased;}
-img{max-width:100%;display:block;}
-a{color:inherit;text-decoration:none;border-bottom:1px solid currentColor;transition:color var(--tr),border-color var(--tr);}
-a:hover,a:focus-visible{color:var(--terracota);}
-:focus-visible{outline:2px solid var(--terracota);outline-offset:3px;}
+/* ---------- BASE ---------- */
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+body{margin:0;overflow-x:clip;background:var(--branco);color:var(--preto);font-family:var(--corpo);font-size:var(--fs-body);line-height:var(--lh-body);font-weight:400;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,p,ul,dl,dd,figure{margin:0;}
+ul{padding:0;list-style:none;}
+a{color:inherit;text-decoration:none;border-bottom:1px solid var(--preto);transition:color var(--tr),border-color var(--tr);}
+a:hover{color:var(--terracota);border-color:var(--terracota);}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;}
-ul{margin:0;padding:0;list-style:none;}
-h1,h2,h3,p{margin:0;}
+img,svg{max-width:100%;display:block;}
+:focus-visible{outline:2px solid var(--terracota);outline-offset:3px;}
+.skip{position:absolute;left:-999px;top:0;}
+.skip:focus{left:var(--sp-4);top:var(--sp-4);background:var(--branco);padding:var(--sp-2) var(--sp-4);z-index:100;}
+body.travado{overflow:hidden;}
 
-.display{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;line-height:1.02;}
-.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--margem);}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
-.skip{position:absolute;left:var(--margem);top:-3rem;background:var(--branco);padding:.5rem .75rem;border:var(--fio);z-index:100;}
-.skip:focus{top:.5rem;}
+/* tipos de display */
+.display{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;line-height:var(--lh-display);letter-spacing:.01em;}
+.rotulo{font-family:var(--corpo);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;line-height:1.3;}
+.h1{font-size:var(--fs-h1);} .h2{font-size:var(--fs-h2);} .h3{font-size:var(--fs-h3);}
+
+/* ---------- GRADE ---------- */
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--margem);}
+.grade-12{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);}
+section{padding-block:var(--sp-9);}
 
 /* ---------- NAV ---------- */
-.nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:50;background:var(--branco);border-bottom:1px solid transparent;transition:border-color var(--tr);}
-.nav.rolou{border-bottom-color:var(--preto);}
-.nav-in{height:100%;display:flex;align-items:center;justify-content:space-between;gap:var(--s3);}
-.marca{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:1.375rem;letter-spacing:.085em;border:0;}
+.nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:50;background:var(--branco);transition:box-shadow var(--tr);}
+.nav.rolou{box-shadow:0 1px 0 var(--preto);}
+.nav-in{height:100%;display:flex;align-items:center;justify-content:space-between;}
+.marca{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:1.25rem;letter-spacing:.085em;border:0;}
 .marca .u{color:var(--terracota);}
-.menu{display:flex;gap:var(--s3);font-size:var(--t-1);letter-spacing:.06em;text-transform:uppercase;}
-.menu a{border:0;padding:.35rem 0;position:relative;}
-.menu a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--terracota);transition:right var(--tr);}
-.menu a:hover::after,.menu a[aria-current="true"]::after{right:0;}
-.menu a[aria-current="true"]{color:var(--terracota);}
+.menu{display:flex;gap:var(--sp-5);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
+.menu a{border:0;} .menu a[aria-current="true"]{color:var(--terracota);}
 .hamb{display:none;width:2.5rem;height:2.5rem;position:relative;}
-.hamb span{position:absolute;left:.5rem;right:.5rem;height:1px;background:var(--preto);transition:transform var(--tr),opacity var(--tr);}
-.hamb span:nth-child(1){top:.9rem;} .hamb span:nth-child(2){top:1.25rem;} .hamb span:nth-child(3){top:1.6rem;}
-.nav.aberto .hamb span:nth-child(1){transform:translateY(.35rem) rotate(45deg);}
-.nav.aberto .hamb span:nth-child(2){opacity:0;}
-.nav.aberto .hamb span:nth-child(3){transform:translateY(-.35rem) rotate(-45deg);}
-
-/* ---------- SEÇÕES ---------- */
-section{padding-block:var(--s6);}
-.secao-cab{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--calha);align-items:end;margin-bottom:var(--s5);padding-bottom:var(--s3);border-bottom:var(--fio);}
-.secao-cab h2{grid-column:1/8;font-size:var(--t5);letter-spacing:.04em;text-transform:uppercase;line-height:.95;}
-.secao-cab p{grid-column:8/13;max-width:38ch;font-size:var(--t0);}
+.hamb span{position:absolute;left:.5rem;right:.5rem;height:1px;background:var(--preto);top:50%;transition:transform var(--tr);}
+.hamb span:first-child{transform:translateY(-.3rem);} .hamb span:last-child{transform:translateY(.3rem);}
+.nav.aberto .hamb span:first-child{transform:rotate(45deg);} .nav.aberto .hamb span:last-child{transform:rotate(-45deg);}
 
 /* ---------- ABERTURA ---------- */
-.abertura{min-height:100svh;padding-top:calc(var(--nav-h) + var(--s5));padding-bottom:var(--s5);display:grid;grid-template-columns:repeat(12,1fr);gap:var(--calha);align-content:end;}
-.wordmark{grid-column:1/13;font-size:var(--hero);line-height:.88;letter-spacing:.085em;margin-right:-.085em;white-space:nowrap;}
+.abertura{min-height:88svh;padding-top:var(--nav-h);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);align-content:end;padding-bottom:var(--sp-8);}
+.wordmark{grid-column:1/-1;font-size:var(--fs-hero);letter-spacing:.085em;line-height:.9;white-space:nowrap;margin-bottom:var(--sp-7);animation:surge 900ms ease both;}
 .wordmark .u{color:var(--terracota);}
-.wordmark span{display:inline-block;opacity:0;animation:surge 900ms cubic-bezier(.2,.6,.2,1) forwards;}
-@keyframes surge{to{opacity:1;}}
-.abertura-txt{grid-column:1/8;margin-top:var(--s4);}
-.slogan{font-size:var(--t3);line-height:1.08;margin-bottom:var(--s2);}
-.predicado{max-width:36ch;font-size:var(--t0);}
-.abertura-nav{grid-column:9/13;align-self:end;display:flex;flex-direction:column;gap:.5rem;font-size:var(--t-1);letter-spacing:.06em;text-transform:uppercase;margin-top:var(--s4);}
-.abertura-nav a{border:0;width:max-content;border-bottom:1px solid var(--preto);padding-bottom:.15rem;}
+@keyframes surge{from{opacity:0;transform:translateY(.2em);}to{opacity:1;transform:none;}}
+@media (prefers-reduced-motion:reduce){.wordmark{animation:none;}}
+.abertura-txt{grid-column:1/8;}
+.slogan{font-size:var(--fs-h2);margin-bottom:var(--sp-3);}
+.predicado{font-size:var(--fs-small);max-width:34ch;}
 
-/* ---------- POSIÇÃO ---------- */
-.posicao{border-top:var(--fio);}
-.posicao-in{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--calha);}
-.proposicao{grid-column:1/11;font-size:var(--t5);line-height:1.04;max-width:18ch;}
-.posicao-nota{grid-column:1/9;margin-top:var(--s4);max-width:62ch;}
+/* ---------- CABEÇALHO DE SEÇÃO ---------- */
+.secao-cab{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);align-items:end;padding-bottom:var(--sp-4);margin-bottom:var(--sp-7);border-bottom:var(--fio);}
+.secao-cab h2{grid-column:1/7;font-size:var(--fs-h1);text-transform:uppercase;letter-spacing:.03em;}
+.secao-cab p{grid-column:7/13;font-size:var(--fs-small);max-width:40ch;justify-self:end;}
+.secao-cab .elementos{grid-column:7/13;justify-self:end;}
 
-/* ---------- ELEMENTOS ---------- */
-.elementos{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 clamp(1.25rem,3.5vw,3rem);padding:var(--s3) 0;border-bottom:var(--fio);margin-bottom:var(--s5);}
-.elemento{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--t4);line-height:1;letter-spacing:.06em;text-transform:uppercase;transition:color var(--tr);}
-.elemento:hover,.elemento[aria-pressed="true"]{color:var(--terracota);}
-.elemento-todos{font-family:var(--corpo);font-size:var(--t-1);letter-spacing:.06em;text-transform:uppercase;margin-left:auto;}
-.contagem{font-size:var(--t-1);letter-spacing:.04em;margin:calc(var(--s4) * -1) 0 var(--s4);}
-
-/* ---------- PROJETOS ---------- */
-.projetos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s6) var(--calha);}
-.projeto{border-top:var(--fio);padding-top:var(--s3);display:flex;flex-direction:column;}
-.projeto[hidden]{display:none;}
-.projeto-imagem{aspect-ratio:4/5;width:62%;max-width:15rem;display:flex;align-items:center;justify-content:center;font-size:var(--t-1);margin-bottom:var(--s3);}
-.projeto-imagem img{width:100%;height:100%;object-fit:cover;}
-.projeto-nome{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 330;font-size:var(--t3);line-height:1;letter-spacing:.005em;max-width:12ch;text-wrap:balance;transition:color var(--tr);}
-.projeto:hover .projeto-nome,.projeto:focus-within .projeto-nome{color:var(--terracota);}
-.projeto:hover .quadro::before,.projeto:hover .quadro::after,.projeto:focus-within .quadro::before,.projeto:focus-within .quadro::after{border-color:var(--terracota);}
-.projeto-meta{font-size:var(--t-1);margin:.75rem 0 .5rem;}
-.projeto-ano{font-variant-numeric:tabular-nums;}
-.projeto-tags{display:flex;gap:.75rem;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:var(--s2);}
-.projeto-texto{font-size:var(--t0);max-width:40ch;}
-.projeto-links{display:flex;flex-wrap:wrap;gap:.35rem 1rem;margin-top:var(--s2);font-size:.8125rem;letter-spacing:.04em;}
-
-/* quadro de contorno interrompido, eco do arco do logotipo */
-.quadro{position:relative;}
-.quadro::before,.quadro::after{content:"";position:absolute;pointer-events:none;border-color:var(--preto);border-style:solid;transition:border-color var(--tr);}
-.quadro::before{inset:0 14%;border-width:1px 0;}
-.quadro::after{inset:11% 0 34%;border-width:0 1px;}
-
-/* ---------- LISTAS EDITORIAIS (publicações, mídia) ---------- */
-.abas{display:flex;flex-wrap:wrap;gap:var(--s3);margin-bottom:var(--s4);font-size:var(--t-1);letter-spacing:.06em;text-transform:uppercase;}
-.aba{padding:.4rem 0;border-bottom:1px solid transparent;transition:color var(--tr),border-color var(--tr);}
-.aba:hover{color:var(--terracota);}
-.aba[aria-selected="true"]{color:var(--terracota);border-bottom-color:var(--terracota);}
-.painel[hidden]{display:none;}
-.lista{border-top:var(--fio);}
-.item{display:grid;grid-template-columns:minmax(7rem,9rem) minmax(0,1fr) 5.5rem;gap:.25rem var(--s3);align-items:baseline;padding:var(--s2) 0;border-bottom:var(--fio);}
-.item-fonte{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;}
-.item-titulo{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 350;font-size:var(--t1);line-height:1.15;border:0;}
-a.item-titulo:hover{color:var(--terracota);}
-.item-data{font-size:var(--t-1);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;}
-.item-fontes{display:flex;flex-wrap:wrap;gap:.35rem 1rem;margin-top:.4rem;font-size:.8125rem;letter-spacing:.04em;}
-.mais{margin-top:var(--s3);font-size:var(--t-1);letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--preto);}
-
-.selo{display:inline-block;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border:var(--fio);padding:.1rem .45rem;margin-right:.5rem;vertical-align:middle;}
-.projeto[data-tier="0"] .selo{background:var(--preto);color:var(--branco);border-color:var(--preto);}
-
-/* ---------- ONDE, mapa ----------
-   A terra é uma malha de pontos (sinais). As áreas de atuação são a mesma malha,
-   em corpo maior e na cor do elemento. As cidades levam o arco aberto do logotipo. */
-.mapa{width:100%;height:auto;display:block;}
-.mapa-esfera{fill:none;stroke:var(--preto);stroke-width:.6;}
-.mapa-area{transition:opacity var(--tr);}
-.mapa-area:hover{opacity:.55;}
-.mapa-cidade circle{fill:var(--terracota);}
-.mapa-cidade path{fill:none;stroke:var(--terracota);stroke-width:1.1;stroke-linecap:round;transition:stroke-width var(--tr);}
-.mapa-cidade:hover path{stroke-width:2;}
-.mapa-legenda{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s3);margin-top:var(--s2);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;}
-.mapa-legenda span{display:inline-flex;align-items:center;gap:.45rem;}
-.mapa-legenda i{display:inline-block;width:1.2rem;height:.8rem;background:radial-gradient(var(--c) 1.1px,transparent 1.2px) 0 0/4px 4px;}
-.mapa-legenda .lg-cidade{width:.85rem;height:.85rem;background:none;border:1.5px solid var(--terracota);border-radius:50%;border-bottom-right-radius:0;position:relative;}
-.mapa-legenda .lg-cidade::after{content:"";position:absolute;inset:0;margin:auto;width:.3rem;height:.3rem;border-radius:50%;background:var(--terracota);}
-.mapa-legenda .lg-pais{--c:var(--ar);} .mapa-legenda .lg-continente{--c:var(--terra);} .mapa-legenda .lg-regiao{--c:var(--fogo);} .mapa-legenda .lg-oceano{--c:var(--agua);}
-.onde-lista{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s3) var(--calha);margin-top:var(--s5);font-size:var(--t-1);}
-.onde-lista h3{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem;padding-bottom:.35rem;border-bottom:var(--fio);}
-.onde-lista li{padding:.2rem 0;}
-@media (max-width:760px){.onde-lista{grid-template-columns:repeat(2,minmax(0,1fr));}}
-
-/* ---------- MÉTODO, as quatro práticas ---------- */
-.metodo{border-top:var(--fio);}
-.metodo-in{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--calha);}
-.metodo-in > div{border-top:var(--fio);padding-top:var(--s2);}
-.metodo h3{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--t3);line-height:1;margin-bottom:var(--s2);}
-.metodo p{font-size:var(--t-1);max-width:30ch;}
-.metodo a{border:0;text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px;}
-@media (max-width:760px){.metodo-in{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s4) var(--calha);}}
-
-.projeto-imagem img{opacity:0;animation:surge 400ms linear forwards;}
-
-
-/* ---------- AGORA ---------- */
-.agora{border-top:var(--fio);}
-.agora-in{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--calha);}
-.agora-rotulo{grid-column:1/13;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:var(--s2);}
-.agora h2{grid-column:1/9;font-size:var(--t5);line-height:.95;letter-spacing:.01em;margin-bottom:var(--s3);}
-.agora-lede{grid-column:1/8;max-width:58ch;font-size:var(--t1);line-height:1.45;}
-.agora-fatos{grid-column:9/13;display:flex;flex-direction:column;gap:var(--s2);border-left:var(--fio);padding-left:var(--s3);}
-.agora-fatos li{display:flex;flex-direction:column;}
-.agora-num{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--t4);line-height:1;font-variant-numeric:tabular-nums;}
-.agora-fatos li > span:last-child{font-size:var(--t-1);letter-spacing:.06em;text-transform:uppercase;}
-.agora-tags{grid-column:1/8;margin-top:var(--s3);}
-.agora-acao{grid-column:1/8;display:flex;gap:var(--s3);font-size:var(--t-1);letter-spacing:.06em;text-transform:uppercase;margin-top:var(--s2);}
-.agora-acao a{border-bottom:1px solid var(--preto);}
-
-/* práticas como cabeçalhos dentro da grade */
-.pratica{grid-column:1/-1;display:flex;align-items:baseline;gap:var(--s3);padding-top:var(--s4);}
-.pratica:first-child{padding-top:0;}
-.pratica-titulo{font-size:var(--t3);letter-spacing:.06em;text-transform:uppercase;}
-.pratica-frase{font-size:var(--t-1);max-width:34ch;}
-.pratica[hidden]{display:none;}
-.projeto-lugares{display:flex;flex-wrap:wrap;gap:.3rem .9rem;margin-top:var(--s2);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;}
-.projeto-lugares a{border:0;border-bottom:1px solid var(--preto);}
-.ver-todos{margin-top:var(--s5);}
-.projeto[data-extra="true"]{display:none;}
-.projetos.completa .projeto[data-extra="true"]:not([hidden]){display:flex;}
-.mapa-cidade,.mapa-area{cursor:pointer;outline:none;}
-.mapa-cidade.ativo path{stroke-width:2.2;} .mapa-cidade.ativo circle{r:3.2;}
-.mapa-area.ativo{opacity:.55;}
-.mapa-legenda .lg-agora{--c:var(--preto);}
-.lugar{border-bottom:1px solid var(--preto);transition:color var(--tr);}
-.lugar:hover,.lugar.ativo{color:var(--terracota);border-color:var(--terracota);}
-.lugar-projs{display:block;font-size:.8125rem;margin:.15rem 0 .5rem;}
-.lugar-proj{border:0;} .lugar-proj+.lugar-proj::before{content:"";}
-@media (max-width:760px){
-  .agora-in{grid-template-columns:1fr;}
-  .agora-rotulo,.agora h2,.agora-lede,.agora-fatos,.agora-tags,.agora-acao{grid-column:1;}
-  .agora-fatos{flex-direction:row;border-left:0;padding-left:0;border-top:var(--fio);padding-top:var(--s2);gap:var(--s3);}
-  .pratica{flex-direction:column;gap:.35rem;}
-}
-
-
-
-
-/* ---------- PALETA DO BRANDING, um elemento, uma cor ---------- */
-:root{--ar:#7FB3CF;--agua:#3A6B8A;--fogo:#C04430;--terra:#A86B12;--verde:#3ECC7A;--abissal:#0E1C12;}
+/* filtro dos elementos */
+.elementos{display:flex;flex-wrap:wrap;gap:0 var(--sp-6);}
+.elemento{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--fs-h3);letter-spacing:.06em;text-transform:uppercase;transition:color var(--tr);}
 .elemento[data-el="ar"]:hover,.elemento[data-el="ar"][aria-pressed="true"]{color:var(--ar);}
 .elemento[data-el="agua"]:hover,.elemento[data-el="agua"][aria-pressed="true"]{color:var(--agua);}
 .elemento[data-el="fogo"]:hover,.elemento[data-el="fogo"][aria-pressed="true"]{color:var(--fogo);}
 .elemento[data-el="terra"]:hover,.elemento[data-el="terra"][aria-pressed="true"]{color:var(--terra);}
-.abertura-nav a[data-el="ar"]:hover{color:var(--ar);border-color:var(--ar);}
-.abertura-nav a[data-el="agua"]:hover{color:var(--agua);border-color:var(--agua);}
-.abertura-nav a[data-el="fogo"]:hover{color:var(--fogo);border-color:var(--fogo);}
-.abertura-nav a[data-el="terra"]:hover{color:var(--terra);border-color:var(--terra);}
+.contagem{font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;margin-bottom:var(--sp-6);min-height:1.3em;}
+.todos{border-bottom:var(--fio);margin-left:var(--sp-4);}
 
-/* ---------- SELOS POR ORGANIZAÇÃO, mesma altura, mesma linha ---------- */
-.selo{display:inline-flex;align-items:center;height:1.3rem;padding:0 .45rem;margin:0 .4rem .3rem 0;border:1px solid var(--preto);font-family:var(--corpo);font-size:.7rem;line-height:1;letter-spacing:.1em;text-transform:uppercase;vertical-align:middle;box-sizing:border-box;}
-.selo[data-org="onu"]{background:var(--preto);color:var(--branco);}
-.selo[data-org="instituto-ar"]{border-style:solid;}
-.selo[data-org="icct"]{border-left-width:3px;}
-.selo[data-org="universidade"]{border-style:dashed;}
-.selo[data-org="nasa"]{border-style:dotted;}
-.selo[data-org="futura"]{border-style:solid;font-family:var(--corpo);font-variation-settings:normal;letter-spacing:.14em;}
-.selo[data-org="futura"] .u{color:var(--terracota);}
-.projeto-meta{display:block;font-size:var(--t-1);margin:.5rem 0 var(--s2);}
-
-/* ===== CORREÇÕES DE HIERARQUIA E PROPORÇÃO ===== */
-.agora h2{font-size:var(--t4);}
-.agora-fatos{align-self:start;}
-.proposicao{font-size:var(--t4);max-width:18ch;}
-.elementos{padding:var(--s2) 0;margin-bottom:var(--s4);}
-.elemento{font-size:var(--t3);letter-spacing:.05em;}
-.pratica{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:var(--calha);align-items:baseline;padding:var(--s4) 0 0;border-top:0;}
-.pratica:first-child{padding-top:0;}
-.pratica-titulo{font-size:var(--t3);letter-spacing:0;text-transform:none;}
-.pratica-frase{font-size:var(--t0);max-width:44ch;}
-.projeto{border-top:3px solid var(--preto);padding-top:var(--s2);}
-.projeto[data-cor="ar"]{border-top-color:var(--ar);} .projeto[data-cor="agua"]{border-top-color:var(--agua);} .projeto[data-cor="fogo"]{border-top-color:var(--fogo);} .projeto[data-cor="terra"]{border-top-color:var(--terra);}
-.projeto[data-extra="true"]{display:flex;}
-.projeto-imagem{width:58%;max-width:13rem;margin-bottom:var(--s2);}
-.projeto-imagem .ph,.retrato .ph{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;}
-.projeto-nome{font-size:var(--t2);max-width:16ch;line-height:1.02;}
-.projeto-meta{margin:.6rem 0 .4rem;}
-.projeto-tags i,.agora-tags i{display:inline-block;width:.5rem;height:.5rem;border-radius:50%;background:var(--preto);margin-right:.35rem;vertical-align:.05em;}
-.projeto-tags li,.agora-tags li{padding-left:0;} .projeto-tags li::before,.agora-tags li::before{content:none;}
-.projeto-tags li[data-el="ar"] i{background:var(--ar);} .projeto-tags li[data-el="agua"] i{background:var(--agua);} .projeto-tags li[data-el="fogo"] i{background:var(--fogo);} .projeto-tags li[data-el="terra"] i{background:var(--terra);}
-.secao-cab h2{font-size:var(--t4);}
-.onde-lista li{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem;padding:.35rem 0;border-bottom:1px solid var(--preto);}
-.onde-lista li:last-child{border-bottom:0;}
-.lugar{border:0;}
-.lugar-n{font-size:.75rem;font-variant-numeric:tabular-nums;margin-left:auto;}
-.lugar-projs{display:none;flex-basis:100%;font-size:.8125rem;margin:0 0 .35rem;}
-.lugar.ativo ~ .lugar-projs{display:block;}
-.lugar-proj{border:0;text-decoration:underline;text-underline-offset:.15em;} .lugar-proj+.lugar-proj{margin-left:.5rem;}
-.mapa-legenda{align-items:center;} .mapa-legenda span{gap:.4rem;}
-.mapa-legenda i{display:none;}
-@media (max-width:1100px){.projeto-imagem{width:50%;}}
-@media (max-width:760px){.pratica{grid-template-columns:1fr;gap:.25rem;}}
-
-
-/* ---------- QUEM ---------- */
-.quem-in{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--calha);align-items:start;}
-.retrato{grid-column:1/5;aspect-ratio:4/5;width:100%;max-width:18rem;display:flex;align-items:center;justify-content:center;font-size:var(--t-1);}
-.retrato img{width:100%;height:100%;object-fit:cover;}
-.quem-txt{grid-column:5/12;}
-.quem-txt h2{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--t4);line-height:.98;max-width:9ch;margin-bottom:var(--s3);}
-.quem-txt p{max-width:58ch;margin-bottom:var(--s2);}
-.trajetoria{margin-top:var(--s4);border-top:var(--fio);max-width:58ch;}
-.trajetoria li{display:grid;grid-template-columns:7.5rem 1fr;gap:var(--s2);padding:.65rem 0;border-bottom:var(--fio);font-size:var(--t-1);}
-.anos{font-variant-numeric:tabular-nums;white-space:nowrap;}
-.registros{margin-top:var(--s3);display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;font-size:var(--t-1);}
-.registros li:first-child{letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;}
-
-/* ---------- CONTATO ---------- */
-.contato{border-top:var(--fio);padding-block:var(--s6) var(--s4);}
-.contato-in{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--calha);}
-.contato-email{grid-column:1/13;font-size:var(--t3);font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--t4);line-height:1.05;width:max-content;max-width:100%;overflow-wrap:anywhere;}
-.contato-links{grid-column:1/13;margin-top:var(--s3);display:flex;flex-direction:row;flex-wrap:wrap;gap:.5rem 1.75rem;font-size:var(--t-1);letter-spacing:.06em;text-transform:uppercase;}
-.contato-links a{border:0;width:max-content;border-bottom:1px solid var(--preto);}
-.assinatura{grid-column:1/13;margin-top:var(--s5);display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s2);font-size:var(--t-1);}
-.onde-lista > div:first-child ul{columns:2;column-gap:var(--calha);}
-.onde-lista > div:first-child li{break-inside:avoid;}
-.pratica{margin-top:var(--s2);}
-.projeto-imagem{margin-top:var(--s2);}
-
-
-/* ---------- FICHA: pergunta · método · resultado ---------- */
-.ficha{margin:0;display:grid;gap:.6rem;}
-.ficha div{display:grid;grid-template-columns:5.5rem 1fr;gap:.75rem;align-items:baseline;}
-.ficha dt{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
-.ficha dd{margin:0;font-size:var(--t-1);line-height:1.5;max-width:44ch;}
-.ficha dd a{border-bottom:1px solid var(--preto);}
-/* destaque: o projeto em curso ocupa a largura toda */
-.projeto.destaque{grid-column:1/-1;border-top-width:3px;padding-top:var(--s3);margin-bottom:var(--s3);}
-.destaque-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--calha);}
-.destaque-rotulo{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:var(--s2);}
-.projeto.destaque .projeto-nome{font-size:var(--t4);max-width:12ch;}
-.ficha-larga dd{max-width:60ch;font-size:var(--t0);}
-@media (max-width:760px){.destaque-in{grid-template-columns:1fr;} .ficha div{grid-template-columns:1fr;gap:.15rem;}}
-
-.projeto-imagem:has(.ph),.retrato:has(.ph){display:none;}
-.quem-in:has(.retrato .ph) .quem-txt{grid-column:1/10;}
-
-
-/* ---------- COM QUEM, instituições ---------- */
-.instituicoes{margin-top:var(--s5);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s3) var(--calha);}
-.instituicoes h3{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem;padding-bottom:.35rem;border-bottom:var(--fio);}
-.instituicoes li{padding:.3rem 0;font-size:var(--t-1);border-bottom:1px solid rgba(0,0,0,.12);}
-.instituicoes li:last-child{border-bottom:0;}
-@media (max-width:760px){.instituicoes{grid-template-columns:repeat(2,minmax(0,1fr));}}
-
-
-/* ---------- CARDS COMO CONTÊINERES ---------- */
-.projetos{gap:var(--calha);align-items:stretch;}
-.pratica{padding:var(--s5) 0 var(--s2);}
-.pratica:first-of-type{padding-top:var(--s3);}
-.projeto{border:1px solid var(--preto);border-top-width:3px;padding:var(--s3);display:flex;flex-direction:column;gap:0;min-height:18rem;}
-.projeto-nome{font-size:var(--t2);max-width:none;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
-.projeto-meta{margin:.6rem 0 var(--s2);}
-.teaser{font-size:var(--t-1);line-height:1.5;max-width:38ch;margin:0;}
-.abrir{margin-top:auto;padding-top:var(--s3);align-self:flex-start;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--preto);transition:color var(--tr),border-color var(--tr);}
-.abrir:hover,.abrir:focus-visible{color:var(--terracota);border-color:var(--terracota);}
-.projeto:hover{border-color:var(--preto);}
-.projeto.destaque{min-height:0;padding:var(--s4);}
-.teaser-larga{max-width:56ch;font-size:var(--t0);}
-.destaque-acoes{display:flex;flex-wrap:wrap;gap:var(--s3);align-items:baseline;margin-top:var(--s3);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;}
-.destaque-acoes a{border-bottom:1px solid var(--preto);}
-.destaque-acoes .abrir{margin-top:0;padding-top:0;}
-.projeto.destaque .projeto-nome{font-size:var(--t4);-webkit-line-clamp:2;}
-.projeto.destaque .destaque-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--calha);}
-/* diálogo da ficha */
-.ficha-dialog{border:1px solid var(--preto);padding:0;max-width:min(64rem,92vw);width:100%;background:var(--branco);color:var(--preto);}
-.ficha-dialog::backdrop{background:rgba(255,255,255,.85);}
-.fd-in{padding:var(--s4);position:relative;}
-.fd-fechar{position:absolute;top:var(--s2);right:var(--s2);font-family:var(--display);font-size:var(--t2);line-height:1;padding:.25rem .5rem;}
-.fd-fechar:hover{color:var(--terracota);}
-.ficha-dialog .projeto-nome{font-size:var(--t3);max-width:20ch;-webkit-line-clamp:unset;display:block;}
-.ficha-dialog .ficha{margin-top:var(--s3);}
-.ficha-dialog .ficha dd{max-width:64ch;font-size:var(--t0);}
-.ficha-dialog .projeto-links{margin-top:var(--s3);}
-@media (max-width:760px){.projeto{min-height:0;} .fd-in{padding:var(--s3);}}
-
-
-/* ---------- CONTÊINERES INVISÍVEIS, só o texto responde ---------- */
-.projeto{border:0;padding:var(--s3) 0;border-top:1px solid transparent;}
-.projeto[data-cor]{border-top-color:transparent;}
-.projeto .projeto-nome,.projeto .teaser,.projeto .abrir{transition:color var(--tr),border-color var(--tr);}
-.projeto[data-cor="ar"]:hover .projeto-nome,.projeto[data-cor="ar"]:focus-within .projeto-nome,.projeto[data-cor="ar"]:hover .abrir{color:var(--ar);border-color:var(--ar);}
-.projeto[data-cor="agua"]:hover .projeto-nome,.projeto[data-cor="agua"]:focus-within .projeto-nome,.projeto[data-cor="agua"]:hover .abrir{color:var(--agua);border-color:var(--agua);}
-.projeto[data-cor="fogo"]:hover .projeto-nome,.projeto[data-cor="fogo"]:focus-within .projeto-nome,.projeto[data-cor="fogo"]:hover .abrir{color:var(--fogo);border-color:var(--fogo);}
-.projeto[data-cor="terra"]:hover .projeto-nome,.projeto[data-cor="terra"]:focus-within .projeto-nome,.projeto[data-cor="terra"]:hover .abrir{color:var(--terra);border-color:var(--terra);}
-.projeto.destaque{padding:var(--s3) 0;}
-.projetos{row-gap:var(--s4);}
-.pratica{border-top:var(--fio);}
-
-.projeto.ancora{grid-column:span 2;}
-.projeto.ancora .projeto-nome{font-size:var(--t3);}
-.projeto.ancora .teaser{max-width:56ch;font-size:var(--t0);}
+/* ---------- PROJETOS ---------- */
+.projetos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-8) var(--sp-8);}
+.pratica{grid-column:1/-1;border-top:var(--fio);padding:var(--sp-6) 0 0;}
+.pratica:first-child{border-top:0;padding-top:0;}
+.pratica-titulo{font-family:var(--corpo);font-weight:500;font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
 .pratica-frase{display:none;}
-.pratica{grid-template-columns:1fr;}
-.pratica-titulo{max-width:none;}
-@media (max-width:760px){.projeto.ancora{grid-column:auto;}}
 
-
-/* ===== PASSE DE DESIGN: menos tamanhos, mais ar ===== */
-:root{--t5:clamp(2.5rem,1.6rem + 4vw,4.5rem);}
-.secao-cab{margin-bottom:var(--s5);padding-bottom:var(--s3);}
-.secao-cab h2{font-size:var(--t5);letter-spacing:.03em;}
-.secao-cab p{font-size:var(--t-1);max-width:40ch;line-height:1.6;}
-.abertura{min-height:88svh;}
-.slogan{font-size:var(--t3);}
-.predicado{font-size:var(--t-1);letter-spacing:.02em;}
-.proposicao{font-size:var(--t4);max-width:18ch;}
-.posicao-nota{font-size:var(--t0);max-width:60ch;}
-.elementos{padding:var(--s2) 0;margin-bottom:var(--s5);gap:0 clamp(1rem,3vw,2.5rem);}
-.elemento{font-size:var(--t2);letter-spacing:.06em;}
-.contagem{margin:calc(var(--s5) * -1 + var(--s2)) 0 var(--s4);}
-.pratica{padding:var(--s5) 0 var(--s3);}
-.pratica-titulo{font-size:var(--t2);letter-spacing:0;}
-.projetos{gap:var(--s5) var(--calha);}
-.projeto{padding:var(--s2) 0 0;}
-.projeto-nome{font-size:var(--t2);line-height:1.05;}
-.projeto.ancora .projeto-nome{font-size:var(--t3);}
-.projeto-meta{font-size:.8125rem;margin:.5rem 0 var(--s2);}
-.teaser{font-size:var(--t-1);line-height:1.55;max-width:40ch;}
-.projeto.ancora .teaser{font-size:var(--t0);max-width:58ch;}
-.abrir{font-size:.7rem;letter-spacing:.12em;}
-.projeto.destaque{padding:var(--s3) 0 var(--s4);}
-.projeto.destaque .projeto-nome{font-size:var(--t4);}
-.destaque-rotulo{font-size:.7rem;letter-spacing:.14em;}
-.destaque-acoes{font-size:.7rem;letter-spacing:.12em;}
-.mapa-legenda{font-size:.7rem;letter-spacing:.1em;}
-.instituicoes{margin-top:var(--s5);}
-.instituicoes h3{font-size:.7rem;letter-spacing:.12em;}
-.instituicoes li{font-size:.875rem;border-bottom:0;padding:.2rem 0;}
-.quem-txt h2{font-size:var(--t3);}
-.quem-txt p{font-size:var(--t0);}
-.contato-email{font-size:var(--t3);}
-.contato-links,.assinatura{font-size:.75rem;letter-spacing:.1em;}
-.item-titulo{font-size:var(--t1);}
-.item-fonte{font-size:.7rem;letter-spacing:.1em;}
-.item-data{font-size:.8125rem;}
-.abas{font-size:.75rem;letter-spacing:.1em;}
-.menu{font-size:.75rem;letter-spacing:.1em;}
-.marca{font-size:1.25rem;}
-.ficha dt{font-size:.7rem;letter-spacing:.12em;}
-.ficha dd{font-size:var(--t-1);}
-.fd-in{padding:var(--s4) var(--s5);}
-@media (max-width:760px){.fd-in{padding:var(--s3);}.secao-cab h2{font-size:var(--t4);}.projeto.destaque .destaque-in{grid-template-columns:1fr;}.projeto.destaque .projeto-nome{font-size:var(--t3);}}
-
-.elementos{border:0;padding:var(--s2) 0 0;margin-bottom:var(--s4);}
-.secao-cab{margin-bottom:var(--s3);}
-.pratica{padding:var(--s4) 0 var(--s3);}
-.pratica:first-of-type{padding-top:var(--s4);}
-
-.secao-cab .elementos{grid-column:7/13;justify-content:flex-end;padding:0;margin:0;align-self:end;}
-.secao-cab .elemento{font-size:var(--t1);}
-.pratica:first-of-type{border-top:0;padding-top:var(--s3);}
-.contagem{margin:0 0 var(--s4);}
-@media (max-width:1100px){.secao-cab .elementos{grid-column:1/13;justify-content:flex-start;}}
-
-
-/* ===== ORDEM DOS CARDS: mesmo esqueleto vertical em todos ===== */
-.projeto.ancora{grid-column:auto;}
-.projeto.ancora .projeto-nome{font-size:var(--t2);}
-.projeto.ancora .teaser{font-size:var(--t-1);max-width:40ch;}
-.projeto:not(.destaque){display:grid;grid-template-rows:auto auto 1fr auto;align-content:start;row-gap:0;}
-.projeto:not(.destaque) .projeto-imagem{display:none;}
-.projeto:not(.destaque) .projeto-nome{font-size:clamp(1.35rem,1.1rem + .9vw,1.7rem);min-height:calc(4 * 1.08em);-webkit-line-clamp:4;line-height:1.08;}
-.projeto:not(.destaque) .projeto-meta{min-height:calc(2 * 1.5em);line-height:1.5;margin:.6rem 0 var(--s2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.projeto:not(.destaque) .teaser{min-height:calc(3 * 1.55em);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;max-width:none;}
-.projeto:not(.destaque) .abrir{margin-top:var(--s2);padding-top:0;justify-self:start;}
-.projetos{gap:var(--s5) var(--s4);}
-@media (max-width:760px){.projeto:not(.destaque) .projeto-nome,.projeto:not(.destaque) .projeto-meta,.projeto:not(.destaque) .teaser{min-height:0;-webkit-line-clamp:unset;display:block;}}
-
-
-/* ===== EDIÇÃO: escala de cinco degraus, reportagem e notas ===== */
-:root{--d1:clamp(2.25rem,1.4rem + 3.4vw,3.5rem);--d2:clamp(1.75rem,1.2rem + 2.2vw,2.5rem);--d3:clamp(1.25rem,1.05rem + .8vw,1.5rem);}
-section{padding-block:clamp(5rem,14vh,10rem);}
-.secao-cab h2{font-size:var(--d1);}
-.pratica-titulo{letter-spacing:.14em;text-transform:uppercase;font-family:var(--corpo);font-weight:500;font-variation-settings:normal;font-size:.875rem;}
-.pratica{padding:var(--s4) 0 var(--s3);}
-.projeto.destaque .projeto-nome{font-size:var(--d1);max-width:14ch;}
-.projeto.destaque .teaser-larga{font-size:var(--t1);max-width:48ch;}
-/* reportagem: primeira de cada grupo, largura inteira, assimétrica */
-.projeto.ancora{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,1fr);gap:var(--calha);align-items:start;padding:var(--s3) 0 var(--s4);border-top:var(--fio);}
-.projeto.ancora .projeto-imagem{display:none;}
-.projeto.ancora .projeto-nome{grid-column:1/8;grid-row:1;font-size:var(--d2);min-height:0;-webkit-line-clamp:unset;display:block;max-width:18ch;line-height:1.04;}
-.projeto.ancora .projeto-meta{grid-column:1/8;grid-row:2;min-height:0;display:block;margin:.5rem 0 0;}
-.projeto.ancora .teaser{grid-column:8/13;grid-row:1;font-size:var(--t0);min-height:0;-webkit-line-clamp:unset;display:block;max-width:34ch;margin-top:.35rem;}
-.projeto.ancora .abrir{grid-column:8/13;grid-row:2;align-self:start;margin-top:var(--s2);justify-self:start;}
-/* notas: as demais, em três colunas estreitas */
-.projeto:not(.destaque):not(.ancora){border-top:var(--fio);padding-top:var(--s2);}
-.projeto:not(.destaque):not(.ancora) .projeto-nome{font-size:var(--d3);min-height:calc(3 * 1.12em);-webkit-line-clamp:3;line-height:1.12;}
-.projeto:not(.destaque):not(.ancora) .projeto-meta{font-size:.75rem;}
-.projeto:not(.destaque):not(.ancora) .teaser{font-size:.875rem;}
-.projetos{gap:var(--s4) var(--s4);}
-/* capa: sumário */
-.abertura{grid-template-columns:repeat(12,1fr);}
-.sumario{grid-column:10/13;align-self:end;display:flex;flex-direction:column;gap:.55rem;margin-top:var(--s4);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;border-top:var(--fio);padding-top:var(--s2);}
-.sumario a{border:0;width:max-content;}
-.sumario a:hover{color:var(--terracota);}
-/* instituições em linha */
-.instituicoes{display:block;margin-top:var(--s4);max-width:72ch;}
-.instituicoes p{font-size:.875rem;line-height:1.6;margin:0 0 .75rem;}
-.instituicoes p span{display:inline-block;margin-right:.6rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;}
-/* revelação */
-.js .revela{opacity:0;transition:opacity 500ms ease;}
-.js .revela.visto{opacity:1;}
-@media (prefers-reduced-motion:reduce){.js .revela{opacity:1;transition:none;}}
-@media (max-width:1100px){.projeto.ancora .projeto-nome,.projeto.ancora .projeto-meta,.projeto.ancora .teaser,.projeto.ancora .abrir{grid-column:1/13;grid-row:auto;}}
-@media (max-width:760px){.sumario{grid-column:1;margin-top:var(--s3);} .projeto:not(.destaque):not(.ancora) .projeto-nome{min-height:0;-webkit-line-clamp:unset;display:block;}}
-
-
-/* ===== IMAGENS: capa e reportagens com foto em cinco colunas ===== */
-.projeto.destaque .projeto-imagem,.projeto.ancora .projeto-imagem{display:none;}
-.projeto.destaque.com-imagem .destaque-in{grid-template-columns:repeat(12,1fr);}
-.projeto.destaque.com-imagem .destaque-in > div:nth-of-type(1){grid-column:1/8;grid-row:1;}
-.projeto.destaque.com-imagem .destaque-in > div:nth-of-type(2){grid-column:1/8;grid-row:2;}
-.projeto.destaque.com-imagem .projeto-imagem{display:block;grid-column:8/13;grid-row:1/3;width:100%;max-width:none;aspect-ratio:4/5;margin:0;}
-.projeto.ancora.com-imagem .projeto-imagem{display:block;grid-column:8/13;grid-row:1/4;width:100%;max-width:none;aspect-ratio:4/5;margin:0;}
-.projeto.ancora.com-imagem .teaser{grid-column:1/8;grid-row:3;max-width:44ch;margin-top:var(--s3);}
-.projeto.ancora.com-imagem .abrir{grid-column:1/8;grid-row:4;}
-.projeto-imagem img{width:100%;height:100%;object-fit:cover;display:block;opacity:1;animation:none;}
-.projeto-imagem .quadro-borda{display:none;}
-@media (max-width:1100px){.projeto.ancora.com-imagem .projeto-imagem,.projeto.destaque.com-imagem .projeto-imagem{grid-column:1/13;grid-row:auto;aspect-ratio:3/2;} .projeto.destaque.com-imagem .destaque-in > div{grid-column:1/13;}}
-
-
-/* crédito da foto: aparece ao passar o mouse; sempre visível em telas de toque */
-figure.projeto-imagem{position:relative;margin:0;overflow:hidden;}
-figure.projeto-imagem figcaption{position:absolute;left:0;right:0;bottom:0;padding:.5rem .75rem;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--branco);background:linear-gradient(to top,rgba(0,0,0,.65),rgba(0,0,0,0));opacity:0;transition:opacity var(--tr);}
-figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcaption{opacity:1;}
-@media (hover:none){figure.projeto-imagem figcaption{opacity:1;}}
-
-.rede{display:inline-flex;align-items:center;gap:.5rem;border:0;}
-.rede-icone{display:inline-block;width:1rem;height:1rem;background:currentColor;-webkit-mask:var(--icone) center/contain no-repeat;mask:var(--icone) center/contain no-repeat;}
-.redes{display:flex;gap:var(--s3);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;margin-top:var(--s3);}
-.contato-links .rede{border-bottom:0;}
-
-
-/* ===== NOTAS COM RECORTE DO MAPA: faixa acima do título, translúcida, acende ao passar o mouse ===== */
-.nota-mapa{margin:0 0 var(--s2);height:9.5rem;overflow:hidden;position:relative;}
-.nota-mapa img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;opacity:.7;transition:opacity var(--tr);animation:none;}
-.projeto:hover .nota-mapa img,.projeto:focus-within .nota-mapa img{opacity:1;}
-
-
-@media (max-width:760px){.nota-mapa{height:7rem;}}
-
-@media (max-width:1100px){
-  .projeto.ancora.com-imagem{display:flex;flex-direction:column;}
-  .projeto.ancora.com-imagem .projeto-nome{order:1;} .projeto.ancora.com-imagem .projeto-meta{order:2;} .projeto.ancora.com-imagem .projeto-imagem{order:3;margin:var(--s3) 0;} .projeto.ancora.com-imagem .teaser{order:4;margin-top:0;} .projeto.ancora.com-imagem .abrir{order:5;}
-  .projeto.destaque.com-imagem .destaque-in{display:flex;flex-direction:column;}
-  .projeto.destaque.com-imagem .destaque-in > div:nth-of-type(1){order:1;} .projeto.destaque.com-imagem .projeto-imagem{order:2;margin:var(--s3) 0;} .projeto.destaque.com-imagem .destaque-in > div:nth-of-type(2){order:3;}
-}
-
+/* card base */
+.projeto{display:grid;align-content:start;row-gap:0;}
+.projeto-nome{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;line-height:var(--lh-display);}
 .projeto-nome a{border:0;color:inherit;}
 .projeto-nome .ext{display:inline-block;font-family:var(--corpo);font-size:.45em;vertical-align:super;margin-left:.3em;opacity:.6;}
+.projeto-meta{font-size:var(--fs-small);line-height:var(--lh-small);margin-top:var(--sp-2);}
+.teaser{line-height:var(--lh-body);}
+.abrir{font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;border-bottom:1px solid var(--preto);justify-self:start;transition:color var(--tr),border-color var(--tr);}
+.abrir:hover,.abrir:focus-visible{color:var(--terracota);border-color:var(--terracota);}
+.projeto[data-cor="ar"]:hover .projeto-nome{color:var(--ar);} .projeto[data-cor="agua"]:hover .projeto-nome{color:var(--agua);}
+.projeto[data-cor="fogo"]:hover .projeto-nome{color:var(--fogo);} .projeto[data-cor="terra"]:hover .projeto-nome{color:var(--terra);}
+.ficha-oculta{display:none;}
+
+/* nota: três colunas; esqueleto fixo para alinhar por fileira */
+.projeto--nota{border-top:var(--fio);padding-top:var(--sp-4);grid-template-rows:auto auto auto 1fr auto;}
+.projeto--nota .figura{width:var(--fig-nota);height:var(--fig-nota);margin-bottom:var(--sp-4);}
+.projeto--nota .projeto-nome{font-size:var(--fs-h3);min-height:calc(3 * var(--lh-display) * 1em);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.projeto--nota .projeto-meta{min-height:calc(2 * var(--lh-small) * 1em);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.projeto--nota .teaser{font-size:var(--fs-small);margin-top:var(--sp-4);min-height:calc(3 * var(--lh-body) * 1em);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.projeto--nota .abrir{margin-top:var(--sp-4);}
+
+/* reportagem: largura inteira, texto em 8 colunas, figura em 4 */
+.projeto--reportagem{grid-column:1/-1;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--calha);border-top:var(--fio);padding:var(--sp-5) 0 var(--sp-6);}
+.projeto--reportagem .projeto-nome{grid-column:1/9;grid-row:1;font-size:var(--fs-h2);max-width:18ch;}
+.projeto--reportagem .projeto-meta{grid-column:1/9;grid-row:2;}
+.projeto--reportagem .teaser{grid-column:1/9;grid-row:3;max-width:48ch;margin-top:var(--sp-5);}
+.projeto--reportagem .abrir{grid-column:1/9;grid-row:4;margin-top:var(--sp-4);}
+.projeto--reportagem .figura{grid-column:9/13;grid-row:1/5;}
+
+/* capa: mesma grade da reportagem, título maior, sem fio acima */
+.projeto--capa{grid-column:1/-1;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--calha);padding:0 0 var(--sp-6);}
+.projeto--capa .destaque-rotulo{grid-column:1/9;grid-row:1;margin-bottom:var(--sp-3);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
+.projeto--capa .projeto-nome{grid-column:1/9;grid-row:2;font-size:var(--fs-h1);max-width:14ch;}
+.projeto--capa .projeto-meta{grid-column:1/9;grid-row:3;}
+.projeto--capa .teaser{grid-column:1/9;grid-row:4;max-width:48ch;margin-top:var(--sp-5);}
+.projeto--capa .destaque-acoes{grid-column:1/9;grid-row:5;margin-top:var(--sp-4);display:flex;flex-wrap:wrap;gap:var(--sp-5);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
+.projeto--capa .destaque-acoes a{border-bottom:1px solid var(--preto);}
+.projeto--capa .figura{grid-column:9/13;grid-row:1/6;}
+.projeto--capa .destaque-acoes .abrir{margin:0;}
+
+/* ---------- FIGURA (componente único: mapa ou foto + crédito) ---------- */
+.figura{position:relative;overflow:hidden;aspect-ratio:1/1;width:100%;margin:0;}
+.figura img{width:100%;height:100%;object-fit:cover;object-position:center;}
+.figura figcaption{position:absolute;left:0;right:0;bottom:0;padding:var(--sp-2) var(--sp-3);font-size:var(--fs-caption);letter-spacing:.06em;text-transform:uppercase;color:var(--branco);background:linear-gradient(to top,rgba(0,0,0,.65),rgba(0,0,0,0));opacity:0;transition:opacity var(--tr);}
+.figura:hover figcaption,.figura:focus-within figcaption{opacity:1;}
+@media (hover:none){.figura figcaption{opacity:1;}}
+
+/* ---------- DIÁLOGO DA FICHA ---------- */
+.ficha-dialog{border:var(--fio);padding:0;max-width:min(64rem,92vw);width:100%;background:var(--branco);color:var(--preto);}
+.ficha-dialog::backdrop{background:rgba(255,255,255,.85);}
+.fd-in{padding:var(--sp-8) var(--sp-8) var(--sp-7);position:relative;}
+.fd-fechar{position:absolute;top:var(--sp-4);right:var(--sp-4);font-family:var(--display);font-size:var(--fs-h2);line-height:1;}
+.fd-fechar:hover{color:var(--terracota);}
+.ficha-dialog .projeto-nome{font-size:var(--fs-h2);max-width:20ch;}
 .ficha-dialog .projeto-nome .ext{display:none;}
+.ficha{display:grid;gap:var(--sp-3);margin-top:var(--sp-6);}
+.ficha div{display:grid;grid-template-columns:6rem 1fr;gap:var(--sp-3);align-items:baseline;}
+.ficha dt{font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
+.ficha dd{font-size:var(--fs-body);max-width:64ch;}
+.ficha dd a{border-bottom:1px solid var(--preto);}
+.projeto-links{display:flex;flex-wrap:wrap;gap:var(--sp-2) var(--sp-4);margin-top:var(--sp-6);font-size:var(--fs-small);}
 
+/* ---------- ONDE ---------- */
+.mapa{width:100%;height:auto;display:block;}
+.mapa-esfera{fill:none;stroke:var(--preto);stroke-width:.6;}
+.mapa-area{transition:opacity var(--tr);cursor:pointer;outline:none;} .mapa-area:hover,.mapa-area.ativo{opacity:.55;}
+.mapa-cidade{cursor:pointer;outline:none;} .mapa-cidade circle{fill:var(--terracota);}
+.mapa-cidade path{fill:none;stroke:var(--terracota);stroke-width:1.1;stroke-linecap:round;transition:stroke-width var(--tr);}
+.mapa-cidade:hover path,.mapa-cidade.ativo path{stroke-width:2;}
+.mapa-legenda{display:flex;flex-wrap:wrap;gap:var(--sp-3) var(--sp-5);margin-top:var(--sp-4);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;align-items:center;}
+.mapa-legenda span{display:inline-flex;align-items:center;gap:var(--sp-2);}
+.instituicoes{margin-top:var(--sp-8);max-width:72ch;}
+.instituicoes p{font-size:var(--fs-small);line-height:var(--lh-body);margin-bottom:var(--sp-3);}
+.instituicoes p span{display:inline-block;margin-right:var(--sp-3);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
 
-/* ===== IMAGENS MENORES: reportagens em quatro colunas, notas com mapa pequeno ===== */
-.projeto.ancora.com-imagem .projeto-imagem{grid-column:9/13;aspect-ratio:1/1;}
-.projeto.ancora.com-imagem .teaser,.projeto.ancora.com-imagem .abrir{grid-column:1/8;}
-.projeto.destaque.com-imagem .projeto-imagem{grid-column:9/13;aspect-ratio:1/1;}
-.projeto.destaque.com-imagem .destaque-in > div:nth-of-type(1),.projeto.destaque.com-imagem .destaque-in > div:nth-of-type(2){grid-column:1/9;}
-.nota-mapa{margin:0 0 var(--s2);height:8rem;width:8rem;overflow:hidden;}
-.nota-mapa img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;opacity:1;animation:none;}
-.projeto:not(.destaque):not(.ancora){grid-template-rows:auto auto auto 1fr auto;}
-@media (max-width:760px){.nota-mapa{height:5.5rem;}}
+/* ---------- QUEM ---------- */
+.quem-in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);align-items:start;}
+.retrato{grid-column:1/5;aspect-ratio:4/5;width:100%;max-width:18rem;overflow:hidden;}
+.retrato img{width:100%;height:100%;object-fit:cover;}
+.quem-txt{grid-column:5/12;}
+.quem-txt h2{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--fs-h2);line-height:var(--lh-display);margin-bottom:var(--sp-5);}
+.quem-txt p{max-width:58ch;margin-bottom:var(--sp-4);}
+.redes{display:flex;gap:var(--sp-5);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;margin-top:var(--sp-5);}
+.rede{display:inline-flex;align-items:center;gap:var(--sp-2);border:0;}
+.rede-icone{display:inline-block;width:1rem;height:1rem;background:currentColor;-webkit-mask:var(--icone) center/contain no-repeat;mask:var(--icone) center/contain no-repeat;}
+
+/* ---------- CONTATO ---------- */
+.contato{border-top:var(--fio);padding-block:var(--sp-9) var(--sp-7);}
+.contato-in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);}
+.contato-email{grid-column:1/13;font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--fs-h2);line-height:var(--lh-display);width:max-content;max-width:100%;overflow-wrap:anywhere;}
+.contato-links{grid-column:1/13;margin-top:var(--sp-5);display:flex;flex-wrap:wrap;gap:var(--sp-2) var(--sp-6);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
+.assinatura{grid-column:1/13;margin-top:var(--sp-8);display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--sp-3);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
+
+/* ---------- LISTAS EDITORIAIS (publicações, mídia) ---------- */
+.abas{display:flex;flex-wrap:wrap;gap:var(--sp-5);margin-bottom:var(--sp-6);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
+.aba{padding-bottom:var(--sp-1);border-bottom:1px solid transparent;transition:color var(--tr),border-color var(--tr);}
+.aba[aria-selected="true"]{color:var(--terracota);border-color:var(--terracota);}
+.lista{border-top:var(--fio);}
+.item{display:grid;grid-template-columns:9rem 1fr auto;gap:var(--calha);align-items:baseline;padding:var(--sp-4) 0;border-bottom:var(--fio);}
+.item-fonte{font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;line-height:1.3;}
+.item-titulo{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--fs-h3);line-height:var(--lh-display);border:0;}
+.item-data{font-size:var(--fs-small);white-space:nowrap;}
+.mais{font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;border-bottom:1px solid var(--preto);margin-top:var(--sp-6);}
+
+.secundaria{padding-top:calc(var(--nav-h) + var(--sp-8));}
+.texto-curto{max-width:44ch;}
+
+/* ---------- REVELAÇÃO ---------- */
+.js .revela{opacity:0;transition:opacity 500ms ease;} .js .revela.visto{opacity:1;}
+@media (prefers-reduced-motion:reduce){.js .revela{opacity:1;transition:none;}}
 
 /* ---------- RESPONSIVO ---------- */
 @media (max-width:1100px){
   .projetos{grid-template-columns:repeat(2,minmax(0,1fr));}
-  .secao-cab h2{grid-column:1/13;} .secao-cab p{grid-column:1/9;}
+  .projeto--reportagem .projeto-nome,.projeto--reportagem .projeto-meta,.projeto--reportagem .teaser,.projeto--reportagem .abrir,.projeto--reportagem .figura{grid-column:1/13;}
+  .projeto--reportagem{display:flex;flex-direction:column;}
+  .projeto--reportagem .projeto-nome{order:1;} .projeto--reportagem .projeto-meta{order:2;} .projeto--reportagem .figura{order:3;margin:var(--sp-5) 0;max-width:24rem;} .projeto--reportagem .teaser{order:4;margin-top:0;} .projeto--reportagem .abrir{order:5;align-self:flex-start;margin-top:var(--sp-4);}
+  .projeto--capa{display:flex;flex-direction:column;}
+  .projeto--capa .destaque-rotulo{order:1;} .projeto--capa .projeto-nome{order:2;} .projeto--capa .projeto-meta{order:3;} .projeto--capa .figura{order:4;margin:var(--sp-5) 0;max-width:24rem;} .projeto--capa .teaser{order:5;margin-top:0;} .projeto--capa .destaque-acoes{order:6;}
+  .secao-cab h2,.secao-cab p,.secao-cab .elementos{grid-column:1/13;justify-self:start;}
 }
 @media (max-width:760px){
-  :root{--nav-h:3.5rem;}
-  .menu{position:fixed;inset:var(--nav-h) 0 0 0;background:var(--branco);flex-direction:column;gap:0;padding:var(--s3) var(--margem);transform:translateX(100%);transition:transform 220ms cubic-bezier(.2,.6,.2,1);}
-  .menu a{font-size:var(--t2);text-transform:none;letter-spacing:0;font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;padding:.75rem 0;border-bottom:var(--fio);}
-  .menu a::after{display:none;}
-  .nav.aberto .menu{transform:none;}
-  .hamb{display:block;}
-  body.travado{overflow:hidden;}
-  section{padding-block:var(--s5);}
-  .abertura{grid-template-columns:1fr;align-content:center;}
-  .abertura-txt,.abertura-nav,.wordmark{grid-column:1;}
-  .abertura-nav{margin-top:var(--s3);}
-  .posicao-in,.quem-in,.contato-in{grid-template-columns:1fr;}
-  .onde-lista > div:first-child ul{columns:1;}
-  .proposicao,.posicao-nota,.retrato,.quem-txt,.contato-email,.contato-links,.assinatura{grid-column:1;}
-  .retrato{max-width:14rem;}
-  .contato-email{font-size:var(--t2);width:auto;}
-  .contato-links{flex-direction:column;gap:.5rem;}
-  .projetos{grid-template-columns:1fr;gap:var(--s5);}
-  .projeto-imagem{width:55%;}
-  .item{grid-template-columns:1fr;gap:.2rem;}
-  .item-data{text-align:left;}
-  .elemento-todos{margin-left:0;width:100%;}
-  .trajetoria li{grid-template-columns:1fr;gap:.1rem;}
+  :root{--fs-h1:2.25rem;--fs-h2:1.75rem;--fs-h3:1.25rem;--calha:1rem;}
+  section{padding-block:var(--sp-8);}
+  .menu{position:fixed;inset:var(--nav-h) 0 0 0;background:var(--branco);flex-direction:column;padding:var(--sp-6) var(--margem);gap:var(--sp-4);font-size:var(--fs-h3);transform:translateX(100%);transition:transform var(--tr);}
+  .nav.aberto .menu{transform:none;} .hamb{display:block;}
+  .abertura{min-height:80svh;} .abertura-txt{grid-column:1/-1;}
+  .projetos{grid-template-columns:1fr;gap:var(--sp-7);}
+  .projeto--nota .projeto-nome,.projeto--nota .projeto-meta,.projeto--nota .teaser{min-height:0;-webkit-line-clamp:unset;display:block;}
+  .quem-in,.contato-in{grid-template-columns:1fr;}
+  .retrato,.quem-txt{grid-column:1;} .retrato{max-width:14rem;}
+  .contato-email{font-size:var(--fs-h3);width:auto;}
+  .item{grid-template-columns:1fr;gap:var(--sp-1);} .item-data{white-space:normal;}
+  .fd-in{padding:var(--sp-5);} .ficha div{grid-template-columns:1fr;gap:var(--sp-1);}
 }
-@media (prefers-reduced-motion:reduce){
-  *{animation-duration:.01ms!important;transition-duration:.01ms!important;}
-  html{scroll-behavior:auto;}
-  .wordmark span{opacity:1;}
-}
-@media print{.nav,.hamb,.abas{display:none;} .painel[hidden]{display:block;} section{padding-block:2rem;}}
 </style>
 </head>
 <body>
@@ -655,23 +318,18 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
   <p class="contagem" id="contagem" aria-live="polite"></p>
   <div class="projetos" id="grade">
   <div class="pratica" id="acao"><h3 class="pratica-titulo display">Ação</h3></div>
-  <article class="projeto destaque com-imagem" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="agua fogo terra ar" data-lugares="brasil">
-    <div class="destaque-in">
-      <figure class="projeto-imagem"><img src="img/mapa-brasil.svg" alt="Brasil em contorno" loading="lazy" onerror="var a=this.closest('article');if(a){a.classList.remove('com-imagem');}this.closest('figure').remove()"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
-      <div>
-        <p class="destaque-rotulo">Em curso</p>
-        <h3 class="projeto-nome"><a href="https://monitorelnino.com.br/" target="_blank" rel="noopener">Monitor El Niño Brasil<span class="ext" aria-hidden="true">↗</span></a></h3>
-        <p class="projeto-meta">2026–2027, monitorelnino.com.br</p>
-      </div>
-      <div>
-        <p class="teaser teaser-larga">Índice público do que estados e municípios publicaram antes e depois do El Niño de 2026–2027, a partir de fontes oficiais.</p>
-        <p class="destaque-acoes"><a href="https://monitorelnino.com.br/">Abrir o Monitor</a> <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button> <a href="#onde" data-lugar="brasil" class="agora-mapa">Ver no mapa</a></p>
-        <div class="ficha-oculta" hidden><dl class="ficha ficha-larga"><div><dt>Pergunta</dt><dd>O que cada estado e município publicou antes do El Niño de 2026–2027, e o que decretou depois?</dd></div><div><dt>Método</dt><dd>O MARÉ (Medida de Antecipação e Resposta ao El Niño) lê os instrumentos oficiais publicados por 27 estados e 5.571 municípios antes da crise e os decretos publicados depois dela. Só entram fontes oficiais verificáveis; a metodologia é pública e versionada. Onde não há registro, o Monitor indica "não localizamos".</dd></div><div><dt>Resultado</dt><dd>Um índice de antecipação e um contador de resposta por estado e por município, atualizados continuamente. <a href="https://monitorelnino.com.br/">Abrir o Monitor</a></dd></div></dl></div>
-      </div>
-    </div>
+  <article class="projeto projeto--capa" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="agua fogo terra ar" data-lugares="brasil">
+    <p class="destaque-rotulo">Em curso</p>
+    <h3 class="projeto-nome"><a href="https://monitorelnino.com.br/" target="_blank" rel="noopener">Monitor El Niño Brasil<span class="ext" aria-hidden="true">↗</span></a></h3>
+    <p class="projeto-meta">2026–2027, monitorelnino.com.br</p>
+    <p class="teaser">Índice público do que estados e municípios publicaram antes e depois do El Niño de 2026–2027, a partir de fontes oficiais.</p>
+    <p class="destaque-acoes"><a href="https://monitorelnino.com.br/">Abrir o Monitor</a> <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button> <a href="#onde" data-lugar="brasil" class="agora-mapa">Ver no mapa</a></p>
+    <figure class="figura"><img src="img/mapa-brasil.svg" alt="Brasil em contorno" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
+    <div class="ficha-oculta" hidden><dl class="ficha ficha-larga"><div><dt>Pergunta</dt><dd>O que cada estado e município publicou antes do El Niño de 2026–2027, e o que decretou depois?</dd></div><div><dt>Método</dt><dd>O MARÉ (Medida de Antecipação e Resposta ao El Niño) lê os instrumentos oficiais publicados por 27 estados e 5.571 municípios antes da crise e os decretos publicados depois dela. Só entram fontes oficiais verificáveis; a metodologia é pública e versionada. Onde não há registro, o Monitor indica "não localizamos".</dd></div><div><dt>Resultado</dt><dd>Um índice de antecipação e um contador de resposta por estado e por município, atualizados continuamente. <a href="https://monitorelnino.com.br/">Abrir o Monitor</a></dd></div></dl></div>
+      
   </article>
-    <article class="projeto ancora com-imagem" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="ar" data-elementos="ar agua" data-lugares="berlim atlantico">
-      <figure class="projeto-imagem"><img src="img/mapa-eca.svg" alt="Atlântico Nordeste em contorno, com a área de controle de emissões" loading="lazy"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
+    <article class="projeto projeto--reportagem" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="ar" data-elementos="ar agua" data-lugares="berlim atlantico">
+      <figure class="figura"><img src="img/mapa-eca.svg" alt="Atlântico Nordeste em contorno, com a área de controle de emissões" loading="lazy"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
       <h3 class="projeto-nome"><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/" target="_blank" rel="noopener">A maior área de controle de emissões marítimas do mundo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2024–2026, ICCT e Organização Marítima Internacional</p>
       <p class="teaser">Os estudos que embasaram a área de controle de emissões marítimas adotada pela Organização Marítima Internacional em 2026.</p>
@@ -679,9 +337,9 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Quantas mortes e quanto custo em saúde uma área de controle de emissões no Atlântico Nordeste evitaria?</dd></div><div><dt>Método</dt><dd>Dois relatórios do ICCT (2024) comparam cenários com e sem a área de controle, sob diferentes níveis de cumprimento, em emissões, saúde e custo.</dd></div><div><dt>Resultado</dt><dd>Entre 2.900 e 4.300 mortes prematuras evitadas de 2030 a 2050; €19 a €29 bilhões em custos de saúde; 82% menos óxidos de enxofre e 64% menos material particulado fino. Os relatórios embasaram a proposta de 27 países à Organização Marítima Internacional, adotada em maio de 2026.</dd></div></dl>
       <ul class="projeto-links"><li><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/">ICCT, adoção</a></li><li><a href="https://theicct.org/publication/environmental-and-health-benefits-of-a-designated-north-atlantic-emission-control-area-nov24/">Relatório de saúde (2024)</a></li><li><a href="https://jornal.usp.br/atualidades/maior-area-de-controle-de-poluicao-de-navios-e-criada-no-atlantico-entenda-impactos-na-saude-e-economia">Jornal da USP</a></li></ul></div>
     </article>
-    <article class="projeto" id="p-a-primeira-conferencia-global-sobre-polu" data-pratica="acao" data-cor="ar" data-elementos="ar" data-lugares="genebra">
+    <article class="projeto projeto--nota" id="p-a-primeira-conferencia-global-sobre-polu" data-pratica="acao" data-cor="ar" data-elementos="ar" data-lugares="genebra">
       
-      <figure class="nota-mapa"><img src="img/mapa-genebra.svg" alt="Europa central em contorno, com Genebra marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/mapa-genebra.svg" alt="Europa central em contorno, com Genebra marcada" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://www.who.int/news-room/events/detail/2018/10/30/default-calendar/air-pollution-conference" target="_blank" rel="noopener">A primeira conferência global sobre poluição do ar e saúde<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2018, Organização Mundial da Saúde, Genebra</p>
       <p class="teaser">A conferência da Organização Mundial da Saúde que fixou a meta de reduzir em dois terços as mortes por poluição do ar até 2030.</p>
@@ -689,9 +347,9 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Como reunir, pela primeira vez, governos e agências internacionais para tratar a poluição do ar como questão de saúde pública?</dd></div><div><dt>Método</dt><dd>Coliderança do planejamento e da logística da primeira conferência global da Organização Mundial da Saúde sobre o tema, em Genebra, em 2018, com o Programa das Nações Unidas para o Meio Ambiente, a Organização Meteorológica Mundial, a Coalizão do Clima e Ar Limpo, a UNECE, o Banco Mundial e a UNFCCC.</dd></div><div><dt>Resultado</dt><dd>A Geneva Action Agenda e a meta de reduzir em dois terços as sete milhões de mortes anuais por poluição do ar até 2030.</dd></div></dl>
       <ul class="projeto-links"><li><a href="https://www.who.int/news-room/events/detail/2018/10/30/default-calendar/air-pollution-conference">OMS, conferência</a></li><li><a href="https://www.who.int/news/item/01-11-2018-clean-air-for-health-geneva-action-agenda">Geneva Action Agenda</a></li></ul></div>
     </article>
-    <article class="projeto" id="p-guias-para-o-transporte-limpo-em-paises-" data-pratica="acao" data-cor="ar" data-elementos="ar fogo" data-lugares="paris africa">
+    <article class="projeto projeto--nota" id="p-guias-para-o-transporte-limpo-em-paises-" data-pratica="acao" data-cor="ar" data-elementos="ar fogo" data-lugares="paris africa">
       
-      <figure class="nota-mapa"><img src="img/mapa-africa.svg" alt="África Subsaariana em contorno" loading="lazy"></figure>
+      <figure class="figura"><img src="img/mapa-africa.svg" alt="África Subsaariana em contorno" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://aqmx.org/content/road-transport" target="_blank" rel="noopener">Guias para o transporte limpo em países de renda média<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025–2026, Programa das Nações Unidas para o Meio Ambiente (Futura)</p>
       <p class="teaser">Três orientações do Programa das Nações Unidas para o Meio Ambiente sobre combustíveis, emissões e inspeção veicular.</p>
@@ -699,9 +357,9 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>De que informação um país de renda média ou baixa precisa para definir políticas de combustíveis, emissões e inspeção veicular?</dd></div><div><dt>Método</dt><dd>Três orientações setoriais para a plataforma AQMx do Programa das Nações Unidas para o Meio Ambiente e da Coalizão do Clima e Ar Limpo (qualidade dos combustíveis, padrões de emissão para veículos novos, inspeção e manutenção), com mais de trinta recursos selecionados, estudos de caso, modelos de financiamento e considerações de gênero e equidade, com foco na África Subsaariana.</dd></div><div><dt>Resultado</dt><dd>Guias publicados em 2025 e 2026 e apresentados em webinários da coalizão.</dd></div></dl>
       <ul class="projeto-links"><li><a href="https://aqmx.org/content/road-transport">AQMx, transporte rodoviário</a></li><li><a href="https://aqmx.org/content/aqmx-sectoral-guidance-improving-fuel-quality">Qualidade dos combustíveis</a></li><li><a href="https://aqmx.org/content/aqmx-sectoral-guidance-vehicle-emission-standards">Padrões de emissão</a></li><li><a href="https://aqmx.org/content/aqmx-sectoral-guidance-vehicle-inspection-and-maintenance-programmes">Inspeção e manutenção</a></li></ul></div>
     </article>
-    <article class="projeto" id="p-as-ferramentas-da-oms-nas-maos-de-gestor" data-pratica="acao" data-cor="ar" data-elementos="ar terra" data-lugares="acra kathmandu genebra">
+    <article class="projeto projeto--nota" id="p-as-ferramentas-da-oms-nas-maos-de-gestor" data-pratica="acao" data-cor="ar" data-elementos="ar terra" data-lugares="acra kathmandu genebra">
       
-      <figure class="nota-mapa"><img src="img/mapa-acra.svg" alt="Golfo da Guiné em contorno, com Acra marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/mapa-acra.svg" alt="Golfo da Guiné em contorno, com Acra marcada" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://www.who.int/initiatives/urban-health-initiative/pilot-projects" target="_blank" rel="noopener">As ferramentas da OMS nas mãos de gestores de Acra e Kathmandu<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2018–2019, Organização Mundial da Saúde, Urban Health Initiative</p>
       <p class="teaser">As ferramentas de impacto em saúde da Organização Mundial da Saúde testadas e ensinadas aos gestores de duas cidades-piloto.</p>
@@ -709,9 +367,9 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Quantas mortes uma cidade evita se o transporte diário passar a ser feito a pé, de bicicleta e por transporte coletivo?</dd></div><div><dt>Método</dt><dd>Teste e aplicação das ferramentas de avaliação de impacto em saúde da Urban Health Initiative da Organização Mundial da Saúde (HEAT, AirQ+, HOMES, iSThAT e as demais), desenvolvimento de conceitos e material de treinamento para os gestores das duas cidades-piloto.</dd></div><div><dt>Resultado</dt><dd>Em Acra: até 5.500 mortes evitadas pela qualidade do ar e 33.000 pela atividade física em 35 anos, com US$ 15 bilhões em benefícios.</dd></div></dl>
       <ul class="projeto-links"><li><a href="https://www.who.int/initiatives/urban-health-initiative/pilot-projects">OMS, projetos-piloto</a></li><li><a href="https://www.who.int/initiatives/urban-health-initiative/guidance-and-tools">Ferramentas e orientações</a></li><li><a href="https://www.who.int/publications/i/item/9789240017306">Relatório de Acra (2021)</a></li></ul></div>
     </article>
-    <article class="projeto" id="p-a-saude-na-assembleia-de-acionistas-da-v" data-pratica="acao" data-cor="ar" data-elementos="ar fogo" data-lugares="gotemburgo">
+    <article class="projeto projeto--nota" id="p-a-saude-na-assembleia-de-acionistas-da-v" data-pratica="acao" data-cor="ar" data-elementos="ar fogo" data-lugares="gotemburgo">
       
-      <figure class="nota-mapa"><img src="img/mapa-gotemburgo.svg" alt="Escandinávia em contorno, com Gotemburgo marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/mapa-gotemburgo.svg" alt="Escandinávia em contorno, com Gotemburgo marcada" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://www.airclim.org/air-pollution-health-and-case-zero-emission-trucks" target="_blank" rel="noopener">A saúde na assembleia de acionistas da Volvo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2026, Instituto Ar, Gotemburgo (Futura)</p>
       <p class="teaser">Evidência de saúde do transporte pesado brasileiro apresentada aos acionistas da Volvo, em Gotemburgo.</p>
@@ -719,9 +377,9 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Qual é o custo em saúde, no Brasil, das decisões das fabricantes de caminhões sobre a produção elétrica?</dd></div><div><dt>Método</dt><dd>Evidência brasileira apresentada em Gotemburgo, em 7 e 8 de abril de 2026, no painel de saúde da AirClim e na ação diante da assembleia de acionistas da Volvo, com a campanha Idle Giants e o Sunrise Project.</dd></div><div><dt>Resultado</dt><dd>A dimensão de saúde do transporte pesado brasileiro incluída no debate de investidores sobre eletrificação.</dd></div></dl>
       <ul class="projeto-links"><li><a href="https://www.airclim.org/air-pollution-health-and-case-zero-emission-trucks">AirClim, painel</a></li></ul></div>
     </article>
-    <article class="projeto" id="p-os-novos-padroes-de-qualidade-do-ar-dent" data-pratica="acao" data-cor="ar" data-elementos="ar" data-lugares="brasilia">
+    <article class="projeto projeto--nota" id="p-os-novos-padroes-de-qualidade-do-ar-dent" data-pratica="acao" data-cor="ar" data-elementos="ar" data-lugares="brasilia">
       
-      <figure class="nota-mapa"><img src="img/mapa-brasilia.svg" alt="Brasil central em contorno, com Brasília marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/mapa-brasilia.svg" alt="Brasil central em contorno, com Brasília marcada" loading="lazy"></figure>
       <h3 class="projeto-nome">Os novos padrões de qualidade do ar dentro do sistema de saúde</h3>
       <p class="projeto-meta">Instituto Ar, com o Ministério da Saúde (Futura)</p>
       <p class="teaser">Apoio ao Ministério da Saúde na implementação dos novos padrões nacionais de qualidade do ar.</p>
@@ -729,8 +387,8 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Como um padrão nacional de qualidade do ar se converte em instrumentos de uso do sistema de saúde?</dd></div><div><dt>Método</dt><dd>Apoio técnico ao Ministério da Saúde na implementação dos novos padrões nacionais de qualidade do ar, em parceria com a Environmental Defense Fund e a Coalizão do Clima e Ar Limpo.</dd></div><div><dt>Resultado</dt><dd>Padrões nacionais traduzidos em instrumentos de implementação para o sistema de saúde.</dd></div></dl></div>
     </article>
   <div class="pratica" id="imaginacao"><h3 class="pratica-titulo display">Imaginação</h3></div>
-    <article class="projeto ancora com-imagem" id="p-eduardo-kobra-e-a-oms-por-um-ar-mais-lim" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="cartagena genebra">
-      <figure class="projeto-imagem"><img src="img/kobra-cartagena.jpg" alt="Eduardo Kobra discursa em Cartagena ao receber o título de embaixador da Organização Mundial da Saúde" loading="lazy" onerror="var a=this.closest('article');if(a){a.classList.remove('com-imagem');}this.closest('figure').remove()"><figcaption>Foto: Patricia Ferrini</figcaption></figure>
+    <article class="projeto projeto--reportagem" id="p-eduardo-kobra-e-a-oms-por-um-ar-mais-lim" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="cartagena genebra">
+      <figure class="figura"><img src="img/kobra-cartagena.jpg" alt="Eduardo Kobra discursa em Cartagena ao receber o título de embaixador da Organização Mundial da Saúde" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Foto: Patricia Ferrini</figcaption></figure>
       <h3 class="projeto-nome"><a href="https://www.who.int/news-room/events/detail/2018/10/30/default-calendar/air-pollution-conference" target="_blank" rel="noopener">Eduardo Kobra e a OMS por um ar mais limpo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025, Organização Mundial da Saúde, Cartagena (Futura)</p>
       <p class="teaser">Eduardo Kobra nomeado embaixador da Organização Mundial da Saúde e porta-voz da campanha BreatheLife, em Cartagena.</p>
@@ -738,9 +396,9 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Como levar a evidência sobre poluição e saúde a públicos que as conferências não alcançam?</dd></div><div><dt>Método</dt><dd>Organização da Segunda Conferência Global sobre Poluição do Ar e Saúde, da Organização Mundial da Saúde, em Cartagena, em março de 2025, com mais de trinta eventos de alto nível, Estados-membros, cidades, agências das Nações Unidas e bancos de desenvolvimento; planejamento e execução da participação de Eduardo Kobra.</dd></div><div><dt>Resultado</dt><dd>A nomeação de Eduardo Kobra como embaixador da Organização Mundial da Saúde e porta-voz da campanha BreatheLife, em 27 de março de 2025.</dd></div></dl>
       <ul class="projeto-links"><li><a href="https://www.who.int/news-room/events/detail/2025/03/25/default-calendar/second-global-conference-on-air-pollution-and-health">OMS, conferência</a></li><li><a href="https://www.gazetasp.com.br/cotidiano/grafiteiro-kobra-e-nomeado-novo-embaixador-da-oms/1153668/">Gazeta de São Paulo</a></li></ul></div>
     </article>
-    <article class="projeto" id="p-marajo-sem-fumaca" data-pratica="imaginacao" data-cor="fogo" data-elementos="fogo terra ar" data-lugares="belem amazonia">
+    <article class="projeto projeto--nota" id="p-marajo-sem-fumaca" data-pratica="imaginacao" data-cor="fogo" data-elementos="fogo terra ar" data-lugares="belem amazonia">
       
-      <figure class="nota-mapa"><img src="img/mapa-marajo.svg" alt="Foz do Amazonas em contorno, com Belém marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/mapa-marajo.svg" alt="Foz do Amazonas em contorno, com Belém marcada" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://marajosemfumaca.com.br/" target="_blank" rel="noopener">Marajó Sem Fumaça<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025–2026, Instituto Ar e Clean Air Fund (Futura)</p>
       <p class="teaser">Brigada comunitária, escola e detecção de queimadas por inteligência artificial na Ilha de Marajó.</p>
@@ -748,9 +406,9 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Como reduzir o carbono negro das queimadas numa ilha onde o fogo é ferramenta agrícola?</dd></div><div><dt>Método</dt><dd>Brigada comunitária, material educativo para escolas (revista, pôster e plano de aula), detecção de focos por inteligência artificial e um policy brief sobre manejo integrado do fogo, com apoio do Clean Air Fund.</dd></div><div><dt>Resultado</dt><dd>A primeira brigada comunitária do Norte a operar com detecção por inteligência artificial; apresentação na COP30, em Belém; cobertura de Record, CNN, Folha e Correio Braziliense.</dd></div></dl>
       <ul class="projeto-links"><li><a href="https://institutoar.org.br/publicacoes/manejo-integrado-do-fogo-no-brasil-consolidando-politica-publica-para-reduzir-riscos-climaticos-e-proteger-saude-publica/">Policy brief</a></li><li><a href="https://institutoar.org.br/publicacoes/fogo-amigo-ou-perigo-uma-conversa-sobre-como-evitar-incendios-na-comunidade/">Revista educativa</a></li><li><a href="https://marajosemfumaca.com.br/">Site do projeto</a></li><li><a href="https://newblogs.correiobraziliense.com.br/ecobraziliense/manejo-do-fogo-surge-como-resposta-as-queimadas/">Correio Braziliense</a></li><li><a href="https://open.spotify.com/show/2onmTZNxv1oFzZ3Rf7Jqin">Ecos do Marajó</a></li><li><a href="https://www.leiaja.com/tecnologia/2026/07/02/ia-se-torna-aliada-de-brigadistas-no-combate-a-queimadas-na-amazonia">LeiaJá</a></li></ul></div>
     </article>
-    <article class="projeto" id="p-cinco-futuros-para-os-caminhoes-do-brasi" data-pratica="imaginacao" data-cor="ar" data-elementos="ar fogo" data-lugares="sao-paulo">
+    <article class="projeto projeto--nota" id="p-cinco-futuros-para-os-caminhoes-do-brasi" data-pratica="imaginacao" data-cor="ar" data-elementos="ar fogo" data-lugares="sao-paulo">
       
-      <figure class="nota-mapa"><img src="img/mapa-saopaulo.svg" alt="Sudeste do Brasil em contorno, com São Paulo marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/mapa-saopaulo.svg" alt="Sudeste do Brasil em contorno, com São Paulo marcada" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://institutoar.org.br/publicacoes/powering-brazils-transition-to-zero-emission-trucking/" target="_blank" rel="noopener">Cinco futuros para os caminhões do Brasil<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025, Instituto Ar (Futura)</p>
       <p class="teaser">Cinco matrizes energéticas para a frota pesada comparadas em emissões, saúde e custo até 2050.</p>
@@ -758,9 +416,9 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Qual matriz energética para os caminhões produz menos emissão, menos mortes e menos custo até 2050?</dd></div><div><dt>Método</dt><dd>Cinco cenários (diesel, híbrido a diesel, gás natural, biodiesel e elétrico) avaliados em emissões, saúde e custo socioambiental para a frota pesada de São Paulo.</dd></div><div><dt>Resultado</dt><dd>A eletrificação reduz 46% das emissões e evita R$ 5 bilhões em custos até 2050; o híbrido a diesel reduz 8%; gás e biodiesel aumentam emissões líquidas e custos; o biodiesel puro exigiria cerca de 215 milhões de hectares, um quarto do território nacional.</dd></div></dl>
       <ul class="projeto-links"><li><a href="https://exame.com/esg/brasil-pode-economizar-r-5-bi-e-reduzir-46-das-emissoes-com-caminhoes-eletricos-diz-estudo/">Exame</a></li><li><a href="https://institutoar.org.br/publicacoes/powering-brazils-transition-to-zero-emission-trucking/">Relatório (EN)</a></li><li><a href="https://diariodotransporte.com.br/2025/09/10/biodiesel-polui-mais-que-o-diesel-estudo-mostra-que-so-eletrificacao-de-caminhoes-de-carga-evita-colapso-climatico-e-custos-bilionarios/">Diário do Transporte</a></li><li><a href="https://evdrops.com.br/entrevista-patricia-ferrini-biocombustiveis/">evdrops, entrevista</a></li></ul></div>
     </article>
-    <article class="projeto" id="p-respira-amazonia" data-pratica="imaginacao" data-cor="ar" data-elementos="ar fogo terra" data-lugares="belem rio-branco amazonia">
+    <article class="projeto projeto--nota" id="p-respira-amazonia" data-pratica="imaginacao" data-cor="ar" data-elementos="ar fogo terra" data-lugares="belem rio-branco amazonia">
       
-      <figure class="nota-mapa"><img src="img/mapa-amazonia.svg" alt="Amazônia Legal em contorno" loading="lazy"></figure>
+      <figure class="figura"><img src="img/mapa-amazonia.svg" alt="Amazônia Legal em contorno" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://institutoar.org.br/programas/respira-amazonia/" target="_blank" rel="noopener">Respira Amazônia<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2024, Instituto Ar (Futura)</p>
       <p class="teaser">Coalizão para monitorar o ar das cidades amazônicas durante a temporada de queimadas.</p>
@@ -768,9 +426,9 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Que ar as cidades amazônicas respiram durante a temporada de queimadas?</dd></div><div><dt>Método</dt><dd>Coalizão de 22 organizações idealizada pelo Instituto Ar; policy brief sobre os desafios do monitoramento na Amazônia Legal; caso de investimento com a Environmental Defense Fund; dois encontros nacionais de monitoramento.</dd></div><div><dt>Resultado</dt><dd>Diagnóstico público da lacuna de monitoramento e um caso de investimento em ar limpo, saúde e equidade para as cidades da Amazônia, apresentado a financiadores em 2025.</dd></div></dl>
       <ul class="projeto-links"><li><a href="https://institutoar.org.br/programas/respira-amazonia/">Programa</a></li><li><a href="https://institutoar.org.br/publicacoes/um-sopro-de-vida-as-cidades-amazonicas-um-caso-de-investimento-transformador-visando-ar-puro-saude-equidade-e-oportunidades-economicas/">Caso de investimento</a></li><li><a href="https://institutoar.org.br/publicacoes/policy-brief-desafios-e-perspectivas-do-monitoramento-da-qualidade-do-ar-na-amazonia-legal/">Policy brief</a></li></ul></div>
     </article>
-    <article class="projeto" id="p-o-que-a-poluicao-custa-ao-sus" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="sao-paulo brasil">
+    <article class="projeto projeto--nota" id="p-o-que-a-poluicao-custa-ao-sus" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="sao-paulo brasil">
       
-      <figure class="nota-mapa"><img src="img/mapa-brasil.svg" alt="Brasil em contorno" loading="lazy"></figure>
+      <figure class="figura"><img src="img/mapa-brasil.svg" alt="Brasil em contorno" loading="lazy"></figure>
       <h3 class="projeto-nome">O que a poluição custa ao SUS</h3>
       <p class="projeto-meta">2025, Instituto Ar (Futura)</p>
       <p class="teaser">R$ 24,5 bilhões gastos pelo SUS, entre 2013 e 2023, com doenças atribuíveis à poluição do ar.</p>
@@ -778,8 +436,8 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Quanto o sistema público de saúde gasta com doenças atribuíveis à poluição do ar?</dd></div><div><dt>Método</dt><dd>Série de dez anos de despesas do SUS com internações e tratamentos associados a poluentes atmosféricos, 2013 a 2023.</dd></div><div><dt>Resultado</dt><dd>R$ 24,5 bilhões em dez anos. O número serve de linha de base para avaliar políticas de emissão no Brasil.</dd></div></dl></div>
     </article>
   <div class="pratica" id="conhecimento"><h3 class="pratica-titulo display">Conhecimento</h3></div>
-    <article class="projeto ancora com-imagem" id="p-andar-e-pedalar-no-porto" data-pratica="conhecimento" data-cor="ar" data-elementos="ar terra" data-lugares="porto">
-      <figure class="projeto-imagem"><img src="img/mapa-porto.svg" alt="Península Ibérica em contorno, com o Porto marcado" loading="lazy" onerror="var a=this.closest('article');if(a){a.classList.remove('com-imagem');}this.closest('figure').remove()"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
+    <article class="projeto projeto--reportagem" id="p-andar-e-pedalar-no-porto" data-pratica="conhecimento" data-cor="ar" data-elementos="ar terra" data-lugares="porto">
+      <figure class="figura"><img src="img/mapa-porto.svg" alt="Península Ibérica em contorno, com o Porto marcado" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
       <h3 class="projeto-nome"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0269749119328349" target="_blank" rel="noopener">Andar e pedalar no Porto, Portugal<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2017–2020, Universidade do Porto</p>
       <p class="teaser">Três cenários de troca do carro pela caminhada e pela bicicleta, em mortes evitadas, CO₂ e euros.</p>
@@ -787,9 +445,9 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>O que muda em saúde, emissões e custos se 5%, 10% ou 15% das viagens de carro passarem a ser feitas a pé ou de bicicleta?</dd></div><div><dt>Método</dt><dd>Três cenários de transferência modal avaliados em poluentes emitidos, mortes evitadas, CO₂ e valor econômico, com a Faculdade de Engenharia da Universidade do Porto.</dd></div><div><dt>Resultado</dt><dd>Cada cenário quantificado em saúde e em euros. Publicado na Environmental Pollution em 2020.</dd></div></dl>
       <ul class="projeto-links"><li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0269749119328349">Artigo</a></li></ul></div>
     </article>
-    <article class="projeto" id="p-um-laser-sobre-o-ar-de-sao-paulo" data-pratica="conhecimento" data-cor="ar" data-elementos="ar agua" data-lugares="greenbelt sao-paulo marilia canada chile toulouse praga edimburgo amsterda">
+    <article class="projeto projeto--nota" id="p-um-laser-sobre-o-ar-de-sao-paulo" data-pratica="conhecimento" data-cor="ar" data-elementos="ar agua" data-lugares="greenbelt sao-paulo marilia canada chile toulouse praga edimburgo amsterda">
       
-      <figure class="nota-mapa"><img src="img/mapa-lidar.svg" alt="Sudeste do Brasil em contorno, com São Paulo marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/mapa-lidar.svg" alt="Sudeste do Brasil em contorno, com São Paulo marcada" loading="lazy"></figure>
       <h3 class="projeto-nome">Um laser sobre o ar de São Paulo</h3>
       <p class="projeto-meta">2010–2014, NASA Goddard e Universidade de São Paulo</p>
       <p class="teaser">O crescimento higroscópico do aerossol urbano medido a laser em São Paulo e em Washington, com a NASA.</p>
@@ -797,36 +455,36 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Quanto o aerossol urbano cresce ao absorver umidade, e quanto isso altera o balanço de radiação sobre a cidade?</dd></div><div><dt>Método</dt><dd>Sensoriamento remoto por LIDAR em São Paulo e em Washington, com campanhas de campo no Canadá, no Chile e nos Estados Unidos, em colaboração com o Goddard Space Flight Center da NASA.</dd></div><div><dt>Resultado</dt><dd>Caracterização do crescimento higroscópico dos aerossóis nas duas metrópoles (tese de doutorado, 2014; prêmio de jovens cientistas do IGAC). Base instrumental para a rede latino-americana de lidar, LALINET.</dd></div></dl>
       <ul class="projeto-links"><li><a href="https://doi.org/10.1117/12.898208">SPIE 2011</a></li><li><a href="https://bv.fapesp.br/pt/pesquisador/82916/patricia-ferrini-rodrigues/">FAPESP</a></li></ul></div>
     </article>
-    <article class="projeto" id="p-satelites-para-cidades-sem-monitoramento" data-pratica="conhecimento" data-cor="ar" data-elementos="ar" data-lugares="dusseldorf india">
+    <article class="projeto projeto--nota" id="p-satelites-para-cidades-sem-monitoramento" data-pratica="conhecimento" data-cor="ar" data-elementos="ar" data-lugares="dusseldorf india">
       
-      <figure class="nota-mapa"><img src="img/mapa-india.svg" alt="Índia em contorno" loading="lazy"></figure>
+      <figure class="figura"><img src="img/mapa-india.svg" alt="Índia em contorno" loading="lazy"></figure>
       <h3 class="projeto-nome">Satélites para cidades sem monitoramento na Índia</h3>
       <p class="projeto-meta">2022, Leibniz-Institut, Düsseldorf</p>
       <p class="teaser">Base de dados por satélite para cidades indianas sem estação de monitoramento.</p>
       <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Como estimar o impacto da poluição na saúde de cidades sem estação de monitoramento?</dd></div><div><dt>Método</dt><dd>Base de dados de poluentes e variáveis climáticas derivada de satélite, construída no Leibniz-Institut für Umweltmedizinische Forschung.</dd></div><div><dt>Resultado</dt><dd>Cobertura contínua para o planejamento de adaptação clima-saúde em cidades indianas; financiamento captado para projetos de mitigação com foco em saúde pública.</dd></div></dl></div>
     </article>
-    <article class="projeto" id="p-descarbonizacao-e-saude-em-grenoble" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="grenoble paris">
+    <article class="projeto projeto--nota" id="p-descarbonizacao-e-saude-em-grenoble" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="grenoble paris">
       
-      <figure class="nota-mapa"><img src="img/mapa-grenoble.svg" alt="Alpes em contorno, com Grenoble marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/mapa-grenoble.svg" alt="Alpes em contorno, com Grenoble marcada" loading="lazy"></figure>
       <h3 class="projeto-nome">Descarbonização e saúde em Grenoble</h3>
       <p class="projeto-meta">2015–2016, Université Grenoble-Alpes</p>
       <p class="teaser">Co-benefícios em saúde de cenários de descarbonização, valorados em euros e levados à COP21.</p>
       <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Quanto uma cidade ganha em saúde a cada tonelada de carbono que deixa de emitir?</dd></div><div><dt>Método</dt><dd>Ferramentas econométricas para valorar os efeitos em saúde da redução da poluição em Grenoble, segundo a orientação da Organização Mundial da Saúde para adaptação em saúde.</dd></div><div><dt>Resultado</dt><dd>Co-benefícios de cenários de descarbonização quantificados em saúde e em euros, apresentados na Cúpula da Organização Mundial da Saúde sobre Clima e Saúde e no Fórum de Inovação Sustentável do Programa das Nações Unidas para o Meio Ambiente, no calendário oficial da COP21.</dd></div></dl></div>
     </article>
-    <article class="projeto" id="p-co-beneficios-do-transporte-de-passageir" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="sao-paulo">
+    <article class="projeto projeto--nota" id="p-co-beneficios-do-transporte-de-passageir" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="sao-paulo">
       
-      <figure class="nota-mapa"><img src="img/mapa-saopaulo.svg" alt="Sudeste do Brasil em contorno, com São Paulo marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/mapa-saopaulo.svg" alt="Sudeste do Brasil em contorno, com São Paulo marcada" loading="lazy"></figure>
       <h3 class="projeto-nome">Co-benefícios do transporte de passageiros em São Paulo</h3>
       <p class="projeto-meta">2017–2020, Instituto de Estudos Avançados da USP</p>
       <p class="teaser">Cenários de emissão do transporte de passageiros convertidos em impacto sanitário e econômico.</p>
       <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Quanto vale, em saúde, cada cenário de emissão da frota de passageiros da cidade?</dd></div><div><dt>Método</dt><dd>Software de avaliação de impacto econômico e sanitário da poluição do transporte motorizado, nas diretrizes da Organização Mundial da Saúde; projetos com a prefeitura para ampliar bicicletas e patinetes, com capacitação técnica.</dd></div><div><dt>Resultado</dt><dd>Cenários de emissão convertidos em mortes evitadas e em custo evitado.</dd></div></dl></div>
     </article>
-    <article class="projeto" id="p-a-frota-de-automoveis-da-alemanha" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="berlim">
+    <article class="projeto projeto--nota" id="p-a-frota-de-automoveis-da-alemanha" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="berlim">
       
-      <figure class="nota-mapa"><img src="img/mapa-alemanha.svg" alt="Alemanha em contorno" loading="lazy"></figure>
+      <figure class="figura"><img src="img/mapa-alemanha.svg" alt="Alemanha em contorno" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://theicct.org/pr-en-vehicle-stock-emissions-pv-germany-oct24/" target="_blank" rel="noopener">A frota de automóveis da Alemanha<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2024, ICCT, Berlim</p>
       <p class="teaser">Estratégias para a frota de passageiros alemã diante da meta climática de 2030.</p>
@@ -834,9 +492,9 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Pergunta</dt><dd>Qual estratégia para a frota de passageiros aproxima a Alemanha da meta climática do transporte em 2030?</dd></div><div><dt>Método</dt><dd>Modelagem do estoque de veículos e das emissões sob diferentes estratégias, incluindo o sucateamento acelerado de carros a diesel e gasolina antigos.</dd></div><div><dt>Resultado</dt><dd>O sucateamento acelerado responde por cerca de um terço da redução de emissões necessária até 2030, com queda dos poluentes associados a danos à saúde. Relatório do ICCT, outubro de 2024.</dd></div></dl>
       <ul class="projeto-links"><li><a href="https://theicct.org/pr-en-vehicle-stock-emissions-pv-germany-oct24/">ICCT</a></li></ul></div>
     </article>
-    <article class="projeto" id="p-politicas-de-transporte-rodoviario-e-saude" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="berlim">
+    <article class="projeto projeto--nota" id="p-politicas-de-transporte-rodoviario-e-saude" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="berlim">
       
-      <figure class="nota-mapa"><img src="img/mapa-mundo.svg" alt="Mapa-múndi em contorno" loading="lazy"></figure>
+      <figure class="figura"><img src="img/mapa-mundo.svg" alt="Mapa-múndi em contorno" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://iopscience.iop.org/article/10.1088/1748-9326/adcd87" target="_blank" rel="noopener">Políticas de transporte rodoviário e saúde no mundo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025, ICCT, George Washington University e University of Colorado</p>
       <p class="teaser">Modelagem global das mortes evitáveis pelas políticas de emissão do transporte rodoviário até 2040.</p>
@@ -871,7 +529,7 @@ figure.projeto-imagem:hover figcaption,figure.projeto-imagem:focus-within figcap
 <path class="mapa-area mapa-pais" data-lugar="india" tabindex="0" role="button" fill="url(#p-ar)" mask="url(#so-terra)" d="M905.8,175.8L906.5,177.4L905.6,178.2L906.7,180.8L904.2,180L901,182.9L901.7,185.4L901,188.9L901.3,191L900.8,194.5L898.1,193.6L899,198L898.7,199.5L899.4,201.3L898.1,202.3L894.8,195.5L893.9,195.5L894,198.2L891.7,196L892.1,193.6L893.5,193.3L894.1,189.7L892,189L889.1,189L885.9,188.5L884.9,185.5L883.3,185.3L880.3,183.5L880,186.4L882.8,188.6L881.2,190.2L880.9,191.7L883.1,192.9L883.2,195.5L885.1,198.7L886.3,202.2L886.2,203.8L884,203.8L880.2,204.7L881.1,207.9L879.9,210.5L875.7,213.4L873,218.5L871,221.3L868.2,224.2L868.5,226.2L867.1,227.3L864.3,228.9L862.8,229.1L862.3,232.4L863.7,238.2L864.3,241.9L863.4,246.1L864.1,253.6L862.4,253.8L861.2,257.2L862.3,258.7L859.4,260L858.5,263L857.3,264.3L853.8,260.1L851.8,253.9L850.1,249.4L848.8,247.3L846.6,243L845.2,237.5L844.3,234.7L840.6,228.7L838.1,220.2L836.3,214.6L835.4,209.3L834.1,205.3L829.9,207.9L827.5,207.3L822.4,202.1L823.7,200.5L822.5,198.9L818,195.2L819.6,192.4L826.7,192.4L825.3,188.7L823.1,186.5L822.1,183.3L819.6,181.4L822.1,177L825.9,177.3L828.1,172.9L829,168.7L831,164.5L830.2,161.6L832.1,159.2L829.1,157.2L827.2,154.4L825.1,150.8L826.1,149.1L831,150.1L834.2,149.5L836.1,146.1L840.9,150.8L841.6,154.1L843.5,156.2L844,158.3L841.6,157.8L843.8,162.3L847.6,164.9L852.7,167.8L851.2,169.7L851,173.6L854.5,175.2L858,177.2L862.7,179.6L867.2,180.1L869.6,182.3L872.1,182.7L876.2,183.7L878.8,183.6L878.7,181.9L877.6,179.3L877.3,177.4L879,176.6L880.2,179.9L880.5,180.7L883.8,182.3L885.6,181.7L888.3,181.9L890.9,181.8L890.4,179.2L888.7,177.9L891.1,177.4L893,174.2L895.8,171.6L898.8,172.6L900.4,170.8L902.7,173.4L902.2,175.2Z"><title>Índia: base de dados por satélite de qualidade do ar (Leibniz)</title></path>
 <path class="mapa-area mapa-pais" data-lugar="canada" tabindex="0" role="button" fill="url(#p-ar)" mask="url(#so-terra)" d="M259.5,94.8L259.1,94.8L256.5,91.3L255.8,89.8L252,88.4L253,85.3L255.2,83.3L253.1,81.8L255,79.1L254,76.7L255.6,75L258.6,73.4L260.5,71.4L258,69.4L259.1,65.8L259.9,63.6L259,62.2L258.7,60.9L259.1,59.4L255.4,60.4L251.1,62L251.1,60.1L250.8,58.7L249.4,57.9L247,57.8L267.2,42L280.1,33L283.5,33.5L285.5,34.7L287.6,34.9L291,33.9L294.7,33.2L297.7,33.5L302.5,32.5L307,31.9L307.3,32.8L309.7,32.3L311.6,31.2L312.9,31.5L314,33.5L319,32L317.1,33.7L320.3,33.3L322.1,32.7L324.6,32.8L326.9,33.8L331.2,34.6L333.8,35L336.3,34.9L337.9,36.1L333.3,37.3L336.9,37.8L343.5,37.5L345.9,37.1L346.7,38.5L350.6,37.3L349.4,36.3L351.8,35.4L354.7,35.3L356.8,35.1L358,35.7L359,37L361.7,36.8L364.7,37.9L368.7,37.5L372,37.5L373.2,36L375.7,35.6L378.5,36.4L376.2,38.8L379.6,36.8L381.4,36.9L384.7,34.5L383.7,33L382,32.1L384.7,29.7L388.9,28.1L391.5,28.5L392.8,29.4L393.4,31.9L390.3,33L394.1,33.5L391.8,35.9L396.6,34L397.9,35.5L395.7,37.3L396.4,39L400.4,37.2L403.9,35.1L406.3,32.6L409.4,32.8L412.4,33.1L414.5,34.3L413.7,35.4L410.9,36.7L411.4,38L410.2,39.2L404.1,41L400.5,41.4L398.8,40.6L397,41.9L392.9,44.1L391.2,45.2L386.9,47.1L383.3,47.2L380.5,48.4L378.8,50.2L375.7,50.5L370.8,52.8L365.5,56.1L362.6,58.4L359.7,61.9L363.1,62.4L362.1,65.3L361.6,67.7L365.6,67.1L369.5,68.4L371.2,69.6L372.1,71.1L374.8,72L376.7,73.4L380.9,73.6L383.6,73.9L381.5,76.7L380.4,80.1L380.2,83.8L382.5,87.1L385.1,86L388.5,82.5L390,77.2L389.1,75.5L394.2,73.9L398.5,71.7L401.2,69.4L402.3,67.3L402.1,64.7L400.5,62.4L405.5,59.2L406.2,56.5L408.4,52L410.6,51.3L414.2,52.1L416.6,52.4L419.1,51.6L420.8,52.6L422.7,54.3L422.8,55.4L427.1,55.6L425.6,58.1L424.2,61.9L426.3,62.4L427.1,64.2L431.7,62.5L435.9,59.1L438.4,57.8L438.9,60.4L440.2,64.3L441.2,68.1L439.2,70L441.9,71.9L443.4,73.7L447.2,74.5L448.5,75.6L448.4,78.4L450.3,78.8L450.9,80.1L449.6,83.9L447.2,85.2L444.8,86.4L439.8,87.6L435.3,90.4L430.4,91L424.8,90.3L420.7,90.2L417.8,90.5L414.4,93L410.2,94.6L404.2,99.3L399.6,102.6L402.2,102L408.7,97.3L415.7,94.3L420,94L421.8,95.7L418.2,98.1L417.6,102L417.5,104.7L420.5,106.6L425.4,106L429.6,101.9L428.9,104.6L430.3,105.9L426,108.3L418.9,110.5L415.5,112L411.3,114.7L409.2,114.5L410.3,111.3L416.3,108.2L411.7,108.3L408.4,108.8L407.3,106.7L409.3,101.7L408.4,100.7L406.3,101.3L405.8,100.4L402.5,103.1L400.5,105.9L398.8,107.6L397.4,108.2L396.4,108.4L395.7,109.3L390.5,109.3L386.1,109.3L384.5,110L380.4,112.7L379.9,113L378.4,114.4L375.8,114.4L372.9,114.4L371.4,115L371.5,115.8L371.3,116.9L371.1,117.3L366.5,119.2L363.3,119.8L359,121.8L358.3,121.8L357.6,121.2L357.5,120.7L357.7,120.3L358.9,119L361.2,116.9L363,114.6L363.8,111.4L364.8,108L362.6,106.3L363.3,105.6L363.1,105.2L362.3,105.2L362,104.6L362.3,103.7L361.5,104.1L360.8,104L361.2,103.6L360.7,103.3L360.9,102.3L359.3,101.2L357.6,100L355.6,98.6L353.7,97.3L350.7,98.3L349.7,98.3L346.8,97.4L344.3,97.9L342.2,96.8L339.7,96.2L337.9,96L337.3,95.4L338,93.4L337.1,93.4L336.2,94.8L330.5,94.8L321,94.8L311.6,94.8L303.3,94.8L295,94.8L286.8,94.8L278.3,94.8L275.6,94.8L267.4,94.8ZM394.2,51.6L397,50.3L400.4,50.4L399.9,50.9L395.9,52.5L394.2,52.4ZM424.7,26.3L423.3,25.3L424,24.6L425.2,24.4L430,24.6L432.8,25.7L432.5,26.3L430.2,26.2L427.9,26.2L425.3,26.5ZM402.5,52.7L404.1,51.8L405,51.9L405.2,52.5L403.2,54L402.3,53.7L402.3,52.9ZM398.8,22.2L396.8,22.9L393.9,22.7L391.8,22.3L393.8,21.5L397.4,21L398.6,21.6ZM403,17.9L402,18L398.2,17.9L398.1,17.4L402.3,17.5L403.4,17.7ZM399,16.1L400.9,16.6L399.7,17.1L396.3,17.4L395,17.1L394.8,16.5L395.3,15.9L397.9,16ZM409.4,23.2L406.2,23L401.1,22.4L401.4,21.4L402,20.6L400.7,19.8L396.6,19.6L394.7,19.1L396.2,18.5L400.5,18.6L402.2,19.1L406.4,19.1L407.6,19.6L406.5,20.3L408.5,20.6L409.4,21L412.2,21.1L415.2,21.3L419,20.9L423.5,20.7L426.8,20.9L428.5,21.5L428.3,22.3L426.5,22.8L422.9,23.2L420.4,22.9L413.9,23.2ZM367.7,17L370.3,17.2L369,17.6L364.5,18.1L362.1,17.6L364.4,17.1ZM369.6,16L371.9,16.3L369,16.6L365.5,16.6L365.8,16.4L368.6,16ZM448.8,86.7L446.5,88.9L443.6,91.9L445.8,90.8L447.4,91.5L446,92.7L448.1,93.7L449.7,92.8L452.1,93.9L450.3,96.5L452.5,95.9L452.2,97.8L452.4,100L450.2,103.2L448.9,103.4L447.3,102.7L448.8,99.7L448.2,99.3L443.9,102.4L442.3,102.3L444.8,100.6L442.4,99.7L439.3,99.9L433.9,99.8L433.9,98.7L436.1,97.5L435.2,96.5L438.3,94.4L443.2,88.8L445.6,86.8L448.4,85.6L449.6,85.8ZM400.1,44.4L402,45.3L404.1,46.1L403.4,47.4L405.3,47.2L406.3,48.1L403.6,48.9L400.3,48.3L399.9,47.1L396.4,48.5L391.8,49.9L392.2,48.3L388.7,48.6L391.9,47.2L393.9,45.1L396.7,42.7L398.3,42.9L397.8,44.1L399.3,43.7ZM426.2,27.2L428.9,26.4L432.9,27.5L435.2,28.5L434.7,29.4L439.2,28.9L440.5,30.3L445.3,31.2L446.6,32.1L447.2,34.2L442.2,35.3L446.6,36.9L449.9,37.4L451.8,39.7L455.3,39.8L453.5,41.6L447.5,44.6L445.3,43.5L443.2,41L439.9,41.4L438.6,42.8L440.1,44.4L442.6,45.6L443.2,46.3L443.1,49L441.1,51L438.5,50.2L433.7,48L435.7,50.4L437.2,52.1L437,53.1L431.1,52L426.8,50.3L424.8,49L426.1,48.2L423.5,46.8L420.9,45.5L420.4,46.3L413.1,46.7L411.8,45.8L414.8,43.8L419.3,43.8L424.4,43.4L424.3,42.5L426,41.2L430.8,38.8L431,37.7L430.7,36.8L428.1,35.7L424.1,34.9L426,34.3L424.7,32.9L422.9,32.7L421.7,32L419.9,32.6L415.6,32.9L407.8,32.4L403.6,31.7L400.3,31.4L399.1,30.6L402.4,29.6L399.3,29.6L400.7,27.5L404.2,25.7L407.2,24.9L413.4,24.4L410.5,25.6L411,26.9L414.6,25.3L420.9,24.5L422.8,26.5L421.2,27.8ZM395.2,23.7L399.6,23.8L403.3,24.3L398.2,26L395.2,26.4L391.2,27.9L388.8,27.8L389.3,26.1L390.4,25.1L392.4,24.2ZM338.8,20.2L344.1,18.9L349.9,17.9L353.1,17.9L356.3,17.7L354.3,18.9L351.9,19.5L349.8,19.6L344.9,20.3L341.1,20.5ZM247.4,77.5L250.3,77.3L245.9,81L245.8,83.8L244.7,83.8L244.5,82.2L244.9,80.7L244.6,79.6L245.4,78.1L246.6,77.1ZM381.8,15.3L385.6,15.5L390.6,16L391.4,16.7L391.4,17.3L388.2,17.2L385.4,16.7L380.8,16.6L383.4,16.2L381.3,15.9ZM256.3,96.5L254.6,97L251.2,95.4L251.4,94.2L249.9,92.9L250.2,91.9L247.9,91.3L248.4,89.4L249.3,88.6L251.5,89.4L252.8,89.9L255.1,90.3L255,91.5L255.1,93.1L256.7,94.6ZM337.4,23.1L339.9,23.5L345.3,23.6L346.7,24.2L348,25L344.6,25.5L337.3,26.9L332.7,28.4L331.5,29.3L324.2,30.3L324.3,29.4L320.7,28.2L322.8,27.4L326.4,25.9L330.1,24.6L329.7,23.4ZM370.1,20.6L372.4,20.4L374.5,20.4L373.9,21.3L371.5,22.1L363.9,22.4L357.4,23.2L354.1,23.2L354.6,22.6L360.1,21.8L350.1,22.1L347.6,21.7L352.8,20L355.4,19.6L360.6,20.1L363.1,21.2L366.7,21.3L365.7,19.7L368.4,19.1L370.4,19.2L370.1,20ZM366.6,25.8L368.1,26.6L367.2,28.6L366.2,30.1L368.7,31.2L371.6,32.3L370.3,33.3L366.4,33.5L366.9,34.4L365.2,35.2L361.5,34.8L358.2,34.2L355.4,34.4L350.2,35.2L344,35.5L339.7,35.7L339.7,34.6L337.4,34L335,34.2L334.5,32.4L336.3,32.2L340.2,31.8L343.3,31.9L346.7,31.5L343,31L337.9,31.2L334.8,31.1L334.7,30.3L340.9,29.4L337.5,29.5L334.3,28.9L338.2,27.3L340.8,26.5L348.3,25.3L350,25.7L347.7,26.6L353.4,26L355.2,27L358.9,26L360.1,26.7L359.5,28.7L361.6,27.8L362.6,25.8L364.8,25.5ZM379.1,26.5L378.2,25.2L381.8,24.3L384,24.7L388.1,24.4L388.1,25L385,26L387.4,26.8L385,28.7L380.5,29.5L378.5,29.3L377.9,28.5L374.1,26.9L374.9,26.3ZM367.7,24.8L370.7,24.7L371.9,25.1L368.4,26.4L366.6,25ZM391.7,19.2L392.4,19.9L391.5,20.8L389,22.1L385.3,22.3L383.3,22L384.6,21L380.9,21.1L382.3,19.8L384.6,19.9L388.4,19.3L391.3,19.4ZM403.4,13.7L405.2,13.3L407.4,13.3L406.8,13L411.6,12.9L413.5,13.5L416.7,13.8L419.8,14L420.5,14.9L422.6,15.3L419.3,15.7L414.3,16.8L410.5,16.9L406.4,16.7L404.8,16.1L405.4,15.6L407.5,15.2L403.7,15.2L401.9,14.8L401.3,14.2ZM414.1,12.2L417.3,12.1L419.7,12L423.9,11.9L427.3,11.5L429.7,11.5L431.6,11.8L433.7,11.3L436.5,11.2L440.2,11.1L446.4,11L447.4,11.1L453.4,11L457.7,11L462,11.1L467.3,11.1L471.5,11.3L475,11.5L474.7,11.8L469.4,12.2L464.4,12.4L462.3,12.7L466.8,12.7L461.4,13.3L457.8,13.7L453.4,14.7L448.9,14.9L447.4,15.2L441,15.3L443.7,15.5L442,15.7L443.1,16.4L440.6,16.9L437,17.3L435.5,17.9L432.1,18.4L432,18.8L435.7,18.7L435.4,19.1L428.8,20.1L423.7,19.6L417.2,19.9L414.2,19.7L410.3,19.6L410.9,18.8L415.2,18.4L415.3,17.3L416.7,17.2L421.6,17.9L419.8,16.9L416.7,16.6L419,16.1L423,15.8L424.1,15.3L421.7,14.8L421.5,14.1L427.1,14.2L428.6,14.3L432.2,13.9L427.8,13.7L420.5,13.8L417.3,13.4L416.1,12.9L414.1,12.6ZM425.2,38.4L423.1,39.1L420.4,39.2L420.7,38L422.8,36.7L425.2,36.3L426.5,37L425.7,38ZM381.1,33.5L381.6,34.4L379.3,35.2L377,34.5L374.9,34.7L372.8,33.7L375.6,33L378.2,32L379.9,32.6L380.8,33.1ZM422.4,91.7L423.5,91.4L426.8,92.3L429,93.8L428.8,94.4L427.5,94.5L424.3,93.4ZM419.8,101.8L420.2,103.6L422,104.1L424.7,104L422.8,105.5L421.6,105.7L418.6,104.2L418.4,103Z"><title>Canadá: campanhas de campo com LIDAR (NASA Goddard)</title></path>
 <path class="mapa-area mapa-pais" data-lugar="chile" tabindex="0" role="button" fill="url(#p-ar)" mask="url(#so-terra)" d="M415.4,517.8L419,525.2L421.8,525.2L423.5,525.3L423.3,526.6L421.5,527.6L420.2,527.5L418.5,527.3L416.1,526.3L413.1,525.8L408.8,524L405.2,522.2L399.5,518.5L402.1,519.2L407,521.4L411.2,522.6L411.8,521.1L411.5,518.8L413.3,517.4ZM373.2,378.3L375.2,381.3L376.1,384.4L378.1,386.3L377.7,390.5L380.2,395.3L382.5,401.3L384.7,400.7L385.2,401.8L384.9,406.2L381.8,408.3L383.3,415.4L382.9,416.8L384.2,418.4L382.5,421.1L381.3,425L381.1,428.8L382.3,432.8L381.5,437.1L384.7,444.2L385.7,444.9L386.7,448.7L386.1,452.6L387.2,456L385.7,458.6L386.8,462.2L388.9,466.1L387.6,467.5L388,471L388.7,474.9L390.8,479.6L389.9,480.4L392.2,484.7L394.1,486.2L393.7,487.7L395.4,488.5L396.2,489.9L395.2,490.6L396.4,492.8L397.4,497.6L397.2,500.7L398.3,502.5L398.4,504.8L397,506.3L399,510L400.6,511.3L402.3,511.1L403.5,513.7L405.5,515.7L412.3,516.1L415,516.6L412.6,516.6L411.7,517.5L409.9,518.7L411,521.8L409.9,521.9L406.4,520.8L402.1,518.5L397.8,516.5L395.8,514.4L395.6,512.3L393.1,510L389.9,504L389.5,500.6L391.2,497.8L386.5,496.7L387.8,493.5L386.2,487.4L389.9,488.7L388.5,480.9L386.1,479.9L387,484.6L385,484.1L383.8,478.6L382.3,471.5L382.7,468.8L380.5,465L378.9,460.6L380.1,460.4L379.9,454L380.2,447.5L379.8,441.4L377.5,435.3L377.6,431.8L376,426.7L376.6,421.6L375.5,413.4L374.8,404.5L374.1,394.9L372.7,387.8L371.1,381.7L372.7,380.5Z"><title>Chile: campanhas de campo com LIDAR (NASA Goddard)</title></path>
-<path class="mapa-area mapa-regiao" data-lugar="amazonia" tabindex="0" role="button" fill="url(#p-fogo)" mask="url(#so-terra)" d="M354,318.9L354.9,332.3L368.7,349.2L385.1,347L402.6,360.3L411.2,380.1L424.2,380.1L433.7,358.1L446.8,355.9L449.4,344.8L452.1,326.9L453.4,313.5L453.4,310.3L440,302.2L433.3,297.8L427.9,281.1L420.1,289.7L413.4,291.5L400.4,277.6L387,279.8L376.7,293.3L368.3,302.2L366.6,318ZM244.5,8L600,8L955.5,8L974,16.1L1018.1,38.2L1043.5,53.3L1068.6,70.3L1092.4,89.1L1114.2,109.3L1133.8,130.7L1151.1,153.1L1165.9,176.4L1178.1,200.3L1187.6,224.8L1194.5,249.6L1198.6,274.8L1200,300L1198.6,325.2L1194.5,350.4L1187.6,375.2L1178.1,399.7L1165.9,423.6L1151.1,446.9L1133.8,469.3L1114.2,490.7L1092.4,510.9L1068.6,529.7L1043.5,546.7L1018.1,561.8L974,583.9L955.5,592L600,592L244.5,592L226,583.9L181.9,561.8L156.5,546.7L131.4,529.7L107.6,510.9L85.8,490.7L66.2,469.3L48.9,446.9L34.1,423.6L21.9,399.7L12.4,375.2L5.5,350.4L1.4,325.2L0,300L1.4,274.8L5.5,249.6L12.4,224.8L21.9,200.3L34.1,176.4L48.9,153.1L66.2,130.7L85.8,109.3L107.6,89.1L131.4,70.3L156.5,53.3L181.9,38.2L226,16.1L244.5,8Z"><title>Amazônia Legal: Respira Amazônia, Marajó Sem Fumaça, Iniciativa Acre</title></path>
+<path class="mapa-area mapa-regiao" data-lugar="amazonia" tabindex="0" role="button" fill="url(#p-fogo)" mask="url(#so-terra)" d="M354,318.9L366.6,318L368.3,302.2L376.7,293.3L387,279.8L400.4,277.6L413.4,291.5L420.1,289.7L427.9,281.1L433.3,297.8L440,302.2L453.4,310.3L453.4,313.5L452.1,326.9L449.4,344.8L446.8,355.9L433.7,358.1L424.2,380.1L411.2,380.1L402.6,360.3L385.1,347L368.7,349.2L354.9,332.3Z"><title>Amazônia Legal: Respira Amazônia, Marajó Sem Fumaça, Iniciativa Acre</title></path>
 <path class="mapa-area mapa-oceano" data-lugar="atlantico" tabindex="0" role="button" fill="url(#p-agua)" mask="url(#so-mar)" d="M580.3,146.1L563.6,146.1L533.5,144.1L529.5,124.4L540.9,102L534.6,87.8L520.3,77.7L515.5,64.8L526.9,50.1L536.3,42L532.1,32.3L551.3,28L573.1,30.1L586.1,37L595.2,47.3L597.5,55.8L602.5,61.8L605.3,74.4L591.8,87.8L594.5,94.8L597.2,96.6L591.6,102L594.3,109.3L588.5,114.9L572.6,114.9L571.9,128.3L571.4,140.1Z"><title>Atlântico Nordeste: Área de Controle de Emissões da Organização Marítima Internacional (limite aproximado)</title></path>
 <g class="mapa-cidade" data-lugar="sao-paulo" tabindex="0" role="button"><circle cx="450.8" cy="404.2" r="2.2"/><path d="M454.0 410.4 A7 7 0 1 1 457.8 404.4"/><title>São Paulo</title></g>
 <g class="mapa-cidade" data-lugar="marilia" tabindex="0" role="button"><circle cx="439.4" cy="398.4" r="2.2"/><path d="M442.6 404.7 A7 7 0 1 1 446.4 398.6"/><title>Marília</title></g>
