@@ -222,7 +222,7 @@ section{padding-block:var(--sp-9);}
 .contato{border-top:var(--fio);padding-block:var(--sp-9) var(--sp-7);}
 .contato-in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);}
 .contato-email{grid-column:1/13;font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--fs-h2);line-height:var(--lh-display);width:max-content;max-width:100%;overflow-wrap:anywhere;}
-.assinatura{grid-column:1/13;margin-top:var(--sp-8);display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--sp-3);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
+.assinatura{grid-column:1/13;margin-top:var(--sp-8);display:flex;justify-content:flex-end;flex-wrap:wrap;gap:var(--sp-3);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
 
 /* ---------- LISTAS EDITORIAIS (publicações, mídia) ---------- */
 .abas{display:flex;flex-wrap:wrap;gap:var(--sp-5);margin-bottom:var(--sp-6);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
@@ -297,7 +297,7 @@ section{padding-block:var(--sp-9);}
       <ul class="menu" id="menu">
         <li><a href="projetos.html">Projetos</a></li>
         <li><a href="publicacoes.html">Publicações</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="#sobre">Sobre</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
@@ -416,6 +416,35 @@ section{padding-block:var(--sp-9);}
     <p><span>Cobertura</span> Record, CNN Brasil, Folha de S.Paulo, Correio Braziliense, Jornal da USP, Exame, Diário do Pará. <a href="midia.html">Na mídia</a></p>
   </div>
 </section>
+<!-- QUEM -->
+<section class="wrap revela" id="sobre" aria-labelledby="t-quem">
+  <div class="secao-cab">
+    <h2 class="display" id="t-sobre">Sobre</h2>
+    <p>Fundadora da Futura Evidence Lab.</p>
+  </div>
+  <div class="quem-in">
+
+    <div class="retrato quadro"><img src="retrato.jpg" alt="Patricia Ferrini" width="800" height="1000"></div>
+    <div class="quem-txt">
+      <h2>Patricia Ferrini</h2>
+      <p>Doutora em Ciências Atmosféricas pela Universidade de São Paulo, Brasil, com pesquisa em parceria com o Goddard Space Flight Center da NASA, nos Estados Unidos. Pós-doutora em Economia do Desenvolvimento Sustentável pela Université Grenoble-Alpes, França, e pelo Instituto de Estudos Avançados da USP, e pesquisadora convidada da Universidade do Porto, Portugal. Consultora da Organização Mundial da Saúde e do Programa das Nações Unidas para o Meio Ambiente. Fundadora da Futura Evidence Lab.</p>
+      <p class="redes"><a class="rede" href="https://www.linkedin.com/in/patricia-ferrini/" aria-label="LinkedIn"><span class="rede-icone" style="--icone:url(https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.14.0/linkedin.svg)" aria-hidden="true"></span>LinkedIn</a>
+      <a class="rede" href="https://www.instagram.com/patty_ferrini_r/" aria-label="Instagram"><span class="rede-icone" style="--icone:url(https://cdnjs.cloudflare.com/ajax/libs/simple-icons/11.14.0/instagram.svg)" aria-hidden="true"></span>Instagram</a></p>
+    </div>
+    </div>
+</section>
+
+
+
+<dialog class="ficha-dialog" id="ficha-dialog" aria-labelledby="fd-titulo">
+  <div class="fd-in">
+    <button class="fd-fechar" type="button" aria-label="Fechar">×</button>
+    <h3 class="projeto-nome" id="fd-titulo"></h3>
+    <p class="projeto-meta" id="fd-meta"></p>
+    <div id="fd-corpo"></div>
+  </div>
+</dialog>
+
 
 </main>
 
@@ -427,7 +456,7 @@ section{padding-block:var(--sp-9);}
       <li><span class="rotulo">Imprensa</span><a class="contato-email" href="mailto:imprensa@futuraevidencelab.com.br">imprensa@futuraevidencelab.com.br</a></li>
       <li><span class="rotulo">Monitor El Niño Brasil</span><a class="contato-email" href="https://monitorelnino.com.br/">monitorelnino.com.br</a></li>
     </ul>
-    <div class="assinatura"><p>Futura, Patricia Ferrini</p><p>© 2026</p></div>
+    <div class="assinatura"><p>© 2026</p></div>
   </div>
 </footer>
 
