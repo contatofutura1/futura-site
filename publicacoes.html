@@ -136,9 +136,7 @@ section{padding-block:var(--sp-9);}
 
 /* ---------- PROJETOS ---------- */
 .projetos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-8) var(--sp-8);}
-.pratica{grid-column:1/-1;border-top:var(--fio);padding:var(--sp-6) 0 0;}
 .pratica:first-child{border-top:0;padding-top:0;}
-.pratica-titulo{font-family:var(--corpo);font-weight:500;font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
 .pratica-frase{display:none;}
 
 /* card base */
@@ -363,6 +361,12 @@ section{padding-block:var(--sp-9);}
 /* cards da grade: a arte define a altura, nada e cortado */
 .projeto--nota .figura{width:100%!important;height:auto!important;aspect-ratio:auto!important;overflow:visible;margin-bottom:var(--sp-4);}
 .projeto--nota .figura img{width:100%!important;height:auto!important;object-fit:fill!important;display:block;}
+
+.ficha-fotos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--calha);margin-top:var(--sp-6);}
+.ficha-fotos figure{margin:0;}
+.ficha-fotos img{width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;object-position:center;display:block;}
+.ficha-fotos figcaption{margin-top:var(--sp-2);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;opacity:.6;}
+@media (max-width:700px){.ficha-fotos{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
