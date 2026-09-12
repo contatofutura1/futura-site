@@ -342,6 +342,16 @@ section{padding-block:var(--sp-9);}
 
 /* alinhamento vertical do bloco visual: o lado quieto da imagem encosta no titulo */
 .projeto--topo .figura{margin-top:var(--sp-7);}
+
+/* imagem um pouco menor: seis colunas, texto cinco, uma coluna de respiro entre elas */
+.projeto--esq .figura{grid-column:1/7!important;}
+.projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,.projeto--esq .projeto-meta,
+.projeto--esq .teaser,.projeto--esq .abrir,.projeto--esq .destaque-acoes{grid-column:8/13!important;}
+@media (max-width:1100px){
+  .projeto--esq .figura,.projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,
+  .projeto--esq .projeto-meta,.projeto--esq .teaser,.projeto--esq .abrir,
+  .projeto--esq .destaque-acoes{grid-column:1/13!important;}
+}
 </style>
 </head>
 <body>
@@ -372,7 +382,8 @@ section{padding-block:var(--sp-9);}
     <p>Entrevistas, matérias e comunicados, de 2024 a 2026, do Jornal da USP e da CNN aos portais da Amazônia. <a href="projetos.html">Ver os projetos</a></p>
   </div>
   <ul class="lista" id="lista-midia">
-    <li class="item"><span class="item-fonte">Ecos do Marajó, podcast</span><a class="item-titulo" href="https://open.spotify.com/show/2onmTZNxv1oFzZ3Rf7Jqin">Entrevista sobre o Marajó Sem Fumaça e o manejo do fogo na ilha</a><span class="item-data">set 2026</span></li>
+    <li class="item"><span class="item-fonte">Exame</span><a class="item-titulo" href="https://exame.com/esg/brasil-pode-economizar-r-5-bi-e-reduzir-46-das-emissoes-com-caminhoes-eletricos-diz-estudo/">Brasil pode economizar R$ 5 bi e reduzir 46% das emissões com caminhões elétricos, diz estudo</a><span class="item-data">set 2025</span></li>
+  <li class="item"><span class="item-fonte">Ecos do Marajó, podcast</span><a class="item-titulo" href="https://open.spotify.com/show/2onmTZNxv1oFzZ3Rf7Jqin">Entrevista sobre o Marajó Sem Fumaça e o manejo do fogo na ilha</a><span class="item-data">set 2026</span></li>
     <li class="item"><span class="item-fonte">Record</span><a class="item-titulo" href="https://institutoar.org.br/clipping/inteligencia-artificial-ajuda-comunidade-do-para-no-combate-as-queimadas/">Inteligência artificial ajuda comunidade do Pará no combate às queimadas: Marajó Sem Fumaça na TV</a><span class="item-data">ago 2026</span></li>
     <li class="item"><span class="item-fonte">CNN Brasil</span><a class="item-titulo" href="https://institutoar.org.br/clipping/ia-combate-queimadas-marajo/">IA encurta a distância do fogo no Marajó</a><span class="item-data">jul 2026</span></li>
     <li class="item"><span class="item-fonte">Folha / Agora</span><a class="item-titulo" href="https://institutoar.org.br/clipping/ia-e-brigada-local-teste-para-reduzir-resposta-a-incendios-no-marajo/">IA e brigada local: teste para reduzir resposta a incêndios no Marajó</a><span class="item-data">jul 2026</span></li>

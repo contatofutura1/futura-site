@@ -342,6 +342,16 @@ section{padding-block:var(--sp-9);}
 
 /* alinhamento vertical do bloco visual: o lado quieto da imagem encosta no titulo */
 .projeto--topo .figura{margin-top:var(--sp-7);}
+
+/* imagem um pouco menor: seis colunas, texto cinco, uma coluna de respiro entre elas */
+.projeto--esq .figura{grid-column:1/7!important;}
+.projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,.projeto--esq .projeto-meta,
+.projeto--esq .teaser,.projeto--esq .abrir,.projeto--esq .destaque-acoes{grid-column:8/13!important;}
+@media (max-width:1100px){
+  .projeto--esq .figura,.projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,
+  .projeto--esq .projeto-meta,.projeto--esq .teaser,.projeto--esq .abrir,
+  .projeto--esq .destaque-acoes{grid-column:1/13!important;}
+}
 </style>
 </head>
 <body>

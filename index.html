@@ -351,6 +351,16 @@ section{padding-block:var(--sp-9);}
 
 .cartografia-link{grid-column:1/13;margin-top:var(--sp-3);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
 .cartografia-link a{border-bottom:1px solid var(--preto);}
+
+/* imagem um pouco menor: seis colunas, texto cinco, uma coluna de respiro entre elas */
+.projeto--esq .figura{grid-column:1/7!important;}
+.projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,.projeto--esq .projeto-meta,
+.projeto--esq .teaser,.projeto--esq .abrir,.projeto--esq .destaque-acoes{grid-column:8/13!important;}
+@media (max-width:1100px){
+  .projeto--esq .figura,.projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,
+  .projeto--esq .projeto-meta,.projeto--esq .teaser,.projeto--esq .abrir,
+  .projeto--esq .destaque-acoes{grid-column:1/13!important;}
+}
 </style>
 </head>
 <body>
