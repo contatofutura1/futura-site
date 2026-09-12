@@ -466,7 +466,7 @@ body.na-capa .nav .marca{opacity:0;visibility:hidden;}
 /* ---------- CAPA: uma composicao so ---------- */
 .abertura{position:relative;min-height:78svh;align-content:center;padding-bottom:var(--sp-7);overflow:hidden;}
 .capa-obra{position:absolute;left:50%;transform:translateX(-50%);top:2%;width:118%;max-width:none;pointer-events:none;z-index:0;}
-.capa-obra img{width:100%;height:auto;display:block;opacity:.9;-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 62%,transparent 92%);mask-image:linear-gradient(to bottom,#000 0,#000 46%,transparent 74%);}
+.capa-obra img{width:100%;height:auto;display:block;opacity:.9;-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 62%,transparent 92%);mask-image:linear-gradient(to bottom,#000 0,#000 34%,transparent 52%);}
 /* o wordmark vira paisagem: ocupa a largura util e sangra um pouco nas pontas */
 .abertura .wordmark{position:relative;z-index:1;grid-column:1/-1;width:auto;margin-left:-.06em;
   font-size:clamp(3.4rem,13.6vw,13rem);line-height:.82;letter-spacing:.055em;
@@ -499,8 +499,14 @@ body.na-capa .nav .marca{opacity:0;visibility:hidden;}
   .projeto--reportagem .abrir,.projeto--reportagem .destaque-acoes{order:8;}
   /* a obra da capa nao invade o topo nem sangra demais */
   .capa-obra{top:10%!important;width:150%!important;}
-  .capa-obra img{-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 58%,transparent 88%);mask-image:linear-gradient(to bottom,#000 0,#000 58%,transparent 88%);}
+  .capa-obra img{-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 40%,transparent 58%);mask-image:linear-gradient(to bottom,#000 0,#000 40%,transparent 58%);}
 }
+
+.capa-obra--pe{top:auto!important;bottom:-4%;left:0;transform:none;width:58%;opacity:.85;}
+.capa-obra--pe img{transform:scaleY(-1) rotate(-4deg);
+  -webkit-mask-image:linear-gradient(to right,#000 0,#000 58%,transparent 92%);
+  mask-image:linear-gradient(to right,#000 0,#000 58%,transparent 92%);}
+@media (max-width:1100px){.capa-obra--pe{display:none;}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://futuraevidencelab.com.br/#org","name":"Futura Evidence Lab","alternateName":"Futura","url":"https://futuraevidencelab.com.br/","logo":"https://futuraevidencelab.com.br/compartilhar.png","description":"Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos, encontros e arte que fundamentam decisões sobre territórios e corpos.","email":"contato@futuraevidencelab.com.br","founder":{"@id":"https://futuraevidencelab.com.br/#patricia"},"knowsAbout":["qualidade do ar","poluição atmosférica","saúde pública","mudanças climáticas","transporte e emissões","queimadas","política ambiental"],"areaServed":"Brasil"},
@@ -532,6 +538,7 @@ body.na-capa .nav .marca{opacity:0;visibility:hidden;}
 <!-- ABERTURA -->
 <section class="wrap abertura" aria-label="Abertura">
   <div class="capa-obra" aria-hidden="true"><img src="img/il-capa.svg" alt=""></div>
+  <div class="capa-obra capa-obra--pe" aria-hidden="true"><img src="img/il-capa.svg" alt=""></div>
   <h1 class="wordmark display" aria-label="Futura">
     <span aria-hidden="true" style="animation-delay:0ms">F</span><span class="u" aria-hidden="true" style="animation-delay:70ms">U</span><span aria-hidden="true" style="animation-delay:140ms">T</span><span class="u" aria-hidden="true" style="animation-delay:210ms">U</span><span aria-hidden="true" style="animation-delay:280ms">R</span><span aria-hidden="true" style="animation-delay:350ms">A</span>
   </h1>
