@@ -341,6 +341,10 @@ section{padding-block:var(--sp-9);}
   .projeto--capa .teaser,.projeto--reportagem .teaser,
   .projeto--capa .projeto-nome,.projeto--reportagem .projeto-nome{max-width:none;}
 }
+
+/* a caixa acompanha a arte: sem proporcao imposta, sem moldura sobrando */
+.projeto--capa .figura,.projeto--reportagem .figura{aspect-ratio:auto!important;height:auto!important;overflow:visible;}
+.projeto--capa .figura img,.projeto--reportagem .figura img{width:100%!important;height:auto!important;display:block;object-fit:fill!important;}
 </style>
 </head>
 <body>
