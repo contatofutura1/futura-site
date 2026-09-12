@@ -305,47 +305,7 @@ section{padding-block:var(--sp-9);}
 
 [hidden]{display:none!important;}
 
-/* ---------- composicoes editoriais: o mesmo card, arranjos diferentes ---------- */
-/* B: imagem a esquerda, texto a direita */
-.comp-b .figura{grid-column:1/7!important;grid-row:1/6!important;}
-.comp-b .destaque-rotulo,.comp-b .projeto-nome,.comp-b .projeto-meta,.comp-b .teaser,.comp-b .abrir,.comp-b .destaque-acoes{grid-column:8/13!important;}
-/* C: imagem larga em sangria, texto em coluna estreita embaixo a esquerda */
-.comp-c{grid-template-rows:auto auto auto auto auto!important;}
-.comp-c .figura{grid-column:3/13!important;grid-row:1!important;aspect-ratio:16/7!important;}
-.comp-c .destaque-rotulo{grid-column:1/6!important;grid-row:2!important;margin-top:var(--sp-6);}
-.comp-c .projeto-nome{grid-column:1/6!important;grid-row:3!important;}
-.comp-c .projeto-meta{grid-column:1/6!important;grid-row:4!important;}
-.comp-c .teaser{grid-column:6/10!important;grid-row:3/5!important;margin-top:0!important;align-self:end;}
-.comp-c .abrir,.comp-c .destaque-acoes{grid-column:1/6!important;grid-row:5!important;}
-/* D: imagem estreita encostada na margem direita, texto largo a esquerda */
-.comp-d .figura{grid-column:10/13!important;grid-row:1/6!important;align-self:center;}
-.comp-d .destaque-rotulo,.comp-d .projeto-nome,.comp-d .projeto-meta,.comp-d .teaser,.comp-d .abrir,.comp-d .destaque-acoes{grid-column:1/9!important;}
-.comp-d .projeto-nome{max-width:22ch!important;}
-.comp-d .teaser{max-width:52ch!important;}
-/* E: imagem grande deslocada para o alto, texto ocupando o vazio a esquerda embaixo */
-.comp-e .figura{grid-column:6/13!important;grid-row:1/4!important;}
-.comp-e .destaque-rotulo{grid-column:1/6!important;grid-row:1!important;align-self:start;}
-.comp-e .projeto-nome{grid-column:1/6!important;grid-row:2!important;align-self:end;}
-.comp-e .projeto-meta{grid-column:1/6!important;grid-row:3!important;align-self:start;}
-.comp-e .teaser{grid-column:1/6!important;grid-row:4!important;margin-top:var(--sp-5)!important;}
-.comp-e .abrir,.comp-e .destaque-acoes{grid-column:1/6!important;grid-row:5!important;}
-@media (max-width:1100px){
-  /* o celular nao empilha igual: cada composicao guarda o seu ritmo */
-  .comp-b .figura,.comp-c .figura,.comp-d .figura,.comp-e .figura,
-  .comp-b .projeto-nome,.comp-c .projeto-nome,.comp-d .projeto-nome,.comp-e .projeto-nome,
-  .comp-b .projeto-meta,.comp-c .projeto-meta,.comp-d .projeto-meta,.comp-e .projeto-meta,
-  .comp-b .teaser,.comp-c .teaser,.comp-d .teaser,.comp-e .teaser,
-  .comp-b .abrir,.comp-c .abrir,.comp-d .abrir,.comp-e .abrir,
-  .comp-b .destaque-rotulo,.comp-c .destaque-rotulo,.comp-d .destaque-rotulo,.comp-e .destaque-rotulo,
-  .comp-b .destaque-acoes,.comp-c .destaque-acoes,.comp-d .destaque-acoes,.comp-e .destaque-acoes{grid-column:1/13!important;grid-row:auto!important;}
-  .comp-b .figura{order:1;max-width:none!important;}       /* imagem abre */
-  .comp-c .figura{order:1;max-width:none!important;aspect-ratio:16/9!important;margin-inline:calc(var(--margem)*-1);width:auto!important;}
-  .comp-d .figura{order:4;max-width:16rem!important;margin-left:auto;}  /* imagem como detalhe, no fim */
-  .comp-e .figura{order:3;max-width:none!important;}
-  .comp-b > *,.comp-c > *,.comp-d > *,.comp-e > *{align-self:stretch!important;}
-  .comp-c .figura{margin-inline:0!important;}
-  .comp-d .figura{margin-left:0!important;}
-}
+
 </style>
 </head>
 <body>
@@ -380,7 +340,7 @@ section{padding-block:var(--sp-9);}
   <p class="contagem" id="contagem" aria-live="polite"></p><button class="todos rotulo" id="todos" type="button" hidden>Todos</button>
   <div class="projetos" id="grade">
   <div class="pratica" id="estudo"><h3 class="pratica-titulo">Estudo</h3></div>
-  <article class="projeto comp-e projeto--reportagem" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="agua" data-elementos="ar agua" data-lugares="berlim atlantico">
+  <article class="projeto projeto--reportagem" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="agua" data-elementos="ar agua" data-lugares="berlim atlantico">
       <figure class="figura"><img src="img/il-eca.svg" alt="Fitas que atravessam uma fronteira fechada e saem mais finas do que entraram" loading="lazy"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
       <h3 class="projeto-nome"><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/" target="_blank" rel="noopener">A maior área de controle de emissões marítimas do mundo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2024–2026, ICCT e Organização Marítima Internacional</p>
@@ -457,7 +417,7 @@ section{padding-block:var(--sp-9);}
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Estudo</dd></div><div><dt>Pergunta</dt><dd>Quanto uma cidade ganha em saúde a cada tonelada de carbono que deixa de emitir?</dd></div><div><dt>Método</dt><dd>Ferramentas econométricas para valorar os efeitos em saúde da redução da poluição em Grenoble, segundo a orientação da Organização Mundial da Saúde para adaptação em saúde.</dd></div><div><dt>Resultado</dt><dd>Co-benefícios de cenários de descarbonização quantificados em saúde e em euros, apresentados na Cúpula da Organização Mundial da Saúde sobre Clima e Saúde e no Fórum de Inovação Sustentável do Programa das Nações Unidas para o Meio Ambiente, no calendário oficial da COP21.</dd></div></dl></div>
     </article>
   <div class="pratica" id="instrumento"><h3 class="pratica-titulo">Instrumento</h3></div>
-  <article class="projeto comp-b projeto--capa" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="ar agua fogo terra" data-lugares="brasil">
+  <article class="projeto projeto--capa" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="ar agua fogo terra" data-lugares="brasil">
     <p class="destaque-rotulo">Em curso</p>
     <h3 class="projeto-nome"><a href="https://monitorelnino.com.br/" target="_blank" rel="noopener">Monitor El Niño Brasil<span class="ext" aria-hidden="true">↗</span></a></h3>
     <p class="projeto-meta">2026–2027, monitorelnino.com.br</p>
@@ -515,7 +475,7 @@ section{padding-block:var(--sp-9);}
       <ul class="projeto-links"><li><a href="https://doi.org/10.1117/12.898208">SPIE 2011</a></li><li><a href="https://bv.fapesp.br/pt/pesquisador/82916/patricia-ferrini-rodrigues/">FAPESP</a></li></ul></div>
     </article>
   <div class="pratica" id="encontro"><h3 class="pratica-titulo">Encontro</h3></div>
-  <article class="projeto comp-c projeto--reportagem" id="p-a-primeira-conferencia-global-sobre-polu" data-pratica="acao" data-cor="ar" data-elementos="ar" data-lugares="genebra">
+  <article class="projeto projeto--reportagem" id="p-a-primeira-conferencia-global-sobre-polu" data-pratica="acao" data-cor="ar" data-elementos="ar" data-lugares="genebra">
       
       <figure class="figura"><img src="img/il-genebra.svg" alt="Muitos percursos que chegam a um mesmo lugar" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://www.who.int/news-room/events/detail/2018/10/30/default-calendar/air-pollution-conference" target="_blank" rel="noopener">A primeira conferência global sobre poluição do ar e saúde<span class="ext" aria-hidden="true">↗</span></a></h3>
@@ -536,7 +496,7 @@ section{padding-block:var(--sp-9);}
       <ul class="projeto-links"><li><a href="https://www.who.int/initiatives/urban-health-initiative/pilot-projects">OMS, projetos-piloto</a></li><li><a href="https://www.who.int/initiatives/urban-health-initiative/guidance-and-tools">Ferramentas e orientações</a></li><li><a href="https://www.who.int/publications/i/item/9789240017306">Relatório de Acra (2021)</a></li></ul></div>
     </article>
   <div class="pratica" id="obra"><h3 class="pratica-titulo">Obra</h3></div>
-  <article class="projeto comp-d projeto--reportagem" id="p-eduardo-kobra-e-a-oms-por-um-ar-mais-lim" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="cartagena genebra">
+  <article class="projeto projeto--reportagem" id="p-eduardo-kobra-e-a-oms-por-um-ar-mais-lim" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="cartagena genebra">
       <figure class="figura"><img src="img/il-kobra.svg" alt="Percursos contidos numa forma fechada e um que escapa e segue muito além" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Foto: Patricia Ferrini</figcaption></figure>
       <h3 class="projeto-nome"><a href="https://www.who.int/news-room/events/detail/2018/10/30/default-calendar/air-pollution-conference" target="_blank" rel="noopener">Eduardo Kobra e a OMS por um ar mais limpo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025, Organização Mundial da Saúde, Cartagena (Futura)</p>

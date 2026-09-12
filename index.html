@@ -313,47 +313,7 @@ section{padding-block:var(--sp-9);}
 
 [hidden]{display:none!important;}
 
-/* ---------- composicoes editoriais: o mesmo card, arranjos diferentes ---------- */
-/* B: imagem a esquerda, texto a direita */
-.comp-b .figura{grid-column:1/7!important;grid-row:1/6!important;}
-.comp-b .destaque-rotulo,.comp-b .projeto-nome,.comp-b .projeto-meta,.comp-b .teaser,.comp-b .abrir,.comp-b .destaque-acoes{grid-column:8/13!important;}
-/* C: imagem larga em sangria, texto em coluna estreita embaixo a esquerda */
-.comp-c{grid-template-rows:auto auto auto auto auto!important;}
-.comp-c .figura{grid-column:3/13!important;grid-row:1!important;aspect-ratio:16/7!important;}
-.comp-c .destaque-rotulo{grid-column:1/6!important;grid-row:2!important;margin-top:var(--sp-6);}
-.comp-c .projeto-nome{grid-column:1/6!important;grid-row:3!important;}
-.comp-c .projeto-meta{grid-column:1/6!important;grid-row:4!important;}
-.comp-c .teaser{grid-column:6/10!important;grid-row:3/5!important;margin-top:0!important;align-self:end;}
-.comp-c .abrir,.comp-c .destaque-acoes{grid-column:1/6!important;grid-row:5!important;}
-/* D: imagem estreita encostada na margem direita, texto largo a esquerda */
-.comp-d .figura{grid-column:10/13!important;grid-row:1/6!important;align-self:center;}
-.comp-d .destaque-rotulo,.comp-d .projeto-nome,.comp-d .projeto-meta,.comp-d .teaser,.comp-d .abrir,.comp-d .destaque-acoes{grid-column:1/9!important;}
-.comp-d .projeto-nome{max-width:22ch!important;}
-.comp-d .teaser{max-width:52ch!important;}
-/* E: imagem grande deslocada para o alto, texto ocupando o vazio a esquerda embaixo */
-.comp-e .figura{grid-column:6/13!important;grid-row:1/4!important;}
-.comp-e .destaque-rotulo{grid-column:1/6!important;grid-row:1!important;align-self:start;}
-.comp-e .projeto-nome{grid-column:1/6!important;grid-row:2!important;align-self:end;}
-.comp-e .projeto-meta{grid-column:1/6!important;grid-row:3!important;align-self:start;}
-.comp-e .teaser{grid-column:1/6!important;grid-row:4!important;margin-top:var(--sp-5)!important;}
-.comp-e .abrir,.comp-e .destaque-acoes{grid-column:1/6!important;grid-row:5!important;}
-@media (max-width:1100px){
-  /* o celular nao empilha igual: cada composicao guarda o seu ritmo */
-  .comp-b .figura,.comp-c .figura,.comp-d .figura,.comp-e .figura,
-  .comp-b .projeto-nome,.comp-c .projeto-nome,.comp-d .projeto-nome,.comp-e .projeto-nome,
-  .comp-b .projeto-meta,.comp-c .projeto-meta,.comp-d .projeto-meta,.comp-e .projeto-meta,
-  .comp-b .teaser,.comp-c .teaser,.comp-d .teaser,.comp-e .teaser,
-  .comp-b .abrir,.comp-c .abrir,.comp-d .abrir,.comp-e .abrir,
-  .comp-b .destaque-rotulo,.comp-c .destaque-rotulo,.comp-d .destaque-rotulo,.comp-e .destaque-rotulo,
-  .comp-b .destaque-acoes,.comp-c .destaque-acoes,.comp-d .destaque-acoes,.comp-e .destaque-acoes{grid-column:1/13!important;grid-row:auto!important;}
-  .comp-b .figura{order:1;max-width:none!important;}       /* imagem abre */
-  .comp-c .figura{order:1;max-width:none!important;aspect-ratio:16/9!important;margin-inline:calc(var(--margem)*-1);width:auto!important;}
-  .comp-d .figura{order:4;max-width:16rem!important;margin-left:auto;}  /* imagem como detalhe, no fim */
-  .comp-e .figura{order:3;max-width:none!important;}
-  .comp-b > *,.comp-c > *,.comp-d > *,.comp-e > *{align-self:stretch!important;}
-  .comp-c .figura{margin-inline:0!important;}
-  .comp-d .figura{margin-left:0!important;}
-}
+
 </style>
 </head>
 <body>
@@ -395,7 +355,7 @@ section{padding-block:var(--sp-9);}
 <section class="wrap revela" id="projetos" aria-labelledby="t-projetos">
   <div class="secao-cab"><h2 class="display" id="t-projetos">Projetos selecionados</h2><nav class="elementos-nav" aria-label="Navegar por elemento"><a href="projetos.html#ar">Ar</a><a href="projetos.html#agua">Água</a><a href="projetos.html#fogo">Fogo</a><a href="projetos.html#terra">Terra</a><a class="todos" href="projetos.html">Todos os projetos</a></nav></div>
   <div class="projetos" id="grade">
-  <article class="projeto comp-e projeto--capa" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="ar agua fogo terra" data-lugares="brasil">
+  <article class="projeto projeto--capa" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="ar agua fogo terra" data-lugares="brasil">
     <p class="destaque-rotulo">Em curso</p>
     <h3 class="projeto-nome"><a href="https://monitorelnino.com.br/" target="_blank" rel="noopener">Monitor El Niño Brasil<span class="ext" aria-hidden="true">↗</span></a></h3>
     <p class="projeto-meta">2026–2027, monitorelnino.com.br</p>
@@ -405,7 +365,7 @@ section{padding-block:var(--sp-9);}
     <div class="ficha-oculta" hidden><dl class="ficha ficha-larga"><div><dt>Forma</dt><dd>Instrumento</dd></div><div><dt>Pergunta</dt><dd>O que cada estado e município publicou antes do El Niño de 2026–2027, e o que decretou depois?</dd></div><div><dt>Método</dt><dd>O MARÉ (Medida de Antecipação e Resposta ao El Niño) lê os instrumentos oficiais publicados por 27 estados e 5.571 municípios antes da crise e os decretos publicados depois dela. Só entram fontes oficiais verificáveis; a metodologia é pública e versionada. Onde não há registro, o Monitor indica "não localizamos".</dd></div><div><dt>Resultado</dt><dd>Um índice de antecipação e um contador de resposta por estado e por município, atualizados continuamente. <a href="https://monitorelnino.com.br/">Abrir o Monitor</a></dd></div></dl></div>
       
   </article>
-  <article class="projeto comp-b projeto--reportagem" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="agua" data-elementos="ar agua" data-lugares="berlim atlantico">
+  <article class="projeto projeto--reportagem" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="agua" data-elementos="ar agua" data-lugares="berlim atlantico">
       <figure class="figura"><img src="img/il-eca.svg" alt="Fitas que atravessam uma fronteira fechada e saem mais finas do que entraram" loading="lazy"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
       <h3 class="projeto-nome"><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/" target="_blank" rel="noopener">A maior área de controle de emissões marítimas do mundo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2024–2026, ICCT e Organização Marítima Internacional</p>
@@ -414,7 +374,7 @@ section{padding-block:var(--sp-9);}
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Estudo</dd></div><div><dt>Pergunta</dt><dd>Quantas mortes e quanto custo em saúde uma área de controle de emissões no Atlântico Nordeste evitaria?</dd></div><div><dt>Método</dt><dd>Dois relatórios do ICCT (2024) comparam cenários com e sem a área de controle, sob diferentes níveis de cumprimento, em emissões, saúde e custo.</dd></div><div><dt>Resultado</dt><dd>Entre 2.900 e 4.300 mortes prematuras evitadas de 2030 a 2050; €19 a €29 bilhões em custos de saúde; 82% menos óxidos de enxofre e 64% menos material particulado fino. Os relatórios embasaram a proposta de 27 países à Organização Marítima Internacional, adotada em maio de 2026.</dd></div></dl>
       <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/">ICCT, adoção</a></li><li><a href="https://theicct.org/publication/environmental-and-health-benefits-of-a-designated-north-atlantic-emission-control-area-nov24/">Relatório de saúde (2024)</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://jornal.usp.br/atualidades/maior-area-de-controle-de-poluicao-de-navios-e-criada-no-atlantico-entenda-impactos-na-saude-e-economia">Jornal da USP</a></li></ul></div>
     </article>
-  <article class="projeto comp-c projeto--reportagem" id="p-eduardo-kobra-e-a-oms-por-um-ar-mais-lim" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="cartagena genebra">
+  <article class="projeto projeto--reportagem" id="p-eduardo-kobra-e-a-oms-por-um-ar-mais-lim" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="cartagena genebra">
       <figure class="figura"><img src="img/il-kobra.svg" alt="Percursos contidos numa forma fechada e um que escapa e segue muito além" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Acervo pessoal</figcaption></figure>
       <h3 class="projeto-nome"><a href="https://www.who.int/news-room/events/detail/2018/10/30/default-calendar/air-pollution-conference" target="_blank" rel="noopener">Eduardo Kobra e a OMS por um ar mais limpo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025, Organização Mundial da Saúde, Cartagena (Futura)</p>
@@ -423,7 +383,7 @@ section{padding-block:var(--sp-9);}
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Obra</dd></div><div><dt>Pergunta</dt><dd>Como levar a evidência sobre poluição e saúde a públicos que as conferências não alcançam?</dd></div><div><dt>Método</dt><dd>Organização da Segunda Conferência Global sobre Poluição do Ar e Saúde, da Organização Mundial da Saúde, em Cartagena, em março de 2025, com mais de trinta eventos de alto nível, Estados-membros, cidades, agências das Nações Unidas e bancos de desenvolvimento; planejamento e execução da participação de Eduardo Kobra.</dd></div><div><dt>Resultado</dt><dd>A nomeação de Eduardo Kobra como embaixador da Organização Mundial da Saúde e porta-voz da campanha BreatheLife, em 27 de março de 2025.</dd></div></dl>
       <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://www.who.int/news-room/events/detail/2025/03/25/default-calendar/second-global-conference-on-air-pollution-and-health">OMS, conferência</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://www.gazetasp.com.br/cotidiano/grafiteiro-kobra-e-nomeado-novo-embaixador-da-oms/1153668/">Gazeta de São Paulo</a></li></ul></div>
     </article>
-  <article class="projeto comp-d projeto--reportagem" id="p-marajo-sem-fumaca" data-pratica="imaginacao" data-cor="fogo" data-elementos="ar fogo" data-lugares="belem amazonia">
+  <article class="projeto projeto--reportagem" id="p-marajo-sem-fumaca" data-pratica="imaginacao" data-cor="fogo" data-elementos="ar fogo" data-lugares="belem amazonia">
       
       <figure class="figura"><img src="img/il-marajo.svg" alt="Traços que partem de focos e se dissipam em comprimentos diferentes" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://marajosemfumaca.com.br/" target="_blank" rel="noopener">Marajó Sem Fumaça<span class="ext" aria-hidden="true">↗</span></a></h3>
@@ -433,7 +393,7 @@ section{padding-block:var(--sp-9);}
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Obra</dd></div><div><dt>Pergunta</dt><dd>Como reduzir o carbono negro das queimadas numa ilha onde o fogo é ferramenta agrícola?</dd></div><div><dt>Método</dt><dd>Brigada comunitária, material educativo para escolas (revista, pôster e plano de aula), detecção de focos por inteligência artificial e um policy brief sobre manejo integrado do fogo, com apoio do Clean Air Fund.</dd></div><div><dt>Resultado</dt><dd>A primeira brigada comunitária do Norte a operar com detecção por inteligência artificial; apresentação na COP30, em Belém; cobertura de Record, CNN, Folha e Correio Braziliense.</dd></div></dl>
       <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://institutoar.org.br/publicacoes/manejo-integrado-do-fogo-no-brasil-consolidando-politica-publica-para-reduzir-riscos-climaticos-e-proteger-saude-publica/">Policy brief</a></li><li><a href="https://institutoar.org.br/publicacoes/fogo-amigo-ou-perigo-uma-conversa-sobre-como-evitar-incendios-na-comunidade/">Revista educativa</a></li><li><a href="https://marajosemfumaca.com.br/">Site do projeto</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://newblogs.correiobraziliense.com.br/ecobraziliense/manejo-do-fogo-surge-como-resposta-as-queimadas/">Correio Braziliense</a></li><li><a href="https://open.spotify.com/show/2onmTZNxv1oFzZ3Rf7Jqin">Ecos do Marajó</a></li><li><a href="https://www.leiaja.com/tecnologia/2026/07/02/ia-se-torna-aliada-de-brigadistas-no-combate-a-queimadas-na-amazonia">LeiaJá</a></li></ul></div>
     </article>
-  <article class="projeto comp-e projeto--reportagem" id="p-cinco-futuros-para-os-caminhoes-do-brasi" data-pratica="imaginacao" data-cor="terra" data-elementos="ar terra" data-lugares="sao-paulo">
+  <article class="projeto projeto--reportagem" id="p-cinco-futuros-para-os-caminhoes-do-brasi" data-pratica="imaginacao" data-cor="terra" data-elementos="ar terra" data-lugares="sao-paulo">
       
       <figure class="figura"><img src="img/il-caminhoes.svg" alt="Cinco percursos de massas diferentes, dois deles voltando sobre os demais" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://institutoar.org.br/publicacoes/powering-brazils-transition-to-zero-emission-trucking/" target="_blank" rel="noopener">Cinco futuros para os caminhões do Brasil<span class="ext" aria-hidden="true">↗</span></a></h3>
