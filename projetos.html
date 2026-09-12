@@ -306,6 +306,21 @@ section{padding-block:var(--sp-9);}
 [hidden]{display:none!important;}
 
 
+
+/* ---------- figuras: sem corte, sem quadrado, alternando o lado ---------- */
+.projeto--capa .figura,.projeto--reportagem .figura{aspect-ratio:5/4;}
+.projeto--capa .figura img,.projeto--reportagem .figura img{object-fit:contain;}
+.projeto--reportagem .figura{grid-column:9/13;}     /* imagem um pouco menor */
+.projeto--capa .figura{grid-column:8/13;}
+/* alternancia: nos pares, imagem a esquerda e texto a direita */
+.projeto--esq .figura{grid-column:1/5!important;}
+.projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,.projeto--esq .projeto-meta,
+.projeto--esq .teaser,.projeto--esq .abrir,.projeto--esq .destaque-acoes{grid-column:6/11!important;}
+@media (max-width:1100px){
+  .projeto--esq .figura,.projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,
+  .projeto--esq .projeto-meta,.projeto--esq .teaser,.projeto--esq .abrir,
+  .projeto--esq .destaque-acoes{grid-column:1/13!important;}
+}
 </style>
 </head>
 <body>
@@ -417,7 +432,7 @@ section{padding-block:var(--sp-9);}
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Estudo</dd></div><div><dt>Pergunta</dt><dd>Quanto uma cidade ganha em saúde a cada tonelada de carbono que deixa de emitir?</dd></div><div><dt>Método</dt><dd>Ferramentas econométricas para valorar os efeitos em saúde da redução da poluição em Grenoble, segundo a orientação da Organização Mundial da Saúde para adaptação em saúde.</dd></div><div><dt>Resultado</dt><dd>Co-benefícios de cenários de descarbonização quantificados em saúde e em euros, apresentados na Cúpula da Organização Mundial da Saúde sobre Clima e Saúde e no Fórum de Inovação Sustentável do Programa das Nações Unidas para o Meio Ambiente, no calendário oficial da COP21.</dd></div></dl></div>
     </article>
   <div class="pratica" id="instrumento"><h3 class="pratica-titulo">Instrumento</h3></div>
-  <article class="projeto projeto--capa" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="ar agua fogo terra" data-lugares="brasil">
+  <article class="projeto projeto--esq projeto--capa" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="ar agua fogo terra" data-lugares="brasil">
     <p class="destaque-rotulo">Em curso</p>
     <h3 class="projeto-nome"><a href="https://monitorelnino.com.br/" target="_blank" rel="noopener">Monitor El Niño Brasil<span class="ext" aria-hidden="true">↗</span></a></h3>
     <p class="projeto-meta">2026–2027, monitorelnino.com.br</p>
@@ -496,7 +511,7 @@ section{padding-block:var(--sp-9);}
       <ul class="projeto-links"><li><a href="https://www.who.int/initiatives/urban-health-initiative/pilot-projects">OMS, projetos-piloto</a></li><li><a href="https://www.who.int/initiatives/urban-health-initiative/guidance-and-tools">Ferramentas e orientações</a></li><li><a href="https://www.who.int/publications/i/item/9789240017306">Relatório de Acra (2021)</a></li></ul></div>
     </article>
   <div class="pratica" id="obra"><h3 class="pratica-titulo">Obra</h3></div>
-  <article class="projeto projeto--reportagem" id="p-eduardo-kobra-e-a-oms-por-um-ar-mais-lim" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="cartagena genebra">
+  <article class="projeto projeto--esq projeto--reportagem" id="p-eduardo-kobra-e-a-oms-por-um-ar-mais-lim" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="cartagena genebra">
       <figure class="figura"><img src="img/il-kobra.svg" alt="Percursos contidos numa forma fechada e um que escapa e segue muito além" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Foto: Patricia Ferrini</figcaption></figure>
       <h3 class="projeto-nome"><a href="https://www.who.int/news-room/events/detail/2018/10/30/default-calendar/air-pollution-conference" target="_blank" rel="noopener">Eduardo Kobra e a OMS por um ar mais limpo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025, Organização Mundial da Saúde, Cartagena (Futura)</p>

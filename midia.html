@@ -306,6 +306,21 @@ section{padding-block:var(--sp-9);}
 [hidden]{display:none!important;}
 
 
+
+/* ---------- figuras: sem corte, sem quadrado, alternando o lado ---------- */
+.projeto--capa .figura,.projeto--reportagem .figura{aspect-ratio:5/4;}
+.projeto--capa .figura img,.projeto--reportagem .figura img{object-fit:contain;}
+.projeto--reportagem .figura{grid-column:9/13;}     /* imagem um pouco menor */
+.projeto--capa .figura{grid-column:8/13;}
+/* alternancia: nos pares, imagem a esquerda e texto a direita */
+.projeto--esq .figura{grid-column:1/5!important;}
+.projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,.projeto--esq .projeto-meta,
+.projeto--esq .teaser,.projeto--esq .abrir,.projeto--esq .destaque-acoes{grid-column:6/11!important;}
+@media (max-width:1100px){
+  .projeto--esq .figura,.projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,
+  .projeto--esq .projeto-meta,.projeto--esq .teaser,.projeto--esq .abrir,
+  .projeto--esq .destaque-acoes{grid-column:1/13!important;}
+}
 </style>
 </head>
 <body>

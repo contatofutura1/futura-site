@@ -314,6 +314,21 @@ section{padding-block:var(--sp-9);}
 [hidden]{display:none!important;}
 
 
+
+/* ---------- figuras: sem corte, sem quadrado, alternando o lado ---------- */
+.projeto--capa .figura,.projeto--reportagem .figura{aspect-ratio:5/4;}
+.projeto--capa .figura img,.projeto--reportagem .figura img{object-fit:contain;}
+.projeto--reportagem .figura{grid-column:9/13;}     /* imagem um pouco menor */
+.projeto--capa .figura{grid-column:8/13;}
+/* alternancia: nos pares, imagem a esquerda e texto a direita */
+.projeto--esq .figura{grid-column:1/5!important;}
+.projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,.projeto--esq .projeto-meta,
+.projeto--esq .teaser,.projeto--esq .abrir,.projeto--esq .destaque-acoes{grid-column:6/11!important;}
+@media (max-width:1100px){
+  .projeto--esq .figura,.projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,
+  .projeto--esq .projeto-meta,.projeto--esq .teaser,.projeto--esq .abrir,
+  .projeto--esq .destaque-acoes{grid-column:1/13!important;}
+}
 </style>
 </head>
 <body>
@@ -365,7 +380,7 @@ section{padding-block:var(--sp-9);}
     <div class="ficha-oculta" hidden><dl class="ficha ficha-larga"><div><dt>Forma</dt><dd>Instrumento</dd></div><div><dt>Pergunta</dt><dd>O que cada estado e município publicou antes do El Niño de 2026–2027, e o que decretou depois?</dd></div><div><dt>Método</dt><dd>O MARÉ (Medida de Antecipação e Resposta ao El Niño) lê os instrumentos oficiais publicados por 27 estados e 5.571 municípios antes da crise e os decretos publicados depois dela. Só entram fontes oficiais verificáveis; a metodologia é pública e versionada. Onde não há registro, o Monitor indica "não localizamos".</dd></div><div><dt>Resultado</dt><dd>Um índice de antecipação e um contador de resposta por estado e por município, atualizados continuamente. <a href="https://monitorelnino.com.br/">Abrir o Monitor</a></dd></div></dl></div>
       
   </article>
-  <article class="projeto projeto--reportagem" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="agua" data-elementos="ar agua" data-lugares="berlim atlantico">
+  <article class="projeto projeto--esq projeto--reportagem" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="agua" data-elementos="ar agua" data-lugares="berlim atlantico">
       <figure class="figura"><img src="img/il-eca.svg" alt="Fitas que atravessam uma fronteira fechada e saem mais finas do que entraram" loading="lazy"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
       <h3 class="projeto-nome"><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/" target="_blank" rel="noopener">A maior área de controle de emissões marítimas do mundo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2024–2026, ICCT e Organização Marítima Internacional</p>
@@ -383,7 +398,7 @@ section{padding-block:var(--sp-9);}
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Obra</dd></div><div><dt>Pergunta</dt><dd>Como levar a evidência sobre poluição e saúde a públicos que as conferências não alcançam?</dd></div><div><dt>Método</dt><dd>Organização da Segunda Conferência Global sobre Poluição do Ar e Saúde, da Organização Mundial da Saúde, em Cartagena, em março de 2025, com mais de trinta eventos de alto nível, Estados-membros, cidades, agências das Nações Unidas e bancos de desenvolvimento; planejamento e execução da participação de Eduardo Kobra.</dd></div><div><dt>Resultado</dt><dd>A nomeação de Eduardo Kobra como embaixador da Organização Mundial da Saúde e porta-voz da campanha BreatheLife, em 27 de março de 2025.</dd></div></dl>
       <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://www.who.int/news-room/events/detail/2025/03/25/default-calendar/second-global-conference-on-air-pollution-and-health">OMS, conferência</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://www.gazetasp.com.br/cotidiano/grafiteiro-kobra-e-nomeado-novo-embaixador-da-oms/1153668/">Gazeta de São Paulo</a></li></ul></div>
     </article>
-  <article class="projeto projeto--reportagem" id="p-marajo-sem-fumaca" data-pratica="imaginacao" data-cor="fogo" data-elementos="ar fogo" data-lugares="belem amazonia">
+  <article class="projeto projeto--esq projeto--reportagem" id="p-marajo-sem-fumaca" data-pratica="imaginacao" data-cor="fogo" data-elementos="ar fogo" data-lugares="belem amazonia">
       
       <figure class="figura"><img src="img/il-marajo.svg" alt="Traços que partem de focos e se dissipam em comprimentos diferentes" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://marajosemfumaca.com.br/" target="_blank" rel="noopener">Marajó Sem Fumaça<span class="ext" aria-hidden="true">↗</span></a></h3>
