@@ -444,6 +444,11 @@ section{padding-block:var(--sp-9);}
 .grupo-midia:first-of-type{margin-top:0;}
 .grupo-midia a{border-bottom:0;}
 .grupo-midia a:hover{border-bottom:1px solid var(--preto);}
+
+/* uma unica assinatura na capa: a marca do cabecalho so aparece depois da abertura */
+.nav .marca{transition:opacity 260ms ease,visibility 260ms ease;}
+body.na-capa .nav .marca{opacity:0;visibility:hidden;}
+@media (prefers-reduced-motion:reduce){.nav .marca{transition:none;}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://futuraevidencelab.com.br/#org","name":"Futura Evidence Lab","alternateName":"Futura","url":"https://futuraevidencelab.com.br/","logo":"https://futuraevidencelab.com.br/compartilhar.png","description":"Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos, encontros e arte que fundamentam decisões sobre territórios e corpos.","email":"contato@futuraevidencelab.com.br","founder":{"@id":"https://futuraevidencelab.com.br/#patricia"},"knowsAbout":["qualidade do ar","poluição atmosférica","saúde pública","mudanças climáticas","transporte e emissões","queimadas","política ambiental"],"areaServed":"Brasil"},
@@ -647,6 +652,16 @@ section{padding-block:var(--sp-9);}
     document.querySelectorAll('.revela').forEach(function(el){ ro.observe(el); });
   } else { document.querySelectorAll('.revela').forEach(function(el){ el.classList.add('visto'); }); }
   
+})();
+</script>
+<script>
+(function(){
+  var abertura=document.querySelector('.abertura');
+  if(!abertura||!('IntersectionObserver' in window)) return;
+  document.body.classList.add('na-capa');
+  new IntersectionObserver(function(e){
+    document.body.classList.toggle('na-capa', e[0].isIntersecting);
+  },{threshold:0.25}).observe(abertura);
 })();
 </script>
 </body>
