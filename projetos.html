@@ -383,6 +383,23 @@ section{padding-block:var(--sp-9);}
 .proximo-projeto{margin-top:var(--sp-6);padding-top:var(--sp-4);border-top:var(--fio);display:flex;flex-wrap:wrap;gap:var(--sp-3) var(--sp-4);align-items:baseline;}
 .proximo-projeto .rotulo{opacity:.6;}
 .proximo-projeto a{border-bottom:1px solid var(--preto);}
+
+/* cards da grade: pilha compacta, imagens de altura comum sem corte */
+.projeto--nota{display:flex!important;flex-direction:column;gap:var(--sp-2);}
+.projeto--nota > *{grid-column:auto!important;grid-row:auto!important;margin:0;}
+.projeto--nota .figura{height:9.5rem!important;width:100%!important;aspect-ratio:auto!important;margin-bottom:var(--sp-4)!important;}
+.projeto--nota .figura img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:left center;}
+.projeto--nota .projeto-nome{font-size:1.15rem;line-height:1.25;max-width:26ch;}
+.projeto--nota .projeto-meta{font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;opacity:.7;}
+.projeto--nota .teaser{font-size:var(--fs-small);line-height:1.55;max-width:42ch;margin-top:var(--sp-2)!important;}
+.projeto--nota .destaque-rotulo{font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
+.projeto--nota .abrir,.projeto--nota .destaque-acoes{margin-top:var(--sp-3)!important;}
+
+/* o texto nao e truncado e o botao nao estica */
+.projeto--nota .teaser{display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important;min-height:0!important;}
+.projeto--nota .abrir,.projeto--nota .destaque-acoes{align-self:flex-start;width:auto;}
+
+.projeto--nota .projeto-meta{display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important;min-height:0!important;}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://futuraevidencelab.com.br/#org","name":"Futura Evidence Lab","alternateName":"Futura","url":"https://futuraevidencelab.com.br/","logo":"https://futuraevidencelab.com.br/compartilhar.png","description":"Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos, encontros e arte que fundamentam decisões sobre territórios e corpos.","email":"contato@futuraevidencelab.com.br","founder":{"@id":"https://futuraevidencelab.com.br/#patricia"},"knowsAbout":["qualidade do ar","poluição atmosférica","saúde pública","mudanças climáticas","transporte e emissões","queimadas","política ambiental"],"areaServed":"Brasil"},
@@ -436,11 +453,11 @@ section{padding-block:var(--sp-9);}
   <article class="projeto projeto--nota" id="p-a-maior-area-de-controle-de-emissoes-mar" data-cor="agua" data-elementos="ar agua" data-lugares="berlim atlantico">
       <figure class="figura"><img src="img/il-eca.svg" alt="Fitas que atravessam uma fronteira fechada e saem mais finas do que entraram" loading="lazy"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
       <h3 class="projeto-nome"><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/" target="_blank" rel="noopener">A maior área de controle de emissões marítimas do mundo<span class="ext" aria-hidden="true">↗</span></a></h3>
-      <p class="projeto-meta">2024–2026, ICCT e Organização Marítima Internacional</p>
-      <p class="teaser">O estudo de saúde que embasou a decisão da Organização Marítima Internacional de criar, em 2026, a maior área de controle de emissões do mundo.</p>
+      <p class="projeto-meta">2024–2026, ICCT e Universidade do Porto, com 27 países da União Europeia, Reino Unido e Islândia</p>
+      <p class="teaser">O estudo de saúde que embasou a proposta de 27 países da União Europeia, do Reino Unido e da Islândia, adotada pela Organização Marítima Internacional em 2026.</p>
       <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Onde</dt><dd><a href="projetos.html#lugar=berlim">Berlim</a>, <a href="projetos.html#lugar=atlantico">Atlântico Nordeste</a></dd></div><div><dt>Pergunta</dt><dd>Quantas mortes e quanto custo em saúde uma área de controle de emissões no Atlântico Nordeste evitaria?</dd></div><div><dt>Método</dt><dd>Dois relatórios do ICCT (2024) comparam cenários com e sem a área de controle, sob diferentes níveis de cumprimento, em emissões, saúde e custo.</dd></div><div><dt>Resultado</dt><dd>Entre 2.900 e 4.300 mortes prematuras evitadas de 2030 a 2050; €19 a €29 bilhões em custos de saúde; 82% menos óxidos de enxofre e 64% menos material particulado fino. Os relatórios embasaram a proposta de 27 países à Organização Marítima Internacional, adotada em maio de 2026.</dd></div></dl>
-      <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://www.imo.org/en/mediacentre/pressbriefings/pages/imo-progresses-work-on-ship-emissions-pollution-and-ocean-protection.aspx">Organização Marítima Internacional, adoção (EN)</a></li><li><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/">ICCT, adoção</a></li><li><a href="https://theicct.org/publication/environmental-and-health-benefits-of-a-designated-north-atlantic-emission-control-area-nov24/">Relatório de saúde (2024)</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://jornal.usp.br/atualidades/maior-area-de-controle-de-poluicao-de-navios-e-criada-no-atlantico-entenda-impactos-na-saude-e-economia">Jornal da USP</a></li></ul><p class="proximo-projeto"><span class="rotulo">Próximo projeto</span><a href="#p-marajo-sem-fumaca">Marajó Sem Fumaça</a></p></div>
+      <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://theicct.org/publication/evaluating-the-potential-for-emissions-reduction-in-the-proposed-atleca-under-different-compliance-scenarios-june24/">Relatório de emissões (2024)</a></li><li><a href="https://www.imo.org/en/mediacentre/pressbriefings/pages/imo-progresses-work-on-ship-emissions-pollution-and-ocean-protection.aspx">Organização Marítima Internacional, adoção (EN)</a></li><li><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/">ICCT, adoção</a></li><li><a href="https://theicct.org/publication/environmental-and-health-benefits-of-a-designated-north-atlantic-emission-control-area-nov24/">Relatório de saúde (2024)</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://jornal.usp.br/atualidades/maior-area-de-controle-de-poluicao-de-navios-e-criada-no-atlantico-entenda-impactos-na-saude-e-economia">Jornal da USP</a></li></ul><p class="proximo-projeto"><span class="rotulo">Próximo projeto</span><a href="#p-marajo-sem-fumaca">Marajó Sem Fumaça</a></p></div>
     </article>
   <article class="projeto projeto--nota" id="p-marajo-sem-fumaca" data-cor="fogo" data-elementos="ar fogo" data-lugares="belem amazonia">
       
@@ -465,7 +482,7 @@ section{padding-block:var(--sp-9);}
   <article class="projeto projeto--nota" id="p-as-ferramentas-da-oms-nas-maos-de-gestor" data-cor="terra" data-elementos="ar terra" data-lugares="acra kathmandu genebra">
       
       <figure class="figura"><img src="img/il-acra.svg" alt="Um percurso que se duplica em dois iguais" loading="lazy"></figure>
-      <h3 class="projeto-nome"><a href="https://www.who.int/initiatives/urban-health-initiative/pilot-projects" target="_blank" rel="noopener">As ferramentas da OMS nas mãos de gestores de Acra e Kathmandu<span class="ext" aria-hidden="true">↗</span></a></h3>
+      <h3 class="projeto-nome"><a href="https://www.who.int/initiatives/urban-health-initiative/pilot-projects" target="_blank" rel="noopener">As ferramentas da OMS em Acra e Kathmandu<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2018–2019, Organização Mundial da Saúde, Urban Health Initiative</p>
       <p class="teaser">Ensina gestores de duas cidades a calcular quantas mortes evitam ao mudar como as pessoas se deslocam.</p>
       <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
@@ -514,7 +531,7 @@ section{padding-block:var(--sp-9);}
   <article class="projeto projeto--nota" id="p-os-novos-padroes-de-qualidade-do-ar-dent" data-cor="ar" data-elementos="ar" data-lugares="brasilia">
       
       <figure class="figura"><img src="img/il-padroes.svg" alt="Uma norma que desce e se desdobra em instrumentos" loading="lazy"></figure>
-      <h3 class="projeto-nome">Os novos padrões de qualidade do ar dentro do sistema de saúde</h3>
+      <h3 class="projeto-nome">Os novos padrões de qualidade do ar no sistema de saúde</h3>
       <p class="projeto-meta">Instituto Ar, com o Ministério da Saúde (Futura)</p>
       <p class="teaser">Converte o novo padrão nacional de qualidade do ar em instrumentos que o sistema de saúde consegue usar.</p>
       <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
@@ -523,7 +540,7 @@ section{padding-block:var(--sp-9);}
   <article class="projeto projeto--nota" id="p-co-beneficios-do-transporte-de-passageir" data-cor="terra" data-elementos="ar terra" data-lugares="sao-paulo">
       
       <figure class="figura"><img src="img/il-saopaulo.svg" alt="Dois conjuntos paralelos com massas muito diferentes" loading="lazy"></figure>
-      <h3 class="projeto-nome">Co-benefícios do transporte de passageiros em São Paulo</h3>
+      <h3 class="projeto-nome">O que a frota de São Paulo custa em saúde</h3>
       <p class="projeto-meta">2017–2020, Instituto de Estudos Avançados da USP</p>
       <p class="teaser">Calcula quanto cada cenário de emissão da frota de São Paulo vale em mortes evitadas e em dinheiro.</p>
       <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
@@ -541,7 +558,7 @@ section{padding-block:var(--sp-9);}
   <article class="projeto projeto--nota" id="p-um-laser-sobre-o-ar-de-sao-paulo" data-cor="agua" data-elementos="ar agua" data-lugares="greenbelt sao-paulo marilia canada chile toulouse praga edimburgo amsterda">
       
       <figure class="figura"><img src="img/il-laser.svg" alt="Percursos que engrossam ao atravessar uma faixa" loading="lazy"></figure>
-      <h3 class="projeto-nome">Um laser sobre o ar de São Paulo</h3>
+      <h3 class="projeto-nome">O laser que mede o aerossol de São Paulo</h3>
       <p class="projeto-meta">2010–2014, NASA Goddard e Universidade de São Paulo</p>
       <p class="teaser">Mede quanto o aerossol urbano cresce ao absorver umidade, e o que isso muda na radiação que a cidade recebe.</p>
       <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
@@ -569,7 +586,7 @@ section{padding-block:var(--sp-9);}
   <article class="projeto projeto--nota" id="p-a-frota-de-automoveis-da-alemanha" data-cor="terra" data-elementos="ar terra" data-lugares="berlim">
       
       <figure class="figura"><img src="img/il-alemanha.svg" alt="Uma massa que se apaga enquanto outra ocupa o seu lugar" loading="lazy"></figure>
-      <h3 class="projeto-nome"><a href="https://theicct.org/pr-en-vehicle-stock-emissions-pv-germany-oct24/" target="_blank" rel="noopener">A frota de automóveis da Alemanha<span class="ext" aria-hidden="true">↗</span></a></h3>
+      <h3 class="projeto-nome"><a href="https://theicct.org/pr-en-vehicle-stock-emissions-pv-germany-oct24/" target="_blank" rel="noopener">Como a Alemanha pode cumprir a meta climática de 2030<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2024, ICCT, Berlim</p>
       <p class="teaser">Testa qual estratégia de renovação da frota aproxima a Alemanha da meta climática do transporte em 2030.</p>
       <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
@@ -579,7 +596,7 @@ section{padding-block:var(--sp-9);}
   <article class="projeto projeto--nota" id="p-politicas-de-transporte-rodoviario-e-saude" data-cor="terra" data-elementos="ar terra" data-lugares="berlim">
       
       <figure class="figura"><img src="img/il-politicas.svg" alt="Duas trajetórias e o intervalo que se abre entre elas" loading="lazy"></figure>
-      <h3 class="projeto-nome"><a href="https://iopscience.iop.org/article/10.1088/1748-9326/adcd87" target="_blank" rel="noopener">Políticas de transporte rodoviário e saúde no mundo<span class="ext" aria-hidden="true">↗</span></a></h3>
+      <h3 class="projeto-nome"><a href="https://iopscience.iop.org/article/10.1088/1748-9326/adcd87" target="_blank" rel="noopener">1,9 milhão de mortes evitáveis pelas políticas de emissão<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025, ICCT, George Washington University e University of Colorado</p>
       <p class="teaser">Calcula quantas mortes as políticas de emissão do transporte rodoviário evitam até 2040, e em que países.</p>
       <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
@@ -589,7 +606,7 @@ section{padding-block:var(--sp-9);}
   <article class="projeto projeto--nota" id="p-descarbonizacao-e-saude-em-grenoble" data-cor="ar" data-elementos="ar" data-lugares="grenoble paris">
       
       <figure class="figura"><img src="img/il-grenoble.svg" alt="Um percurso que muda de natureza na metade do caminho" loading="lazy"></figure>
-      <h3 class="projeto-nome">Descarbonização e saúde em Grenoble</h3>
+      <h3 class="projeto-nome">Quanto Grenoble ganha em saúde a cada tonelada de carbono</h3>
       <p class="projeto-meta">2015–2016, Université Grenoble-Alpes</p>
       <p class="teaser">Mede quanto uma cidade ganha em saúde, em euros, a cada tonelada de carbono que deixa de emitir.</p>
       <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
