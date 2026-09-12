@@ -407,6 +407,17 @@ section{padding-block:var(--sp-9);}
 @media (max-width:700px){.projeto--nota .projeto-nome{font-size:1.55rem!important;}}
 
 .projeto-sub{font-size:var(--fs-small);line-height:1.4;opacity:.8;margin-top:calc(var(--sp-2)*-1)!important;margin-bottom:var(--sp-3)!important;max-width:30ch;}
+
+/* Impacto: um titulo por conquista, clicavel, com a fonte abaixo */
+.fatos li{display:block!important;padding:var(--sp-5) 0!important;}
+.fatos li a{display:block;font-family:var(--display);font-weight:300;
+  font-variation-settings:"opsz" 60,"wdth" 87.5,"wght" 340;font-size:var(--fs-h3);
+  line-height:var(--lh-display);letter-spacing:0;text-transform:none;white-space:normal;
+  max-width:52ch;border:0;}
+.fatos li a:hover{border-bottom:0;color:var(--terracota);}
+.fatos li .fonte{display:block;margin-top:var(--sp-3);font-family:var(--corpo);font-weight:400;
+  font-variation-settings:normal;font-size:var(--fs-caption);line-height:1.4;max-width:none;
+  letter-spacing:var(--ls-caption);text-transform:uppercase;opacity:.5;}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://futuraevidencelab.com.br/#org","name":"Futura Evidence Lab","alternateName":"Futura","url":"https://futuraevidencelab.com.br/","logo":"https://futuraevidencelab.com.br/compartilhar.png","description":"Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos, encontros e arte que fundamentam decisões sobre territórios e corpos.","email":"contato@futuraevidencelab.com.br","founder":{"@id":"https://futuraevidencelab.com.br/#patricia"},"knowsAbout":["qualidade do ar","poluição atmosférica","saúde pública","mudanças climáticas","transporte e emissões","queimadas","política ambiental"],"areaServed":"Brasil"},
@@ -504,13 +515,7 @@ section{padding-block:var(--sp-9);}
 <!-- IMPACTO -->
 <section class="wrap revela" id="impacto" aria-labelledby="t-impacto">
   <div class="secao-cab"><h2 class="display" id="t-impacto">Impacto</h2></div>
-  <ul class="fatos">
-    <li><span>Área de controle de emissões adotada pela Organização Marítima Internacional em 2026, a maior já criada: de 2.900 a 4.300 mortes evitadas até 2050.</span><a href="projetos.html#p-a-maior-area-de-controle-de-emissoes-mar">O estudo que levou 27 países a regular as emissões dos navios</a></li>
-    <li><span>Meta fixada pela primeira conferência global da Organização Mundial da Saúde, em 2018: reduzir em dois terços as mortes por poluição do ar até 2030.</span><a href="projetos.html#p-a-primeira-conferencia-global-sobre-polu">Genebra 2018: a poluição do ar entra na agenda da saúde global</a></li>
-    <li><span>R$ 24,5 bilhões gastos pelo SUS, entre 2013 e 2023, com doenças atribuíveis à poluição do ar.</span><a href="projetos.html#p-o-que-a-poluicao-custa-ao-sus">O que a poluição custa ao SUS</a></li>
-    <li><span>1,9 milhão de mortes evitáveis até 2040 pelas políticas de emissão do transporte rodoviário. Environmental Research Letters, 2025.</span><a href="projetos.html#p-politicas-de-transporte-rodoviario-e-saude">Onde as políticas de emissão do transporte salvam mais vidas</a></li>
-    <li><span>A primeira brigada comunitária do Norte a operar com detecção de queimadas por inteligência artificial, no Marajó.</span><a href="projetos.html#p-marajo-sem-fumaca">Marajó Sem Fumaça</a></li>
-  </ul>
+  <ul class="fatos"><li><a href="projetos.html#p-a-maior-area-de-controle-de-emissoes-mar">A maior área de controle de emissões marítimas já criada deve evitar de 2.900 a 4.300 mortes até 2050</a><span class="fonte">Organização Marítima Internacional, 2026</span></li><li><a href="projetos.html#p-a-primeira-conferencia-global-sobre-polu">A primeira conferência global sobre poluição do ar e saúde fixou a meta de reduzir em dois terços as mortes até 2030</a><span class="fonte">Organização Mundial da Saúde</span></li><li><a href="projetos.html#p-o-que-a-poluicao-custa-ao-sus">O SUS gastou R$ 24,5 bilhões em dez anos com doenças atribuíveis à poluição do ar</a><span class="fonte">Série de despesas do SUS, 2013–2023</span></li><li><a href="projetos.html#p-politicas-de-transporte-rodoviario-e-saude">As políticas de emissão do transporte rodoviário podem evitar 1,9 milhão de mortes até 2040</a><span class="fonte">Environmental Research Letters, 2025</span></li><li><a href="projetos.html#p-marajo-sem-fumaca">O Marajó ganhou a primeira brigada comunitária do Norte a operar com detecção de queimadas por inteligência artificial</a><span class="fonte">Instituto Ar e Clean Air Fund, 2026</span></li></ul>
 </section>
 
 <!-- RECONHECIMENTO -->
