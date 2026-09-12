@@ -449,6 +449,15 @@ section{padding-block:var(--sp-9);}
 .nav .marca{transition:opacity 260ms ease,visibility 260ms ease;}
 body.na-capa .nav .marca{opacity:0;visibility:hidden;}
 @media (prefers-reduced-motion:reduce){.nav .marca{transition:none;}}
+
+/* titulo longo nos cards largos: medida maior, menos quebras */
+.projeto--reportagem .projeto-nome{max-width:26ch!important;}
+.projeto--capa .projeto-nome{max-width:18ch!important;}
+/* card largo com descritor: ele volta a aparecer, entre o nome e a linha meta */
+.projeto--tem-sub .projeto-sub{display:block!important;grid-row:3!important;margin-top:calc(var(--sp-2)*-1)!important;}
+.projeto--tem-sub .projeto-meta{grid-row:4!important;}
+.projeto--tem-sub .teaser{grid-row:5!important;}
+.projeto--tem-sub .abrir,.projeto--tem-sub .destaque-acoes{grid-row:6!important;}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://futuraevidencelab.com.br/#org","name":"Futura Evidence Lab","alternateName":"Futura","url":"https://futuraevidencelab.com.br/","logo":"https://futuraevidencelab.com.br/compartilhar.png","description":"Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos, encontros e arte que fundamentam decisões sobre territórios e corpos.","email":"contato@futuraevidencelab.com.br","founder":{"@id":"https://futuraevidencelab.com.br/#patricia"},"knowsAbout":["qualidade do ar","poluição atmosférica","saúde pública","mudanças climáticas","transporte e emissões","queimadas","política ambiental"],"areaServed":"Brasil"},
@@ -492,7 +501,7 @@ body.na-capa .nav .marca{opacity:0;visibility:hidden;}
 <section class="wrap revela" id="projetos" aria-labelledby="t-projetos">
   <div class="secao-cab"><h2 class="display" id="t-projetos">Projetos selecionados</h2><nav class="elementos-nav" aria-label="Navegar por elemento"><a href="projetos.html#ar">Ar</a><a href="projetos.html#agua">Água</a><a href="projetos.html#fogo">Fogo</a><a href="projetos.html#terra">Terra</a><a class="todos" href="projetos.html">Todos os projetos</a><a href="projetos.html#onde">Ver a cartografia</a></nav></div>
   <div class="projetos" id="grade">
-  <article class="projeto projeto--capa projeto--esq projeto--topo" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="ar agua fogo terra" data-lugares="brasil">
+  <article class="projeto projeto--capa projeto--esq projeto--topo projeto--tem-sub" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="ar agua fogo terra" data-lugares="brasil">
     <p class="destaque-rotulo">Em curso</p>
     <h3 class="projeto-nome"><a href="https://monitorelnino.com.br/" target="_blank" rel="noopener">Monitor El Niño Brasil<span class="ext" aria-hidden="true">↗</span></a></h3><p class="projeto-sub">Monitor de Antecipação e Resposta ao El Niño (MARÉ)</p>
     <p class="projeto-meta">2026–2027, monitorelnino.com.br</p>

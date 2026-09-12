@@ -447,6 +447,15 @@ section{padding-block:var(--sp-9);}
 .grupo-midia:first-of-type{margin-top:0;}
 .grupo-midia a{border-bottom:0;}
 .grupo-midia a:hover{border-bottom:1px solid var(--preto);}
+
+/* titulo longo nos cards largos: medida maior, menos quebras */
+.projeto--reportagem .projeto-nome{max-width:26ch!important;}
+.projeto--capa .projeto-nome{max-width:18ch!important;}
+/* card largo com descritor: ele volta a aparecer, entre o nome e a linha meta */
+.projeto--tem-sub .projeto-sub{display:block!important;grid-row:3!important;margin-top:calc(var(--sp-2)*-1)!important;}
+.projeto--tem-sub .projeto-meta{grid-row:4!important;}
+.projeto--tem-sub .teaser{grid-row:5!important;}
+.projeto--tem-sub .abrir,.projeto--tem-sub .destaque-acoes{grid-row:6!important;}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://futuraevidencelab.com.br/#org","name":"Futura Evidence Lab","alternateName":"Futura","url":"https://futuraevidencelab.com.br/","logo":"https://futuraevidencelab.com.br/compartilhar.png","description":"Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos, encontros e arte que fundamentam decisões sobre territórios e corpos.","email":"contato@futuraevidencelab.com.br","founder":{"@id":"https://futuraevidencelab.com.br/#patricia"},"knowsAbout":["qualidade do ar","poluição atmosférica","saúde pública","mudanças climáticas","transporte e emissões","queimadas","política ambiental"],"areaServed":"Brasil"},
