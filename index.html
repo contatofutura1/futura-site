@@ -310,6 +310,8 @@ section{padding-block:var(--sp-9);}
 
 .grupo-links{margin:var(--sp-4) 0 var(--sp-2);opacity:.65;}
 .grupo-links + .projeto-links{margin-top:0;}
+
+[hidden]{display:none!important;}
 </style>
 </head>
 <body>
@@ -349,9 +351,9 @@ section{padding-block:var(--sp-9);}
 
 <!-- PROJETOS SELECIONADOS -->
 <section class="wrap revela" id="projetos" aria-labelledby="t-projetos">
-  <div class="secao-cab"><h2 class="display" id="t-projetos">Projetos selecionados</h2><nav class="elementos-nav" aria-label="Navegar por elemento"><a href="projetos.html#elemento=ar">Ar</a><a href="projetos.html#elemento=agua">Água</a><a href="projetos.html#elemento=fogo">Fogo</a><a href="projetos.html#elemento=terra">Terra</a><a class="todos" href="projetos.html">Todos os projetos</a></nav></div>
+  <div class="secao-cab"><h2 class="display" id="t-projetos">Projetos selecionados</h2><nav class="elementos-nav" aria-label="Navegar por elemento"><a href="projetos.html#ar">Ar</a><a href="projetos.html#agua">Água</a><a href="projetos.html#fogo">Fogo</a><a href="projetos.html#terra">Terra</a><a class="todos" href="projetos.html">Todos os projetos</a></nav></div>
   <div class="projetos" id="grade">
-  <article class="projeto projeto--capa" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="agua fogo terra ar" data-lugares="brasil">
+  <article class="projeto projeto--capa" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="ar agua fogo terra" data-lugares="brasil">
     <p class="destaque-rotulo">Em curso</p>
     <h3 class="projeto-nome"><a href="https://monitorelnino.com.br/" target="_blank" rel="noopener">Monitor El Niño Brasil<span class="ext" aria-hidden="true">↗</span></a></h3>
     <p class="projeto-meta">2026–2027, monitorelnino.com.br</p>
@@ -361,7 +363,7 @@ section{padding-block:var(--sp-9);}
     <div class="ficha-oculta" hidden><dl class="ficha ficha-larga"><div><dt>Forma</dt><dd>Instrumento</dd></div><div><dt>Pergunta</dt><dd>O que cada estado e município publicou antes do El Niño de 2026–2027, e o que decretou depois?</dd></div><div><dt>Método</dt><dd>O MARÉ (Medida de Antecipação e Resposta ao El Niño) lê os instrumentos oficiais publicados por 27 estados e 5.571 municípios antes da crise e os decretos publicados depois dela. Só entram fontes oficiais verificáveis; a metodologia é pública e versionada. Onde não há registro, o Monitor indica "não localizamos".</dd></div><div><dt>Resultado</dt><dd>Um índice de antecipação e um contador de resposta por estado e por município, atualizados continuamente. <a href="https://monitorelnino.com.br/">Abrir o Monitor</a></dd></div></dl></div>
       
   </article>
-  <article class="projeto projeto--reportagem" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="ar" data-elementos="ar agua" data-lugares="berlim atlantico">
+  <article class="projeto projeto--reportagem" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="agua" data-elementos="ar agua" data-lugares="berlim atlantico">
       <figure class="figura"><img src="img/il-eca.svg" alt="Fitas que atravessam uma fronteira fechada e saem mais finas do que entraram" loading="lazy"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
       <h3 class="projeto-nome"><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/" target="_blank" rel="noopener">A maior área de controle de emissões marítimas do mundo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2024–2026, ICCT e Organização Marítima Internacional</p>
@@ -379,7 +381,7 @@ section{padding-block:var(--sp-9);}
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Obra</dd></div><div><dt>Pergunta</dt><dd>Como levar a evidência sobre poluição e saúde a públicos que as conferências não alcançam?</dd></div><div><dt>Método</dt><dd>Organização da Segunda Conferência Global sobre Poluição do Ar e Saúde, da Organização Mundial da Saúde, em Cartagena, em março de 2025, com mais de trinta eventos de alto nível, Estados-membros, cidades, agências das Nações Unidas e bancos de desenvolvimento; planejamento e execução da participação de Eduardo Kobra.</dd></div><div><dt>Resultado</dt><dd>A nomeação de Eduardo Kobra como embaixador da Organização Mundial da Saúde e porta-voz da campanha BreatheLife, em 27 de março de 2025.</dd></div></dl>
       <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://www.who.int/news-room/events/detail/2025/03/25/default-calendar/second-global-conference-on-air-pollution-and-health">OMS, conferência</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://www.gazetasp.com.br/cotidiano/grafiteiro-kobra-e-nomeado-novo-embaixador-da-oms/1153668/">Gazeta de São Paulo</a></li></ul></div>
     </article>
-  <article class="projeto projeto--reportagem" id="p-marajo-sem-fumaca" data-pratica="imaginacao" data-cor="fogo" data-elementos="fogo terra ar" data-lugares="belem amazonia">
+  <article class="projeto projeto--reportagem" id="p-marajo-sem-fumaca" data-pratica="imaginacao" data-cor="fogo" data-elementos="ar fogo" data-lugares="belem amazonia">
       
       <figure class="figura"><img src="img/il-marajo.svg" alt="Traços que partem de focos e se dissipam em comprimentos diferentes" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://marajosemfumaca.com.br/" target="_blank" rel="noopener">Marajó Sem Fumaça<span class="ext" aria-hidden="true">↗</span></a></h3>
@@ -389,7 +391,7 @@ section{padding-block:var(--sp-9);}
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Obra</dd></div><div><dt>Pergunta</dt><dd>Como reduzir o carbono negro das queimadas numa ilha onde o fogo é ferramenta agrícola?</dd></div><div><dt>Método</dt><dd>Brigada comunitária, material educativo para escolas (revista, pôster e plano de aula), detecção de focos por inteligência artificial e um policy brief sobre manejo integrado do fogo, com apoio do Clean Air Fund.</dd></div><div><dt>Resultado</dt><dd>A primeira brigada comunitária do Norte a operar com detecção por inteligência artificial; apresentação na COP30, em Belém; cobertura de Record, CNN, Folha e Correio Braziliense.</dd></div></dl>
       <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://institutoar.org.br/publicacoes/manejo-integrado-do-fogo-no-brasil-consolidando-politica-publica-para-reduzir-riscos-climaticos-e-proteger-saude-publica/">Policy brief</a></li><li><a href="https://institutoar.org.br/publicacoes/fogo-amigo-ou-perigo-uma-conversa-sobre-como-evitar-incendios-na-comunidade/">Revista educativa</a></li><li><a href="https://marajosemfumaca.com.br/">Site do projeto</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://newblogs.correiobraziliense.com.br/ecobraziliense/manejo-do-fogo-surge-como-resposta-as-queimadas/">Correio Braziliense</a></li><li><a href="https://open.spotify.com/show/2onmTZNxv1oFzZ3Rf7Jqin">Ecos do Marajó</a></li><li><a href="https://www.leiaja.com/tecnologia/2026/07/02/ia-se-torna-aliada-de-brigadistas-no-combate-a-queimadas-na-amazonia">LeiaJá</a></li></ul></div>
     </article>
-  <article class="projeto projeto--reportagem" id="p-cinco-futuros-para-os-caminhoes-do-brasi" data-pratica="imaginacao" data-cor="ar" data-elementos="ar fogo" data-lugares="sao-paulo">
+  <article class="projeto projeto--reportagem" id="p-cinco-futuros-para-os-caminhoes-do-brasi" data-pratica="imaginacao" data-cor="terra" data-elementos="ar terra" data-lugares="sao-paulo">
       
       <figure class="figura"><img src="img/il-caminhoes.svg" alt="Cinco percursos de massas diferentes, dois deles voltando sobre os demais" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://institutoar.org.br/publicacoes/powering-brazils-transition-to-zero-emission-trucking/" target="_blank" rel="noopener">Cinco futuros para os caminhões do Brasil<span class="ext" aria-hidden="true">↗</span></a></h3>
