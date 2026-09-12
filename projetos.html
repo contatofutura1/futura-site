@@ -339,6 +339,9 @@ section{padding-block:var(--sp-9);}
 /* a caixa acompanha a arte: sem proporcao imposta, sem moldura sobrando */
 .projeto--capa .figura,.projeto--reportagem .figura{aspect-ratio:auto!important;height:auto!important;overflow:visible;}
 .projeto--capa .figura img,.projeto--reportagem .figura img{width:100%!important;height:auto!important;display:block;object-fit:fill!important;}
+
+/* alinhamento vertical do bloco visual: o lado quieto da imagem encosta no titulo */
+.projeto--topo .figura{margin-top:var(--sp-7);}
 </style>
 </head>
 <body>
@@ -450,7 +453,7 @@ section{padding-block:var(--sp-9);}
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Estudo</dd></div><div><dt>Pergunta</dt><dd>Quanto uma cidade ganha em saúde a cada tonelada de carbono que deixa de emitir?</dd></div><div><dt>Método</dt><dd>Ferramentas econométricas para valorar os efeitos em saúde da redução da poluição em Grenoble, segundo a orientação da Organização Mundial da Saúde para adaptação em saúde.</dd></div><div><dt>Resultado</dt><dd>Co-benefícios de cenários de descarbonização quantificados em saúde e em euros, apresentados na Cúpula da Organização Mundial da Saúde sobre Clima e Saúde e no Fórum de Inovação Sustentável do Programa das Nações Unidas para o Meio Ambiente, no calendário oficial da COP21.</dd></div></dl></div>
     </article>
   <div class="pratica" id="instrumento"><h3 class="pratica-titulo">Instrumento</h3></div>
-  <article class="projeto projeto--esq projeto--capa" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="ar agua fogo terra" data-lugares="brasil">
+  <article class="projeto projeto--esq projeto--capa projeto--topo" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="ar agua fogo terra" data-lugares="brasil">
     <p class="destaque-rotulo">Em curso</p>
     <h3 class="projeto-nome"><a href="https://monitorelnino.com.br/" target="_blank" rel="noopener">Monitor El Niño Brasil<span class="ext" aria-hidden="true">↗</span></a></h3>
     <p class="projeto-meta">2026–2027, monitorelnino.com.br</p>
