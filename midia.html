@@ -42,7 +42,7 @@
   --display:"Playfair","Playfair Display",Georgia,serif;
   --corpo:"Jost","Futura","Century Gothic",Helvetica,Arial,sans-serif;
   --fs-hero:clamp(3rem,15vw,15rem);      /* wordmark, único */
-  --fs-h1:3rem;        /* 48: títulos de seção, matéria de capa */
+  --fs-h1:3rem;--fs-hero-capa:3.75rem;        /* 48: títulos de seção, matéria de capa */
   --fs-h2:2rem;        /* 32: reportagens, nome em Quem, e-mail, títulos de ficha */
   --fs-h3:1.375rem;    /* 22: notas, itens de lista, título de grupo */
   --fs-body:1rem;      /* 16 */
@@ -78,6 +78,15 @@ body.travado{overflow:hidden;}
 
 /* tipos de display */
 .display{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;line-height:var(--lh-display);letter-spacing:.01em;}
+.slogan.display{font-variation-settings:"opsz" 144,"wdth" 87.5,"wght" 300;}
+.secao-cab h2.display{font-variation-settings:"opsz" 60,"wdth" 87.5,"wght" 380;}
+.h3.display{font-variation-settings:"opsz" 24,"wdth" 87.5,"wght" 480;}
+.projeto--capa .projeto-nome{font-variation-settings:"opsz" 72,"wdth" 87.5,"wght" 340;}
+.projeto--reportagem .projeto-nome{font-variation-settings:"opsz" 48,"wdth" 87.5,"wght" 380;}
+.projeto--nota .projeto-nome{font-variation-settings:"opsz" 24,"wdth" 87.5,"wght" 460;}
+.fatos li span{font-variation-settings:"opsz" 24,"wdth" 87.5,"wght" 420;}
+.quem-txt h2{font-variation-settings:"opsz" 48,"wdth" 87.5,"wght" 380;}
+.contato-email{font-variation-settings:"opsz" 60,"wdth" 87.5,"wght" 330;}
 .rotulo{font-family:var(--corpo);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;line-height:1.3;}
 .h1{font-size:var(--fs-h1);} .h2{font-size:var(--fs-h2);} .h3{font-size:var(--fs-h3);}
 
@@ -155,21 +164,21 @@ section{padding-block:var(--sp-9);}
 
 /* reportagem: largura inteira, texto em 8 colunas, figura em 4 */
 .projeto--reportagem{grid-column:1/-1;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:auto auto auto 1fr;column-gap:var(--calha);border-top:var(--fio);padding:var(--sp-5) 0 var(--sp-6);}
-.projeto--reportagem .projeto-nome{grid-column:1/9;grid-row:1;font-size:var(--fs-h2);max-width:18ch;}
-.projeto--reportagem .projeto-meta{grid-column:1/9;grid-row:2;}
-.projeto--reportagem .teaser{grid-column:1/9;grid-row:3;max-width:48ch;margin-top:var(--sp-5);}
-.projeto--reportagem .abrir{grid-column:1/9;grid-row:4;margin-top:var(--sp-4);align-self:start;}
-.projeto--reportagem .figura{grid-column:9/13;grid-row:1/5;}
+.projeto--reportagem .projeto-nome{grid-column:1/6;grid-row:1;font-size:var(--fs-h2);max-width:18ch;}
+.projeto--reportagem .projeto-meta{grid-column:1/6;grid-row:2;}
+.projeto--reportagem .teaser{grid-column:1/6;grid-row:3;max-width:38ch;margin-top:var(--sp-5);}
+.projeto--reportagem .abrir{grid-column:1/6;grid-row:4;margin-top:var(--sp-4);align-self:start;}
+.projeto--reportagem .figura{grid-column:8/13;grid-row:1/5;}
 
 /* capa: mesma grade da reportagem, título maior, sem fio acima */
 .projeto--capa{grid-column:1/-1;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:auto auto auto auto 1fr;column-gap:var(--calha);padding:0 0 var(--sp-6);}
-.projeto--capa .destaque-rotulo{grid-column:1/9;grid-row:1;margin-bottom:var(--sp-3);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
-.projeto--capa .projeto-nome{grid-column:1/9;grid-row:2;font-size:var(--fs-h1);max-width:14ch;}
-.projeto--capa .projeto-meta{grid-column:1/9;grid-row:3;}
-.projeto--capa .teaser{grid-column:1/9;grid-row:4;max-width:48ch;margin-top:var(--sp-5);}
-.projeto--capa .destaque-acoes{grid-column:1/9;grid-row:5;align-self:start;margin-top:var(--sp-4);display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--sp-5);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;line-height:1.3;}
+.projeto--capa .destaque-rotulo{grid-column:1/6;grid-row:1;margin-bottom:var(--sp-3);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
+.projeto--capa .projeto-nome{grid-column:1/6;grid-row:2;font-size:var(--fs-hero-capa);max-width:12ch;}
+.projeto--capa .projeto-meta{grid-column:1/6;grid-row:3;}
+.projeto--capa .teaser{grid-column:1/6;grid-row:4;max-width:38ch;margin-top:var(--sp-5);}
+.projeto--capa .destaque-acoes{grid-column:1/6;grid-row:5;align-self:start;margin-top:var(--sp-4);display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--sp-5);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;line-height:1.3;}
 .projeto--capa .destaque-acoes a{border-bottom:1px solid var(--preto);line-height:1.3;}
-.projeto--capa .figura{grid-column:9/13;grid-row:1/6;}
+.projeto--capa .figura{grid-column:7/13;grid-row:1/6;}
 .projeto--capa .destaque-acoes .abrir{margin:0;}
 
 /* ---------- FIGURA (componente único: mapa ou foto + crédito) ---------- */
@@ -203,15 +212,18 @@ section{padding-block:var(--sp-9);}
 .mapa-cidade:hover path,.mapa-cidade.ativo path{stroke-width:2;}
 .mapa-legenda{display:flex;flex-wrap:wrap;gap:var(--sp-3) var(--sp-5);margin-top:var(--sp-4);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;align-items:center;}
 .mapa-legenda span{display:inline-flex;align-items:center;gap:var(--sp-2);}
-.instituicoes{margin-top:var(--sp-8);max-width:72ch;}
-.instituicoes p{font-size:var(--fs-small);line-height:var(--lh-body);margin-bottom:var(--sp-3);}
-.instituicoes p span{display:inline-block;margin-right:var(--sp-3);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
+.instituicoes{margin-top:var(--sp-7);border-top:var(--fio);}
+.instituicoes li{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);align-items:baseline;padding:var(--sp-4) 0;border-bottom:var(--fio);}
+.instituicoes .rotulo{grid-column:1/4;}
+.instituicoes .orgs{grid-column:4/11;font-size:var(--fs-small);line-height:var(--lh-body);}
+
+
 
 /* ---------- QUEM ---------- */
 .quem-in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);align-items:start;}
-.retrato{grid-column:1/5;aspect-ratio:4/5;width:100%;max-width:18rem;overflow:hidden;}
+.retrato{grid-column:1/6;aspect-ratio:4/5;width:100%;overflow:hidden;}
 .retrato img{width:100%;height:100%;object-fit:cover;}
-.quem-txt{grid-column:5/12;}
+.quem-txt{grid-column:7/13;}
 .quem-txt h2{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--fs-h2);line-height:var(--lh-display);margin-bottom:var(--sp-5);}
 .quem-txt p{max-width:58ch;margin-bottom:var(--sp-4);}
 .redes{display:flex;gap:var(--sp-5);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;margin-top:var(--sp-5);}
@@ -272,11 +284,13 @@ section{padding-block:var(--sp-9);}
   .secao-cab h2,.secao-cab p,.secao-cab .elementos{grid-column:1/13;justify-self:start;}
 }
 @media (max-width:760px){
-  :root{--fs-h1:2.25rem;--fs-h2:1.75rem;--fs-h3:1.25rem;--calha:1rem;}
+  :root{--fs-h1:2.25rem;--fs-hero-capa:2.25rem;--fs-h2:1.75rem;--fs-h3:1.25rem;--calha:1rem;}
   section{padding-block:var(--sp-8);}
   .menu{position:fixed;inset:var(--nav-h) 0 0 0;background:var(--branco);flex-direction:column;padding:var(--sp-6) var(--margem);gap:var(--sp-4);font-size:var(--fs-h3);transform:translateX(100%);transition:transform var(--tr);}
   .nav.aberto .menu{transform:none;} .hamb{display:block;}
-  .abertura{min-height:80svh;} .abertura-txt{grid-column:1/-1;}
+  .abertura{min-height:60svh;padding-bottom:var(--sp-7);} .abertura-txt{grid-column:1/-1;}
+  .instituicoes li{grid-template-columns:1fr;gap:var(--sp-1);} .instituicoes .rotulo,.instituicoes .orgs{grid-column:1;}
+  .retrato{max-width:16rem;}
   .projetos{grid-template-columns:1fr;gap:var(--sp-7);}
   .projeto--nota .projeto-nome,.projeto--nota .projeto-meta,.projeto--nota .teaser{min-height:0;-webkit-line-clamp:unset;display:block;}
   .quem-in,.contato-in{grid-template-columns:1fr;}

@@ -42,7 +42,7 @@
   --display:"Playfair","Playfair Display",Georgia,serif;
   --corpo:"Jost","Futura","Century Gothic",Helvetica,Arial,sans-serif;
   --fs-hero:clamp(3rem,15vw,15rem);      /* wordmark, único */
-  --fs-h1:3rem;        /* 48: títulos de seção, matéria de capa */
+  --fs-h1:3rem;--fs-hero-capa:3.75rem;        /* 48: títulos de seção, matéria de capa */
   --fs-h2:2rem;        /* 32: reportagens, nome em Quem, e-mail, títulos de ficha */
   --fs-h3:1.375rem;    /* 22: notas, itens de lista, título de grupo */
   --fs-body:1rem;      /* 16 */
@@ -78,6 +78,15 @@ body.travado{overflow:hidden;}
 
 /* tipos de display */
 .display{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;line-height:var(--lh-display);letter-spacing:.01em;}
+.slogan.display{font-variation-settings:"opsz" 144,"wdth" 87.5,"wght" 300;}
+.secao-cab h2.display{font-variation-settings:"opsz" 60,"wdth" 87.5,"wght" 380;}
+.h3.display{font-variation-settings:"opsz" 24,"wdth" 87.5,"wght" 480;}
+.projeto--capa .projeto-nome{font-variation-settings:"opsz" 72,"wdth" 87.5,"wght" 340;}
+.projeto--reportagem .projeto-nome{font-variation-settings:"opsz" 48,"wdth" 87.5,"wght" 380;}
+.projeto--nota .projeto-nome{font-variation-settings:"opsz" 24,"wdth" 87.5,"wght" 460;}
+.fatos li span{font-variation-settings:"opsz" 24,"wdth" 87.5,"wght" 420;}
+.quem-txt h2{font-variation-settings:"opsz" 48,"wdth" 87.5,"wght" 380;}
+.contato-email{font-variation-settings:"opsz" 60,"wdth" 87.5,"wght" 330;}
 .rotulo{font-family:var(--corpo);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;line-height:1.3;}
 .h1{font-size:var(--fs-h1);} .h2{font-size:var(--fs-h2);} .h3{font-size:var(--fs-h3);}
 
@@ -155,21 +164,21 @@ section{padding-block:var(--sp-9);}
 
 /* reportagem: largura inteira, texto em 8 colunas, figura em 4 */
 .projeto--reportagem{grid-column:1/-1;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:auto auto auto 1fr;column-gap:var(--calha);border-top:var(--fio);padding:var(--sp-5) 0 var(--sp-6);}
-.projeto--reportagem .projeto-nome{grid-column:1/9;grid-row:1;font-size:var(--fs-h2);max-width:18ch;}
-.projeto--reportagem .projeto-meta{grid-column:1/9;grid-row:2;}
-.projeto--reportagem .teaser{grid-column:1/9;grid-row:3;max-width:48ch;margin-top:var(--sp-5);}
-.projeto--reportagem .abrir{grid-column:1/9;grid-row:4;margin-top:var(--sp-4);align-self:start;}
-.projeto--reportagem .figura{grid-column:9/13;grid-row:1/5;}
+.projeto--reportagem .projeto-nome{grid-column:1/6;grid-row:1;font-size:var(--fs-h2);max-width:18ch;}
+.projeto--reportagem .projeto-meta{grid-column:1/6;grid-row:2;}
+.projeto--reportagem .teaser{grid-column:1/6;grid-row:3;max-width:38ch;margin-top:var(--sp-5);}
+.projeto--reportagem .abrir{grid-column:1/6;grid-row:4;margin-top:var(--sp-4);align-self:start;}
+.projeto--reportagem .figura{grid-column:8/13;grid-row:1/5;}
 
 /* capa: mesma grade da reportagem, título maior, sem fio acima */
 .projeto--capa{grid-column:1/-1;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:auto auto auto auto 1fr;column-gap:var(--calha);padding:0 0 var(--sp-6);}
-.projeto--capa .destaque-rotulo{grid-column:1/9;grid-row:1;margin-bottom:var(--sp-3);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
-.projeto--capa .projeto-nome{grid-column:1/9;grid-row:2;font-size:var(--fs-h1);max-width:14ch;}
-.projeto--capa .projeto-meta{grid-column:1/9;grid-row:3;}
-.projeto--capa .teaser{grid-column:1/9;grid-row:4;max-width:48ch;margin-top:var(--sp-5);}
-.projeto--capa .destaque-acoes{grid-column:1/9;grid-row:5;align-self:start;margin-top:var(--sp-4);display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--sp-5);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;line-height:1.3;}
+.projeto--capa .destaque-rotulo{grid-column:1/6;grid-row:1;margin-bottom:var(--sp-3);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
+.projeto--capa .projeto-nome{grid-column:1/6;grid-row:2;font-size:var(--fs-hero-capa);max-width:12ch;}
+.projeto--capa .projeto-meta{grid-column:1/6;grid-row:3;}
+.projeto--capa .teaser{grid-column:1/6;grid-row:4;max-width:38ch;margin-top:var(--sp-5);}
+.projeto--capa .destaque-acoes{grid-column:1/6;grid-row:5;align-self:start;margin-top:var(--sp-4);display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--sp-5);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;line-height:1.3;}
 .projeto--capa .destaque-acoes a{border-bottom:1px solid var(--preto);line-height:1.3;}
-.projeto--capa .figura{grid-column:9/13;grid-row:1/6;}
+.projeto--capa .figura{grid-column:7/13;grid-row:1/6;}
 .projeto--capa .destaque-acoes .abrir{margin:0;}
 
 /* ---------- FIGURA (componente único: mapa ou foto + crédito) ---------- */
@@ -203,15 +212,18 @@ section{padding-block:var(--sp-9);}
 .mapa-cidade:hover path,.mapa-cidade.ativo path{stroke-width:2;}
 .mapa-legenda{display:flex;flex-wrap:wrap;gap:var(--sp-3) var(--sp-5);margin-top:var(--sp-4);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;align-items:center;}
 .mapa-legenda span{display:inline-flex;align-items:center;gap:var(--sp-2);}
-.instituicoes{margin-top:var(--sp-8);max-width:72ch;}
-.instituicoes p{font-size:var(--fs-small);line-height:var(--lh-body);margin-bottom:var(--sp-3);}
-.instituicoes p span{display:inline-block;margin-right:var(--sp-3);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
+.instituicoes{margin-top:var(--sp-7);border-top:var(--fio);}
+.instituicoes li{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);align-items:baseline;padding:var(--sp-4) 0;border-bottom:var(--fio);}
+.instituicoes .rotulo{grid-column:1/4;}
+.instituicoes .orgs{grid-column:4/11;font-size:var(--fs-small);line-height:var(--lh-body);}
+
+
 
 /* ---------- QUEM ---------- */
 .quem-in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);align-items:start;}
-.retrato{grid-column:1/5;aspect-ratio:4/5;width:100%;max-width:18rem;overflow:hidden;}
+.retrato{grid-column:1/6;aspect-ratio:4/5;width:100%;overflow:hidden;}
 .retrato img{width:100%;height:100%;object-fit:cover;}
-.quem-txt{grid-column:5/12;}
+.quem-txt{grid-column:7/13;}
 .quem-txt h2{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--fs-h2);line-height:var(--lh-display);margin-bottom:var(--sp-5);}
 .quem-txt p{max-width:58ch;margin-bottom:var(--sp-4);}
 .redes{display:flex;gap:var(--sp-5);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;margin-top:var(--sp-5);}
@@ -272,11 +284,13 @@ section{padding-block:var(--sp-9);}
   .secao-cab h2,.secao-cab p,.secao-cab .elementos{grid-column:1/13;justify-self:start;}
 }
 @media (max-width:760px){
-  :root{--fs-h1:2.25rem;--fs-h2:1.75rem;--fs-h3:1.25rem;--calha:1rem;}
+  :root{--fs-h1:2.25rem;--fs-hero-capa:2.25rem;--fs-h2:1.75rem;--fs-h3:1.25rem;--calha:1rem;}
   section{padding-block:var(--sp-8);}
   .menu{position:fixed;inset:var(--nav-h) 0 0 0;background:var(--branco);flex-direction:column;padding:var(--sp-6) var(--margem);gap:var(--sp-4);font-size:var(--fs-h3);transform:translateX(100%);transition:transform var(--tr);}
   .nav.aberto .menu{transform:none;} .hamb{display:block;}
-  .abertura{min-height:80svh;} .abertura-txt{grid-column:1/-1;}
+  .abertura{min-height:60svh;padding-bottom:var(--sp-7);} .abertura-txt{grid-column:1/-1;}
+  .instituicoes li{grid-template-columns:1fr;gap:var(--sp-1);} .instituicoes .rotulo,.instituicoes .orgs{grid-column:1;}
+  .retrato{max-width:16rem;}
   .projetos{grid-template-columns:1fr;gap:var(--sp-7);}
   .projeto--nota .projeto-nome,.projeto--nota .projeto-meta,.projeto--nota .teaser{min-height:0;-webkit-line-clamp:unset;display:block;}
   .quem-in,.contato-in{grid-template-columns:1fr;}
@@ -320,7 +334,7 @@ section{padding-block:var(--sp-9);}
   <div class="projetos" id="grade">
   <div class="pratica" id="estudo"><h3 class="pratica-titulo">Estudo</h3></div>
   <article class="projeto projeto--reportagem" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="ar" data-elementos="ar agua" data-lugares="berlim atlantico">
-      <figure class="figura"><img src="img/mapa-eca.svg" alt="Atlântico Nordeste em contorno, com a área de controle de emissões" loading="lazy"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
+      <figure class="figura"><img src="img/il-eca.svg" alt="Fitas que atravessam uma fronteira fechada e saem mais finas do que entraram" loading="lazy"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
       <h3 class="projeto-nome"><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/" target="_blank" rel="noopener">A maior área de controle de emissões marítimas do mundo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2024–2026, ICCT e Organização Marítima Internacional</p>
       <p class="teaser">Os estudos que embasaram a área de controle de emissões marítimas adotada pela Organização Marítima Internacional em 2026.</p>
@@ -330,7 +344,7 @@ section{padding-block:var(--sp-9);}
     </article>
   <article class="projeto projeto--nota" id="p-cinco-futuros-para-os-caminhoes-do-brasi" data-pratica="imaginacao" data-cor="ar" data-elementos="ar fogo" data-lugares="sao-paulo">
       
-      <figure class="figura"><img src="img/mapa-saopaulo.svg" alt="Sudeste do Brasil em contorno, com São Paulo marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/il-caminhoes.svg" alt="Cinco percursos de massas diferentes, dois deles voltando sobre os demais" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://institutoar.org.br/publicacoes/powering-brazils-transition-to-zero-emission-trucking/" target="_blank" rel="noopener">Cinco futuros para os caminhões do Brasil<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025, Instituto Ar (Futura)</p>
       <p class="teaser">Cinco matrizes energéticas para a frota pesada comparadas em emissões, saúde e custo até 2050.</p>
@@ -339,7 +353,7 @@ section{padding-block:var(--sp-9);}
       <ul class="projeto-links"><li><a href="https://exame.com/esg/brasil-pode-economizar-r-5-bi-e-reduzir-46-das-emissoes-com-caminhoes-eletricos-diz-estudo/">Exame</a></li><li><a href="https://institutoar.org.br/publicacoes/powering-brazils-transition-to-zero-emission-trucking/">Relatório (EN)</a></li><li><a href="https://diariodotransporte.com.br/2025/09/10/biodiesel-polui-mais-que-o-diesel-estudo-mostra-que-so-eletrificacao-de-caminhoes-de-carga-evita-colapso-climatico-e-custos-bilionarios/">Diário do Transporte</a></li><li><a href="https://evdrops.com.br/entrevista-patricia-ferrini-biocombustiveis/">evdrops, entrevista</a></li></ul></div>
     </article>
   <article class="projeto projeto--nota" id="p-andar-e-pedalar-no-porto" data-pratica="conhecimento" data-cor="ar" data-elementos="ar terra" data-lugares="porto">
-      <figure class="figura"><img src="img/mapa-porto.svg" alt="Península Ibérica em contorno, com o Porto marcado" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
+      <figure class="figura"><img src="img/il-porto.svg" alt="Uma massa que diminui enquanto outra cresce ao cruzá-la" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
       <h3 class="projeto-nome"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0269749119328349" target="_blank" rel="noopener">Andar e pedalar no Porto, Portugal<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2017–2020, Universidade do Porto</p>
       <p class="teaser">Três cenários de troca do carro pela caminhada e pela bicicleta, em mortes evitadas, CO₂ e euros.</p>
@@ -349,7 +363,7 @@ section{padding-block:var(--sp-9);}
     </article>
   <article class="projeto projeto--nota" id="p-o-que-a-poluicao-custa-ao-sus" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="sao-paulo brasil">
       
-      <figure class="figura"><img src="img/mapa-brasil.svg" alt="Brasil em contorno" loading="lazy"></figure>
+      <figure class="figura"><img src="img/il-sus.svg" alt="Dez percursos que convergem e saem do encontro como um corpo único" loading="lazy"></figure>
       <h3 class="projeto-nome">O que a poluição custa ao SUS</h3>
       <p class="projeto-meta">2025, Instituto Ar (Futura)</p>
       <p class="teaser">R$ 24,5 bilhões gastos pelo SUS, entre 2013 e 2023, com doenças atribuíveis à poluição do ar.</p>
@@ -358,7 +372,7 @@ section{padding-block:var(--sp-9);}
     </article>
   <article class="projeto projeto--nota" id="p-guias-para-o-transporte-limpo-em-paises-" data-pratica="acao" data-cor="ar" data-elementos="ar fogo" data-lugares="paris africa">
       
-      <figure class="figura"><img src="img/mapa-africa.svg" alt="África Subsaariana em contorno" loading="lazy"></figure>
+      <figure class="figura"><img src="img/il-pnuma.svg" alt="Um percurso único que se ramifica em três" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://aqmx.org/content/road-transport" target="_blank" rel="noopener">Guias para o transporte limpo em países de renda média<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025–2026, Programa das Nações Unidas para o Meio Ambiente (Futura)</p>
       <p class="teaser">Três orientações do Programa das Nações Unidas para o Meio Ambiente sobre combustíveis, emissões e inspeção veicular.</p>
@@ -368,7 +382,7 @@ section{padding-block:var(--sp-9);}
     </article>
   <article class="projeto projeto--nota" id="p-a-frota-de-automoveis-da-alemanha" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="berlim">
       
-      <figure class="figura"><img src="img/mapa-alemanha.svg" alt="Alemanha em contorno" loading="lazy"></figure>
+      <figure class="figura"><img src="img/il-alemanha.svg" alt="Uma massa que se apaga enquanto outra ocupa o seu lugar" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://theicct.org/pr-en-vehicle-stock-emissions-pv-germany-oct24/" target="_blank" rel="noopener">A frota de automóveis da Alemanha<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2024, ICCT, Berlim</p>
       <p class="teaser">Estratégias para a frota de passageiros alemã diante da meta climática de 2030.</p>
@@ -378,7 +392,7 @@ section{padding-block:var(--sp-9);}
     </article>
   <article class="projeto projeto--nota" id="p-politicas-de-transporte-rodoviario-e-saude" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="berlim">
       
-      <figure class="figura"><img src="img/mapa-mundo.svg" alt="Mapa-múndi em contorno" loading="lazy"></figure>
+      <figure class="figura"><img src="img/il-politicas.svg" alt="Duas trajetórias e o intervalo que se abre entre elas" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://iopscience.iop.org/article/10.1088/1748-9326/adcd87" target="_blank" rel="noopener">Políticas de transporte rodoviário e saúde no mundo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025, ICCT, George Washington University e University of Colorado</p>
       <p class="teaser">Modelagem global das mortes evitáveis pelas políticas de emissão do transporte rodoviário até 2040.</p>
@@ -388,7 +402,7 @@ section{padding-block:var(--sp-9);}
     </article>
   <article class="projeto projeto--nota" id="p-descarbonizacao-e-saude-em-grenoble" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="grenoble paris">
       
-      <figure class="figura"><img src="img/mapa-grenoble.svg" alt="Alpes em contorno, com Grenoble marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/il-grenoble.svg" alt="Um percurso que muda de natureza na metade do caminho" loading="lazy"></figure>
       <h3 class="projeto-nome">Descarbonização e saúde em Grenoble</h3>
       <p class="projeto-meta">2015–2016, Université Grenoble-Alpes</p>
       <p class="teaser">Co-benefícios em saúde de cenários de descarbonização, valorados em euros e levados à COP21.</p>
@@ -402,13 +416,13 @@ section{padding-block:var(--sp-9);}
     <p class="projeto-meta">2026–2027, monitorelnino.com.br</p>
     <p class="teaser">Índice público do que estados e municípios publicaram antes e depois do El Niño de 2026–2027, a partir de fontes oficiais.</p>
     <p class="destaque-acoes"><a href="https://monitorelnino.com.br/">Abrir o Monitor</a> <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button> <a href="#onde" data-lugar="brasil" class="agora-mapa">Ver no mapa</a></p>
-    <figure class="figura"><img src="img/mapa-brasil.svg" alt="Brasil em contorno" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
+    <figure class="figura"><img src="img/il-monitor.svg" alt="Percursos que terminam num corte e outros que só começam depois dele" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
     <div class="ficha-oculta" hidden><dl class="ficha ficha-larga"><div><dt>Forma</dt><dd>Instrumento</dd></div><div><dt>Pergunta</dt><dd>O que cada estado e município publicou antes do El Niño de 2026–2027, e o que decretou depois?</dd></div><div><dt>Método</dt><dd>O MARÉ (Medida de Antecipação e Resposta ao El Niño) lê os instrumentos oficiais publicados por 27 estados e 5.571 municípios antes da crise e os decretos publicados depois dela. Só entram fontes oficiais verificáveis; a metodologia é pública e versionada. Onde não há registro, o Monitor indica "não localizamos".</dd></div><div><dt>Resultado</dt><dd>Um índice de antecipação e um contador de resposta por estado e por município, atualizados continuamente. <a href="https://monitorelnino.com.br/">Abrir o Monitor</a></dd></div></dl></div>
       
   </article>
   <article class="projeto projeto--nota" id="p-respira-amazonia" data-pratica="imaginacao" data-cor="ar" data-elementos="ar fogo terra" data-lugares="belem rio-branco amazonia">
       
-      <figure class="figura"><img src="img/mapa-amazonia.svg" alt="Amazônia Legal em contorno" loading="lazy"></figure>
+      <figure class="figura"><img src="img/il-respira.svg" alt="Muitos percursos que se alinham sem se fundir" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://institutoar.org.br/programas/respira-amazonia/" target="_blank" rel="noopener">Respira Amazônia<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2024, Instituto Ar (Futura)</p>
       <p class="teaser">Coalizão para monitorar o ar das cidades amazônicas durante a temporada de queimadas.</p>
@@ -418,7 +432,7 @@ section{padding-block:var(--sp-9);}
     </article>
   <article class="projeto projeto--nota" id="p-os-novos-padroes-de-qualidade-do-ar-dent" data-pratica="acao" data-cor="ar" data-elementos="ar" data-lugares="brasilia">
       
-      <figure class="figura"><img src="img/mapa-brasilia.svg" alt="Brasil central em contorno, com Brasília marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/il-padroes.svg" alt="Uma norma que desce e se desdobra em instrumentos" loading="lazy"></figure>
       <h3 class="projeto-nome">Os novos padrões de qualidade do ar dentro do sistema de saúde</h3>
       <p class="projeto-meta">Instituto Ar, com o Ministério da Saúde (Futura)</p>
       <p class="teaser">Apoio ao Ministério da Saúde na implementação dos novos padrões nacionais de qualidade do ar.</p>
@@ -427,7 +441,7 @@ section{padding-block:var(--sp-9);}
     </article>
   <article class="projeto projeto--nota" id="p-co-beneficios-do-transporte-de-passageir" data-pratica="conhecimento" data-cor="ar" data-elementos="ar fogo" data-lugares="sao-paulo">
       
-      <figure class="figura"><img src="img/mapa-saopaulo.svg" alt="Sudeste do Brasil em contorno, com São Paulo marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/il-saopaulo.svg" alt="Dois conjuntos paralelos com massas muito diferentes" loading="lazy"></figure>
       <h3 class="projeto-nome">Co-benefícios do transporte de passageiros em São Paulo</h3>
       <p class="projeto-meta">2017–2020, Instituto de Estudos Avançados da USP</p>
       <p class="teaser">Cenários de emissão do transporte de passageiros convertidos em impacto sanitário e econômico.</p>
@@ -436,7 +450,7 @@ section{padding-block:var(--sp-9);}
     </article>
   <article class="projeto projeto--nota" id="p-satelites-para-cidades-sem-monitoramento" data-pratica="conhecimento" data-cor="ar" data-elementos="ar" data-lugares="dusseldorf india">
       
-      <figure class="figura"><img src="img/mapa-india.svg" alt="Índia em contorno" loading="lazy"></figure>
+      <figure class="figura"><img src="img/il-india.svg" alt="Uma cobertura contínua estendida sobre um vazio" loading="lazy"></figure>
       <h3 class="projeto-nome">Satélites para cidades sem monitoramento na Índia</h3>
       <p class="projeto-meta">2022, Leibniz-Institut, Düsseldorf</p>
       <p class="teaser">Base de dados por satélite para cidades indianas sem estação de monitoramento.</p>
@@ -445,7 +459,7 @@ section{padding-block:var(--sp-9);}
     </article>
   <article class="projeto projeto--nota" id="p-um-laser-sobre-o-ar-de-sao-paulo" data-pratica="conhecimento" data-cor="ar" data-elementos="ar agua" data-lugares="greenbelt sao-paulo marilia canada chile toulouse praga edimburgo amsterda">
       
-      <figure class="figura"><img src="img/mapa-lidar.svg" alt="Sudeste do Brasil em contorno, com São Paulo marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/il-laser.svg" alt="Percursos que engrossam ao atravessar uma faixa" loading="lazy"></figure>
       <h3 class="projeto-nome">Um laser sobre o ar de São Paulo</h3>
       <p class="projeto-meta">2010–2014, NASA Goddard e Universidade de São Paulo</p>
       <p class="teaser">O crescimento higroscópico do aerossol urbano medido a laser em São Paulo e em Washington, com a NASA.</p>
@@ -456,7 +470,7 @@ section{padding-block:var(--sp-9);}
   <div class="pratica" id="encontro"><h3 class="pratica-titulo">Encontro</h3></div>
   <article class="projeto projeto--reportagem" id="p-a-primeira-conferencia-global-sobre-polu" data-pratica="acao" data-cor="ar" data-elementos="ar" data-lugares="genebra">
       
-      <figure class="figura"><img src="img/mapa-genebra.svg" alt="Europa central em contorno, com Genebra marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/il-genebra.svg" alt="Muitos percursos que chegam a um mesmo lugar" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://www.who.int/news-room/events/detail/2018/10/30/default-calendar/air-pollution-conference" target="_blank" rel="noopener">A primeira conferência global sobre poluição do ar e saúde<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2018, Organização Mundial da Saúde, Genebra</p>
       <p class="teaser">A conferência da Organização Mundial da Saúde que fixou a meta de reduzir em dois terços as mortes por poluição do ar até 2030.</p>
@@ -466,7 +480,7 @@ section{padding-block:var(--sp-9);}
     </article>
   <article class="projeto projeto--nota" id="p-as-ferramentas-da-oms-nas-maos-de-gestor" data-pratica="acao" data-cor="ar" data-elementos="ar terra" data-lugares="acra kathmandu genebra">
       
-      <figure class="figura"><img src="img/mapa-acra.svg" alt="Golfo da Guiné em contorno, com Acra marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/il-acra.svg" alt="Um percurso que se duplica em dois iguais" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://www.who.int/initiatives/urban-health-initiative/pilot-projects" target="_blank" rel="noopener">As ferramentas da OMS nas mãos de gestores de Acra e Kathmandu<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2018–2019, Organização Mundial da Saúde, Urban Health Initiative</p>
       <p class="teaser">As ferramentas de impacto em saúde da Organização Mundial da Saúde testadas e ensinadas aos gestores de duas cidades-piloto.</p>
@@ -476,7 +490,7 @@ section{padding-block:var(--sp-9);}
     </article>
   <div class="pratica" id="obra"><h3 class="pratica-titulo">Obra</h3></div>
   <article class="projeto projeto--reportagem" id="p-eduardo-kobra-e-a-oms-por-um-ar-mais-lim" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="cartagena genebra">
-      <figure class="figura"><img src="img/kobra-cartagena.jpg" alt="Escultura mural de Eduardo Kobra em Cartagena: um planeta Terra erguido por mãos coloridas, com a Amazônia visível no globo" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Foto: Patricia Ferrini</figcaption></figure>
+      <figure class="figura"><img src="img/il-kobra.svg" alt="Percursos contidos numa forma fechada e um que escapa e segue muito além" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Foto: Patricia Ferrini</figcaption></figure>
       <h3 class="projeto-nome"><a href="https://www.who.int/news-room/events/detail/2018/10/30/default-calendar/air-pollution-conference" target="_blank" rel="noopener">Eduardo Kobra e a OMS por um ar mais limpo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025, Organização Mundial da Saúde, Cartagena (Futura)</p>
       <p class="teaser">Eduardo Kobra nomeado embaixador da Organização Mundial da Saúde e porta-voz da campanha BreatheLife, em Cartagena.</p>
@@ -486,7 +500,7 @@ section{padding-block:var(--sp-9);}
     </article>
   <article class="projeto projeto--nota" id="p-marajo-sem-fumaca" data-pratica="imaginacao" data-cor="fogo" data-elementos="fogo terra ar" data-lugares="belem amazonia">
       
-      <figure class="figura"><img src="img/mapa-marajo.svg" alt="Foz do Amazonas em contorno, com Belém marcada" loading="lazy"></figure>
+      <figure class="figura"><img src="img/il-marajo.svg" alt="Traços que partem de focos e se dissipam em comprimentos diferentes" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://marajosemfumaca.com.br/" target="_blank" rel="noopener">Marajó Sem Fumaça<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2025–2026, Instituto Ar e Clean Air Fund (Futura)</p>
       <p class="teaser">Brigada comunitária, escola e detecção de queimadas por inteligência artificial na Ilha de Marajó.</p>
