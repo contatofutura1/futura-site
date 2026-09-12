@@ -421,6 +421,20 @@ section{padding-block:var(--sp-9);}
 .fatos li .fonte{display:block;margin-top:var(--sp-3);font-family:var(--corpo);font-weight:400;
   font-variation-settings:normal;font-size:var(--fs-caption);line-height:1.4;max-width:none;
   letter-spacing:var(--ls-caption);text-transform:uppercase;opacity:.5;}
+
+/* o descritor acompanha a coluna de texto nos cards largos */
+.projeto--capa .projeto-sub,.projeto--reportagem .projeto-sub{grid-column:1/6;}
+.projeto--esq .projeto-sub{grid-column:8/13!important;}
+@media (max-width:1100px){.projeto--capa .projeto-sub,.projeto--reportagem .projeto-sub,.projeto--esq .projeto-sub{grid-column:1/13!important;}}
+
+.projeto--capa .projeto-sub,.projeto--reportagem .projeto-sub{display:none;}
+
+/* card largo com rotulo: o rotulo abre a pilha e o resto desce uma linha */
+.projeto--curso .destaque-rotulo{grid-row:1!important;}
+.projeto--curso .projeto-nome{grid-row:2!important;}
+.projeto--curso .projeto-meta{grid-row:3!important;}
+.projeto--curso .teaser{grid-row:4!important;}
+.projeto--curso .abrir,.projeto--curso .destaque-acoes{grid-row:5!important;}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://futuraevidencelab.com.br/#org","name":"Futura Evidence Lab","alternateName":"Futura","url":"https://futuraevidencelab.com.br/","logo":"https://futuraevidencelab.com.br/compartilhar.png","description":"Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos, encontros e arte que fundamentam decisões sobre territórios e corpos.","email":"contato@futuraevidencelab.com.br","founder":{"@id":"https://futuraevidencelab.com.br/#patricia"},"knowsAbout":["qualidade do ar","poluição atmosférica","saúde pública","mudanças climáticas","transporte e emissões","queimadas","política ambiental"],"areaServed":"Brasil"},
