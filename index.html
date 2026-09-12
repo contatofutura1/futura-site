@@ -507,6 +507,12 @@ body.na-capa .nav .marca{opacity:0;visibility:hidden;}
   -webkit-mask-image:linear-gradient(to right,#000 0,#000 58%,transparent 92%);
   mask-image:linear-gradient(to right,#000 0,#000 58%,transparent 92%);}
 @media (max-width:1100px){.capa-obra--pe{display:none;}}
+
+/* manifesto em duas linhas, sem ponto */
+.abertura .slogan{display:flex;flex-direction:column;align-items:flex-end;gap:.04em;}
+.abertura .slogan .l1{display:block;}
+.abertura .slogan .l2{display:block;}
+@media (max-width:1100px){.abertura .slogan{align-items:flex-start;}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://futuraevidencelab.com.br/#org","name":"Futura Evidence Lab","alternateName":"Futura","url":"https://futuraevidencelab.com.br/","logo":"https://futuraevidencelab.com.br/compartilhar.png","description":"Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos, encontros e arte que fundamentam decisões sobre territórios e corpos.","email":"contato@futuraevidencelab.com.br","founder":{"@id":"https://futuraevidencelab.com.br/#patricia"},"knowsAbout":["qualidade do ar","poluição atmosférica","saúde pública","mudanças climáticas","transporte e emissões","queimadas","política ambiental"],"areaServed":"Brasil"},
@@ -542,7 +548,7 @@ body.na-capa .nav .marca{opacity:0;visibility:hidden;}
   <h1 class="wordmark display" aria-label="Futura">
     <span aria-hidden="true" style="animation-delay:0ms">F</span><span class="u" aria-hidden="true" style="animation-delay:70ms">U</span><span aria-hidden="true" style="animation-delay:140ms">T</span><span class="u" aria-hidden="true" style="animation-delay:210ms">U</span><span aria-hidden="true" style="animation-delay:280ms">R</span><span aria-hidden="true" style="animation-delay:350ms">A</span>
   </h1>
-  <p class="slogan display">Imaginar não basta.</p>
+  <p class="slogan display"><span class="l1">Imaginar</span><span class="l2">não basta</span></p>
   <p class="predicado">Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos, encontros e arte que fundamentam decisões sobre territórios e corpos.</p>
 </section>
 
