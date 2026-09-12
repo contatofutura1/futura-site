@@ -315,19 +315,33 @@ section{padding-block:var(--sp-9);}
 
 
 
-/* ---------- figuras: sem corte, sem quadrado, alternando o lado ---------- */
-.projeto--capa .figura,.projeto--reportagem .figura{aspect-ratio:5/4;}
-.projeto--capa .figura img,.projeto--reportagem .figura img{object-fit:contain;}
-.projeto--reportagem .figura{grid-column:9/13;}     /* imagem um pouco menor */
-.projeto--capa .figura{grid-column:8/13;}
-/* alternancia: nos pares, imagem a esquerda e texto a direita */
-.projeto--esq .figura{grid-column:1/5!important;}
+
+/* ---------- composicao da secao: texto 41%, area visual 58%, sem vao morto ---------- */
+.projeto--capa,.projeto--reportagem{align-items:center;}
+.projeto--capa .figura,.projeto--reportagem .figura{
+  grid-column:6/13;grid-row:1/6;aspect-ratio:4/3;width:100%;align-self:center;}
+.projeto--capa .figura img,.projeto--reportagem .figura img{
+  width:100%;height:100%;object-fit:contain;object-position:center;}
+.projeto--capa .destaque-rotulo,.projeto--capa .projeto-nome,.projeto--capa .projeto-meta,
+.projeto--capa .teaser,.projeto--capa .destaque-acoes,
+.projeto--reportagem .projeto-nome,.projeto--reportagem .projeto-meta,
+.projeto--reportagem .teaser,.projeto--reportagem .abrir{grid-column:1/6;}
+.projeto--capa .teaser,.projeto--reportagem .teaser{max-width:40ch;}
+.projeto--capa .projeto-nome{max-width:15ch;}
+.projeto--reportagem .projeto-nome{max-width:16ch;}
+/* alternancia: imagem a esquerda, texto a direita, mesmas proporcoes */
+.projeto--esq .figura{grid-column:1/8!important;}
 .projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,.projeto--esq .projeto-meta,
-.projeto--esq .teaser,.projeto--esq .abrir,.projeto--esq .destaque-acoes{grid-column:6/11!important;}
+.projeto--esq .teaser,.projeto--esq .abrir,.projeto--esq .destaque-acoes{grid-column:8/13!important;}
 @media (max-width:1100px){
-  .projeto--esq .figura,.projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,
-  .projeto--esq .projeto-meta,.projeto--esq .teaser,.projeto--esq .abrir,
-  .projeto--esq .destaque-acoes{grid-column:1/13!important;}
+  .projeto--capa,.projeto--reportagem{align-items:stretch!important;}
+  .projeto--capa > *,.projeto--reportagem > *{align-self:stretch!important;}
+  .projeto--capa .figura,.projeto--reportagem .figura,.projeto--esq .figura{
+    grid-column:1/13!important;aspect-ratio:4/3;max-width:none!important;}
+  .projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,.projeto--esq .projeto-meta,
+  .projeto--esq .teaser,.projeto--esq .abrir,.projeto--esq .destaque-acoes{grid-column:1/13!important;}
+  .projeto--capa .teaser,.projeto--reportagem .teaser,
+  .projeto--capa .projeto-nome,.projeto--reportagem .projeto-nome{max-width:none;}
 }
 </style>
 </head>
