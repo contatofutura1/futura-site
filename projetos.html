@@ -357,6 +357,13 @@ section{padding-block:var(--sp-9);}
   .projeto--esq .projeto-meta,.projeto--esq .teaser,.projeto--esq .abrir,
   .projeto--esq .destaque-acoes{grid-column:1/13!important;}
 }
+
+.grade-projetos{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-8) var(--calha);}
+@media (max-width:1100px){.grade-projetos{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:700px){.grade-projetos{grid-template-columns:1fr;}}
+
+.eco{display:block;font-family:var(--corpo);font-size:var(--fs-caption);letter-spacing:0;text-transform:lowercase;opacity:.55;margin-top:2px;}
+.credito-cantico{grid-column:1/-1;margin-top:var(--sp-6);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;opacity:.5;}
 </style>
 </head>
 <body>
@@ -370,6 +377,7 @@ section{padding-block:var(--sp-9);}
         <li><a href="index.html">Início</a></li>
         <li><a href="projetos.html" aria-current="true">Projetos</a></li>
         <li><a href="publicacoes.html">Publicações</a></li>
+        <li><a href="midia.html">Na mídia</a></li>
         <li><a href="sobre.html">Sobre</a></li>
         <li><a href="index.html#contato">Contato</a></li>
       </ul>
@@ -383,25 +391,53 @@ section{padding-block:var(--sp-9);}
 <section class="wrap secundaria" id="projetos" aria-labelledby="t-projetos">
   <div class="secao-cab"><h2 class="display" id="t-projetos">Projetos</h2>
     <div class="elementos" role="group" aria-label="Filtrar por elemento">
-      <button class="elemento" type="button" data-el="ar" aria-pressed="false">Ar</button>
-      <button class="elemento" type="button" data-el="agua" aria-pressed="false">Água</button>
-      <button class="elemento" type="button" data-el="fogo" aria-pressed="false">Fogo</button>
-      <button class="elemento" type="button" data-el="terra" aria-pressed="false">Terra</button>
+      <button class="elemento" type="button" data-el="ar" aria-pressed="false">Ar<span class="eco">sopro</span></button>
+      <button class="elemento" type="button" data-el="agua" aria-pressed="false">Água<span class="eco">sangue</span></button>
+      <button class="elemento" type="button" data-el="fogo" aria-pressed="false">Fogo<span class="eco">espírito</span></button>
+      <button class="elemento" type="button" data-el="terra" aria-pressed="false">Terra<span class="eco">corpo</span></button>
     </div><p class="cartografia-link"><a href="sobre.html#onde">Ver a cartografia dos projetos</a></p>
   </div>
   <p class="contagem" id="contagem" aria-live="polite"></p><button class="todos rotulo" id="todos" type="button" hidden>Todos</button>
   <div class="projetos" id="grade">
-  <div class="pratica" id="instrumento"><h3 class="pratica-titulo">Instrumento</h3><p class="pratica-sub">Uma coisa pública que segue medindo depois que o relatório termina.</p></div>
-  <article class="projeto projeto--esq projeto--capa projeto--topo" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="ar agua fogo terra" data-lugares="brasil">
+  <div class="grade-projetos">
+  <article class="projeto projeto--nota" id="p-monitor-el-nino" data-pratica="acao" data-cor="agua" data-elementos="ar agua fogo terra" data-lugares="brasil"><figure class="figura"><img src="img/il-monitor.svg" alt="Percursos que terminam num corte e outros que só começam depois dele" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
     <p class="destaque-rotulo">Em curso</p>
     <h3 class="projeto-nome"><a href="https://monitorelnino.com.br/" target="_blank" rel="noopener">Monitor El Niño Brasil<span class="ext" aria-hidden="true">↗</span></a></h3>
     <p class="projeto-meta">2026–2027, monitorelnino.com.br</p>
     <p class="teaser">Índice público do que estados e municípios publicaram antes e depois do El Niño de 2026–2027, a partir de fontes oficiais.</p>
     <p class="destaque-acoes"><a href="https://monitorelnino.com.br/">Abrir o Monitor</a> <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button> <a href="#onde" data-lugar="brasil" class="agora-mapa">Ver no mapa</a></p>
-    <figure class="figura"><img src="img/il-monitor.svg" alt="Percursos que terminam num corte e outros que só começam depois dele" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
+    
     <div class="ficha-oculta" hidden><dl class="ficha ficha-larga"><div><dt>Forma</dt><dd>Instrumento</dd></div><div><dt>Onde</dt><dd><a href="projetos.html#lugar=brasil">Brasil</a></dd></div><div><dt>Pergunta</dt><dd>O que cada estado e município publicou antes do El Niño de 2026–2027, e o que decretou depois?</dd></div><div><dt>Método</dt><dd>O MARÉ (Medida de Antecipação e Resposta ao El Niño) lê os instrumentos oficiais publicados por 27 estados e 5.571 municípios antes da crise e os decretos publicados depois dela. Só entram fontes oficiais verificáveis; a metodologia é pública e versionada. Onde não há registro, o Monitor indica "não localizamos".</dd></div><div><dt>Resultado</dt><dd>Um índice de antecipação e um contador de resposta por estado e por município, atualizados continuamente. <a href="https://monitorelnino.com.br/">Abrir o Monitor</a></dd></div></dl></div>
       
   </article>
+  <article class="projeto projeto--nota" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="agua" data-elementos="ar agua" data-lugares="berlim atlantico">
+      <figure class="figura"><img src="img/il-eca.svg" alt="Fitas que atravessam uma fronteira fechada e saem mais finas do que entraram" loading="lazy"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
+      <h3 class="projeto-nome"><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/" target="_blank" rel="noopener">A maior área de controle de emissões marítimas do mundo<span class="ext" aria-hidden="true">↗</span></a></h3>
+      <p class="projeto-meta">2024–2026, ICCT e Organização Marítima Internacional</p>
+      <p class="teaser">Os estudos que embasaram a área de controle de emissões marítimas adotada pela Organização Marítima Internacional em 2026.</p>
+      <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
+      <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Estudo</dd></div><div><dt>Onde</dt><dd><a href="projetos.html#lugar=berlim">Berlim</a>, <a href="projetos.html#lugar=atlantico">Atlântico Nordeste</a></dd></div><div><dt>Pergunta</dt><dd>Quantas mortes e quanto custo em saúde uma área de controle de emissões no Atlântico Nordeste evitaria?</dd></div><div><dt>Método</dt><dd>Dois relatórios do ICCT (2024) comparam cenários com e sem a área de controle, sob diferentes níveis de cumprimento, em emissões, saúde e custo.</dd></div><div><dt>Resultado</dt><dd>Entre 2.900 e 4.300 mortes prematuras evitadas de 2030 a 2050; €19 a €29 bilhões em custos de saúde; 82% menos óxidos de enxofre e 64% menos material particulado fino. Os relatórios embasaram a proposta de 27 países à Organização Marítima Internacional, adotada em maio de 2026.</dd></div></dl>
+      <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/">ICCT, adoção</a></li><li><a href="https://theicct.org/publication/environmental-and-health-benefits-of-a-designated-north-atlantic-emission-control-area-nov24/">Relatório de saúde (2024)</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://jornal.usp.br/atualidades/maior-area-de-controle-de-poluicao-de-navios-e-criada-no-atlantico-entenda-impactos-na-saude-e-economia">Jornal da USP</a></li></ul></div>
+    </article>
+  <article class="projeto projeto--nota" id="p-eduardo-kobra-e-a-oms-por-um-ar-mais-lim" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="cartagena genebra">
+      <figure class="figura"><img src="img/il-kobra.svg" alt="Percursos contidos numa forma fechada e um que escapa e segue muito além" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Foto: Patricia Ferrini</figcaption></figure>
+      <h3 class="projeto-nome"><a href="https://www.who.int/news-room/events/detail/2018/10/30/default-calendar/air-pollution-conference" target="_blank" rel="noopener">Eduardo Kobra e a OMS por um ar mais limpo<span class="ext" aria-hidden="true">↗</span></a></h3>
+      <p class="projeto-meta">2025, Organização Mundial da Saúde, Cartagena (Futura)</p>
+      <p class="teaser">Eduardo Kobra nomeado embaixador da Organização Mundial da Saúde e porta-voz da campanha BreatheLife, em Cartagena.</p>
+      <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
+      <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Obra</dd></div><div><dt>Onde</dt><dd><a href="projetos.html#lugar=cartagena">Cartagena</a>, <a href="projetos.html#lugar=genebra">Genebra</a></dd></div><div><dt>Pergunta</dt><dd>Como levar a evidência sobre poluição e saúde a públicos que as conferências não alcançam?</dd></div><div><dt>Método</dt><dd>Organização da Segunda Conferência Global sobre Poluição do Ar e Saúde, da Organização Mundial da Saúde, em Cartagena, em março de 2025, com mais de trinta eventos de alto nível, Estados-membros, cidades, agências das Nações Unidas e bancos de desenvolvimento; planejamento e execução da participação de Eduardo Kobra.</dd></div><div><dt>Resultado</dt><dd>A nomeação de Eduardo Kobra como embaixador da Organização Mundial da Saúde e porta-voz da campanha BreatheLife, em 27 de março de 2025.</dd></div></dl>
+      <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://www.who.int/news-room/events/detail/2025/03/25/default-calendar/second-global-conference-on-air-pollution-and-health">OMS, conferência</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://www.gazetasp.com.br/cotidiano/grafiteiro-kobra-e-nomeado-novo-embaixador-da-oms/1153668/">Gazeta de São Paulo</a></li></ul></div>
+    </article>
+  <article class="projeto projeto--nota" id="p-cinco-futuros-para-os-caminhoes-do-brasi" data-pratica="imaginacao" data-cor="terra" data-elementos="ar terra" data-lugares="sao-paulo">
+      
+      <figure class="figura"><img src="img/il-caminhoes.svg" alt="Cinco percursos de massas diferentes, dois deles voltando sobre os demais" loading="lazy"></figure>
+      <h3 class="projeto-nome"><a href="https://institutoar.org.br/publicacoes/powering-brazils-transition-to-zero-emission-trucking/" target="_blank" rel="noopener">Cinco futuros para os caminhões do Brasil<span class="ext" aria-hidden="true">↗</span></a></h3>
+      <p class="projeto-meta">2025, Instituto Ar (Futura)</p>
+      <p class="teaser">Cinco matrizes energéticas para a frota pesada comparadas em emissões, saúde e custo até 2050.</p>
+      <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
+      <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Estudo</dd></div><div><dt>Onde</dt><dd><a href="projetos.html#lugar=sao-paulo">São Paulo</a></dd></div><div><dt>Pergunta</dt><dd>Qual matriz energética para os caminhões produz menos emissão, menos mortes e menos custo até 2050?</dd></div><div><dt>Método</dt><dd>Cinco cenários (diesel, híbrido a diesel, gás natural, biodiesel e elétrico) avaliados em emissões, saúde e custo socioambiental para a frota pesada de São Paulo.</dd></div><div><dt>Resultado</dt><dd>A eletrificação reduz 46% das emissões e evita R$ 5 bilhões em custos até 2050; o híbrido a diesel reduz 8%; gás e biodiesel aumentam emissões líquidas e custos; o biodiesel puro exigiria cerca de 215 milhões de hectares, um quarto do território nacional.</dd></div></dl>
+      <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://institutoar.org.br/publicacoes/powering-brazils-transition-to-zero-emission-trucking/">Relatório (EN)</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://diariodotransporte.com.br/2025/09/10/biodiesel-polui-mais-que-o-diesel-estudo-mostra-que-so-eletrificacao-de-caminhoes-de-carga-evita-colapso-climatico-e-custos-bilionarios/">Diário do Transporte</a></li><li><a href="https://evdrops.com.br/entrevista-patricia-ferrini-biocombustiveis/">evdrops, entrevista</a></li><li><a href="https://www.fecombustiveis.org.br/noticia/diesel-caro-acelera-busca-por-novos-combustiveis/264798">Estadão, via Fecombustíveis</a></li><li><a href="https://exame.com/esg/brasil-pode-economizar-r-5-bi-e-reduzir-46-das-emissoes-com-caminhoes-eletricos-diz-estudo/">Exame</a></li></ul></div>
+    </article>
   <article class="projeto projeto--nota" id="p-respira-amazonia" data-pratica="imaginacao" data-cor="fogo" data-elementos="ar fogo" data-lugares="belem rio-branco amazonia">
       
       <figure class="figura"><img src="img/il-respira.svg" alt="Muitos percursos que se alinham sem se fundir" loading="lazy"></figure>
@@ -448,26 +484,6 @@ section{padding-block:var(--sp-9);}
       <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Instrumento</dd></div><div><dt>Onde</dt><dd><a href="projetos.html#lugar=greenbelt">Greenbelt</a>, <a href="projetos.html#lugar=sao-paulo">São Paulo</a>, <a href="projetos.html#lugar=marilia">Marília</a>, <a href="projetos.html#lugar=canada">Canadá</a></dd></div><div><dt>Pergunta</dt><dd>Quanto o aerossol urbano cresce ao absorver umidade, e quanto isso altera o balanço de radiação sobre a cidade?</dd></div><div><dt>Método</dt><dd>Sensoriamento remoto por LIDAR em São Paulo e em Washington, com campanhas de campo no Canadá, no Chile e nos Estados Unidos, em colaboração com o Goddard Space Flight Center da NASA.</dd></div><div><dt>Resultado</dt><dd>Caracterização do crescimento higroscópico dos aerossóis nas duas metrópoles (tese de doutorado, 2014; prêmio de jovens cientistas do IGAC). Base instrumental para a rede latino-americana de lidar, LALINET.</dd></div></dl>
       <ul class="projeto-links"><li><a href="https://doi.org/10.1117/12.898208">SPIE 2011</a></li><li><a href="https://bv.fapesp.br/pt/pesquisador/82916/patricia-ferrini-rodrigues/">FAPESP</a></li></ul></div>
-    </article>
-  <div class="pratica" id="estudo"><h3 class="pratica-titulo">Estudo</h3><p class="pratica-sub">Cenários e evidências comparados até que a diferença entre eles possa ser escolhida.</p></div>
-  <article class="projeto projeto--esq projeto--reportagem" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="agua" data-elementos="ar agua" data-lugares="berlim atlantico">
-      <figure class="figura"><img src="img/il-eca.svg" alt="Fitas que atravessam uma fronteira fechada e saem mais finas do que entraram" loading="lazy"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
-      <h3 class="projeto-nome"><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/" target="_blank" rel="noopener">A maior área de controle de emissões marítimas do mundo<span class="ext" aria-hidden="true">↗</span></a></h3>
-      <p class="projeto-meta">2024–2026, ICCT e Organização Marítima Internacional</p>
-      <p class="teaser">Os estudos que embasaram a área de controle de emissões marítimas adotada pela Organização Marítima Internacional em 2026.</p>
-      <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
-      <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Estudo</dd></div><div><dt>Onde</dt><dd><a href="projetos.html#lugar=berlim">Berlim</a>, <a href="projetos.html#lugar=atlantico">Atlântico Nordeste</a></dd></div><div><dt>Pergunta</dt><dd>Quantas mortes e quanto custo em saúde uma área de controle de emissões no Atlântico Nordeste evitaria?</dd></div><div><dt>Método</dt><dd>Dois relatórios do ICCT (2024) comparam cenários com e sem a área de controle, sob diferentes níveis de cumprimento, em emissões, saúde e custo.</dd></div><div><dt>Resultado</dt><dd>Entre 2.900 e 4.300 mortes prematuras evitadas de 2030 a 2050; €19 a €29 bilhões em custos de saúde; 82% menos óxidos de enxofre e 64% menos material particulado fino. Os relatórios embasaram a proposta de 27 países à Organização Marítima Internacional, adotada em maio de 2026.</dd></div></dl>
-      <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/">ICCT, adoção</a></li><li><a href="https://theicct.org/publication/environmental-and-health-benefits-of-a-designated-north-atlantic-emission-control-area-nov24/">Relatório de saúde (2024)</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://jornal.usp.br/atualidades/maior-area-de-controle-de-poluicao-de-navios-e-criada-no-atlantico-entenda-impactos-na-saude-e-economia">Jornal da USP</a></li></ul></div>
-    </article>
-  <article class="projeto projeto--nota" id="p-cinco-futuros-para-os-caminhoes-do-brasi" data-pratica="imaginacao" data-cor="terra" data-elementos="ar terra" data-lugares="sao-paulo">
-      
-      <figure class="figura"><img src="img/il-caminhoes.svg" alt="Cinco percursos de massas diferentes, dois deles voltando sobre os demais" loading="lazy"></figure>
-      <h3 class="projeto-nome"><a href="https://institutoar.org.br/publicacoes/powering-brazils-transition-to-zero-emission-trucking/" target="_blank" rel="noopener">Cinco futuros para os caminhões do Brasil<span class="ext" aria-hidden="true">↗</span></a></h3>
-      <p class="projeto-meta">2025, Instituto Ar (Futura)</p>
-      <p class="teaser">Cinco matrizes energéticas para a frota pesada comparadas em emissões, saúde e custo até 2050.</p>
-      <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
-      <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Estudo</dd></div><div><dt>Onde</dt><dd><a href="projetos.html#lugar=sao-paulo">São Paulo</a></dd></div><div><dt>Pergunta</dt><dd>Qual matriz energética para os caminhões produz menos emissão, menos mortes e menos custo até 2050?</dd></div><div><dt>Método</dt><dd>Cinco cenários (diesel, híbrido a diesel, gás natural, biodiesel e elétrico) avaliados em emissões, saúde e custo socioambiental para a frota pesada de São Paulo.</dd></div><div><dt>Resultado</dt><dd>A eletrificação reduz 46% das emissões e evita R$ 5 bilhões em custos até 2050; o híbrido a diesel reduz 8%; gás e biodiesel aumentam emissões líquidas e custos; o biodiesel puro exigiria cerca de 215 milhões de hectares, um quarto do território nacional.</dd></div></dl>
-      <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://institutoar.org.br/publicacoes/powering-brazils-transition-to-zero-emission-trucking/">Relatório (EN)</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://diariodotransporte.com.br/2025/09/10/biodiesel-polui-mais-que-o-diesel-estudo-mostra-que-so-eletrificacao-de-caminhoes-de-carga-evita-colapso-climatico-e-custos-bilionarios/">Diário do Transporte</a></li><li><a href="https://evdrops.com.br/entrevista-patricia-ferrini-biocombustiveis/">evdrops, entrevista</a></li><li><a href="https://www.fecombustiveis.org.br/noticia/diesel-caro-acelera-busca-por-novos-combustiveis/264798">Estadão, via Fecombustíveis</a></li><li><a href="https://exame.com/esg/brasil-pode-economizar-r-5-bi-e-reduzir-46-das-emissoes-com-caminhoes-eletricos-diz-estudo/">Exame</a></li></ul></div>
     </article>
   <article class="projeto projeto--nota" id="p-andar-e-pedalar-no-porto" data-pratica="conhecimento" data-cor="terra" data-elementos="ar terra" data-lugares="porto">
       <figure class="figura"><img src="img/il-porto.svg" alt="Uma massa que diminui enquanto outra cresce ao cruzá-la" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
@@ -526,8 +542,7 @@ section{padding-block:var(--sp-9);}
       <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Estudo</dd></div><div><dt>Onde</dt><dd><a href="projetos.html#lugar=grenoble">Grenoble</a>, <a href="projetos.html#lugar=paris">Paris</a></dd></div><div><dt>Pergunta</dt><dd>Quanto uma cidade ganha em saúde a cada tonelada de carbono que deixa de emitir?</dd></div><div><dt>Método</dt><dd>Ferramentas econométricas para valorar os efeitos em saúde da redução da poluição em Grenoble, segundo a orientação da Organização Mundial da Saúde para adaptação em saúde.</dd></div><div><dt>Resultado</dt><dd>Co-benefícios de cenários de descarbonização quantificados em saúde e em euros, apresentados na Cúpula da Organização Mundial da Saúde sobre Clima e Saúde e no Fórum de Inovação Sustentável do Programa das Nações Unidas para o Meio Ambiente, no calendário oficial da COP21.</dd></div></dl></div>
     </article>
-  <div class="pratica" id="encontro"><h3 class="pratica-titulo">Encontro</h3><p class="pratica-sub">Quem decide, reunido diante da mesma evidência.</p></div>
-  <article class="projeto projeto--esq projeto--reportagem" id="p-a-primeira-conferencia-global-sobre-polu" data-pratica="acao" data-cor="ar" data-elementos="ar" data-lugares="genebra">
+  <article class="projeto projeto--nota" id="p-a-primeira-conferencia-global-sobre-polu" data-pratica="acao" data-cor="ar" data-elementos="ar" data-lugares="genebra">
       
       <figure class="figura"><img src="img/il-genebra.svg" alt="Muitos percursos que chegam a um mesmo lugar" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://www.who.int/news-room/events/detail/2018/10/30/default-calendar/air-pollution-conference" target="_blank" rel="noopener">A primeira conferência global sobre poluição do ar e saúde<span class="ext" aria-hidden="true">↗</span></a></h3>
@@ -547,16 +562,6 @@ section{padding-block:var(--sp-9);}
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Encontro</dd></div><div><dt>Onde</dt><dd><a href="projetos.html#lugar=acra">Acra</a>, <a href="projetos.html#lugar=kathmandu">Kathmandu</a>, <a href="projetos.html#lugar=genebra">Genebra</a></dd></div><div><dt>Pergunta</dt><dd>Quantas mortes uma cidade evita se o transporte diário passar a ser feito a pé, de bicicleta e por transporte coletivo?</dd></div><div><dt>Método</dt><dd>Teste e aplicação das ferramentas de avaliação de impacto em saúde da Urban Health Initiative da Organização Mundial da Saúde (HEAT, AirQ+, HOMES, iSThAT e as demais), desenvolvimento de conceitos e material de treinamento para os gestores das duas cidades-piloto.</dd></div><div><dt>Resultado</dt><dd>Em Acra: até 5.500 mortes evitadas pela qualidade do ar e 33.000 pela atividade física em 35 anos, com US$ 15 bilhões em benefícios.</dd></div></dl>
       <ul class="projeto-links"><li><a href="https://www.who.int/initiatives/urban-health-initiative/pilot-projects">OMS, projetos-piloto</a></li><li><a href="https://www.who.int/initiatives/urban-health-initiative/guidance-and-tools">Ferramentas e orientações</a></li><li><a href="https://www.who.int/publications/i/item/9789240017306">Relatório de Acra (2021)</a></li></ul></div>
     </article>
-  <div class="pratica" id="obra"><h3 class="pratica-titulo">Obra</h3><p class="pratica-sub">A evidência em forma sensível, para quem não vai ler o estudo.</p></div>
-  <article class="projeto projeto--esq projeto--reportagem" id="p-eduardo-kobra-e-a-oms-por-um-ar-mais-lim" data-pratica="imaginacao" data-cor="ar" data-elementos="ar" data-lugares="cartagena genebra">
-      <figure class="figura"><img src="img/il-kobra.svg" alt="Percursos contidos numa forma fechada e um que escapa e segue muito além" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>Foto: Patricia Ferrini</figcaption></figure>
-      <h3 class="projeto-nome"><a href="https://www.who.int/news-room/events/detail/2018/10/30/default-calendar/air-pollution-conference" target="_blank" rel="noopener">Eduardo Kobra e a OMS por um ar mais limpo<span class="ext" aria-hidden="true">↗</span></a></h3>
-      <p class="projeto-meta">2025, Organização Mundial da Saúde, Cartagena (Futura)</p>
-      <p class="teaser">Eduardo Kobra nomeado embaixador da Organização Mundial da Saúde e porta-voz da campanha BreatheLife, em Cartagena.</p>
-      <button class="abrir" type="button" aria-haspopup="dialog">Ficha</button>
-      <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Obra</dd></div><div><dt>Onde</dt><dd><a href="projetos.html#lugar=cartagena">Cartagena</a>, <a href="projetos.html#lugar=genebra">Genebra</a></dd></div><div><dt>Pergunta</dt><dd>Como levar a evidência sobre poluição e saúde a públicos que as conferências não alcançam?</dd></div><div><dt>Método</dt><dd>Organização da Segunda Conferência Global sobre Poluição do Ar e Saúde, da Organização Mundial da Saúde, em Cartagena, em março de 2025, com mais de trinta eventos de alto nível, Estados-membros, cidades, agências das Nações Unidas e bancos de desenvolvimento; planejamento e execução da participação de Eduardo Kobra.</dd></div><div><dt>Resultado</dt><dd>A nomeação de Eduardo Kobra como embaixador da Organização Mundial da Saúde e porta-voz da campanha BreatheLife, em 27 de março de 2025.</dd></div></dl>
-      <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://www.who.int/news-room/events/detail/2025/03/25/default-calendar/second-global-conference-on-air-pollution-and-health">OMS, conferência</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://www.gazetasp.com.br/cotidiano/grafiteiro-kobra-e-nomeado-novo-embaixador-da-oms/1153668/">Gazeta de São Paulo</a></li></ul></div>
-    </article>
   <article class="projeto projeto--nota" id="p-marajo-sem-fumaca" data-pratica="imaginacao" data-cor="fogo" data-elementos="ar fogo" data-lugares="belem amazonia">
       
       <figure class="figura"><img src="img/il-marajo.svg" alt="Traços que partem de focos e se dissipam em comprimentos diferentes" loading="lazy"></figure>
@@ -567,6 +572,7 @@ section{padding-block:var(--sp-9);}
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Obra</dd></div><div><dt>Onde</dt><dd><a href="projetos.html#lugar=belem">Belém</a>, <a href="projetos.html#lugar=amazonia">Amazônia Legal</a></dd></div><div><dt>Pergunta</dt><dd>Como reduzir o carbono negro das queimadas numa ilha onde o fogo é ferramenta agrícola?</dd></div><div><dt>Método</dt><dd>Brigada comunitária, material educativo para escolas (revista, pôster e plano de aula), detecção de focos por inteligência artificial e um policy brief sobre manejo integrado do fogo, com apoio do Clean Air Fund.</dd></div><div><dt>Resultado</dt><dd>A primeira brigada comunitária do Norte a operar com detecção por inteligência artificial; apresentação na COP30, em Belém; cobertura de Record, CNN, Folha e Correio Braziliense.</dd></div></dl>
       <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://institutoar.org.br/publicacoes/manejo-integrado-do-fogo-no-brasil-consolidando-politica-publica-para-reduzir-riscos-climaticos-e-proteger-saude-publica/">Policy brief</a></li><li><a href="https://institutoar.org.br/publicacoes/fogo-amigo-ou-perigo-uma-conversa-sobre-como-evitar-incendios-na-comunidade/">Revista educativa</a></li><li><a href="https://marajosemfumaca.com.br/">Site do projeto</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://newblogs.correiobraziliense.com.br/ecobraziliense/manejo-do-fogo-surge-como-resposta-as-queimadas/">Correio Braziliense</a></li><li><a href="https://open.spotify.com/show/2onmTZNxv1oFzZ3Rf7Jqin">Ecos do Marajó</a></li><li><a href="https://www.leiaja.com/tecnologia/2026/07/02/ia-se-torna-aliada-de-brigadistas-no-combate-a-queimadas-na-amazonia">LeiaJá</a></li></ul></div>
     </article>
+</div>
   </div>
 </section>
 
@@ -580,7 +586,7 @@ section{padding-block:var(--sp-9);}
       <li><span class="rotulo">Falar com a imprensa</span><a class="contato-email" href="mailto:imprensa@futuraevidencelab.com.br">imprensa@futuraevidencelab.com.br</a></li>
       <li><span class="rotulo">Abrir o Monitor</span><a class="contato-email" href="https://monitorelnino.com.br/">monitorelnino.com.br</a></li>
     </ul>
-    <div class="assinatura"><p>© 2026</p></div>
+    <p class="credito-cantico">Terra corpo, água sangue, ar sopro, fogo espírito. Cântico tradicional, autoria desconhecida</p><div class="assinatura"><p>© 2026</p></div>
   </div>
 </footer>
 
@@ -631,7 +637,8 @@ section{padding-block:var(--sp-9);}
     bots.forEach(function(b){ b.setAttribute('aria-pressed', f && f.tipo==='el' && b.dataset.el===f.valor ? 'true':'false'); });
     document.querySelectorAll('.mapa-cidade,.mapa-area,.lugar').forEach(function(x){ x.classList.toggle('ativo', !!f && f.tipo==='lugar' && x.dataset.lugar===f.valor); });
     todos.hidden=!f;
-    var rot = !f ? '' : f.tipo==='el' ? nomesEl[f.valor] : f.tipo==='lugar' ? nomesLug[f.valor] : document.querySelector('#'+f.valor+' .pratica-titulo').textContent;
+    var nomesPr = {estudo:'Estudo', instrumento:'Instrumento', encontro:'Encontro', obra:'Obra'};
+    var rot = !f ? '' : f.tipo==='el' ? nomesEl[f.valor] : f.tipo==='lugar' ? nomesLug[f.valor] : (nomesPr[f.valor] || f.valor);
     cont.textContent = f ? rot : '';
     if(history.replaceState) history.replaceState(null,'', f ? '#'+(f.tipo==='el'?'':f.tipo+'=')+f.valor : '#projetos');
     if(mover) document.getElementById('projetos').scrollIntoView({behavior:'smooth',block:'start'});
