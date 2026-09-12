@@ -460,6 +460,22 @@ section{padding-block:var(--sp-9);}
 .projeto-parte{font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;opacity:.6;margin-top:var(--sp-2)!important;}
 .projeto-parte a{border-bottom:1px solid rgba(0,0,0,.3);}
 .projeto-parte a:hover{border-bottom-color:var(--preto);}
+
+@media (max-width:1100px){
+  /* ordem explicita dos cards largos no celular */
+  .projeto--capa .figura,.projeto--reportagem .figura{order:1;}
+  .projeto--capa .destaque-rotulo,.projeto--reportagem .destaque-rotulo{order:2;}
+  .projeto--capa .projeto-nome,.projeto--reportagem .projeto-nome{order:3;}
+  .projeto--capa .projeto-sub,.projeto--reportagem .projeto-sub{order:4;}
+  .projeto--capa .projeto-meta,.projeto--reportagem .projeto-meta{order:5;}
+  .projeto--capa .projeto-parte,.projeto--reportagem .projeto-parte{order:6;}
+  .projeto--capa .teaser,.projeto--reportagem .teaser{order:7;}
+  .projeto--capa .abrir,.projeto--capa .destaque-acoes,
+  .projeto--reportagem .abrir,.projeto--reportagem .destaque-acoes{order:8;}
+  /* a obra da capa nao invade o topo nem sangra demais */
+  .capa-obra{top:10%!important;width:150%!important;}
+  .capa-obra img{-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 58%,transparent 88%);mask-image:linear-gradient(to bottom,#000 0,#000 58%,transparent 88%);}
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://futuraevidencelab.com.br/#org","name":"Futura Evidence Lab","alternateName":"Futura","url":"https://futuraevidencelab.com.br/","logo":"https://futuraevidencelab.com.br/compartilhar.png","description":"Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos, encontros e arte que fundamentam decisões sobre territórios e corpos.","email":"contato@futuraevidencelab.com.br","founder":{"@id":"https://futuraevidencelab.com.br/#patricia"},"knowsAbout":["qualidade do ar","poluição atmosférica","saúde pública","mudanças climáticas","transporte e emissões","queimadas","política ambiental"],"areaServed":"Brasil"},

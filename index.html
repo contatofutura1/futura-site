@@ -462,6 +462,45 @@ body.na-capa .nav .marca{opacity:0;visibility:hidden;}
 .projeto-parte{font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;opacity:.6;margin-top:var(--sp-2)!important;}
 .projeto-parte a{border-bottom:1px solid rgba(0,0,0,.3);}
 .projeto-parte a:hover{border-bottom-color:var(--preto);}
+
+/* ---------- CAPA: uma composicao so ---------- */
+.abertura{position:relative;min-height:78svh;align-content:center;padding-bottom:var(--sp-7);overflow:hidden;}
+.capa-obra{position:absolute;left:50%;transform:translateX(-50%);top:2%;width:118%;max-width:none;pointer-events:none;z-index:0;}
+.capa-obra img{width:100%;height:auto;display:block;opacity:.9;-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 62%,transparent 92%);mask-image:linear-gradient(to bottom,#000 0,#000 46%,transparent 74%);}
+/* o wordmark vira paisagem: ocupa a largura util e sangra um pouco nas pontas */
+.abertura .wordmark{position:relative;z-index:1;grid-column:1/-1;width:104%;margin-left:-2%;
+  font-size:clamp(3.4rem,15.4vw,15rem);line-height:.82;letter-spacing:.02em;
+  display:flex;justify-content:space-between;white-space:nowrap;margin-bottom:0;}
+.abertura .wordmark span{display:inline-block;}
+/* o manifesto encosta na base do wordmark, alinhado a direita */
+.abertura .slogan{position:relative;z-index:1;grid-column:6/-1;justify-self:end;text-align:right;
+  margin:var(--sp-3) 0 0;font-size:clamp(1.4rem,3.4vw,2.6rem);line-height:1.05;
+  font-variation-settings:"opsz" 48,"wdth" 87.5,"wght" 420;}
+/* o texto institucional fica compacto, sob o manifesto */
+.abertura .predicado{position:relative;z-index:1;grid-column:8/-1;justify-self:end;text-align:right;
+  max-width:34ch;margin-top:var(--sp-4);font-size:var(--fs-small);line-height:1.5;opacity:.8;}
+@media (max-width:1100px){
+  .abertura{min-height:auto;padding-top:calc(var(--nav-h) + var(--sp-6));padding-bottom:var(--sp-7);}
+  .capa-obra{top:2%;width:150%;}
+  .abertura .wordmark{width:100%;margin-left:0;font-size:clamp(2.6rem,16vw,6rem);}
+  .abertura .slogan,.abertura .predicado{grid-column:1/-1;justify-self:start;text-align:left;max-width:38ch;}
+}
+
+@media (max-width:1100px){
+  /* ordem explicita dos cards largos no celular */
+  .projeto--capa .figura,.projeto--reportagem .figura{order:1;}
+  .projeto--capa .destaque-rotulo,.projeto--reportagem .destaque-rotulo{order:2;}
+  .projeto--capa .projeto-nome,.projeto--reportagem .projeto-nome{order:3;}
+  .projeto--capa .projeto-sub,.projeto--reportagem .projeto-sub{order:4;}
+  .projeto--capa .projeto-meta,.projeto--reportagem .projeto-meta{order:5;}
+  .projeto--capa .projeto-parte,.projeto--reportagem .projeto-parte{order:6;}
+  .projeto--capa .teaser,.projeto--reportagem .teaser{order:7;}
+  .projeto--capa .abrir,.projeto--capa .destaque-acoes,
+  .projeto--reportagem .abrir,.projeto--reportagem .destaque-acoes{order:8;}
+  /* a obra da capa nao invade o topo nem sangra demais */
+  .capa-obra{top:10%!important;width:150%!important;}
+  .capa-obra img{-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 58%,transparent 88%);mask-image:linear-gradient(to bottom,#000 0,#000 58%,transparent 88%);}
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://futuraevidencelab.com.br/#org","name":"Futura Evidence Lab","alternateName":"Futura","url":"https://futuraevidencelab.com.br/","logo":"https://futuraevidencelab.com.br/compartilhar.png","description":"Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos, encontros e arte que fundamentam decisões sobre territórios e corpos.","email":"contato@futuraevidencelab.com.br","founder":{"@id":"https://futuraevidencelab.com.br/#patricia"},"knowsAbout":["qualidade do ar","poluição atmosférica","saúde pública","mudanças climáticas","transporte e emissões","queimadas","política ambiental"],"areaServed":"Brasil"},
@@ -492,13 +531,12 @@ body.na-capa .nav .marca{opacity:0;visibility:hidden;}
 
 <!-- ABERTURA -->
 <section class="wrap abertura" aria-label="Abertura">
+  <div class="capa-obra" aria-hidden="true"><img src="img/il-capa.svg" alt=""></div>
   <h1 class="wordmark display" aria-label="Futura">
     <span aria-hidden="true" style="animation-delay:0ms">F</span><span class="u" aria-hidden="true" style="animation-delay:70ms">U</span><span aria-hidden="true" style="animation-delay:140ms">T</span><span class="u" aria-hidden="true" style="animation-delay:210ms">U</span><span aria-hidden="true" style="animation-delay:280ms">R</span><span aria-hidden="true" style="animation-delay:350ms">A</span>
   </h1>
-  <div class="abertura-txt">
-    <p class="slogan display">Imaginar não basta.</p>
-    <p class="predicado">Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos, encontros e arte que fundamentam decisões sobre territórios e corpos.</p>
-  </div>
+  <p class="slogan display">Imaginar não basta.</p>
+  <p class="predicado">Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos, encontros e arte que fundamentam decisões sobre territórios e corpos.</p>
 </section>
 
 <!-- PROJETOS SELECIONADOS -->
