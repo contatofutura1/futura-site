@@ -304,6 +304,48 @@ section{padding-block:var(--sp-9);}
 .grupo-links + .projeto-links{margin-top:0;}
 
 [hidden]{display:none!important;}
+
+/* ---------- composicoes editoriais: o mesmo card, arranjos diferentes ---------- */
+/* B: imagem a esquerda, texto a direita */
+.comp-b .figura{grid-column:1/7!important;grid-row:1/6!important;}
+.comp-b .destaque-rotulo,.comp-b .projeto-nome,.comp-b .projeto-meta,.comp-b .teaser,.comp-b .abrir,.comp-b .destaque-acoes{grid-column:8/13!important;}
+/* C: imagem larga em sangria, texto em coluna estreita embaixo a esquerda */
+.comp-c{grid-template-rows:auto auto auto auto auto!important;}
+.comp-c .figura{grid-column:3/13!important;grid-row:1!important;aspect-ratio:16/7!important;}
+.comp-c .destaque-rotulo{grid-column:1/6!important;grid-row:2!important;margin-top:var(--sp-6);}
+.comp-c .projeto-nome{grid-column:1/6!important;grid-row:3!important;}
+.comp-c .projeto-meta{grid-column:1/6!important;grid-row:4!important;}
+.comp-c .teaser{grid-column:6/10!important;grid-row:3/5!important;margin-top:0!important;align-self:end;}
+.comp-c .abrir,.comp-c .destaque-acoes{grid-column:1/6!important;grid-row:5!important;}
+/* D: imagem estreita encostada na margem direita, texto largo a esquerda */
+.comp-d .figura{grid-column:10/13!important;grid-row:1/6!important;align-self:center;}
+.comp-d .destaque-rotulo,.comp-d .projeto-nome,.comp-d .projeto-meta,.comp-d .teaser,.comp-d .abrir,.comp-d .destaque-acoes{grid-column:1/9!important;}
+.comp-d .projeto-nome{max-width:22ch!important;}
+.comp-d .teaser{max-width:52ch!important;}
+/* E: imagem grande deslocada para o alto, texto ocupando o vazio a esquerda embaixo */
+.comp-e .figura{grid-column:6/13!important;grid-row:1/4!important;}
+.comp-e .destaque-rotulo{grid-column:1/6!important;grid-row:1!important;align-self:start;}
+.comp-e .projeto-nome{grid-column:1/6!important;grid-row:2!important;align-self:end;}
+.comp-e .projeto-meta{grid-column:1/6!important;grid-row:3!important;align-self:start;}
+.comp-e .teaser{grid-column:1/6!important;grid-row:4!important;margin-top:var(--sp-5)!important;}
+.comp-e .abrir,.comp-e .destaque-acoes{grid-column:1/6!important;grid-row:5!important;}
+@media (max-width:1100px){
+  /* o celular nao empilha igual: cada composicao guarda o seu ritmo */
+  .comp-b .figura,.comp-c .figura,.comp-d .figura,.comp-e .figura,
+  .comp-b .projeto-nome,.comp-c .projeto-nome,.comp-d .projeto-nome,.comp-e .projeto-nome,
+  .comp-b .projeto-meta,.comp-c .projeto-meta,.comp-d .projeto-meta,.comp-e .projeto-meta,
+  .comp-b .teaser,.comp-c .teaser,.comp-d .teaser,.comp-e .teaser,
+  .comp-b .abrir,.comp-c .abrir,.comp-d .abrir,.comp-e .abrir,
+  .comp-b .destaque-rotulo,.comp-c .destaque-rotulo,.comp-d .destaque-rotulo,.comp-e .destaque-rotulo,
+  .comp-b .destaque-acoes,.comp-c .destaque-acoes,.comp-d .destaque-acoes,.comp-e .destaque-acoes{grid-column:1/13!important;grid-row:auto!important;}
+  .comp-b .figura{order:1;max-width:none!important;}       /* imagem abre */
+  .comp-c .figura{order:1;max-width:none!important;aspect-ratio:16/9!important;margin-inline:calc(var(--margem)*-1);width:auto!important;}
+  .comp-d .figura{order:4;max-width:16rem!important;margin-left:auto;}  /* imagem como detalhe, no fim */
+  .comp-e .figura{order:3;max-width:none!important;}
+  .comp-b > *,.comp-c > *,.comp-d > *,.comp-e > *{align-self:stretch!important;}
+  .comp-c .figura{margin-inline:0!important;}
+  .comp-d .figura{margin-left:0!important;}
+}
 </style>
 </head>
 <body>
