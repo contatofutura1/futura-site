@@ -41,7 +41,7 @@
   /* tipografia: escala fixa */
   --display:"Playfair","Playfair Display",Georgia,serif;
   --corpo:"Jost","Futura","Century Gothic",Helvetica,Arial,sans-serif;
-  --fs-hero:clamp(3rem,15vw,15rem);      /* wordmark, único */
+  --fs-hero:clamp(2.6rem,11vw,10rem);      /* wordmark, único */
   --fs-h1:3rem;--fs-hero-capa:3.75rem;        /* 48: títulos de seção, matéria de capa */
   --fs-h2:2rem;        /* 32: reportagens, nome em Quem, e-mail, títulos de ficha */
   --fs-h3:1.375rem;    /* 22: notas, itens de lista, título de grupo */
@@ -109,8 +109,8 @@ section{padding-block:var(--sp-9);}
 .nav.aberto .hamb span:first-child{transform:rotate(45deg);} .nav.aberto .hamb span:last-child{transform:rotate(-45deg);}
 
 /* ---------- ABERTURA ---------- */
-.abertura{min-height:88svh;padding-top:var(--nav-h);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);align-content:end;padding-bottom:var(--sp-8);}
-.wordmark{grid-column:1/-1;font-size:var(--fs-hero);letter-spacing:.085em;line-height:.9;white-space:nowrap;margin-bottom:var(--sp-7);animation:surge 900ms ease both;}
+.abertura{min-height:62svh;padding-top:var(--nav-h);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);align-content:end;padding-bottom:var(--sp-8);}
+.wordmark{grid-column:1/-1;font-size:var(--fs-hero);letter-spacing:.085em;line-height:.9;white-space:nowrap;margin-bottom:var(--sp-5);animation:surge 900ms ease both;}
 .wordmark .u{color:var(--terracota);}
 @keyframes surge{from{opacity:0;transform:translateY(.2em);}to{opacity:1;transform:none;}}
 @media (prefers-reduced-motion:reduce){.wordmark{animation:none;}}
@@ -288,7 +288,7 @@ section{padding-block:var(--sp-9);}
   section{padding-block:var(--sp-8);}
   .menu{position:fixed;inset:var(--nav-h) 0 0 0;background:var(--branco);flex-direction:column;padding:var(--sp-6) var(--margem);gap:var(--sp-4);font-size:var(--fs-h3);transform:translateX(100%);transition:transform var(--tr);}
   .nav.aberto .menu{transform:none;} .hamb{display:block;}
-  .abertura{min-height:60svh;padding-bottom:var(--sp-7);} .abertura-txt{grid-column:1/-1;}
+  .abertura{min-height:46svh;padding-bottom:var(--sp-6);} .abertura-txt{grid-column:1/-1;}
   .instituicoes li{grid-template-columns:1fr;gap:var(--sp-1);} .instituicoes .rotulo,.instituicoes .orgs{grid-column:1;}
   .retrato{max-width:16rem;}
   .projetos{grid-template-columns:1fr;gap:var(--sp-7);}
@@ -353,7 +353,7 @@ section{padding-block:var(--sp-9);}
 .cartografia-link a{border-bottom:1px solid var(--preto);}
 
 /* imagem um pouco menor: seis colunas, texto cinco, uma coluna de respiro entre elas */
-.projeto--esq .figura{grid-column:1/7!important;}
+.projeto--esq .figura{grid-column:1/6!important;}
 .projeto--esq .destaque-rotulo,.projeto--esq .projeto-nome,.projeto--esq .projeto-meta,
 .projeto--esq .teaser,.projeto--esq .abrir,.projeto--esq .destaque-acoes{grid-column:8/13!important;}
 @media (max-width:1100px){
