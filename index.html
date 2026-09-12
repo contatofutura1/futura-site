@@ -300,13 +300,11 @@ section{padding-block:var(--sp-9);}
   .fd-in{padding:var(--sp-5);} .ficha div{grid-template-columns:1fr;gap:var(--sp-1);}
 }
 
-.abertura-cantico{grid-column:9/13;align-self:end;font-family:var(--corpo);font-size:var(--fs-small);line-height:1.9;}
-.abertura-cantico p{margin:0;}
-.cantico-credito{margin-top:var(--sp-4)!important;font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;opacity:.6;}
 .elementos-nav{grid-column:7/13;justify-self:end;display:flex;flex-wrap:wrap;gap:var(--sp-5);align-items:baseline;font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
 .elementos-nav a{border-bottom:1px solid var(--preto);}
 .elementos-nav .todos{border-bottom:0;opacity:.6;}
-@media (max-width:1100px){.abertura-cantico{grid-column:1/-1;margin-top:var(--sp-6);} .elementos-nav{grid-column:1/13;justify-self:start;}}
+@media (max-width:1100px){
+ .elementos-nav{grid-column:1/13;justify-self:start;}}
 
 .grupo-links{margin:var(--sp-4) 0 var(--sp-2);opacity:.65;}
 .grupo-links + .projeto-links{margin-top:0;}
@@ -381,10 +379,6 @@ section{padding-block:var(--sp-9);}
     <p class="slogan display">Imaginar não basta.</p>
     <p class="predicado">Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos e obras que levam a prova a quem decide.</p>
   </div>
-  <div class="abertura-cantico" aria-label="Cântico tradicional">
-    <p>Terra meu corpo,<br>água meu sangue,<br>ar meu sopro,<br>fogo meu espírito.</p>
-    <p class="cantico-credito">Cântico tradicional, autoria desconhecida</p>
-  </div>
 </section>
 
 <!-- PROJETOS SELECIONADOS -->
@@ -401,7 +395,7 @@ section{padding-block:var(--sp-9);}
     <div class="ficha-oculta" hidden><dl class="ficha ficha-larga"><div><dt>Forma</dt><dd>Instrumento</dd></div><div><dt>Pergunta</dt><dd>O que cada estado e município publicou antes do El Niño de 2026–2027, e o que decretou depois?</dd></div><div><dt>Método</dt><dd>O MARÉ (Medida de Antecipação e Resposta ao El Niño) lê os instrumentos oficiais publicados por 27 estados e 5.571 municípios antes da crise e os decretos publicados depois dela. Só entram fontes oficiais verificáveis; a metodologia é pública e versionada. Onde não há registro, o Monitor indica "não localizamos".</dd></div><div><dt>Resultado</dt><dd>Um índice de antecipação e um contador de resposta por estado e por município, atualizados continuamente. <a href="https://monitorelnino.com.br/">Abrir o Monitor</a></dd></div></dl></div>
       
   </article>
-  <article class="projeto projeto--reportagem" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="agua" data-elementos="ar agua" data-lugares="berlim atlantico">
+  <article class="projeto projeto--esq projeto--reportagem" id="p-a-maior-area-de-controle-de-emissoes-mar" data-pratica="acao" data-cor="agua" data-elementos="ar agua" data-lugares="berlim atlantico">
       <figure class="figura"><img src="img/il-eca.svg" alt="Fitas que atravessam uma fronteira fechada e saem mais finas do que entraram" loading="lazy"><figcaption>Mapa: Futura, projeção Equal Earth</figcaption></figure>
       <h3 class="projeto-nome"><a href="https://theicct.org/pr-imo-adopts-worlds-largest-emission-control-area-to-regulate-ship-emissions-in-north-east-atlantic/" target="_blank" rel="noopener">A maior área de controle de emissões marítimas do mundo<span class="ext" aria-hidden="true">↗</span></a></h3>
       <p class="projeto-meta">2024–2026, ICCT e Organização Marítima Internacional</p>
@@ -419,7 +413,7 @@ section{padding-block:var(--sp-9);}
       <div class="ficha-oculta" hidden><dl class="ficha"><div><dt>Forma</dt><dd>Obra</dd></div><div><dt>Pergunta</dt><dd>Como levar a evidência sobre poluição e saúde a públicos que as conferências não alcançam?</dd></div><div><dt>Método</dt><dd>Organização da Segunda Conferência Global sobre Poluição do Ar e Saúde, da Organização Mundial da Saúde, em Cartagena, em março de 2025, com mais de trinta eventos de alto nível, Estados-membros, cidades, agências das Nações Unidas e bancos de desenvolvimento; planejamento e execução da participação de Eduardo Kobra.</dd></div><div><dt>Resultado</dt><dd>A nomeação de Eduardo Kobra como embaixador da Organização Mundial da Saúde e porta-voz da campanha BreatheLife, em 27 de março de 2025.</dd></div></dl>
       <p class="rotulo grupo-links">O que foi produzido</p><ul class="projeto-links"><li><a href="https://www.who.int/news-room/events/detail/2025/03/25/default-calendar/second-global-conference-on-air-pollution-and-health">OMS, conferência</a></li></ul><p class="rotulo grupo-links">Onde repercutiu</p><ul class="projeto-links"><li><a href="https://www.gazetasp.com.br/cotidiano/grafiteiro-kobra-e-nomeado-novo-embaixador-da-oms/1153668/">Gazeta de São Paulo</a></li></ul></div>
     </article>
-  <article class="projeto projeto--reportagem" id="p-marajo-sem-fumaca" data-pratica="imaginacao" data-cor="fogo" data-elementos="ar fogo" data-lugares="belem amazonia">
+  <article class="projeto projeto--esq projeto--reportagem" id="p-marajo-sem-fumaca" data-pratica="imaginacao" data-cor="fogo" data-elementos="ar fogo" data-lugares="belem amazonia">
       
       <figure class="figura"><img src="img/il-marajo.svg" alt="Traços que partem de focos e se dissipam em comprimentos diferentes" loading="lazy"></figure>
       <h3 class="projeto-nome"><a href="https://marajosemfumaca.com.br/" target="_blank" rel="noopener">Marajó Sem Fumaça<span class="ext" aria-hidden="true">↗</span></a></h3>
