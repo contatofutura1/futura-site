@@ -79,7 +79,7 @@ body.travado{overflow:hidden;}
 /* tipos de display */
 .display{font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;line-height:var(--lh-display);letter-spacing:.01em;}
 .slogan.display{font-variation-settings:"opsz" 144,"wdth" 87.5,"wght" 300;}
-.secao-cab h2.display{font-variation-settings:"opsz" 60,"wdth" 87.5,"wght" 380;}
+.secao-cab h2.display,.secao-cab h1.display{font-variation-settings:"opsz" 60,"wdth" 87.5,"wght" 380;}
 .h3.display{font-variation-settings:"opsz" 24,"wdth" 87.5,"wght" 480;}
 .projeto--capa .projeto-nome{font-variation-settings:"opsz" 72,"wdth" 87.5,"wght" 340;}
 .projeto--reportagem .projeto-nome{font-variation-settings:"opsz" 48,"wdth" 87.5,"wght" 380;}
@@ -120,7 +120,7 @@ section{padding-block:var(--sp-9);}
 
 /* ---------- CABEÇALHO DE SEÇÃO ---------- */
 .secao-cab{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);align-items:end;padding-bottom:var(--sp-4);margin-bottom:var(--sp-7);border-bottom:var(--fio);}
-.secao-cab h2{grid-column:1/7;font-size:var(--fs-h1);text-transform:uppercase;letter-spacing:.03em;}
+.secao-cab h2,.secao-cab h1{grid-column:1/7;font-size:var(--fs-h1);text-transform:uppercase;letter-spacing:.03em;}
 .secao-cab p{grid-column:7/13;font-size:var(--fs-small);max-width:40ch;justify-self:end;}
 .secao-cab .elementos{grid-column:7/13;justify-self:end;}
 
@@ -501,6 +501,21 @@ section{padding-block:var(--sp-9);}
   .projeto--capa .abrir,.projeto--capa .destaque-acoes,
   .projeto--reportagem .abrir,.projeto--reportagem .destaque-acoes{order:9;}
 }
+
+
+/* contraste minimo: textos de apoio deixam de ficar abaixo do limite legivel */
+.projeto--nota .projeto-meta,.projeto-meta{opacity:.72!important;}
+.projeto--nota .destaque-rotulo,.destaque-rotulo{opacity:.75!important;}
+.els-ficha{opacity:.85!important;}
+.credito-cantico{opacity:.68!important;}
+.grupo-links{opacity:.78!important;}
+/* alvos de toque no celular com altura minima confortavel */
+@media (max-width:1100px){
+  .menu a,.elementos-nav a,.elementos button,.abrir,.projeto-links a,.item-titulo{display:inline-block;min-height:32px;}
+  .menu a,.elementos-nav a,.elementos button{padding-top:4px;padding-bottom:4px;}
+}
+/* ultima palavra da cascata: nada marcado como oculto pode ser exibido */
+[hidden]{display:none!important;}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://futuraevidencelab.com.br/#org","name":"Futura Evidence Lab","alternateName":"Futura","url":"https://futuraevidencelab.com.br/","logo":"https://futuraevidencelab.com.br/compartilhar.png","description":"Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos, encontros e arte que fundamentam decisões sobre territórios e corpos.","email":"contato@futuraevidencelab.com.br","founder":{"@id":"https://futuraevidencelab.com.br/#patricia"},"knowsAbout":["qualidade do ar","poluição atmosférica","saúde pública","mudanças climáticas","transporte e emissões","queimadas","política ambiental"],"areaServed":"Brasil"},
@@ -508,7 +523,7 @@ section{padding-block:var(--sp-9);}
 {"@type":"WebSite","@id":"https://futuraevidencelab.com.br/#site","url":"https://futuraevidencelab.com.br/","name":"Futura Evidence Lab","inLanguage":"pt-BR","publisher":{"@id":"https://futuraevidencelab.com.br/#org"}}]}</script>
 </head>
 <body>
-<a class="skip" href="#projetos">Ir para os projetos</a>
+<a class="skip" href="projetos.html">Ir para os projetos</a>
 
 <header class="nav" id="nav">
   <div class="wrap nav-in">
@@ -529,7 +544,7 @@ section{padding-block:var(--sp-9);}
 
 <main>
 <section class="wrap secundaria" id="erro" style="min-height:60svh">
-  <div class="secao-cab"><h2 class="display">Página não encontrada</h2></div>
+  <div class="secao-cab"><h1 class="display">Página não encontrada</h1></div>
   <p class="texto-curto">O endereço não existe ou mudou. <a href="projetos.html">Ver os projetos</a>, ou escolher no menu acima.</p>
 </section>
 </main>
