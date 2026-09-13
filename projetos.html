@@ -492,6 +492,27 @@ section{padding-block:var(--sp-9);}
 @media (max-width:1100px){.els-card,.projeto--capa .els-card,.projeto--reportagem .els-card{grid-column:1/-1!important;}}
 .projeto--capa .els-card,.projeto--reportagem .els-card{grid-column:1/6;}
 .projeto--esq .els-card{grid-column:8/13!important;}
+
+/* ordem fixa dos cards largos: nada mais posicionado automaticamente */
+.projeto--capa .figura,.projeto--reportagem .figura{grid-row:1/9!important;}
+.projeto--capa .destaque-rotulo,.projeto--reportagem .destaque-rotulo{grid-row:1!important;}
+.projeto--capa .projeto-nome,.projeto--reportagem .projeto-nome{grid-row:2!important;}
+.projeto--capa .els-card,.projeto--reportagem .els-card{grid-row:3!important;}
+.projeto--capa .projeto-sub,.projeto--reportagem .projeto-sub{grid-row:4!important;}
+.projeto--capa .projeto-meta,.projeto--reportagem .projeto-meta{grid-row:5!important;}
+.projeto--capa .projeto-parte,.projeto--reportagem .projeto-parte{grid-row:6!important;}
+.projeto--capa .teaser,.projeto--reportagem .teaser{grid-row:7!important;}
+.projeto--capa .abrir,.projeto--capa .destaque-acoes,
+.projeto--reportagem .abrir,.projeto--reportagem .destaque-acoes{grid-row:8!important;}
+@media (max-width:1100px){
+  .projeto--capa .els-card,.projeto--reportagem .els-card{order:4;}
+  .projeto--capa .projeto-sub,.projeto--reportagem .projeto-sub{order:5;}
+  .projeto--capa .projeto-meta,.projeto--reportagem .projeto-meta{order:6;}
+  .projeto--capa .projeto-parte,.projeto--reportagem .projeto-parte{order:7;}
+  .projeto--capa .teaser,.projeto--reportagem .teaser{order:8;}
+  .projeto--capa .abrir,.projeto--capa .destaque-acoes,
+  .projeto--reportagem .abrir,.projeto--reportagem .destaque-acoes{order:9;}
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://futuraevidencelab.com.br/#org","name":"Futura Evidence Lab","alternateName":"Futura","url":"https://futuraevidencelab.com.br/","logo":"https://futuraevidencelab.com.br/compartilhar.png","description":"Laboratório de futuros baseados em evidência. Pesquisa, instrumentos públicos, encontros e arte que fundamentam decisões sobre territórios e corpos.","email":"contato@futuraevidencelab.com.br","founder":{"@id":"https://futuraevidencelab.com.br/#patricia"},"knowsAbout":["qualidade do ar","poluição atmosférica","saúde pública","mudanças climáticas","transporte e emissões","queimadas","política ambiental"],"areaServed":"Brasil"},
