@@ -600,6 +600,37 @@ body.na-capa .nav .marca{opacity:0;visibility:hidden;}
 @media (max-width:1100px){.projeto--capa .txt-col,.projeto--reportagem .txt-col,.projeto--esq .txt-col{grid-column:1/13!important;}}
 
 @media (max-width:1100px){.txt-col{order:2!important;}}
+
+/* ---------- ficha em registro de cartela de museu ---------- */
+.ficha-dialog{max-width:min(46rem,92vw);}
+.ficha-dialog .projeto-nome{font-size:var(--fs-h3)!important;max-width:34ch!important;
+  font-variation-settings:"opsz" 48,"wdth" 87.5,"wght" 400!important;line-height:1.2!important;}
+/* linha tecnica: instituicao e periodo, como a linha de artista e data */
+.ficha-dialog .projeto-meta{font-size:var(--fs-small)!important;opacity:.8!important;
+  text-transform:none!important;letter-spacing:0!important;margin-top:var(--sp-2)!important;}
+/* os rotulos saem da vista, mas continuam para leitores de tela */
+.ficha dt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+.ficha div{display:block!important;}
+.ficha{display:block!important;margin-top:var(--sp-7)!important;}
+.ficha dd{margin:0 0 var(--sp-4)!important;max-width:52ch;font-size:var(--fs-small);line-height:1.75;}
+/* a pergunta abre o bloco interpretativo, em italico, como manda a convencao */
+.ficha div:nth-of-type(2) dd{font-style:italic;opacity:.9;}
+/* linha de credito: o que foi produzido, onde repercutiu, eventos */
+.ficha-dialog .grupo-links{margin-top:var(--sp-5)!important;font-size:var(--fs-caption);
+  letter-spacing:var(--ls-caption);text-transform:uppercase;opacity:.6!important;}
+.ficha-dialog .projeto-links{font-size:var(--fs-small);}
+.ficha-dialog .els-ficha{margin-bottom:var(--sp-5)!important;}
+.ficha-dialog .proximo-projeto{margin-top:var(--sp-7)!important;}
+
+/* cartela: proporcao de cartela, lugar junto da linha tecnica, eventos na area de credito */
+.ficha-dialog{max-width:min(34rem,92vw)!important;}
+.ficha{margin-top:var(--sp-3)!important;}
+.ficha div:first-of-type dd{font-size:var(--fs-caption);letter-spacing:var(--ls-caption);
+  text-transform:uppercase;opacity:.7;margin-bottom:var(--sp-6)!important;}
+.ficha div:nth-of-type(2) dd{margin-bottom:var(--sp-4)!important;}
+.ficha div:last-of-type dd{margin-top:var(--sp-5)!important;font-size:var(--fs-caption);
+  letter-spacing:var(--ls-caption);text-transform:uppercase;opacity:.65;}
+.ficha-dialog .els-ficha{margin-bottom:var(--sp-2)!important;}
 /* ultima palavra da cascata: nada marcado como oculto pode ser exibido */
 [hidden]{display:none!important;}
 </style>
