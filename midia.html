@@ -404,7 +404,7 @@ section{padding-block:var(--sp-9);}
 .fatos li a{display:block;font-family:var(--display);font-weight:300;
   font-variation-settings:"opsz" 60,"wdth" 87.5,"wght" 340;font-size:var(--fs-h3);
   line-height:var(--lh-display);letter-spacing:0;text-transform:none;white-space:normal;
-  max-width:52ch;border:0;}
+  border:0;}
 .fatos li a:hover{border-bottom:0;color:var(--terracota);}
 .fatos li .fonte{display:block;margin-top:var(--sp-3);font-family:var(--corpo);font-weight:400;
   font-variation-settings:normal;font-size:var(--fs-caption);line-height:1.4;max-width:none;
@@ -545,6 +545,7 @@ section{padding-block:var(--sp-9);}
 
 @media (max-width:1100px){.txt-col{order:2!important;}}
 
+@media (max-width:760px){
 /* ---------- ficha em registro de cartela de museu ---------- */
 .ficha-dialog{max-width:min(46rem,92vw);}
 .ficha-dialog .projeto-nome{font-size:var(--fs-h3)!important;max-width:34ch!important;
@@ -575,6 +576,7 @@ section{padding-block:var(--sp-9);}
 .ficha div:last-of-type dd{margin-top:var(--sp-5)!important;font-size:var(--fs-caption);
   letter-spacing:var(--ls-caption);text-transform:uppercase;opacity:.65;}
 .ficha-dialog .els-ficha{margin-bottom:var(--sp-2)!important;}
+}
 /* ultima palavra da cascata: nada marcado como oculto pode ser exibido */
 [hidden]{display:none!important;}
 </style>
