@@ -230,7 +230,7 @@ section{padding-block:var(--sp-9);}
 /* ---------- CONTATO ---------- */
 .contato{border-top:var(--fio);padding-block:var(--sp-9) var(--sp-7);}
 .contato-in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);}
-.contato-email{grid-column:1/13;font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--fs-h2);line-height:var(--lh-display);width:max-content;max-width:100%;overflow-wrap:anywhere;}
+.contato-email{grid-column:1/13;font-family:var(--display);font-weight:300;font-variation-settings:"opsz" 1200,"wdth" 87.5,"wght" 300;font-size:var(--fs-h3);line-height:var(--lh-display);width:max-content;max-width:100%;overflow-wrap:anywhere;}
 .assinatura{grid-column:1/13;margin-top:var(--sp-8);display:flex;justify-content:flex-end;flex-wrap:wrap;gap:var(--sp-3);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;}
 
 /* ---------- LISTAS EDITORIAIS (publicações, mídia) ---------- */
@@ -266,9 +266,9 @@ section{padding-block:var(--sp-9);}
 .portas{grid-column:1/13;display:grid;row-gap:var(--sp-5);}
 .portas li{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);align-items:baseline;}
 .portas .rotulo{grid-column:1/4;}
-.portas .contato-email{grid-column:4/13;font-size:var(--fs-h2);width:max-content;max-width:100%;}
+.portas .contato-email{grid-column:4/13;font-size:var(--fs-h3);width:max-content;max-width:100%;}
 .secao-cab p a{border-bottom:1px solid var(--preto);}
-@media (max-width:760px){.pilares{grid-template-columns:1fr;} .portas li{grid-template-columns:1fr;gap:var(--sp-1);} .portas .rotulo,.portas .contato-email{grid-column:1;} .portas .contato-email{font-size:var(--fs-h3);width:auto;} .fatos li{grid-template-columns:1fr;gap:var(--sp-2);}}
+@media (max-width:760px){.pilares{grid-template-columns:1fr;} .portas li{grid-template-columns:1fr;gap:var(--sp-1);} .portas .rotulo,.portas .contato-email{grid-column:1;} .portas .contato-email{font-size:var(--fs-body);width:auto;} .fatos li{grid-template-columns:1fr;gap:var(--sp-2);}}
 
 /* ---------- RESPONSIVO ---------- */
 @media (max-width:1100px){
@@ -292,7 +292,7 @@ section{padding-block:var(--sp-9);}
   .projeto--nota .projeto-nome,.projeto--nota .projeto-meta,.projeto--nota .teaser{min-height:0;-webkit-line-clamp:unset;display:block;}
   .quem-in,.contato-in{grid-template-columns:1fr;}
   .retrato,.quem-txt{grid-column:1;} .retrato{max-width:14rem;}
-  .contato-email{font-size:var(--fs-h3);width:auto;}
+  .contato-email{font-size:var(--fs-body);width:auto;}
   .item{grid-template-columns:1fr;gap:var(--sp-1);} .item-data{white-space:normal;}
   .fd-in{padding:var(--sp-5);} .ficha div{grid-template-columns:1fr;gap:var(--sp-1);}
 }
@@ -678,9 +678,9 @@ section{padding-block:var(--sp-9);}
   <div class="contato-in">
     <ul class="portas">
       <li><span class="rotulo">Contato</span><a class="contato-email" href="mailto:contato@futuraevidencelab.com.br">contato@futuraevidencelab.com.br</a></li>
-      <li><span class="rotulo">Falar com a imprensa</span><a class="contato-email" href="mailto:imprensa@futuraevidencelab.com.br">imprensa@futuraevidencelab.com.br</a></li>
+      <li><span class="rotulo">Imprensa</span><a class="contato-email" href="mailto:imprensa@futuraevidencelab.com.br">imprensa@futuraevidencelab.com.br</a></li>
     </ul>
-    <div class="cantico-rodape"><p>Terra meu corpo, água meu sangue, ar meu sopro, fogo meu espírito.</p><p class="credito-cantico">Cântico tradicional, autoria desconhecida</p></div><div class="assinatura"><p>© 2026</p><p>Fotografias e ilustrações são propriedade da Futura, salvo indicação em contrário.</p></div>
+    <div class="cantico-rodape"><p>Terra meu corpo, água meu sangue, ar meu sopro, fogo meu espírito.</p><p class="credito-cantico">Cântico tradicional, autoria desconhecida</p></div><div class="assinatura"><p>© 2026</p><p>Fotografias e ilustrações são propriedade do Futura Evidence Lab, salvo indicação em contrário.</p></div>
   </div>
 </footer>
 
