@@ -516,6 +516,34 @@ section{padding-block:var(--sp-9);}
   .menu a,.elementos-nav a,.elementos button,.abrir,.projeto-links a,.item-titulo{display:inline-block;min-height:32px;}
   .menu a,.elementos-nav a,.elementos button{padding-top:4px;padding-bottom:4px;}
 }
+
+/* o espaco que sobra fica fora das linhas: o bloco de texto se mantem junto e centrado */
+.projeto--capa,.projeto--reportagem{align-content:center!important;}
+.projeto--capa .projeto-nome,.projeto--reportagem .projeto-nome{margin-bottom:var(--sp-3)!important;}
+.projeto--capa .projeto-meta,.projeto--reportagem .projeto-meta{margin-bottom:var(--sp-4)!important;}
+.projeto--capa .teaser,.projeto--reportagem .teaser{margin-bottom:var(--sp-4)!important;}
+
+/* as linhas do texto se dimensionam pelo proprio conteudo: a figura nao as estica */
+.projeto--capa,.projeto--reportagem{grid-template-rows:repeat(8,min-content)!important;align-content:center!important;}
+
+/* o texto dos cards largos vira um bloco unico: o espacamento se ajusta ao conteudo */
+.projeto--capa,.projeto--reportagem{grid-template-rows:none!important;align-items:center!important;align-content:stretch!important;}
+.projeto--capa .figura,.projeto--reportagem .figura{grid-row:auto!important;}
+.txt-col{display:flex;flex-direction:column;justify-content:center;}
+.projeto--capa .txt-col,.projeto--reportagem .txt-col{grid-column:8/13;}
+.projeto--esq .txt-col{grid-column:8/13;}
+.projeto--capa .txt-col > *,.projeto--reportagem .txt-col > *{grid-column:auto!important;grid-row:auto!important;}
+.txt-col .projeto-nome{margin:0 0 var(--sp-2)!important;}
+.txt-col .els-card{margin:0 0 var(--sp-3)!important;}
+.txt-col .projeto-sub{margin:0 0 var(--sp-2)!important;}
+.txt-col .projeto-meta{margin:0 0 var(--sp-4)!important;}
+.txt-col .projeto-parte{margin:0 0 var(--sp-3)!important;}
+.txt-col .teaser{margin:0 0 var(--sp-4)!important;}
+.txt-col .abrir,.txt-col .destaque-acoes{margin:0!important;align-self:flex-start;}
+.txt-col .destaque-rotulo{margin:0 0 var(--sp-2)!important;}
+@media (max-width:1100px){.projeto--capa .txt-col,.projeto--reportagem .txt-col,.projeto--esq .txt-col{grid-column:1/13!important;}}
+
+@media (max-width:1100px){.txt-col{order:2!important;}}
 /* ultima palavra da cascata: nada marcado como oculto pode ser exibido */
 [hidden]{display:none!important;}
 </style>
