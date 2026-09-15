@@ -185,7 +185,6 @@ section{padding-block:var(--sp-9);}
 .figura figcaption{position:absolute;left:0;right:0;bottom:0;padding:var(--sp-2) var(--sp-3);font-size:var(--fs-caption);letter-spacing:.06em;text-transform:uppercase;color:var(--branco);background:linear-gradient(to top,rgba(0,0,0,.65),rgba(0,0,0,0));opacity:0;transition:opacity var(--tr);}
 .figura:hover figcaption,.figura:focus-within figcaption{opacity:1;}
 
-
 /* ---------- DIÁLOGO DA FICHA ---------- */
 .ficha-dialog{border:var(--fio);padding:0;max-width:min(64rem,92vw);width:100%;background:var(--branco);color:var(--preto);}
 .ficha-dialog::backdrop{background:rgba(255,255,255,.85);}
@@ -214,8 +213,6 @@ section{padding-block:var(--sp-9);}
 .instituicoes li{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);align-items:baseline;padding:var(--sp-4) 0;border-bottom:var(--fio);}
 .instituicoes .rotulo{grid-column:1/4;}
 .instituicoes .orgs{grid-column:4/11;font-size:var(--fs-small);line-height:var(--lh-body);}
-
-
 
 /* ---------- QUEM ---------- */
 .quem-in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--calha);align-items:start;}
@@ -250,7 +247,6 @@ section{padding-block:var(--sp-9);}
 /* ---------- REVELAÇÃO ---------- */
 .js .revela{opacity:0;transition:opacity 500ms ease;} .js .revela.visto{opacity:1;}
 @media (prefers-reduced-motion:reduce){.js .revela{opacity:1;transition:none;}}
-
 
 /* ---------- HOME: território, expertise, impacto, portas ---------- */
 .territorio{font-size:var(--fs-body);max-width:52ch;margin-top:var(--sp-5);}
@@ -302,9 +298,6 @@ section{padding-block:var(--sp-9);}
 
 [hidden]{display:none!important;}
 
-
-
-
 /* ---------- composicao da secao: texto 41%, area visual 58%, sem vao morto ---------- */
 .projeto--capa,.projeto--reportagem{align-items:center;}
 .projeto--capa .figura,.projeto--reportagem .figura{
@@ -349,7 +342,6 @@ section{padding-block:var(--sp-9);}
   .projeto--esq .projeto-meta,.projeto--esq .teaser,.projeto--esq .abrir,
   .projeto--esq .destaque-acoes{grid-column:1/13!important;}
 }
-
 
 .eco{display:block;font-family:var(--corpo);font-size:var(--fs-caption);letter-spacing:0;text-transform:lowercase;opacity:.55;margin-top:2px;}
 .credito-cantico{grid-column:1/-1;margin-top:var(--sp-6);font-size:var(--fs-caption);letter-spacing:var(--ls-caption);text-transform:uppercase;opacity:.5;}
@@ -504,7 +496,6 @@ section{padding-block:var(--sp-9);}
   .projeto--reportagem .abrir,.projeto--reportagem .destaque-acoes{order:9;}
 }
 
-
 /* contraste minimo: textos de apoio deixam de ficar abaixo do limite legivel */
 .projeto--nota .projeto-meta,.projeto-meta{opacity:.72!important;}
 .projeto--nota .destaque-rotulo,.destaque-rotulo{opacity:.75!important;}
@@ -648,17 +639,9 @@ section{padding-block:var(--sp-9);}
     <li class="item"><span class="item-fonte">Clean Air Fund</span><a class="item-titulo" href="https://www.cleanairfund.org/black-carbon-hub/bc-projects/">Projetos de black carbon: Marajó Sem Fumaça</a><span class="item-data">2026</span></li>
     <li class="item"><span class="item-fonte">umgrauemeio</span><a class="item-titulo" href="https://www.umgrauemeio.com/en/solucoes">Soluções: prevenção de incêndios em Ponta de Pedras, Marajó</a><span class="item-data">2026</span></li>
   </ul>
-  <h3 class="grupo-midia" id="p-caminhos-para-o-futuro"><a href="projetos.html#p-caminhos-para-o-futuro">Caminhos do Futuro</a></h3>
-  <ul class="lista"><li class="item"><span class="item-fonte">Latam Mobility</span><a class="item-titulo" href="https://latamobility.com/en/instituto-ar-electrifying-trucks-in-brazil-would-avoid-46-of-emissions/">Caminhões de emissão zero no Brasil: saúde, economia e o futuro do transporte pesado</a><span class="item-data">mai 2026</span></li><li class="item"><span class="item-fonte">evdrops</span><a class="item-titulo" href="https://evdrops.com.br/biocombustiveis-sao-substitutos-para-veiculos-eletricos-no-brasil-opiniao/">Biocombustíveis são substitutos para veículos elétricos no Brasil?</a><span class="item-data">mar 2026</span></li><li class="item"><span class="item-fonte">evdrops</span><a class="item-titulo" href="https://evdrops.com.br/entrevista-patricia-ferrini-biocombustiveis/">"Insustentável": cientista brasileira alerta para equívoco no favorecimento dos biocombustíveis</a><span class="item-data">fev 2026</span></li><li class="item"><span class="item-fonte">Valor Econômico</span><a class="item-titulo" href="https://valor.globo.com/brasil/noticia/2025/09/01/estudo-mostra-beneficios-de-frota-eletrica-de-caminhoes.ghtml">Estudo mostra benefícios de frota elétrica de caminhões</a><span class="item-data">set 2025</span></li><li class="item"><span class="item-fonte">Exame</span><a class="item-titulo" href="https://exame.com/esg/brasil-pode-economizar-r-5-bi-e-reduzir-46-das-emissoes-com-caminhoes-eletricos-diz-estudo/">Brasil pode economizar R$ 5 bi e reduzir 46% das emissões com caminhões elétricos, diz estudo</a><span class="item-data">set 2025</span></li><li class="item"><span class="item-fonte">Diário do Transporte</span><a class="item-titulo" href="https://diariodotransporte.com.br/2025/09/10/biodiesel-polui-mais-que-o-diesel-estudo-mostra-que-so-eletrificacao-de-caminhoes-de-carga-evita-colapso-climatico-e-custos-bilionarios/">Estudo mostra que só eletrificação de caminhões de carga evita colapso climático e custos bilionários</a><span class="item-data">set 2025</span></li><li class="item"><span class="item-fonte">Portal do Trânsito</span><a class="item-titulo" href="https://www.portaldotransito.com.br/noticias/mobilidade-e-tecnologia/eletrificacao-de-caminhoes-pode-reduzir-r-5-bilhoes-em-gastos-com-meio-ambiente-e-saude-publica/">Eletrificação de caminhões pode reduzir R$ 5 bilhões em gastos com meio ambiente e saúde pública</a><span class="item-data">set 2025</span></li><li class="item"><span class="item-fonte">Canal VE</span><a class="item-titulo" href="https://canalve.com.br/eletrificacao-caminhoes-pode-reduzir-emissoes-ate-46/">Eletrificação de caminhões pode reduzir emissões em até 46%</a><span class="item-data">set 2025</span></li><li class="item"><span class="item-fonte">BiodieselBR</span><a class="item-titulo" href="https://www.biodieselbr.com/noticias/qualidade/motor/estudo-mostra-beneficios-de-frota-eletrica-de-caminhoes-010925">Estudo mostra benefícios de frota elétrica de caminhões</a><span class="item-data">set 2025</span></li></ul>
+  
   <h3 class="grupo-midia" id="p-cinco-futuros-para-os-caminhoes-do-brasi"><a href="projetos.html#p-cinco-futuros-para-os-caminhoes-do-brasi">Cinco futuros para os caminhões do Brasil, e o elétrico à frente</a></h3>
-  <ul class="lista">
-    <li class="item"><span class="item-fonte">Valor Econômico</span><a class="item-titulo" href="https://valor.globo.com/brasil/noticia/2025/09/01/estudo-mostra-beneficios-de-frota-eletrica-de-caminhoes.ghtml">Estudo mostra benefícios de frota elétrica de caminhões</a><span class="item-data">set 2025</span></li>
-    <li class="item"><span class="item-fonte">Exame</span><a class="item-titulo" href="https://exame.com/esg/brasil-pode-economizar-r-5-bi-e-reduzir-46-das-emissoes-com-caminhoes-eletricos-diz-estudo/">Brasil pode economizar R$ 5 bi e reduzir 46% das emissões com caminhões elétricos, diz estudo</a><span class="item-data">set 2025</span></li>
-    <li class="item"><span class="item-fonte">Diário do Transporte</span><a class="item-titulo" href="https://diariodotransporte.com.br/2025/09/10/biodiesel-polui-mais-que-o-diesel-estudo-mostra-que-so-eletrificacao-de-caminhoes-de-carga-evita-colapso-climatico-e-custos-bilionarios/">Estudo mostra que só eletrificação de caminhões de carga evita colapso climático e custos bilionários</a><span class="item-data">set 2025</span></li>
-    <li class="item"><span class="item-fonte">Portal do Trânsito</span><a class="item-titulo" href="https://www.portaldotransito.com.br/noticias/mobilidade-e-tecnologia/eletrificacao-de-caminhoes-pode-reduzir-r-5-bilhoes-em-gastos-com-meio-ambiente-e-saude-publica/">Eletrificação de caminhões pode reduzir R$ 5 bilhões em gastos com meio ambiente e saúde pública</a><span class="item-data">set 2025</span></li>
-    <li class="item"><span class="item-fonte">Canal VE</span><a class="item-titulo" href="https://canalve.com.br/eletrificacao-caminhoes-pode-reduzir-emissoes-ate-46/">Eletrificação de caminhões pode reduzir emissões em até 46%</a><span class="item-data">set 2025</span></li>
-    <li class="item"><span class="item-fonte">BiodieselBR</span><a class="item-titulo" href="https://www.biodieselbr.com/noticias/qualidade/motor/estudo-mostra-beneficios-de-frota-eletrica-de-caminhoes-010925">Estudo mostra benefícios de frota elétrica de caminhões</a><span class="item-data">set 2025</span></li>
-  </ul>
+  <ul class="lista"><li class="item"><span class="item-fonte">Latam Mobility</span><a class="item-titulo" href="https://latamobility.com/en/instituto-ar-electrifying-trucks-in-brazil-would-avoid-46-of-emissions/">Caminhões de emissão zero no Brasil: saúde, economia e o futuro do transporte pesado</a><span class="item-data">mai 2026</span></li><li class="item"><span class="item-fonte">evdrops</span><a class="item-titulo" href="https://evdrops.com.br/biocombustiveis-sao-substitutos-para-veiculos-eletricos-no-brasil-opiniao/">Biocombustíveis são substitutos para veículos elétricos no Brasil?</a><span class="item-data">mar 2026</span></li><li class="item"><span class="item-fonte">evdrops</span><a class="item-titulo" href="https://evdrops.com.br/entrevista-patricia-ferrini-biocombustiveis/">"Insustentável": cientista brasileira alerta para equívoco no favorecimento dos biocombustíveis</a><span class="item-data">fev 2026</span></li><li class="item"><span class="item-fonte">Valor Econômico</span><a class="item-titulo" href="https://valor.globo.com/brasil/noticia/2025/09/01/estudo-mostra-beneficios-de-frota-eletrica-de-caminhoes.ghtml">Estudo mostra benefícios de frota elétrica de caminhões</a><span class="item-data">set 2025</span></li><li class="item"><span class="item-fonte">Exame</span><a class="item-titulo" href="https://exame.com/esg/brasil-pode-economizar-r-5-bi-e-reduzir-46-das-emissoes-com-caminhoes-eletricos-diz-estudo/">Brasil pode economizar R$ 5 bi e reduzir 46% das emissões com caminhões elétricos, diz estudo</a><span class="item-data">set 2025</span></li><li class="item"><span class="item-fonte">Diário do Transporte</span><a class="item-titulo" href="https://diariodotransporte.com.br/2025/09/10/biodiesel-polui-mais-que-o-diesel-estudo-mostra-que-so-eletrificacao-de-caminhoes-de-carga-evita-colapso-climatico-e-custos-bilionarios/">Estudo mostra que só eletrificação de caminhões de carga evita colapso climático e custos bilionários</a><span class="item-data">set 2025</span></li><li class="item"><span class="item-fonte">Portal do Trânsito</span><a class="item-titulo" href="https://www.portaldotransito.com.br/noticias/mobilidade-e-tecnologia/eletrificacao-de-caminhoes-pode-reduzir-r-5-bilhoes-em-gastos-com-meio-ambiente-e-saude-publica/">Eletrificação de caminhões pode reduzir R$ 5 bilhões em gastos com meio ambiente e saúde pública</a><span class="item-data">set 2025</span></li><li class="item"><span class="item-fonte">Canal VE</span><a class="item-titulo" href="https://canalve.com.br/eletrificacao-caminhoes-pode-reduzir-emissoes-ate-46/">Eletrificação de caminhões pode reduzir emissões em até 46%</a><span class="item-data">set 2025</span></li><li class="item"><span class="item-fonte">BiodieselBR</span><a class="item-titulo" href="https://www.biodieselbr.com/noticias/qualidade/motor/estudo-mostra-beneficios-de-frota-eletrica-de-caminhoes-010925">Estudo mostra benefícios de frota elétrica de caminhões</a><span class="item-data">set 2025</span></li></ul>
   <h3 class="grupo-midia" id="p-guias-para-o-transporte-limpo-em-paises-"><a href="projetos.html#p-guias-para-o-transporte-limpo-em-paises-">Combustíveis, emissões e inspeção: três guias do PNUMA</a></h3>
   <ul class="lista">
     <li class="item"><span class="item-fonte">Coalizão do Clima e Ar Limpo</span><a class="item-titulo" href="https://www.ccacoalition.org/news/launching-aqmx-sectoral-guidance-clear-pathways-cleaner-air" target="_blank" rel="noopener noreferrer">Lançamento da orientação setorial do AQMx na UNEA-7</a><span class="item-data">dez 2025</span></li>
@@ -685,8 +668,7 @@ section{padding-block:var(--sp-9);}
     <li class="item"><span class="item-fonte">ONU News</span><a class="item-titulo" href="https://news.un.org/pt/story/2025/03/1846721" target="_blank" rel="noopener noreferrer">Conferência debate impactos perigosos da poluição do ar na saúde e na economia</a><span class="item-data">mar 2025</span></li>
     <li class="item"><span class="item-fonte">Gazeta de São Paulo</span><a class="item-titulo" href="https://www.gazetasp.com.br/cotidiano/grafiteiro-kobra-e-nomeado-novo-embaixador-da-oms/1153668" target="_blank" rel="noopener noreferrer">Grafiteiro Kobra é nomeado novo embaixador da OMS</a><span class="item-data">mar 2025</span></li>
   </ul>
-  
-  
+
   <h3 class="grupo-midia" id="p-politicas-de-transporte-rodoviario-e-saude"><a href="projetos.html#p-politicas-de-transporte-rodoviario-e-saude">Onde as políticas de emissão do transporte salvam mais vidas</a></h3>
   <ul class="lista">
     <li class="item"><span class="item-fonte">ICCT</span><a class="item-titulo" href="https://theicct.org/policies-targeting-road-transport-emissions-could-save-1-9-million-lives-globally-by-2040-new-study-finds/">Políticas para emissões do transporte rodoviário podem salvar 1,9 milhão de vidas até 2040</a><span class="item-data">mai 2025</span></li>
